@@ -3,6 +3,7 @@
   "description": "a really cool app",
   "version": "1.0.0",
   "main": "server.js",
+  "private": true,
   "scripts": {
     "start": "node server.js",
     "postinstall": "bower install --allow-root"
