@@ -1,12 +1,12 @@
 {
-  "name": "starter-node-angular",
+  "name": "melhoreme",
   "description": "a really cool app",
   "version": "1.0.0",
   "main": "server.js",
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "postinstall": "[ \"$NODE_MODULES_CACHE\" = false ] && bower install --allow-root"
+    "prepublish": "[ \"$NODE_MODULES_CACHE\" = false ] && bower install --allow-root"
   },
   "engines": {
     "node": "4.1.0",
