@@ -1,0 +1,259 @@
+<!doctype html >
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<base href="/">
+
+	<title>Starter Node and Angular</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+	<link rel="stylesheet" href="libs/angular-material/angular-material.css">
+
+
+	<!-- JS -->
+	<!--<script src="libs/jquery/dist/jquery.min.js"></script>-->
+	<script src="libs/angular/angular.js"></script>
+    <!--  angular material -->
+    <script src="libs/angular-animate/angular-animate.min.js"></script>
+    <script src="libs/angular-material/angular-material.js"></script>
+    <script src="libs/angular-route/angular-route.min.js"></script>
+    <script src="libs/angular-aria/angular-aria.min.js"></script>
+    <script src="libs/angular-messages/angular-messages.min.js"></script>
+
+</head>
+
+
+<body ng-app="sampleApp" ng-controller="MainController">
+
+<div ng-controller="SideNavControler as sideNav">
+<!--<div ng-controller="SideNavControler" layout="column" style="height:100%;">-->
+
+    <md-toolbar class="mainToolBar">
+        <div class="md-toolbar-tools">
+            <md-button ng-click="sideNav.toggleLeft()" hide-gt-md aria-label="Menu" >
+                <md-icon md-svg-icon="all:menu"></md-icon>
+            </md-button>
+            <h2>
+                <span ng-cloak>Melhore.me</span>
+            </h2>
+            <span flex></span>
+            <md-button ng-click="sideNav.toggleRightCadastro()" class="md-primary" aria-label="Cadastro" ng-cloak>
+                Cadastro
+            </md-button>
+
+            <md-button ng-click="sideNav.toggleRightLogin();" class="md-primary" aria-label="Login" ng-cloak>
+                <!--<md-icon md-svg-icon="all:menu_vert"></md-icon>-->
+                login
+            </md-button>
+        </div>
+    </md-toolbar>
+
+    <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z2" ng-cloak>
+        <div layout="row" layout-padding>
+            <h4>Categorias</h4>
+
+            <span flex hide-md></span>
+
+            <md-button ng-click="sideNav.close('left')" class="md-icon-button md-primary" aria-label="Close">
+                <md-icon md-svg-icon="all:window_close" style="width:16px;height:16px;" hide-sm></md-icon>
+                <md-icon md-svg-icon="all:window_close" hide-gt-sm></md-icon>
+
+            </md-button>
+        </div>
+    </md-sidenav>
+
+    <section layout="row" flex >
+		<md-content class="body" layout="column" layout-padding>
+            <div layout="column" ng-controller="CardsController as cards">
+
+
+                <!--<md-grid-list md-cols="3" md-cols-gt-md="3">-->
+
+                    <!--<md-grid-tile md-colspan="1" md-rowspan="1">-->
+                        <!--oi-->
+
+                        <!--&lt;!&ndash;<md-grid-tile-footer>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<h3>#1: (3r x 2c)</h3>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</md-grid-tile-footer>&ndash;&gt;-->
+                    <!--</md-grid-tile>-->
+                    <!--<md-grid-tile md-colspan="1" md-rowspan="1">-->
+                        <!--oi-->
+
+                        <!--&lt;!&ndash;<md-grid-tile-footer>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<h3>#1: (3r x 2c)</h3>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</md-grid-tile-footer>&ndash;&gt;-->
+                    <!--</md-grid-tile>-->
+                    <!--<md-grid-tile md-colspan="1" md-rowspan="1">-->
+                        <!--oi-->
+
+                        <!--&lt;!&ndash;<md-grid-tile-footer>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<h3>#1: (3r x 2c)</h3>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</md-grid-tile-footer>&ndash;&gt;-->
+                    <!--</md-grid-tile>-->
+
+
+
+                <!--</md-grid-list>-->
+
+
+
+            </div>
+
+
+            <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
+            <!--<span flex></span>-->
+            oi
+		</md-content>
+    </section>
+
+    <md-sidenav md-component-id="right-cadastro" md-theme="cadastroTheme" class="md-sidenav-right md-whiteframe-z2" ng-cloak>
+        <md-toolbar class="md-theme-light md-tall cadastro-toolBar" layout="column">
+            <div layout="row" layout-align="end start">
+                <md-button ng-click="sideNav.close('right-cadastro')" class="md-icon-button" aria-label="Close">
+                    <md-icon md-svg-icon="all:window_close" style="width:16px;height:16px;" hide-sm></md-icon>
+                    <md-icon md-svg-icon="all:window_close" hide-gt-sm></md-icon>
+                </md-button>
+            </div>
+
+            <span flex></span>
+
+            <div layout="row">
+                <h1 class="md-toolbar-tools"><i>Cadastro</i></h1>
+            </div>
+        </md-toolbar>
+
+        <div ng-controller="CadastroControler as cadastro" layout="column">
+
+            <md-content layout-padding class="autoScroll">
+                <br>
+                <div layout="row" layout-align="center center">
+                    <a href="" ng-disabled="true" aria-label="facebook" >
+                        <md-icon md-svg-icon="social:facebook-account" style="width: 48px;height: 48px" ></md-icon>
+                    </a>
+                    <md-button class="md-icon-button" aria-label="github" >
+                        <md-icon md-svg-icon="social:github-account" style="width: 48px;height: 48px" ></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="linkedin" >
+                        <md-icon md-svg-icon="social:linkedin-account" style="width: 48px;height: 48px" ></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="google" >
+                        <md-icon md-svg-icon="social:google-account" style="width: 48px;height: 48px" ></md-icon>
+                    </md-button>
+                </div>
+
+                <br><br><hr class="ou"><br>
+
+                <form>
+                    <br>
+                    <md-input-container class="md-icon-float" >
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Usuário</label>
+                        <md-icon md-svg-icon="all:account_up"></md-icon>
+                        <input ng-model="cadastro.user.username" type="text" md-sidenav-focus>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float" >
+                        <label>Senha</label>
+                        <md-icon md-svg-icon="all:account-password"></md-icon>
+                        <input ng-model="cadastro.user.password" type="password">
+                    </md-input-container>
+                </form>
+                <br>
+                <p class="md-caption">Caso ainda não possua uma conta: Por favor,
+                    cadastre-se.
+                    <md-button ng-click="sideNav.close('right-cadastro');sideNav.toggleRightLogin();"
+                               class="md-icon-button" aria-label="fechar">
+                        <md-icon md-svg-icon="all:seta" class="md-primary"></md-icon>
+                    </md-button>
+                </p>
+
+            </md-content>
+        </div>
+    </md-sidenav>
+
+    <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-theme="loginTheme" md-component-id="right-login" ng-cloak>
+
+        <md-toolbar class="md-theme-light md-tall login-toolBar" layout="column">
+            <div layout="row" layout-align="end start">
+                <md-button ng-click="sideNav.close('right-login')" class="md-icon-button" aria-label="Close">
+                    <md-icon md-svg-icon="all:window_close" style="width:16px;height:16px;" hide-sm></md-icon>
+                    <md-icon md-svg-icon="all:window_close" hide-gt-sm></md-icon>
+                </md-button>
+            </div>
+
+            <span flex></span>
+            <div layout="row">
+                <h1 class="md-toolbar-tools text-header-white"><i>Login</i></h1>
+            </div>
+        </md-toolbar>
+
+        <div ng-controller="LoginControler as login" layout="column">
+
+            <md-content  layout-padding class="autoScroll">
+                <br>
+                <div layout="row" layout-align="center center">
+                    <a href="" ng-disabled="true" aria-label="facebook" >
+                        <md-icon md-svg-icon="social:facebook-account" style="width: 48px;height: 48px" ></md-icon>
+                    </a>
+                    <md-button class="md-icon-button" aria-label="github" >
+                        <md-icon md-svg-icon="social:github-account" style="width: 48px;height: 48px" ></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="linkedin" >
+                        <md-icon md-svg-icon="social:linkedin-account" style="width: 48px;height: 48px" ></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" aria-label="google" >
+                        <md-icon md-svg-icon="social:google-account" style="width: 48px;height: 48px" ></md-icon>
+                    </md-button>
+                </div>
+                <br><br><hr class="ou"><br>
+                <form>
+                    <br>
+                    <md-input-container class="md-icon-float" >
+                        <!-- Use floating label instead of placeholder -->
+                        <label>Usuário</label>
+                        <md-icon md-svg-icon="all:account_up"></md-icon>
+                        <input ng-model="login.user.username" type="text" md-sidenav-focus>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float" >
+                        <label>Senha</label>
+                        <md-icon md-svg-icon="all:account-password"></md-icon>
+                        <input ng-model="login.user.password" type="password">
+                    </md-input-container>
+                </form>
+                <br>
+                <p class="md-caption">Caso ainda não possua uma conta: Por favor, cadastre-se
+                    <md-button ng-click="sideNav.close('right-login');sideNav.toggleRightCadastro();"
+                               class="md-icon-button">
+                        <md-icon md-svg-icon="all:seta" class="md-primary" aria-label="fechar"></md-icon>
+                    </md-button>
+                </p>
+
+            </md-content>
+        </div>
+    </md-sidenav>
+
+</div>
+opa
+<!-- ANGULAR DYNAMIC CONTENT -->
+<!--<ng-view></ng-view>-->
+
+
+<!-- ANGULAR CUSTOM -->
+<script src="js/angular/controllers/MainCtrl.js"></script>
+<script src="js/angular/controllers/NerdCtrl.js"></script>
+<script src="js/angular/services/NerdService.js"></script>
+<script src="js/angular/controllers/GeekCtrl.js"></script>
+<script src="js/angular/services/GeekService.js"></script>
+
+<!-- Minhas customizacoes -->
+<script src="js/angular/controllers/SideNavCtrl.js"></script>
+<script src="js/angular/controllers/CadastroCtrl.js"></script>
+<script src="js/angular/controllers/LoginCtrl.js"></script>
+<script src="js/angular/controllers/CardsCtrl.js"></script>
+
+<script src="js/angular/appRoutes.js"></script>
+<script src="js/angular/app.js"></script>
+
+</body>
+</html>

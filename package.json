@@ -1,0 +1,16 @@
+{
+  "name": "starter-node-angular",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.0.0",
+    "mongoose": "^4.1.9",
+    "body-parser": "^1.14.1",
+    "method-override": "^2.3.5"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.9.8",
+    "gulp": "^3.9.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-nodemon": "^2.0.4"
+  }
+}
