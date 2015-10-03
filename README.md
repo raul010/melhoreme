@@ -6,3 +6,10 @@
  `node server.js` OR  `nodemon server.js` OR `gulp` same as "nodemon server.js" OR `gulp nodemon-sync` (for browsersync)
  
 5. View in browser at http://localhost:8080
+
+## Extra
+`git remote -v`
+<p>`heroku git:remote -a <melhoreme>`
+<p>`git push heroku master`
+<p>OR
+<p>`git push -f heroku master` (warning)

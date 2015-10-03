@@ -1,6 +1,17 @@
 {
   "name": "starter-node-angular",
+  "description": "a really cool app",
+  "version": "1.0.0",
   "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "bower install"
+  },
+  "engines": {
+    "node": "4.1.0",
+    "npm": "2.4.x"
+  },
+
   "dependencies": {
     "express": "^4.0.0",
     "mongoose": "^4.1.9",
