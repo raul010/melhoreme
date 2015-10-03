@@ -13,3 +13,6 @@
 <p>`git push heroku master`
 <p>OR
 <p>`git push -f heroku master` (warning)
+
+## Possible solutions
+`heroku config:set NODE_MODULES_CACHE=false`

@@ -1,6 +1,8 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var nodemon     = require('gulp-nodemon');
+var shell = require('gulp-shell')
+
 
 // Static server
 gulp.task('browser-sync', function() {
@@ -30,7 +32,15 @@ gulp.task('start', function () {
             './public'
         ]
     })
-})
+});
 
-gulp.task('nodemon-sync', ['start', 'browser-sync']);
+gulp.task('heroku-deploy', shell.task([
+    'heroku git:remote -a melhoreme',
+    'git add .',
+    'git commit -m "gulp-commit" --allow-empty',
+    'git push heroku master'
+]));
+
 gulp.task('default', ['start']);
+gulp.task('nodemonSync', ['start', 'browser-sync']);
+gulp.task('herokuDeploy', ['heroku-deploy']);
