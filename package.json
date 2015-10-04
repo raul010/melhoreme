@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "postinstall": "[ \"$NODE_MODULES_CACHE\" = false ] && bower install"
+    "postinstall": "if [\"$NODE_MODULES_CACHE\" = false ]; then bower install fi"
   },
   "engines": {
     "node": "4.1.0",
