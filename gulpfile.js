@@ -34,13 +34,24 @@ gulp.task('start', function () {
     })
 });
 
-gulp.task('heroku-deploy', shell.task([
+gulp.task('herokuDeploy', shell.task([
     'heroku git:remote -a melhoreme',
     'git add .',
     'git commit -m "gulp-commit" --allow-empty',
     'git push heroku master'
 ]));
+//
+//gulp.task('heroku-deploy', shell.task([
+//    'heroku config:set NODE_MODULES_CACHE=false',
+//    'heroku git:remote -a melhoreme',
+//    'git add .',
+//    'git commit -m "gulp-commit" --allow-empty',
+//    'git push heroku master'
+//]));
+
+
 
 gulp.task('default', ['start']);
 gulp.task('nodemonSync', ['start', 'browser-sync']);
-gulp.task('herokuDeploy', ['heroku-deploy']);
+gulp.task('heroku', ['herokuDeploy']);
+//gulp.task('herokuComplete', ['heroku-deploy']);
