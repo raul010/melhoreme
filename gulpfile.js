@@ -55,4 +55,4 @@ gulp.task('heroku-deploy-all', shell.task([
 gulp.task('default', ['start']);
 gulp.task('nodemonSync', ['start', 'browser-sync']);
 gulp.task('heroku', ['heroku-deploy']);
-gulp.task('heroku -all', ['heroku-deploy']);
+gulp.task('herokuAll', ['heroku-deploy-all']);
