@@ -1,0 +1,4 @@
+"mongoose": "^4.1.9",
+
+"run-sequence": "^1.1.4",
+var runSequence = require('run-sequence');

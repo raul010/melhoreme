@@ -1,16 +1,21 @@
-var gulp = require('gulp-help')(require('gulp'));
+//GULP
+var gulp = require('gulp-help')(require('gulp'), {
+    'hideEmpty': true
+});
+
+//APP
+var nodemon = require('gulp-nodemon');
 var browserSync = require('browser-sync').create();
-var nodemon     = require('gulp-nodemon');
+
+//HELPERS
 var shell = require('gulp-shell');
 var argv = require('yargs')
         .boolean('m')
         .default('m', false)
         .argv;
 
-var NODE_MODULES_CACHE = argv.m;
-
 // Static server
-gulp.task('browser-sync', false, function() {
+gulp.task('browser-sync', function() {
     browserSync.init({
         proxy: 'localhost:8080',
         open: false
@@ -26,7 +31,7 @@ gulp.task('browser-sync', false, function() {
         .on('change', browserSync.reload);
 });
 
-gulp.task('start', false, function () {
+gulp.task('start', function () {
     nodemon({
         script: 'server.js',
         //ext: 'js html',
@@ -39,8 +44,8 @@ gulp.task('start', false, function () {
     })
 });
 
-gulp.task('heroku-deploy', false, shell.task([
-    'heroku config:set NODE_MODULES_CACHE=' + NODE_MODULES_CACHE,
+gulp.task('heroku-deploy', shell.task([
+    'heroku config:set NODE_MODULES_CACHE=' + argv.m,
     'heroku git:remote -a melhoreme',
     'git add .',
     'git commit -m "gulp-commit" --allow-empty',
@@ -52,8 +57,6 @@ gulp.task('heroku-deploy', false, shell.task([
 gulp.task('default', 'Inicia o Nodemon' , ['start']);
 gulp.task('nodemonSync', 'Inicia o Nodemon e Browsersync', ['start', 'browser-sync']);
 gulp.task('sync', 'Inicia Browsersync', ['browser-sync']);
-gulp.task('heroku', 'Faz deploy no Heroku' ,['heroku-deploy'], null , {
-    options: {
-        'm': 'description of env, perhaps with available values',
-    }
+gulp.task('heroku', 'Faz deploy no Heroku', ['heroku-deploy'], null , {
+    options: {'m': '--(Re)instala modulos (npm install & bower install)'}
 });
