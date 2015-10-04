@@ -1,9 +1,12 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync').create();
 var nodemon     = require('gulp-nodemon');
-var shell = require('gulp-shell')
+var shell = require('gulp-shell');
+var argv = require('yargs').argv;
 
+var NODE_MODULES_CACHE = (argv.x) ? true : false;
 
+console.log(NODE_MODULES_CACHE);
 // Static server
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -35,15 +38,7 @@ gulp.task('start', function () {
 });
 
 gulp.task('heroku-deploy', shell.task([
-    'heroku config:set NODE_MODULES_CACHE=true',
-    'heroku git:remote -a melhoreme',
-    'git add .',
-    'git commit -m "gulp-commit" --allow-empty',
-    'git push heroku master'
-]));
-
-gulp.task('heroku-with-modules', shell.task([
-    'heroku config:set NODE_MODULES_CACHE=false',
+    'heroku config:set NODE_MODULES_CACHE=' + NODE_MODULES_CACHE,
     'heroku git:remote -a melhoreme',
     'git add .',
     'git commit -m "gulp-commit" --allow-empty',
@@ -55,4 +50,3 @@ gulp.task('heroku-with-modules', shell.task([
 gulp.task('default', ['start']);
 gulp.task('nodemonSync', ['start', 'browser-sync']);
 gulp.task('heroku', ['heroku-deploy']);
-gulp.task('herokuModules', ['heroku-with-modules']);
