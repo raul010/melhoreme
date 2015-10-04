@@ -42,7 +42,7 @@ gulp.task('heroku-deploy', shell.task([
     'git push heroku master'
 ]));
 
-gulp.task('heroku-deploy-all', shell.task([
+gulp.task('heroku-with-modules', shell.task([
     'heroku config:set NODE_MODULES_CACHE=false',
     'heroku git:remote -a melhoreme',
     'git add .',
@@ -55,4 +55,4 @@ gulp.task('heroku-deploy-all', shell.task([
 gulp.task('default', ['start']);
 gulp.task('nodemonSync', ['start', 'browser-sync']);
 gulp.task('heroku', ['heroku-deploy']);
-gulp.task('herokuAll', ['heroku-deploy-all']);
+gulp.task('herokuModules', ['heroku-with-modules']);

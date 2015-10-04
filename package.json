@@ -22,6 +22,7 @@
     "browser-sync": "^2.9.8",
     "gulp": "^3.9.0",
     "gulp-nodemon": "^2.0.4",
-    "gulp-shell": "^0.4.3"
+    "gulp-shell": "^0.4.3",
+    "yargs": "^3.26.0"
   }
 }
