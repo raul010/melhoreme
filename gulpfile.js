@@ -45,7 +45,7 @@ gulp.task('start', function () {
 });
 
 gulp.task('heroku-deploy', shell.task([
-    'heroku config:set NODE_MODULES_CACHE=' + argv.m,
+    'heroku config:set NODE_MODULES_CACHE=' + !argv.m,
     'heroku git:remote -a melhoreme',
     'git add .',
     'git commit -m "gulp-commit" --allow-empty',
