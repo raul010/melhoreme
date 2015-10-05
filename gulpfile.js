@@ -15,6 +15,33 @@ var argv = require('yargs')
         .default('m', false)
         .argv;
 
+
+// CONFIGURATIONS ===================================
+
+var _nodemon = {};
+_nodemon.ignoreFiles =  [
+    // Root Folder
+    './bin',
+    './node_modules',
+    './public',
+    './z_old',
+    '.git',
+
+    // Root Files
+    'gulpfile.js',
+    'z-old.configs'
+];
+
+var _browserSync = {};
+_browserSync.watchFiles = [
+    './public/css/*.css',
+    './public/js/**/*.js',
+    './public/*.html',
+    './public/views/*.html'
+];
+
+// TASKS ============================================
+
 gulp.task('start', function () {
     nodemon({
         script: 'server.js',
@@ -23,18 +50,7 @@ gulp.task('start', function () {
         env: { 'NODE_ENV': 'development' },
 
         // Just watch APP and CONFIG files
-        ignore: [
-            // Root Folder
-            './bin',
-            './node_modules',
-            './public',
-            './z_old',
-            '.git',
-
-            // Root Files
-            'gulpfile.js',
-            'z-old.configs'
-        ],
+        ignore: _nodemon.ignoreFiles,
     }).on('restart', function (file) {
         console.log('--> ' + file);
     });
@@ -47,16 +63,14 @@ gulp.task('browser-sync', function() {
     });
 
     gulp
-        .watch([
-            './public/css/*.css',
-            './public/js/**/*.js',
-            './public/*.html',
-            './public/views/*.html'
-        ])
+        .watch(_browserSync.watchFiles)
         .on('change', browserSync.reload);
 });
 
-// oi oi oi
+gulp.task('refresh-browser-sync', shell.task([
+    'browser-sync reload'
+]));
+
 gulp.task('heroku-deploy', shell.task([
     'heroku config:set NODE_MODULES_CACHE=' + !argv.m,
     'heroku git:remote -a melhoreme',
@@ -65,18 +79,27 @@ gulp.task('heroku-deploy', shell.task([
     'git push heroku master'
 ]));
 
-gulp.task('default', 'Inicia o Nodemon e Browsersync', ['start', 'browser-sync'], null, {
-    aliases: ['ns']
+
+// Aliases =====================================================
+
+gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', ['start', 'browser-sync'], null, {
 });
-gulp.task('nodemon', 'Inicia o Nodemon' , ['start']);
-//gulp.task('sync', 'Inicia Browsersync', ['browser-sync'], null, {
+gulp.task('nodemon', 'Inicia o NODEMON' , ['start'], null, {
+    aliases: ['n']
+});
+//gulp.task('sync', 'Inicia BROWSER-SYNC', ['browser-sync'], null, {
 //    aliases: ['s']
 //});
-gulp.task('heroku', 'Faz deploy no Heroku', ['heroku-deploy'], null , {
+ gulp.task('sync-refresh', 'ATUALIZA todos Browsers', ['refresh-browser-sync'], null, {
+    aliases: ['r']
+});
+gulp.task('heroku', 'Faz deploy no HEROKU', ['heroku-deploy'], null , {
     options: {'m': '--(Re)instala modulos (npm install & bower install)'},
     aliases: ['k']
 
 });
+
+
 
 /*
  https://github.com/miickel/gulp-angular-templatecache

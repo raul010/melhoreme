@@ -1,3 +1,12 @@
+
+html {
+    height: 100% !important;
+}
+
+html, body{
+    overflow-x:hidden !important;
+}
+
 .mainToolBar {
     background-image: -webkit-gradient(
             linear,
@@ -14,7 +23,7 @@
 
 }
 
-md-toolbar.cadastro-toolBar {
+.cadastro-toolBar {
     background-image: -webkit-gradient(
             linear,
             right bottom,
@@ -44,17 +53,6 @@ md-toolbar.cadastro-toolBar {
     background-image: linear-gradient(to right bottom, #4CAF4F 28%, #3D9940 71%) !important;
 }
 
-html {
-    height: 100% !important;
-}
-
-html, body{
-    overflow-x:hidden !important;
-}
-
-md-content.body {
-    min-height: 95% !important;
-}
 
 hr.ou {
     padding: 0;
@@ -76,30 +74,22 @@ hr.ou:after {
     background: white;
 }
 
+
 .text-header-white {
     color: white !important;
 }
 
-md-content.transparente {
-    opacity: 0.8 !important;
-    filter: alpha(opacity=80) !important; /* For IE8 and earlier */
-}
-
-
-
-.gridListdemoBasicUsage md-grid-list {
-    margin: 8px; }
-.gridListdemoBasicUsage .gray {
+.gray {
     background: #f5f5f5; }
-.gridListdemoBasicUsage .green {
+.green {
     background: #b9f6ca; }
-.gridListdemoBasicUsage .yellow {
+.yellow {
     background: #ffff8d; }
-.gridListdemoBasicUsage .blue {
+.blue {
     background: #84ffff; }
-.gridListdemoBasicUsage .purple {
+.purple {
     background: #b388ff; }
-.gridListdemoBasicUsage .red {
+.red {
     background: #ff8a80; }
-.gridListdemoBasicUsage md-grid-tile {
+.md-grid-tile {
     transition: all 400ms ease-out 50ms; }
