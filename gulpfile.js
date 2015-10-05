@@ -2,6 +2,7 @@
 var gulp = require('gulp-help')(require('gulp'), {
     'hideEmpty': true
 });
+var runSequence = require('run-sequence');
 
 //APP
 var nodemon = require('gulp-nodemon');
@@ -67,17 +68,31 @@ gulp.task('browser-sync', function() {
         .on('change', browserSync.reload);
 });
 
-gulp.task('refresh-browser-sync', shell.task([
+gulp.task('_browser-sync-reload', shell.task([
     'browser-sync reload'
 ]));
 
-gulp.task('heroku-deploy', shell.task([
+gulp.task('exit-gulp', function () {
+    process.exit(0);
+});
+
+gulp.task('browser-sync-reload', function(callback) {
+    runSequence('_browser-sync-reload', 'exit-gulp', callback);
+});
+
+
+gulp.task('_heroku-deploy', shell.task([
     'heroku config:set NODE_MODULES_CACHE=' + !argv.m,
     'heroku git:remote -a melhoreme',
-    'git add .',
+    'git add --all',
     'git commit -m "gulp-commit" --allow-empty',
-    'git push heroku master'
+    'git push heroku master',
+    '/usr/bin/google-chrome-stable --disable-gpu http://melhoreme.herokuapp.com/'
 ]));
+
+gulp.task('browser-sync-reload', function(callback) {
+    runSequence('_heroku-deploy', 'exit-gulp', callback);
+});
 
 
 // Aliases =====================================================
@@ -90,7 +105,7 @@ gulp.task('nodemon', 'Inicia o NODEMON' , ['start'], null, {
 //gulp.task('sync', 'Inicia BROWSER-SYNC', ['browser-sync'], null, {
 //    aliases: ['s']
 //});
- gulp.task('sync-refresh', 'ATUALIZA todos Browsers', ['refresh-browser-sync'], null, {
+ gulp.task('sync-reload', 'ATUALIZA todos Browsers', ['browser-sync-reload'], null, {
     aliases: ['r']
 });
 gulp.task('heroku', 'Faz deploy no HEROKU', ['heroku-deploy'], null , {
