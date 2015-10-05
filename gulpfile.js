@@ -22,7 +22,10 @@ var START = 'start';
 var EXIT_GULP = 'exit-gulp';
 var BROWSER_SYNC = 'browser-sync';
 var BROWSER_SYNC_RELOAD = 'browser-sync-reload';
+
+var HEROKU_DEPLOY_SYNC = 'heroku-deploy_sync';
 var HEROKU_DEPLOY = 'heroku-deploy';
+
 var PAGERES_SNAPSHOT = 'pageres-snapshot';
 
 
@@ -102,7 +105,15 @@ gulp.task(PAGERES_SNAPSHOT, shell.task([
     'node .bin/pageres.js'
 ]));
 
-// Runs Tasks =====================================================
+
+// Run SEQUENCE Tasks ================================
+
+gulp.task(HEROKU_DEPLOY_SYNC, function(cb) {
+    runSequence(HEROKU_DEPLOY, EXIT_GULP, cb);
+});
+
+
+// Run ALIAS Tasks =====================================================
 
 gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC], null, {
 });
@@ -115,7 +126,7 @@ gulp.task('nodemon', 'Inicia o NODEMON' , [START], null, {
  gulp.task('sync-reload', 'ATUALIZA todos Browsers', [BROWSER_SYNC_RELOAD, EXIT_GULP], null, {
     aliases: ['r']
 });
-gulp.task('heroku', 'Faz deploy no HEROKU', [HEROKU_DEPLOY], null , {
+gulp.task('heroku', 'Faz deploy no HEROKU', [HEROKU_DEPLOY_SYNC], null , {
     options: {'m': '--(Re)instala modulos (npm install & bower install)'},
     aliases: ['k']
 
