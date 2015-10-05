@@ -23,33 +23,36 @@ var EXIT_GULP = 'exit-gulp';
 var BROWSER_SYNC = 'browser-sync';
 var BROWSER_SYNC_RELOAD = 'browser-sync-reload';
 var HEROKU_DEPLOY = 'heroku-deploy';
-
-
+var PAGERES_SNAPSHOT = 'pageres-snapshot';
 
 
 // CONFIGURATIONS ===================================
 
-var _nodemon = {};
-_nodemon.ignoreFiles =  [
-    // Root Folder
-    './bin',
-    './node_modules',
-    './public',
-    './z_old',
-    '.git',
+var _nodemon = {
+    ignoreFiles : [
+        // Root Folder
+        './bin',
+        './node_modules',
+        './public',
+        './z_old',
+        '.git',
 
-    // Root Files
-    'gulpfile.js',
-    'z-old.configs'
-];
+        // Root Files
+        'gulpfile.js',
+        'z-old.configs'
+    ]
+}
 
-var _browserSync = {};
-_browserSync.watchFiles = [
-    './public/css/*.css',
-    './public/js/**/*.js',
-    './public/*.html',
-    './public/views/*.html'
-];
+
+var _browserSync = {
+    watchFiles : [
+        './public/css/*.css',
+        './public/js/**/*.js',
+        './public/*.html',
+        './public/views/*.html'
+    ]
+};
+
 
 // CONFIG Tasks =========================================
 
@@ -95,6 +98,9 @@ gulp.task(START, function () {
     });
 });
 
+gulp.task(PAGERES_SNAPSHOT, shell.task([
+    'node .bin/pageres.js'
+]));
 
 // Runs Tasks =====================================================
 
@@ -109,9 +115,14 @@ gulp.task('nodemon', 'Inicia o NODEMON' , [START], null, {
  gulp.task('sync-reload', 'ATUALIZA todos Browsers', [BROWSER_SYNC_RELOAD, EXIT_GULP], null, {
     aliases: ['r']
 });
-gulp.task('heroku', 'Faz deploy no HEROKU', ['heroku-deploy'], null , {
+gulp.task('heroku', 'Faz deploy no HEROKU', [HEROKU_DEPLOY], null , {
     options: {'m': '--(Re)instala modulos (npm install & bower install)'},
     aliases: ['k']
+
+});
+gulp.task('pageres', 'Faz deploy no HEROKU', [PAGERES_SNAPSHOT, EXIT_GULP], null , {
+    options: {'s': '--Site'},
+    aliases: ['p']
 
 });
 
@@ -155,7 +166,6 @@ gulp.task('heroku', 'Faz deploy no HEROKU', ['heroku-deploy'], null , {
  https://github.com/jsBoot/gulp-jsdoc
  https://github.com/ck86/main-bower-files
  (inject Bower packages. - Overwite)
- https://www.npmjs.com/package/gulp-strip-debug
  https://github.com/jas/gulp-preprocess
  https://www.npmjs.com/package/gulp-cached/
 
@@ -164,7 +174,6 @@ gulp.task('heroku', 'Faz deploy no HEROKU', ['heroku-deploy'], null , {
  https://github.com/addyosmani/psi
  (PageSpeed Insights with reporting)
  https://github.com/addyosmani/tmi
- (https://github.com/addyosmani/tmi)
 
 
 

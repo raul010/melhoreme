@@ -33,7 +33,7 @@
 <!--<div ng-controller="SideNavControler" layout="column" style="height:100%;">-->
 
     <md-toolbar class="mainToolBar">
-        <div class="md-toolbar-tools">
+        <div class="md-toolbar-tools" layout-margin>
             <md-button ng-click="sideNav.toggleLeft()" hide-gt-md aria-label="Menu" >
                 <md-icon md-svg-icon="all:menu"></md-icon>
             </md-button>
@@ -65,153 +65,200 @@
             </md-button>
         </div>
     </md-sidenav>
+    <!-- style="padding: 0px 30px 0px 30px !important;" -->
+    <section layout-margin layout-padding>
+        <md-content layout-fill>
+            <div ng-controller="CardsController as cards">
+                <div layout-padding>
+                    <md-grid-list
+                            md-row-height="400"
+                            md-row-height-sm="200"
 
-    <section layout="row" flex >
-		<md-content layout="column" layout-padding layout-fill>
-            <div layout="column" ng-controller="CardsController as cards">
-                <!--style="height: 100px;"-->
+                            md-cols="12"
+                            md-gutter="25"
 
-                <!--style="height: 400px;"-->
+                            >
 
-                <md-grid-list
-                        md-row-height="200"
-                        md-cols="6"
-                        md-gutter="20"
+                        <md-grid-tile
+                                md-colspan="4"
+                                class="green">
+                            1
 
-                        >
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile
+                                md-colspan="4"
+                                class="purple">
 
-                    <md-grid-tile
-                            md-colspan="3"
-                            class="green">
+                            2
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile
+                                md-colspan="4"
+                                class="blue">
+                            3
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+
+
+
+
+                    </md-grid-list>
+
+
+
+                </div>
+
+
+                <div layout-padding>
+
+                    <md-grid-list
+                            md-row-height="200"
+                            md-cols="12"
+                            md-gutter="25"
+
+                            >
+
+                        <md-grid-tile
+                                md-colspan="4"
+                                class="green">
+                            1
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile
+                                md-colspan="4"
+                                class="purple">
+
+                            2
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile
+                                md-colspan="4"
+                                class="blue">
+                            3
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile
+                                md-colspan="3"
+
+                                class="red">
+                            4
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile><md-grid-tile class="green">
                         1
 
                         <!--<md-grid-tile-footer>-->
                         <!--<h3>#1: (3r x 2c)</h3>-->
                         <!--</md-grid-tile-footer>-->
                     </md-grid-tile>
-                    <md-grid-tile
-                            md-colspan="3"
-                            class="purple">
+                        <md-grid-tile class="purple">
+                            2
 
-                        2
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile class="blue">
+                            3
 
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                    <md-grid-tile
-                            md-colspan="3"
-                            class="blue">
-                        3
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile class="red">
+                            4
 
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                    <md-grid-tile
-                            md-colspan="3"
-
-                            class="red">
-                        4
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile><md-grid-tile class="green">
-                    1
-
-                    <!--<md-grid-tile-footer>-->
-                    <!--<h3>#1: (3r x 2c)</h3>-->
-                    <!--</md-grid-tile-footer>-->
-                </md-grid-tile>
-                    <md-grid-tile class="purple">
-                        2
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile><md-grid-tile class="green">
+                        1
 
                         <!--<md-grid-tile-footer>-->
                         <!--<h3>#1: (3r x 2c)</h3>-->
                         <!--</md-grid-tile-footer>-->
                     </md-grid-tile>
-                    <md-grid-tile class="blue">
-                        3
+                        <md-grid-tile class="purple">
+                            2
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile class="blue">
+                            3
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile class="red">
+                            4
+
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile><md-grid-tile class="green">
+                        1
 
                         <!--<md-grid-tile-footer>-->
                         <!--<h3>#1: (3r x 2c)</h3>-->
                         <!--</md-grid-tile-footer>-->
                     </md-grid-tile>
-                    <md-grid-tile class="red">
-                        4
+                        <md-grid-tile class="purple">
+                            2
 
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile><md-grid-tile class="green">
-                    1
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile class="blue">
+                            3
 
-                    <!--<md-grid-tile-footer>-->
-                    <!--<h3>#1: (3r x 2c)</h3>-->
-                    <!--</md-grid-tile-footer>-->
-                </md-grid-tile>
-                    <md-grid-tile class="purple">
-                        2
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
+                        <md-grid-tile class="red">
+                            4
 
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                    <md-grid-tile class="blue">
-                        3
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                    <md-grid-tile class="red">
-                        4
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile><md-grid-tile class="green">
-                    1
-
-                    <!--<md-grid-tile-footer>-->
-                    <!--<h3>#1: (3r x 2c)</h3>-->
-                    <!--</md-grid-tile-footer>-->
-                </md-grid-tile>
-                    <md-grid-tile class="purple">
-                        2
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                    <md-grid-tile class="blue">
-                        3
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                    <md-grid-tile class="red">
-                        4
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
+                            <!--<md-grid-tile-footer>-->
+                            <!--<h3>#1: (3r x 2c)</h3>-->
+                            <!--</md-grid-tile-footer>-->
+                        </md-grid-tile>
 
 
 
-                </md-grid-list>
+                    </md-grid-list>
 
 
-
+                </div>
             </div>
 
             <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
             <span flex></span>
             final md-content
-		</md-content>
+        </md-content>
     </section>
 
     <md-sidenav md-component-id="right-cadastro" md-theme="cadastroTheme" class="md-sidenav-right md-whiteframe-z2" ng-cloak>
