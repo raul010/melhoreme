@@ -16,6 +16,16 @@ var argv = require('yargs')
         .default('m', false)
         .argv;
 
+// CONSTANSTs
+
+var START = 'start';
+var EXIT_GULP = 'exit-gulp';
+var BROWSER_SYNC = 'browser-sync';
+var BROWSER_SYNC_RELOAD = 'browser-sync-reload';
+var HEROKU_DEPLOY = 'heroku-deploy';
+
+
+
 
 // CONFIGURATIONS ===================================
 
@@ -41,9 +51,37 @@ _browserSync.watchFiles = [
     './public/views/*.html'
 ];
 
-// TASKS ============================================
+// CONFIG Tasks =========================================
 
-gulp.task('start', function () {
+gulp.task(EXIT_GULP, function () {
+    process.exit(0);
+});
+
+gulp.task(BROWSER_SYNC, function() {
+    browserSync.init({
+        proxy: 'localhost:8080',
+        open: false
+    });
+
+    gulp
+        .watch(_browserSync.watchFiles)
+        .on('change', browserSync.reload);
+});
+
+gulp.task(BROWSER_SYNC_RELOAD, shell.task([
+    'browser-sync reload'
+]));
+
+gulp.task(HEROKU_DEPLOY, shell.task([
+    'heroku config:set NODE_MODULES_CACHE=' + !argv.m,
+    'heroku git:remote -a melhoreme',
+    'git add --all',
+    'git commit -m "gulp-commit" --allow-empty',
+    'git push heroku master',
+    '/usr/bin/google-chrome-stable --disable-gpu http://melhoreme.herokuapp.com/'
+]));
+
+gulp.task(START, function () {
     nodemon({
         script: 'server.js',
         ext: 'js',
@@ -57,55 +95,18 @@ gulp.task('start', function () {
     });
 });
 
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        proxy: 'localhost:8080',
-        open: false
-    });
 
-    gulp
-        .watch(_browserSync.watchFiles)
-        .on('change', browserSync.reload);
+// Runs Tasks =====================================================
+
+gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC], null, {
 });
-
-gulp.task('_browser-sync-reload', shell.task([
-    'browser-sync reload'
-]));
-
-gulp.task('exit-gulp', function () {
-    process.exit(0);
-});
-
-gulp.task('browser-sync-reload', function(callback) {
-    runSequence('_browser-sync-reload', 'exit-gulp', callback);
-});
-
-
-gulp.task('_heroku-deploy', shell.task([
-    'heroku config:set NODE_MODULES_CACHE=' + !argv.m,
-    'heroku git:remote -a melhoreme',
-    'git add --all',
-    'git commit -m "gulp-commit" --allow-empty',
-    'git push heroku master',
-    '/usr/bin/google-chrome-stable --disable-gpu http://melhoreme.herokuapp.com/'
-]));
-
-gulp.task('browser-sync-reload', function(callback) {
-    runSequence('_heroku-deploy', 'exit-gulp', callback);
-});
-
-
-// Aliases =====================================================
-
-gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', ['start', 'browser-sync'], null, {
-});
-gulp.task('nodemon', 'Inicia o NODEMON' , ['start'], null, {
+gulp.task('nodemon', 'Inicia o NODEMON' , [START], null, {
     aliases: ['n']
 });
-//gulp.task('sync', 'Inicia BROWSER-SYNC', ['browser-sync'], null, {
+//gulp.task('sync', 'Inicia BROWSER-SYNC', [BROWSER_SYNC], null, {
 //    aliases: ['s']
 //});
- gulp.task('sync-reload', 'ATUALIZA todos Browsers', ['browser-sync-reload'], null, {
+ gulp.task('sync-reload', 'ATUALIZA todos Browsers', [BROWSER_SYNC_RELOAD, EXIT_GULP], null, {
     aliases: ['r']
 });
 gulp.task('heroku', 'Faz deploy no HEROKU', ['heroku-deploy'], null , {
