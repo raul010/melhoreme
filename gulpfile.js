@@ -15,7 +15,7 @@ var argv = require('yargs')
         .default('m', false)
         .argv;
 
-gulp.task('nodemon', function () {
+gulp.task('start', function () {
     nodemon({
         script: 'server.js',
         ext: 'js',
@@ -65,13 +65,13 @@ gulp.task('heroku-deploy', shell.task([
     'git push heroku master'
 ]));
 
-gulp.task('default', 'Inicia o Nodemon' , ['nodemon']);
-gulp.task('nodemon-sync', 'Inicia o Nodemon e Browsersync', ['nodemon', 'browser-sync'], null, {
+gulp.task('default', 'Inicia o Nodemon e Browsersync', ['start', 'browser-sync'], null, {
     aliases: ['ns']
 });
-gulp.task('sync', 'Inicia Browsersync', ['browser-sync'], null, {
-    aliases: ['s']
-});
+gulp.task('nodemon', 'Inicia o Nodemon' , ['start']);
+//gulp.task('sync', 'Inicia Browsersync', ['browser-sync'], null, {
+//    aliases: ['s']
+//});
 gulp.task('heroku', 'Faz deploy no Heroku', ['heroku-deploy'], null , {
     options: {'m': '--(Re)instala modulos (npm install & bower install)'},
     aliases: ['k']
