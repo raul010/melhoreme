@@ -5,9 +5,8 @@ module.exports = function(app) {
 	// authentication routes
 
 	// frontend routes =========================================================
-	// route to handle all angular requests
+	// route to handle all angular
 	app.get('*', function(req, res) {
-		res.sendFile('./public/index.html');
+		res.sendFile(app.get('dir_public'), './public/index.html');
 	});
-
 };

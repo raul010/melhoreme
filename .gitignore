@@ -1,0 +1,12 @@
+.git
+.idea
+.log
+
+npm-debug.log
+node_modules
+
+public/libs
+z_old
+/z-old.configs
+/testes.sh
+z-package.json

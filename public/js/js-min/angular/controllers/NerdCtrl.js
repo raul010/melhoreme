@@ -1,0 +1,1 @@
+angular.module("NerdCtrl",[]).controller("NerdController",function(o){o.tagline="Nothing beats a pocket protector!"});

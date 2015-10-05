@@ -24,6 +24,7 @@
     "gulp-help": "^1.6.1",
     "gulp-nodemon": "^2.0.4",
     "gulp-shell": "^0.4.3",
+    "pageres": "^2.1.0",
     "yargs": "^3.26.0"
   }
 }
