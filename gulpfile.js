@@ -14,6 +14,7 @@ var argv = require('yargs')
         // HEROKU (-m = [re]isntala modulos)
         .boolean('m')
         .default('m', false)
+        .string('s')
         .argv;
 
 // CONSTANSTs
@@ -21,11 +22,14 @@ var argv = require('yargs')
 var START = 'start';
 var EXIT_GULP = 'exit-gulp';
 var BROWSER_SYNC = 'browser-sync';
+
+var BROWSER_SYNC_RELOAD_SYNC = 'browser-sync-reload-SYNC';
 var BROWSER_SYNC_RELOAD = 'browser-sync-reload';
 
-var HEROKU_DEPLOY_SYNC = 'heroku-deploy_sync';
+var HEROKU_DEPLOY_SYNC = 'heroku-deploy-SYNC';
 var HEROKU_DEPLOY = 'heroku-deploy';
 
+var PAGERES_SNAPSHOT_SYNC = 'pageres-snapshot-SYNC';
 var PAGERES_SNAPSHOT = 'pageres-snapshot';
 
 
@@ -102,14 +106,22 @@ gulp.task(START, function () {
 });
 
 gulp.task(PAGERES_SNAPSHOT, shell.task([
-    'node .bin/pageres.js'
+    'node .bin/pageres.js ' + argv.s
 ]));
 
 
 // Run SEQUENCE Tasks ================================
 
+gulp.task(BROWSER_SYNC_RELOAD_SYNC, function(cb) {
+    runSequence(BROWSER_SYNC_RELOAD, EXIT_GULP, cb);
+});
+
 gulp.task(HEROKU_DEPLOY_SYNC, function(cb) {
     runSequence(HEROKU_DEPLOY, EXIT_GULP, cb);
+});
+
+gulp.task(PAGERES_SNAPSHOT_SYNC, function(cb) {
+    runSequence(PAGERES_SNAPSHOT, EXIT_GULP, cb);
 });
 
 
@@ -120,19 +132,17 @@ gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC], n
 gulp.task('nodemon', 'Inicia o NODEMON' , [START], null, {
     aliases: ['n']
 });
-//gulp.task('sync', 'Inicia BROWSER-SYNC', [BROWSER_SYNC], null, {
-//    aliases: ['s']
-//});
- gulp.task('sync-reload', 'ATUALIZA todos Browsers', [BROWSER_SYNC_RELOAD, EXIT_GULP], null, {
+
+gulp.task('sync-reload', 'ATUALIZA todos Browsers', [BROWSER_SYNC_RELOAD_SYNC], null, {
     aliases: ['r']
 });
 gulp.task('heroku', 'Faz deploy no HEROKU', [HEROKU_DEPLOY_SYNC], null , {
-    options: {'m': '--(Re)instala modulos (npm install & bower install)'},
+    options: {'m': '--> (Re)instala modulos (npm install & bower install)'},
     aliases: ['k']
 
 });
-gulp.task('pageres', 'Faz deploy no HEROKU', [PAGERES_SNAPSHOT, EXIT_GULP], null , {
-    options: {'s': '--Site'},
+gulp.task('pageres', 'Faz deploy no HEROKU', [PAGERES_SNAPSHOT_SYNC], null , {
+    options: {'s': '--> Site [localhost:3000]'},
     aliases: ['p']
 
 });
