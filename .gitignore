@@ -7,6 +7,7 @@ node_modules
 
 public/libs
 z_old
+/public/js/js-min
 z-old.configs
 /testes.sh
 z-package.json
