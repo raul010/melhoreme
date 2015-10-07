@@ -11,7 +11,9 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu|Aldrich|Raleway|Open+Sans+Condensed:300|Arimo|PT+Sans+Narrow|Titillium+Web|Poiret+One|Josefin+Sans|Pacifico|Rokkitt|Patua+One|Josefin+Slab|Kaushan+Script|Gudea|Comfortaa|Alfa+Slab+One|Russo+One|Advent+Pro|Courgette|Bevan|Playball|Amaranth|Cookie|Oleo+Script|Damion|Squada+One|Niconne|Ultra|Electrolize|Reenie+Beanie|Nixie+One|Sacramento|Rajdhani|Alex+Brush|Antic|Allan|Black+Ops+One|Allura|Racing+Sans+One|Sarala|Press+Start+2P|Parisienne|Gruppo|Sansita+One|Italianno|Sue+Ellen+Francisco|Lekton|Seaweed+Script|Montez|Titan+One|Kranky|Share+Tech|Federo|Arizonia|Tulpen+One|Herr+Von+Muellerhoff|Geo|Vast+Shadow|Dawning+of+a+New+Day|Sofia' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Pacifico|Dancing+Script|Gloria+Hallelujah|Covered+By+Your+Grace|Chewy|Kaushan+Script|Fredoka+One|Russo+One|Courgette|Shadows+Into+Light+Two|Handlee|Fugaz+One|Great+Vibes|Marck+Script|Damion|Nothing+You+Could+Do|Homemade+Apple|Reenie+Beanie|Waiting+for+the+Sunrise|Sacramento|Aldrich|Berkshire+Swash|Acme|Fredericka+the+Great|Alex+Brush|Rochester|Allura|Bowlby+One|Petit+Formal+Script|Yesteryear|Henny+Penny|Montez|Teko|IM+Fell+DW+Pica|Kristi|La+Belle+Aurore|Kranky|Bilbo+Swash+Caps|Herr+Von+Muellerhoff|Meddon|Vast+Shadow|Engagement|Holtwood+One+SC|Condiment|Monofett|Aguafina+Script|Londrina+Outline|Fascinate|Sarina|Ribeye|Ruthie|Warnes|Vampiro+One|Ribeye+Marrow|Jacques+Francois+Shadow|Molle:400italic|Londrina+Sketch|Diplomata|Fascinate+Inline|Butterfly+Kids|Romanesco|Londrina+Shadow|Felipa|Meie+Script|Mr+Bedfort|Dr+Sugiyama' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
 	<link rel="stylesheet" href="libs/angular-material/angular-material.css">
 
 	<!-- JS -->
@@ -32,25 +34,35 @@
 <div ng-controller="SideNavControler as sideNav">
 <!--<div ng-controller="SideNavControler" layout="column" style="height:100%;">-->
 
-    <md-toolbar class="mainToolBar">
-        <div class="md-toolbar-tools" layout-margin>
-            <md-button ng-click="sideNav.toggleLeft()" hide-gt-md aria-label="Menu" >
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span hide-sm flex="5"></span>
+            <md-button ng-click="sideNav.toggleLeft()" hide-gt-md class="md-icon-button button-toolbar" aria-label="Menu">
                 <md-icon md-svg-icon="all:menu"></md-icon>
             </md-button>
-            <h2>
-                <span ng-cloak>Melhore.me</span>
+            <h2 ng-cloak>
+                <!--<span class="m">M</span><span class="logo">elhore.<span class="m-2">m</span>e</span>-->
+                <span class="m"></span><span hide-sm class="elhore"></span><span class="m-2"></span>
             </h2>
-            <span flex></span>
-            <md-button ng-click="sideNav.toggleRightCadastro()" class="md-primary" aria-label="Cadastro" ng-cloak>
-                Cadastro
-            </md-button>
 
-            <md-button ng-click="sideNav.toggleRightLogin();" class="md-primary" aria-label="Login" ng-cloak>
-                <!--<md-icon md-svg-icon="all:menu_vert"></md-icon>-->
-                login
-            </md-button>
+            <span flex></span>
+            <div layout="row" layout-align="end center">
+                <a ng-click="sideNav.toggleRightCadastro()" class="button-toolbar" aria-label="Cadastro" ng-cloak>
+                    cadastro
+                </a>
+                <a ng-click="sideNav.toggleRightLogin();" class="button-toolbar" aria-label="Login" ng-cloak>
+                    <!--<md-icon md-svg-icon="all:menu_vert"></md-icon>-->
+                    login
+                </a>
+            </div>
+            <span hide-sm flex="5"></span>
+
+
         </div>
     </md-toolbar>
+    <md-whiteframe class="md-whiteframe-4dp" layout layout-align="center center">
+        <span><br/><br/></span>
+    </md-whiteframe>
 
     <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z2" ng-cloak>
         <div layout="row" layout-padding>
@@ -66,199 +78,98 @@
         </div>
     </md-sidenav>
     <!-- style="padding: 0px 30px 0px 30px !important;" -->
-    <section layout-margin layout-padding>
-        <md-content layout-fill>
-            <div ng-controller="CardsController as cards">
-                <div layout-padding>
-                    <md-grid-list
-                            md-row-height="400"
-                            md-row-height-sm="200"
+    <section layout="row" layout-padding class="hide-scroll">
+        <span hide-sm flex="5"></span>
+            <md-content layout-fill >
+                <div ng-controller="CardsController as cards" ng-cloak>
+                    <div>
+                        <!--md-row-height-sm="200"-->
+                        <h3 class="md-headline">
+                            Em alta&nbsp;<span class="md-caption">&nbsp;Novos e bem avaliados</span>
+                        </h3>
+                        <md-grid-list
+                                md-row-height="2:10"
+                                md-cols="12"
+                                md-gutter="20"
 
-                            md-cols="12"
-                            md-gutter="25"
+                                >
+                            <md-grid-tile
+                                        md-colspan="6"
+                                        class="green"
+                                        ng-repeat="n in [1, 2]"
 
-                            >
+                                    >
+                                    <div style="width: 80px; height: 80px; background-color: deeppink">1</div>
+                                    <!--<md-grid-tile-footer>-->
+                                    <!--<h3>#1: (3r x 2c)</h3>-->
+                                    <!--</md-grid-tile-footer>-->
+                                </md-grid-tile>
 
-                        <md-grid-tile
-                                md-colspan="4"
-                                class="green">
-                            1
+                        </md-grid-list>
 
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile
-                                md-colspan="4"
-                                class="purple">
+                        <br>
+                        <h3 class="md-headline">
+                            Melhores do mês&nbsp;<span class="md-caption">&nbsp;Novos e bem avaliados</span>
+                        </h3>
+                        <md-grid-list
+                                md-row-height="3:10"
+                                md-cols="12"
+                                md-gutter="25"
 
-                            2
+                                >
+                            <md-grid-tile
+                                    md-colspan="4"
+                                    class="purple"
+                                    ng-repeat="n in [1, 2, 3, 4, 5, 6]"
 
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile
-                                md-colspan="4"
-                                class="blue">
-                            3
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-
-
-
-
-                    </md-grid-list>
+                                    >
+                                <div style="width: 80px; height: 80px; background-color: deeppink">1</div>
+                                <!--<md-grid-tile-footer>-->
+                                <!--<h3>#1: (3r x 2c)</h3>-->
+                                <!--</md-grid-tile-footer>-->
+                            </md-grid-tile>
 
 
+                        </md-grid-list>
 
+
+                        <br>
+                        <h3 class="md-headline">
+                            Recentes&nbsp;<span class="md-caption">&nbsp;Novos e bem avaliados</span>
+                        </h3>
+                        <md-grid-list
+                                md-row-height="4:10"
+                                md-cols="12"
+                                md-gutter="25"
+
+                                >
+
+                                <md-grid-tile
+                                        md-colspan="3"
+                                        class="green"
+                                        ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+                                        >
+                                    oi
+                                    <!--<div style="width: 80%px; height: 80%px; background-color: deeppink">1</div>-->
+
+                                    <!--<md-grid-tile-footer>-->
+                                    <!--<h3>#1: (3r x 2c)</h3>-->
+                                    <!--</md-grid-tile-footer>-->
+                                </md-grid-tile>
+
+
+                        </md-grid-list>
+
+                    </div>
                 </div>
 
+                <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
+                <span flex></span>
+                final md-content
+            </md-content>
+        <!--</div>-->
+        <span hide-sm flex="5"></span>
 
-                <div layout-padding>
-
-                    <md-grid-list
-                            md-row-height="200"
-                            md-cols="12"
-                            md-gutter="25"
-
-                            >
-
-                        <md-grid-tile
-                                md-colspan="4"
-                                class="green">
-                            1
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile
-                                md-colspan="4"
-                                class="purple">
-
-                            2
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile
-                                md-colspan="4"
-                                class="blue">
-                            3
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile
-                                md-colspan="3"
-
-                                class="red">
-                            4
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile><md-grid-tile class="green">
-                        1
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                        <md-grid-tile class="purple">
-                            2
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile class="blue">
-                            3
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile class="red">
-                            4
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile><md-grid-tile class="green">
-                        1
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                        <md-grid-tile class="purple">
-                            2
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile class="blue">
-                            3
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile class="red">
-                            4
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile><md-grid-tile class="green">
-                        1
-
-                        <!--<md-grid-tile-footer>-->
-                        <!--<h3>#1: (3r x 2c)</h3>-->
-                        <!--</md-grid-tile-footer>-->
-                    </md-grid-tile>
-                        <md-grid-tile class="purple">
-                            2
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile class="blue">
-                            3
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-                        <md-grid-tile class="red">
-                            4
-
-                            <!--<md-grid-tile-footer>-->
-                            <!--<h3>#1: (3r x 2c)</h3>-->
-                            <!--</md-grid-tile-footer>-->
-                        </md-grid-tile>
-
-
-
-                    </md-grid-list>
-
-
-                </div>
-            </div>
-
-            <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
-            <span flex></span>
-            final md-content
-        </md-content>
     </section>
 
     <md-sidenav md-component-id="right-cadastro" md-theme="cadastroTheme" class="md-sidenav-right md-whiteframe-z2" ng-cloak>
@@ -329,7 +240,7 @@
 
         <md-toolbar class="md-theme-light md-tall login-toolBar" layout="column">
             <div layout="row" layout-align="end start">
-                <md-button ng-click="sideNav.close('right-login')" class="md-icon-button" aria-label="Close">
+                <md-button ng-click="sideNav.close('right-login')" class="md-icon-button text-white" aria-label="Close">
                     <md-icon md-svg-icon="all:window_close" style="width:16px;height:16px;" hide-sm></md-icon>
                     <md-icon md-svg-icon="all:window_close" hide-gt-sm></md-icon>
                 </md-button>
@@ -337,7 +248,7 @@
 
             <span flex></span>
             <div layout="row">
-                <h1 class="md-toolbar-tools text-header-white"><i>Login</i></h1>
+                <h1 class="md-toolbar-tools text-white"><i>Login</i></h1>
             </div>
         </md-toolbar>
 

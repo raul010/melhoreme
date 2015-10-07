@@ -1,0 +1,153 @@
+@import "partials/var-style";
+@import "partials/reset";
+
+//  << LAYOUT >> ------------------------------------------
+
+.hide-scroll {
+  overflow: hidden;
+  -ms-overflow-style: none;
+}
+
+.text-white {
+  color: white !important;
+}
+//  end LAYOUT --------------------------------------------
+
+
+
+//  << TOOLBAR >> -----------------------------------------
+
+.mainToolBar {
+    background-image: -webkit-gradient(
+            linear,
+            right bottom,
+            right bottom,
+            color-stop(0.47, #F01F6C),
+            color-stop(0.74, #E3165E)
+    ) !important;
+    background-image: -o-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
+    background-image: -moz-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
+    background-image: -webkit-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
+    background-image: -ms-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
+    background-image: linear-gradient(to right bottom, #F01F6C 47%, #E3165E 74%) !important;
+
+}
+
+.cadastro-toolBar {
+  background-image: -webkit-gradient(
+                  linear,
+                  right bottom,
+                  left top,
+                  color-stop(0, #1C8DE3),
+                  color-stop(0.6, #24A0FF)
+  );
+  background-image: -o-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
+  background-image: -moz-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
+  background-image: -webkit-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
+  background-image: -ms-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
+  background-image: linear-gradient(to left top, #1C8DE3 0%, #24A0FF 100%);
+}
+
+.login-toolBar {
+  background-image: -webkit-gradient(
+                  linear,
+                  right bottom,
+                  right bottom,
+                  color-stop(0.28, #4CAF4F),
+                  color-stop(0.71, #3D9940)
+  ) !important;
+  background-image: -o-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
+  background-image: -moz-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
+  background-image: -webkit-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
+  background-image: -ms-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
+  background-image: linear-gradient(to right bottom, #4CAF4F 28%, #3D9940 71%) !important;
+}
+
+.button-toolbar {
+
+  padding: 0 0 !important;
+  margin: 0 0;
+  cursor: pointer;
+  font-size: 15px;
+  color: #BDBDBD !important;
+  min-width: 85px;
+
+  /* ------------------------ */
+  text-align: center;
+  vertical-align: middle;
+  line-height: 64px;
+  /* ------------------------- */
+
+  &:hover {
+    background-color: $color_600;
+    color: #ffffff !important;
+  }
+  &:active {
+    background-color: $color_700;
+    color: #ffffff !important;
+  }
+}
+
+.m{
+  font-family: 'Holtwood One SC', serif;
+  font-size: 60px;
+  color: #ffffff !important;
+
+  &:after {
+    content:'M';
+  }
+}
+
+.elhore {
+  font-family: 'Sacramento', cursive;
+  color: #00ACC1;
+  font-size: 25px;
+
+  &:after {
+    content: 'elhore';
+  }
+}
+
+.m-2 {
+  /*font-family: 'Sacramento', cursive;*/
+  font-family: 'Warnes', cursive;
+
+  color: #00ACC1;
+
+  font-size: 10px;
+
+  &:after {
+    content: '.me';
+  }
+}
+
+// end TOOLBAR ---------------------------------------------
+
+
+
+//  << COMPONENTs >> ---------------------------------------
+
+hr.ou {
+  padding: 0;
+  border: 0;
+  height: 1px;
+  /*border-top: medium double #333;*/
+  /*color: #333;*/
+  text-align: center;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0));
+}
+
+hr.ou:after {
+  content: "ou";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.3em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+//  end COMPONETs ------------------------------------------
+
+@import "partials/samples-temp";
+@import "partials/media-queries";
