@@ -26,7 +26,8 @@ var argv = require('yargs')
 var START = 'start';
 var EXIT_GULP = 'exit-gulp';
 var BROWSER_SYNC = 'browser-sync';
-var SAAS = 'saas';
+
+var SAAS_CONFIG = 'saas-config';
 var SASS_WATCH = 'sass:watch';
 
 var BROWSER_SYNC_RELOAD_$ync = 'browser-sync-reload-SYNC';
@@ -74,14 +75,14 @@ gulp.task(EXIT_GULP, function () {
     process.exit(0);
 });
 
-gulp.task(SAAS, function () {
+gulp.task(SAAS_CONFIG, function () {
     gulp.src('./public/css-sass/**/*.scss')
             .pipe(sass().on('error', sass.logError))
             .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task(SASS_WATCH, function () {
-    gulp.watch('./public/css-sass/**/*.scss', [SAAS])
+    gulp.watch('./public/css-sass/**/*.scss', [SAAS_CONFIG])
             .on('change', browserSync.reload);
 
 });
@@ -147,6 +148,11 @@ gulp.task(PAGERES_SNAPSHOT_$ync, function(cb) {
 // Run ALIAS Tasks =====================================================
 
 gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC, SASS_WATCH], null, {
+
+});
+
+gulp.task('saas', 'Inicia compilador SCSS - CSS', [SASS_WATCH], null, {
+    aliases: ['s']
 
 });
 gulp.task('nodemon', 'Inicia o NODEMON' , [START], null, {

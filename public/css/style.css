@@ -2,68 +2,58 @@ html {
   height: 100% !important; }
 
 html, body {
-  overflow-x: hidden !important; }
+  background-color: #FEFEFE; }
 
 .hide-scroll {
-  overflow: hidden;
+  overflow: hidden !important;
   -ms-overflow-style: none; }
 
 .text-white {
   color: white !important; }
-
-.mainToolBar {
-  background-image: -webkit-gradient(linear, right bottom, right bottom, color-stop(0.47, #F01F6C), color-stop(0.74, #E3165E)) !important;
-  background-image: -o-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
-  background-image: -moz-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
-  background-image: -webkit-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
-  background-image: -ms-linear-gradient(right bottom, #F01F6C 47%, #E3165E 74%) !important;
-  background-image: linear-gradient(to right bottom, #F01F6C 47%, #E3165E 74%) !important; }
-
-.cadastro-toolBar {
-  background-image: -webkit-gradient(linear, right bottom, left top, color-stop(0, #1C8DE3), color-stop(0.6, #24A0FF));
-  background-image: -o-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
-  background-image: -moz-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
-  background-image: -webkit-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
-  background-image: -ms-linear-gradient(left top, #1C8DE3 0%, #24A0FF 100%);
-  background-image: linear-gradient(to left top, #1C8DE3 0%, #24A0FF 100%); }
-
-.login-toolBar {
-  background-image: -webkit-gradient(linear, right bottom, right bottom, color-stop(0.28, #4CAF4F), color-stop(0.71, #3D9940)) !important;
-  background-image: -o-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
-  background-image: -moz-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
-  background-image: -webkit-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
-  background-image: -ms-linear-gradient(right bottom, #4CAF4F 28%, #3D9940 71%) !important;
-  background-image: linear-gradient(to right bottom, #4CAF4F 28%, #3D9940 71%) !important; }
 
 .button-toolbar {
   padding: 0 0 !important;
   margin: 0 0;
   cursor: pointer;
   font-size: 15px;
-  color: #BDBDBD !important;
+  color: #819ba4 !important;
   min-width: 85px;
-  /* ------------------------ */
+  text-transform: none;
   text-align: center;
   vertical-align: middle;
-  line-height: 64px;
-  /* ------------------------- */ }
+  line-height: 64px; }
   .button-toolbar:hover {
-    background-color: #032f40;
-    color: #ffffff !important; }
+    background-color: #032f40 !important;
+    color: #b3c3c8 !important; }
   .button-toolbar:active {
-    background-color: #022937;
-    color: #ffffff !important; }
+    color: #577986 !important; }
+  @media only screen and (min-width: 0) and (max-width: 600px) and (orientation: portrait) {
+    .button-toolbar {
+      line-height: 54px; } }
+  @media only screen and (min-width: 0) and (max-width: 600px) and (orientation: landscape) {
+    .button-toolbar {
+      line-height: 46px; } }
 
 .m {
-  font-family: 'Holtwood One SC', serif;
+  color: #ffc107 !important;
   font-size: 60px;
-  color: #ffffff !important; }
+  cursor: pointer; }
+  .m:hover {
+    color: #819ba4 !important; }
+  .m:active {
+    color: #ffffff !important; }
   .m:after {
     content: 'M'; }
+  @media only screen and (min-width: 0) and (max-width: 600px) and (orientation: portrait) {
+    .m {
+      font-size: 50px; } }
+  @media only screen and (min-width: 0) and (max-width: 600px) and (orientation: landscape) {
+    .m {
+      font-size: 46px; } }
 
 .elhore {
   font-family: 'Sacramento', cursive;
-  color: #00ACC1;
+  color: #00bcd4;
   font-size: 25px; }
   .elhore:after {
     content: 'elhore'; }
@@ -75,6 +65,23 @@ html, body {
   font-size: 10px; }
   .m-2:after {
     content: '.me'; }
+  @media only screen and (min-width: 0) and (max-width: 600px) and (orientation: portrait) {
+    .m-2 {
+      font-size: 12px; } }
+  @media only screen and (min-width: 0) and (max-width: 600px) and (orientation: landscape) {
+    .m-2 {
+      font-size: 10px; } }
+
+.search {
+  border-bottom-color: #2d5767 !important;
+  font-family: dejavu sans mono, monospace !important;
+  color: #8bc34a !important;
+  font-size: 18px; }
+  .search:focus {
+    border-bottom-color: #ffc107 !important; }
+
+.ajuste-search {
+  padding-bottom: 0px; }
 
 hr.ou {
   padding: 0;
@@ -93,6 +100,23 @@ hr.ou:after {
   font-size: 1.3em;
   padding: 0 0.25em;
   background: white; }
+
+.card-destaque {
+  cursor: pointer;
+  margin: 0 0 0 1px !important; }
+  .card-destaque:hover {
+    border-radius: 5px 5px 3px 3px;
+    background-color: #033649; }
+
+.card-semi-destaque {
+  cursor: pointer; }
+  .card-semi-destaque:hover {
+    background-color: #033649; }
+
+.card-padrao {
+  cursor: pointer; }
+  .card-padrao:hover {
+    background-color: #033649; }
 
 /*
   Testes, exemplos, temporarios
@@ -118,18 +142,26 @@ hr.ou:after {
 .md-grid-tile {
   transition: all 400ms ease-out 50ms; }
 
-@media only screen and (min-width: 0) and (max-width: 600px) and (orientation: portrait) {
-  .button-toolbar {
-    line-height: 54px; }
-  .m {
-    font-size: 50px; }
-  .m-2 {
-    font-size: 12px; } }
+.dark-blue {
+  background-color: #ffc107; }
 
-@media only screen and (min-width: 0) and (max-width: 600px) and (orientation: landscape) {
-  .button-toolbar {
-    line-height: 46px; }
-  .m {
-    font-size: 40px; }
-  .m-2 {
-    font-size: 10px; } }
+.light-green {
+  background-color: #8bc34a; }
+
+.lime {
+  background-color: #cddc39; }
+
+.yellow {
+  background-color: #ffeb3b; }
+
+.amber {
+  background-color: #ffc107; }
+
+.orange {
+  background-color: #ff9800; }
+
+.deep-orange {
+  background-color: #ff5722; }
+
+.cyan {
+  background-color: #00bcd4; }

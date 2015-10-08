@@ -32,12 +32,11 @@ angular.module('sampleApp', [
             "A200":"#819ba4",
             "A400":"#2d5767",
             "A700":"#022937",
-            /*
+
             'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
             // on this palette should be dark or light
             'contrastDarkColors': ['600 700 800 900'],
             'contrastLightColors': ['600 700']    // could also specify this if default was 'dark'
-*/
         });
 
 
@@ -47,25 +46,22 @@ angular.module('sampleApp', [
                 })
                 .accentPalette('blue-grey')
                 .warnPalette('orange');
-        //
-        //$mdThemingProvider.theme('mainTheme')
-        //        .primaryPalette('green', {
-        //            'hue-1': '300',
-        //            'hue-2': '400',
-        //            'hue-3': '600'
-        //        })
-        //        .accentPalette('blue-grey')
-        //        .warnPalette('orange');
 
+        $mdThemingProvider.theme('orangeTheme')
+                .primaryPalette('amber', {
+                    //'default': '50'
+                })
+                .accentPalette('blue-grey')
+                .warnPalette('orange');
 
         $mdThemingProvider.theme('loginTheme')
-                .primaryPalette('green')
+                .primaryPalette('cyan')
                 .accentPalette('blue-grey')
                 .warnPalette('orange');
 
         $mdThemingProvider.theme('cadastroTheme')
-                .primaryPalette('blue')
-                .accentPalette('blue-grey')
+                .primaryPalette('blue-grey')
+                .accentPalette('cyan')
                 .warnPalette('orange');
 
 

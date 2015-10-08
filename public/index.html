@@ -11,10 +11,10 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu|Aldrich|Raleway|Open+Sans+Condensed:300|Arimo|PT+Sans+Narrow|Titillium+Web|Poiret+One|Josefin+Sans|Pacifico|Rokkitt|Patua+One|Josefin+Slab|Kaushan+Script|Gudea|Comfortaa|Alfa+Slab+One|Russo+One|Advent+Pro|Courgette|Bevan|Playball|Amaranth|Cookie|Oleo+Script|Damion|Squada+One|Niconne|Ultra|Electrolize|Reenie+Beanie|Nixie+One|Sacramento|Rajdhani|Alex+Brush|Antic|Allan|Black+Ops+One|Allura|Racing+Sans+One|Sarala|Press+Start+2P|Parisienne|Gruppo|Sansita+One|Italianno|Sue+Ellen+Francisco|Lekton|Seaweed+Script|Montez|Titan+One|Kranky|Share+Tech|Federo|Arizonia|Tulpen+One|Herr+Von+Muellerhoff|Geo|Vast+Shadow|Dawning+of+a+New+Day|Sofia' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Pacifico|Dancing+Script|Gloria+Hallelujah|Covered+By+Your+Grace|Chewy|Kaushan+Script|Fredoka+One|Russo+One|Courgette|Shadows+Into+Light+Two|Handlee|Fugaz+One|Great+Vibes|Marck+Script|Damion|Nothing+You+Could+Do|Homemade+Apple|Reenie+Beanie|Waiting+for+the+Sunrise|Sacramento|Aldrich|Berkshire+Swash|Acme|Fredericka+the+Great|Alex+Brush|Rochester|Allura|Bowlby+One|Petit+Formal+Script|Yesteryear|Henny+Penny|Montez|Teko|IM+Fell+DW+Pica|Kristi|La+Belle+Aurore|Kranky|Bilbo+Swash+Caps|Herr+Von+Muellerhoff|Meddon|Vast+Shadow|Engagement|Holtwood+One+SC|Condiment|Monofett|Aguafina+Script|Londrina+Outline|Fascinate|Sarina|Ribeye|Ruthie|Warnes|Vampiro+One|Ribeye+Marrow|Jacques+Francois+Shadow|Molle:400italic|Londrina+Sketch|Diplomata|Fascinate+Inline|Butterfly+Kids|Romanesco|Londrina+Shadow|Felipa|Meie+Script|Mr+Bedfort|Dr+Sugiyama' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+    <!--<link href='https://fonts.googleapis.com/css?family=Ubuntu|Aldrich|Raleway|Open+Sans+Condensed:300|Arimo|PT+Sans+Narrow|Titillium+Web|Poiret+One|Josefin+Sans|Pacifico|Rokkitt|Patua+One|Josefin+Slab|Kaushan+Script|Gudea|Comfortaa|Alfa+Slab+One|Russo+One|Advent+Pro|Courgette|Bevan|Playball|Amaranth|Cookie|Oleo+Script|Damion|Squada+One|Niconne|Ultra|Electrolize|Reenie+Beanie|Nixie+One|Sacramento|Rajdhani|Alex+Brush|Antic|Allan|Black+Ops+One|Allura|Racing+Sans+One|Sarala|Press+Start+2P|Parisienne|Gruppo|Sansita+One|Italianno|Sue+Ellen+Francisco|Lekton|Seaweed+Script|Montez|Titan+One|Kranky|Share+Tech|Federo|Arizonia|Tulpen+One|Herr+Von+Muellerhoff|Geo|Vast+Shadow|Dawning+of+a+New+Day|Sofia' rel='stylesheet' type='text/css'>-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Indie+Flower|Lobster|Pacifico|Dancing+Script|Gloria+Hallelujah|Covered+By+Your+Grace|Chewy|Kaushan+Script|Fredoka+One|Russo+One|Courgette|Shadows+Into+Light+Two|Handlee|Fugaz+One|Great+Vibes|Marck+Script|Damion|Nothing+You+Could+Do|Homemade+Apple|Reenie+Beanie|Waiting+for+the+Sunrise|Sacramento|Aldrich|Berkshire+Swash|Acme|Fredericka+the+Great|Alex+Brush|Rochester|Allura|Bowlby+One|Petit+Formal+Script|Yesteryear|Henny+Penny|Montez|Teko|IM+Fell+DW+Pica|Kristi|La+Belle+Aurore|Kranky|Bilbo+Swash+Caps|Herr+Von+Muellerhoff|Meddon|Vast+Shadow|Engagement|Holtwood+One+SC|Condiment|Monofett|Aguafina+Script|Londrina+Outline|Fascinate|Sarina|Ribeye|Ruthie|Warnes|Vampiro+One|Ribeye+Marrow|Jacques+Francois+Shadow|Molle:400italic|Londrina+Sketch|Diplomata|Fascinate+Inline|Butterfly+Kids|Romanesco|Londrina+Shadow|Felipa|Meie+Script|Mr+Bedfort|Dr+Sugiyama' rel='stylesheet' type='text/css'>-->
 	<link rel="stylesheet" href="libs/angular-material/angular-material.css">
+    <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
 
 	<!-- JS -->
 	<!--<script src="libs/jquery/dist/jquery.min.js"></script>-->
@@ -45,15 +45,26 @@
                 <span class="m"></span><span hide-sm class="elhore"></span><span class="m-2"></span>
             </h2>
 
-            <span flex></span>
+            <div flex layout="row" layout-align="center center" md-theme="orangeTheme" ng-cloak>
+                <div flex="15"></div>
+
+
+                <md-input-container class="md-icon-float ajuste-search "  layout-fill>
+                    <md-icon md-svg-icon="all:search"></md-icon>
+                    <input ng-model="cadastro.user.username" type="text" class="search" aria-label="pesquisa">
+                </md-input-container>
+
+                <div flex="15"></div>
+
+            </div>
             <div layout="row" layout-align="end center">
-                <a ng-click="sideNav.toggleRightCadastro()" class="button-toolbar" aria-label="Cadastro" ng-cloak>
+                <md-button ng-click="sideNav.toggleRightCadastro()" class="button-toolbar" aria-label="Cadastro" ng-cloak>
                     cadastro
-                </a>
-                <a ng-click="sideNav.toggleRightLogin();" class="button-toolbar" aria-label="Login" ng-cloak>
+                </md-button>
+                <md-button ng-click="sideNav.toggleRightLogin();" class="button-toolbar" aria-label="Login" ng-cloak>
                     <!--<md-icon md-svg-icon="all:menu_vert"></md-icon>-->
                     login
-                </a>
+                </md-button>
             </div>
             <span hide-sm flex="5"></span>
 
@@ -77,56 +88,74 @@
             </md-button>
         </div>
     </md-sidenav>
-    <!-- style="padding: 0px 30px 0px 30px !important;" -->
-    <section layout="row" layout-padding class="hide-scroll">
-        <span hide-sm flex="5"></span>
-            <md-content layout-fill >
+    <section layout="row" layout-padding> <!-- class="hide-scroll" -->
+        <span hide show-gt-md flex="5"></span>
+            <md-content layout-fill style="background-color: #FEFEFE" > <!-- class="hide-scroll"-->
                 <div ng-controller="CardsController as cards" ng-cloak>
-                    <div>
-                        <!--md-row-height-sm="200"-->
+                    <div >
                         <h3 class="md-headline">
                             Em alta&nbsp;<span class="md-caption">&nbsp;Novos e bem avaliados</span>
                         </h3>
+                        <!--md-row-height="1:10"-->
+
                         <md-grid-list
-                                md-row-height="2:10"
+                                md-row-height="1:4"
+                                md-row-height-sm="4:38"
                                 md-cols="12"
                                 md-gutter="20"
 
-                                >
+                            >
                             <md-grid-tile
                                         md-colspan="6"
+                                        md-colspan-sm="12"
                                         class="green"
-                                        ng-repeat="n in [1, 2]"
-
+                                        ng-repeat="c in ['amber', 'cyan']"
                                     >
-                                    <div style="width: 80px; height: 80px; background-color: deeppink">1</div>
-                                    <!--<md-grid-tile-footer>-->
-                                    <!--<h3>#1: (3r x 2c)</h3>-->
-                                    <!--</md-grid-tile-footer>-->
-                                </md-grid-tile>
 
+                                <md-content layout-fill> <!-- class="md-padding" --><!-- class="hide-scroll"-->
+                                    <md-card class="card-destaque md-whiteframe-z2 {{ c }}" >
+                                        <!--<div class="purple "></div>-->
+                                        <img ng-src="./img/washedout.png" class="md-card-image" alt="Washed Out">
+                                        <md-card-content layout="column" class="card-content">
+                                            <!--<h2 class="md-title">Paracosm</h2>-->
+                                            <br/><br/>
+                                        </md-card-content>
+                                        <div class="md-actions" layout="row" layout-align="end center">
+                                            <!--<md-button>Act.</md-button>-->
+                                        </div>
+                                    </md-card>
+                                </md-content>
+                            </md-grid-tile>
                         </md-grid-list>
 
-                        <br>
                         <h3 class="md-headline">
                             Melhores do mês&nbsp;<span class="md-caption">&nbsp;Novos e bem avaliados</span>
                         </h3>
                         <md-grid-list
                                 md-row-height="3:10"
+                                md-row-height-sm="2:10"
                                 md-cols="12"
-                                md-gutter="25"
-
-                                >
+                                md-gutter="25">
                             <md-grid-tile
                                     md-colspan="4"
+                                    md-colspan-sm="6"
                                     class="purple"
-                                    ng-repeat="n in [1, 2, 3, 4, 5, 6]"
+                                    ng-repeat="c in ['light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange']"
 
                                     >
-                                <div style="width: 80px; height: 80px; background-color: deeppink">1</div>
-                                <!--<md-grid-tile-footer>-->
-                                <!--<h3>#1: (3r x 2c)</h3>-->
-                                <!--</md-grid-tile-footer>-->
+                                <md-content layout-fill> <!-- class="md-padding" -->
+                                    <md-card class="card-semi-destaque {{ c }}">
+                                        <img ng-src="./img/washedout.png" class="md-card-image" alt="Washed Out">
+                                        <md-card-content class="">
+                                            <!--<h2 class="md-title">Paracosm</h2>-->
+                                        </md-card-content>
+                                        <div class="md-actions" layout="row" layout-align="end center">
+                                            <!--<md-button>Act.</md-button>-->
+
+                                        </div>
+                                    </md-card>
+                                </md-content>
+
                             </md-grid-tile>
 
 
@@ -139,6 +168,7 @@
                         </h3>
                         <md-grid-list
                                 md-row-height="4:10"
+                                md-row-height-sm="2:10"
                                 md-cols="12"
                                 md-gutter="25"
 
@@ -146,15 +176,23 @@
 
                                 <md-grid-tile
                                         md-colspan="3"
+                                        md-colspan-sm="6"
                                         class="green"
-                                        ng-repeat="n in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+                                        ng-repeat="c in ['cyan','light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 7, 8, 9, 10, 11, 12]"
                                         >
-                                    oi
-                                    <!--<div style="width: 80%px; height: 80%px; background-color: deeppink">1</div>-->
+                                    <md-content layout-fill> <!-- class="md-padding" -->
+                                        <md-card class="card-padrao {{ c }}">
+                                            <img ng-src="./img/washedout.png" class="md-card-image" alt="Washed Out">
+                                            <md-card-content class="">
+                                                <!--<h2 class="md-title">Paracosm</h2>-->
+                                            </md-card-content>
+                                            <div class="md-actions" layout="row" layout-align="end center">
+                                                <!--<md-button>Act.</md-button>-->
 
-                                    <!--<md-grid-tile-footer>-->
-                                    <!--<h3>#1: (3r x 2c)</h3>-->
-                                    <!--</md-grid-tile-footer>-->
+                                            </div>
+                                        </md-card>
+                                    </md-content>
+
                                 </md-grid-tile>
 
 
@@ -163,7 +201,6 @@
                     </div>
                 </div>
 
-                <!--<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>-->
                 <span flex></span>
                 final md-content
             </md-content>
