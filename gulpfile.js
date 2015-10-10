@@ -253,7 +253,7 @@ gulp.task(PROCESS_HTML, function () {
 
 //  DEPLOY -------------------------------------------------------
 gulp.task('npm-install', shell.task([
-    'cd ../' + PATH_BUILD + ' & npm install;'
+    'cd ' + PATH_BUILD + ' & npm install;'
 ]));
 //
 //gulp.task(MINIFY_HTML, function() {
