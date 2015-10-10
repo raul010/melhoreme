@@ -7,17 +7,18 @@ var gulp = require('gulp-help')(require('gulp'), {
 var runSequence = require('run-sequence');
 
 //APP
-var nodemon =       require('gulp-nodemon');
-var browserSync =   require('browser-sync').create();
-var sass =          require('gulp-sass');
-var csso =          require('gulp-csso');
-var ngAnnotate =    require('gulp-ng-annotate');
-var uglify =        require('gulp-uglify');
-var processhtml =   require('gulp-processhtml');
-var changed =       require('gulp-changed');
-var cache =         require('gulp-cached');
-var clean =         require('gulp-clean');
-
+var nodemon         = require('gulp-nodemon');
+var browserSync     = require('browser-sync').create();
+var sass            = require('gulp-sass');
+var csso            = require('gulp-csso');
+var ngAnnotate      = require('gulp-ng-annotate');
+var uglify          = require('gulp-uglify');
+var processhtml     = require('gulp-processhtml');
+var changed         = require('gulp-changed');
+var cache           = require('gulp-cached');
+var clean           = require('gulp-clean');
+var minifyHTML      = require('gulp-minify-html');
+var uncss           = require('gulp-uncss');
 
 
 //HELPERS
@@ -51,15 +52,15 @@ var HEROKU_DEPLOY = 'heroku-deploy';
 var PAGERES_SNAPSHOT_$ync = 'pageres-snapshot-SYNC';
 var PAGERES_SNAPSHOT = 'pageres-snapshot';
 
-var BUILD_$ync = 'build_SYNC';
-var COPY_ALL = 'copy-all';
-var NG_ANNOTATE = 'annotate';
-var MINI_CSS = 'mini-css';
-var MINI_JS = 'mini-js';
-var COPY_SRC_CSS_BUILD = 'copy-src-css-build';
-var COPY_SRC_LIB_BUILD = 'copy-src-lib-build';
-var PROCESS_HTML = 'process-html';
-var CLEAN = 'clean';
+var BUILD_$ync          = 'build_SYNC';
+var COPY_ALL            = 'copy-all';
+var NG_ANNOTATE         = 'annotate';
+var MINI_CSS            = 'mini-css';
+var MINI_JS             = 'mini-js';
+var COPY_SRC_CSS_BUILD  = 'copy-src-css-build';
+var PROCESS_HTML        = 'process-html';
+var CLEAN               = 'clean';
+var MINIFY_HTML         = 'minify-html';
 
 // PATHS
 var PATH_PUBLIC = './public/';
@@ -190,58 +191,88 @@ gulp.task(COPY_ALL, function () {
 
 gulp.task(NG_ANNOTATE, function () {
     return gulp.src(PATH_SRC + 'js/**/*.js')
-            .pipe(changed(PATH_BUILD_SRC_TEMP + 'js'))
-            .pipe(ngAnnotate())
-            .pipe(gulp.dest(PATH_BUILD_SRC_TEMP + 'js'));
-});
-
-gulp.task(MINI_JS, function() {
-    return gulp.src(PATH_BUILD_SRC_TEMP + 'js/**/*.js')
             .pipe(changed(PATH_BUILD_SRC + 'js'))
+            .pipe(ngAnnotate())
             .pipe(uglify())
+            .pipe(changed(PATH_BUILD_SRC + 'js'))
             .pipe(gulp.dest(PATH_BUILD_SRC + 'js'));
 });
 
 gulp.task(MINI_CSS, function() {
     return gulp.src(PATH_DIST + 'css/**/*.css')
-            .pipe(changed(PATH_BUILD_SRC + 'css'))
+            .pipe(uncss({
+                html: [PATH_PUBLIC + 'index.html']
+            }))
             .pipe(csso())
+            .pipe(changed(PATH_BUILD_SRC + 'css'))
             .pipe(gulp.dest(PATH_BUILD_SRC + 'css'));
 });
 
+//gulp.task('COPY_LIB_JS_BUILD', function() {
+//    // Copy all non css
+//    return gulp.src([
+//        PATH_SRC + 'libs/**/*.min.js'
+//        //'!' + PATH_DIST +  'css/**/*.css'
+//    ])
+//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
+//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
+//});
+//
+//gulp.task('uncss', function() {
+//    return gulp.src(PATH_SRC + 'libs/*/*.min.css')
+//            .pipe(uncss({
+//                html: [PATH_PUBLIC + 'index.html']
+//        }))
+//        .pipe(csso())
+//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
+//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
+//});
+
+
+
 gulp.task(COPY_SRC_CSS_BUILD, function() {
-    // Copy all files in css folder, except *.scss
+    // Copy all non css
     gulp.src([
-        PATH_DIST +  'css/**/*.*'
+        PATH_DIST +  'css/**/*.*',
+        '!' + PATH_DIST +  'css/**/*.css'
     ])
         .pipe(changed(PATH_BUILD_SRC + 'css/'))
         .pipe(gulp.dest(PATH_BUILD_SRC + 'css/'));
 });
 
-//gulp.task(COPY_SRC_LIB_BUILD, function() {
-//
-//    //gulp.src([
-//    //    PATH_SRC +  'libs/*/*.min.js',
-//    //    PATH_SRC +  'libs/*/*.min.css',
-//    //    '!' + PATH_SRC +  'css/**/*.scss'
-//    //])
-//    //        .pipe(changed(PATH_BUILD_SRC + 'libs/'))
-//    //        .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
-//});
-// commit
 gulp.task(PROCESS_HTML, function () {
+    var opts = {
+        conditionals: true,
+        spare:true
+    };
     return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
             .pipe(processhtml())
+            .pipe(minifyHTML(opts))
             .pipe(gulp.dest(PATH_BUILD_PUBLIC));
 });
 
-gulp.task(CLEAN, function () {
-    return gulp.src([
-        PATH_BUILD_SRC_TEMP
-    ])
-            .pipe(clean({ force: true }))
-            .pipe(clean({ read: false }));
-});
+//  DEPLOY -------------------------------------------------------
+gulp.task('npm-install', shell.task([
+    'cd ../' + PATH_BUILD + ' & npm install;'
+]));
+//
+//gulp.task(MINIFY_HTML, function() {
+//    var opts = {
+//        conditionals: true,
+//        spare:true
+//    };
+//
+//    return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
+//            .pipe(gulp.dest(PATH_BUILD_PUBLIC));
+//});
+
+//gulp.task(CLEAN, function () {
+//    return gulp.src([
+//        PATH_BUILD_SRC_TEMP
+//    ])
+//            .pipe(clean({ force: true }))
+//            .pipe(clean({ read: false }));
+//});
 
 //  ////BUILD ----------------------------------------------------
 
@@ -289,12 +320,15 @@ gulp.task(BUILD_$ync, function(cb) {
     runSequence(
             COPY_ALL,
             NG_ANNOTATE,
-            MINI_JS,
+            //MINI_JS,
             MINI_CSS,
+            //'COPY_LIB_JS_BUILD',
+            //'uncss',
             COPY_SRC_CSS_BUILD,
-            //COPY_SRC_LIB_BUILD,
             PROCESS_HTML,
-            CLEAN,
+            //MINIFY_HTML,
+            //CLEAN,
+            'npm-install',
             EXIT_GULP,
             cb
     );
@@ -343,7 +377,6 @@ gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_
 
 /*
  https://github.com/miickel/gulp-angular-templatecache
- https://github.com/murphydanger/gulp-minify-html
  https://github.com/ben-eb/gulp-uncss
  https://github.com/darylldoyle/Gulp-Email-Creator
  https://github.com/doctyper/gulp-modernizr
@@ -375,7 +408,6 @@ gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_
  https://github.com/ck86/main-bower-files
  (inject Bower packages. - Overwite)
  https://github.com/jas/gulp-preprocess
- https://www.npmjs.com/package/gulp-cached/
 
  Fim
 

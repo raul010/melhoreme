@@ -11,13 +11,22 @@ var db              = require('./config/db');
 var port = process.env.PORT || 8080; // set our port
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
+console.log('*********************************');
 console.log(app.get('env'));
+console.log('*********************************');
 //mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
-// CONFIG'S
+// CONFIG'S ----------------------------------------
+if (NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+
+} else if (NODE_ENV === 'production') {
+    app.use(compress());
+}
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
 app.use(methodOverride()); // DELETE/PUT
+
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -27,12 +36,10 @@ app.set('view engine', 'html');
 app.set('dir_public', __dirname + '/public')
 
 if (NODE_ENV === 'development') {
-    app.use(morgan('dev'));
     app.use(express.static(app.get('dir_public')));
 
 } else if (NODE_ENV === 'production') {
     app.use(express.static(app.get('dir_public'), {maxAge: '3d'}));
-    app.use(compress());
 }
 
 require('./app/routes')(app);
