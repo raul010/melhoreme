@@ -61,6 +61,7 @@ var COPY_SRC_CSS_BUILD  = 'copy-src-css-build';
 var PROCESS_HTML        = 'process-html';
 var CLEAN               = 'clean';
 var MINIFY_HTML         = 'minify-html';
+var NPM_INSTALL         = 'npm-install';
 
 // PATHS
 var PATH_PUBLIC = './public/';
@@ -208,28 +209,6 @@ gulp.task(MINI_CSS, function() {
             .pipe(gulp.dest(PATH_BUILD_SRC + 'css'));
 });
 
-//gulp.task('COPY_LIB_JS_BUILD', function() {
-//    // Copy all non css
-//    return gulp.src([
-//        PATH_SRC + 'libs/**/*.min.js'
-//        //'!' + PATH_DIST +  'css/**/*.css'
-//    ])
-//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
-//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
-//});
-//
-//gulp.task('uncss', function() {
-//    return gulp.src(PATH_SRC + 'libs/*/*.min.css')
-//            .pipe(uncss({
-//                html: [PATH_PUBLIC + 'index.html']
-//        }))
-//        .pipe(csso())
-//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
-//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
-//});
-
-
-
 gulp.task(COPY_SRC_CSS_BUILD, function() {
     // Copy all non css
     gulp.src([
@@ -252,57 +231,20 @@ gulp.task(PROCESS_HTML, function () {
 });
 
 //  DEPLOY -------------------------------------------------------
-gulp.task('npm-install', shell.task([
+gulp.task(NPM_INSTALL, shell.task([
     'cd ' + PATH_BUILD + ' & npm install;'
 ]));
-//
-//gulp.task(MINIFY_HTML, function() {
-//    var opts = {
-//        conditionals: true,
-//        spare:true
-//    };
-//
-//    return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
-//            .pipe(gulp.dest(PATH_BUILD_PUBLIC));
-//});
-
-//gulp.task(CLEAN, function () {
-//    return gulp.src([
-//        PATH_BUILD_SRC_TEMP
-//    ])
-//            .pipe(clean({ force: true }))
-//            .pipe(clean({ read: false }));
-//});
 
 //  ////BUILD ----------------------------------------------------
 
-
-//  DEPLOY -------------------------------------------------------
-gulp.task('HEROKU_DEPLOY_OLD', shell.task([
-    'heroku config:set NODE_MODULES_CACHE=' + !argv.m,
-    'heroku git:remote -a melhoreme',
-    'git add --all',
-    'git commit -m "gulp-commit" --allow-empty',
-    'git push heroku master',
-    '/usr/bin/google-chrome-stable --disable-gpu http://melhoreme.herokuapp.com/'
-]));
-
 //  DEPLOY -------------------------------------------------------
 gulp.task(HEROKU_DEPLOY, shell.task([
-    'cd ../melhoreme-build & ' +
-    'heroku config:set NODE_MODULES_CACHE=' + !argv.m + '& ' +
-    'heroku git:remote -a melhoreme & ' +
-    'git add --all & ' +
-    'git commit -m "gulp-commit" --allow-empty & ' +
-    'git push heroku master & ' +
-    '/usr/bin/google-chrome-stable --disable-gpu http://melhoreme.herokuapp.com/' +
-    ';'
+    '.bin/heroku-deploy.sh'
 ]));
 //  ////DEPLOY ---------------------------------------------------
 
 
 // Run SEQUENCE Tasks ================================
-
 
 gulp.task(PAGERES_SNAPSHOT_$ync, function(cb) {
     runSequence(PAGERES_SNAPSHOT, EXIT_GULP, cb);
@@ -320,14 +262,9 @@ gulp.task(BUILD_$ync, function(cb) {
     runSequence(
             COPY_ALL,
             NG_ANNOTATE,
-            //MINI_JS,
             MINI_CSS,
-            //'COPY_LIB_JS_BUILD',
-            //'uncss',
             COPY_SRC_CSS_BUILD,
             PROCESS_HTML,
-            //MINIFY_HTML,
-            //CLEAN,
             'npm-install',
             EXIT_GULP,
             cb
@@ -343,8 +280,8 @@ gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC, SA
     //options: {'p': '--> NODE_ENV=production'},
 });
 
-gulp.task('build', 'Prepara para Deploy', [BUILD_$ync], null, {
-    //options: {'p': '--> NODE_ENV=production'},
+gulp.task('[b]uild', 'Prepara para Deploy', [BUILD_$ync], null, {
+    aliases: ['b', 'B']
 });
 
 gulp.task('[s]aas', 'Inicia compilador SCSS - CSS |', [MINI_CSS], null, {
@@ -418,3 +355,44 @@ gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_
 
 
  */
+
+//
+//gulp.task(MINIFY_HTML, function() {
+//    var opts = {
+//        conditionals: true,
+//        spare:true
+//    };
+//
+//    return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
+//            .pipe(gulp.dest(PATH_BUILD_PUBLIC));
+//});
+
+//gulp.task(CLEAN, function () {
+//    return gulp.src([
+//        PATH_BUILD_SRC_TEMP
+//    ])
+//            .pipe(clean({ force: true }))
+//            .pipe(clean({ read: false }));
+//});
+
+
+
+//gulp.task('COPY_LIB_JS_BUILD', function() {
+//    // Copy all non css
+//    return gulp.src([
+//        PATH_SRC + 'libs/**/*.min.js'
+//        //'!' + PATH_DIST +  'css/**/*.css'
+//    ])
+//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
+//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
+//});
+//
+//gulp.task('uncss', function() {
+//    return gulp.src(PATH_SRC + 'libs/*/*.min.css')
+//            .pipe(uncss({
+//                html: [PATH_PUBLIC + 'index.html']
+//        }))
+//        .pipe(csso())
+//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
+//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
+//});
