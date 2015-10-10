@@ -218,16 +218,16 @@ gulp.task(COPY_SRC_CSS_BUILD, function() {
         .pipe(gulp.dest(PATH_BUILD_SRC + 'css/'));
 });
 
-gulp.task(COPY_SRC_LIB_BUILD, function() {
-
-    //gulp.src([
-    //    PATH_SRC +  'libs/*/*.min.js',
-    //    PATH_SRC +  'libs/*/*.min.css',
-    //    '!' + PATH_SRC +  'css/**/*.scss'
-    //])
-    //        .pipe(changed(PATH_BUILD_SRC + 'libs/'))
-    //        .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
-});
+//gulp.task(COPY_SRC_LIB_BUILD, function() {
+//
+//    //gulp.src([
+//    //    PATH_SRC +  'libs/*/*.min.js',
+//    //    PATH_SRC +  'libs/*/*.min.css',
+//    //    '!' + PATH_SRC +  'css/**/*.scss'
+//    //])
+//    //        .pipe(changed(PATH_BUILD_SRC + 'libs/'))
+//    //        .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
+//});
 // commit
 gulp.task(PROCESS_HTML, function () {
     return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
@@ -292,7 +292,7 @@ gulp.task(BUILD_$ync, function(cb) {
             MINI_JS,
             MINI_CSS,
             COPY_SRC_CSS_BUILD,
-            COPY_SRC_LIB_BUILD,
+            //COPY_SRC_LIB_BUILD,
             PROCESS_HTML,
             CLEAN,
             EXIT_GULP,
