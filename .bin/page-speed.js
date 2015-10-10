@@ -10,3 +10,6 @@ var psi = require('psi');
 psi.output(process, function (err) {
     console.log('done');
 });
+
+
+//"postinstall": "if ! $NODE_MODULES_CACHE; then bower install; fi"

@@ -1,6 +1,10 @@
 angular.module('SideNavCtrl', [])
 
         .controller('SideNavControler', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+
+            console.log($scope);
+            $scope.myEnvironment = $scope;
+
             this.toggleLeft = buildToggler('left');
             this.toggleRightLogin = buildToggler('right-login');
             this.toggleRightCadastro = buildToggler('right-cadastro');

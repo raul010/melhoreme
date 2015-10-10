@@ -11,7 +11,7 @@ var db              = require('./config/db');
 var port = process.env.PORT || 8080; // set our port
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
-console.log(NODE_ENV);
+console.log(app.get('env'));
 //mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
 // CONFIG'S
@@ -19,16 +19,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
 app.use(methodOverride()); // DELETE/PUT
 
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
+
+
 // PUBLIC CONSTANT
 app.set('dir_public', __dirname + '/public')
-
 
 if (NODE_ENV === 'development') {
     app.use(morgan('dev'));
     app.use(express.static(app.get('dir_public')));
 
 } else if (NODE_ENV === 'production') {
-    app.use(express.static(app.get('dir_public'), {maxAge: '1s'}));
+    app.use(express.static(app.get('dir_public'), {maxAge: '10 days'}));
     app.use(compress());
 }
 

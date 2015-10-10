@@ -16,7 +16,9 @@ angular.module('sampleApp', [
         'VideoCtrl'
 ])
 
-    .config(function($mdThemingProvider, $mdIconProvider) {
+    .config(function($mdThemingProvider, $mdIconProvider, $compileProvider) {
+        //$compileProvider.debugInfoEnabled(false);
+
 
         $mdThemingProvider.definePalette('custom-green', {
             "50":"#e6ebed",
@@ -69,11 +71,11 @@ angular.module('sampleApp', [
         $mdThemingProvider.setDefaultTheme('mainTheme');
 
         $mdIconProvider
-            .iconSet('all', '../../img/icons/all.svg', 24)
-            .iconSet('social', '../../img/icons/social.svg', 24)
-            .defaultIconSet('../../img/icons/all.svg', 24);
+            .iconSet('all', '../../src/img/icons/all.svg', 24)
+            .iconSet('social', '../../src/img/icons/social.svg', 24)
+            .defaultIconSet('../../src/img/icons/all.svg', 24);
     })
 
     .run(function($http, $templateCache) {
-            $http.get('../../img/icons/all.svg', {cache: $templateCache});
+            $http.get('../../src/img/icons/all.svg', {cache: $templateCache});
     });

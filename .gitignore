@@ -5,9 +5,10 @@
 npm-debug.log
 node_modules
 
-public/libs
+public/src/libs
 z_old
-/public/js/js-min
+/public/src/js/js-min
+/public/dist/libs
 z-old.configs
 /testes.sh
 z-package.json
