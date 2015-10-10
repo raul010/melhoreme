@@ -31,7 +31,7 @@ if (NODE_ENV === 'development') {
     app.use(express.static(app.get('dir_public')));
 
 } else if (NODE_ENV === 'production') {
-    app.use(express.static(app.get('dir_public'), {maxAge: '10 days'}));
+    app.use(express.static(app.get('dir_public'), {maxAge: '3d'}));
     app.use(compress());
 }
 

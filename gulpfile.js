@@ -56,6 +56,7 @@ var COPY_ALL = 'copy-all';
 var NG_ANNOTATE = 'annotate';
 var MINI_CSS = 'mini-css';
 var MINI_JS = 'mini-js';
+var COPY_GIT = 'copy-git';
 var COPY_SRC_CSS_BUILD = 'copy-src-css-build';
 var COPY_SRC_LIB_BUILD = 'copy-src-lib-build';
 var PROCESS_HTML = 'process-html';
@@ -102,7 +103,8 @@ var _browserSync = {
 
 var _copyAll = {
     src : [
-        './**',
+        '**',
+        '.*',
         '!node_modules/**',
         '!z_old/**',
         '!' + PATH_SRC + '/css/**',
@@ -228,6 +230,15 @@ gulp.task(COPY_SRC_LIB_BUILD, function() {
             .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
 });
 
+//gulp.task(COPY_GIT, function() {
+//    // Git nao vai com os outros
+//    gulp.src([
+//        '.git/'
+//    ])
+//        //.pipe(changed(PATH_BUILD))
+//            .pipe(gulp.dest(PATH_BUILD));
+//});
+
 gulp.task(PROCESS_HTML, function () {
     return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
             .pipe(processhtml())
@@ -290,6 +301,7 @@ gulp.task(BUILD_$ync, function(cb) {
             NG_ANNOTATE,
             MINI_JS,
             MINI_CSS,
+            COPY_GIT,
             COPY_SRC_CSS_BUILD,
             COPY_SRC_LIB_BUILD,
             PROCESS_HTML,
