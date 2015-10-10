@@ -1,1 +1,0 @@
-angular.module("LoginCtrl",[]).controller("LoginControler",function(e){this.user={username:"",email:"",phone:"",address:""}});

@@ -10,7 +10,8 @@ var runSequence = require('run-sequence');
 var nodemon = require('gulp-nodemon');
 var browserSync = require('browser-sync').create();
 var sass = require('gulp-sass');
-
+var inlinesource = require('gulp-inline-source');
+var csso = require('gulp-csso');
 
 //HELPERS
 var shell = require('gulp-shell');
@@ -19,6 +20,8 @@ var argv = require('yargs')
         .boolean('m')
         .default('m', false)
         .string('s')
+        //.boolean('p')
+        //.default('p', false)
         .argv;
 
 // CONSTANSTs
@@ -116,19 +119,48 @@ gulp.task(START, function () {
         script: 'server.js',
         ext: 'js',
         //nodeArgs: ['--debug'],
-        env: { 'NODE_ENV': 'development' },
+
+        //env: { 'NODE_ENV': 'development' },
 
         // Just watch APP and CONFIG files
         ignore: _nodemon.ignoreFiles,
     }).on('restart', function (file) {
         console.log('--> ' + file);
     });
+
+    //if (argv.p) {
+    //    nodemon({
+    //        script: 'server.js',
+    //        ext: 'js',
+    //        //nodeArgs: ['--debug'],
+    //
+    //        env: {'NODE_ENV': 'production'},
+    //
+    //        // Just watch APP and CONFIG files
+    //        ignore: _nodemon.ignoreFiles,
+    //    }).on('restart', function (file) {
+    //        console.log('--> ' + file);
+    //    });
+    //}
 });
 
 gulp.task(PAGERES_SNAPSHOT, shell.task([
     'node .bin/pageres.js ' + argv.s
 ]));
+//
+//gulp.task('inlinesource', function () {
+//    return gulp.src('./public/index.html')
+//            .pipe(inlinesource())
+//            .pipe(gulp.dest('./out'));
+//});
 
+
+
+gulp.task('csso', function() {
+    return gulp.src('./public/css/style.css')
+            .pipe(csso())
+            .pipe(gulp.dest('./out'));
+});
 
 // Run SEQUENCE Tasks ================================
 
@@ -148,26 +180,26 @@ gulp.task(PAGERES_SNAPSHOT_$ync, function(cb) {
 // Run ALIAS Tasks =====================================================
 
 gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC, SASS_WATCH], null, {
-
+    //options: {'p': '--> NODE_ENV=production'},
 });
 
-gulp.task('saas', 'Inicia compilador SCSS - CSS', [SASS_WATCH], null, {
-    aliases: ['s']
+gulp.task('[s]aas', 'Inicia compilador SCSS - CSS |', [SASS_WATCH], null, {
+    aliases: ['s', 'S']
 
 });
-gulp.task('nodemon', 'Inicia o NODEMON' , [START], null, {
-    aliases: ['n']
+gulp.task('[n]odemon', 'Inicia o NODEMON |' , [START], null, {
+    aliases: ['n', 'N']
 });
 
-gulp.task('sync-reload', 'Faz RELOAD de todos Browsers', [BROWSER_SYNC_RELOAD_$ync], null, {
-    aliases: ['r']
+gulp.task('[r]eload-sync', 'Faz RELOAD de todos Browsers |', [BROWSER_SYNC_RELOAD_$ync], null, {
+    aliases: ['r', 'R']
 });
-gulp.task('heroku', 'Faz deploy no HEROKU', [HEROKU_DEPLOY_$ync], null , {
+gulp.task('[h]eroku', 'Faz deploy no HEROKU |', [HEROKU_DEPLOY_$ync], null , {
     options: {'m': '--> (Re)instala modulos (npm install & bower install)'},
-    aliases: ['k']
+    aliases: ['h', 'H']
 
 });
-gulp.task('pageres', 'Captura IMAGENS de localhost:3000', [PAGERES_SNAPSHOT_$ync], null , {
+gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_$ync], null , {
     //options: {'s': '--> Site [localhost:3000]'},
     aliases: ['p']
 

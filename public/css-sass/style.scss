@@ -59,7 +59,7 @@ $layout-breakpoint-lg:     1200px;
 }
 
 .m{
-  //font-family: 'Holtwood One SC', serif;
+  font-family: 'Holtwood One SC', serif;
   color: $color-amber_500 !important;
   font-size: 60px;
   cursor: pointer;
@@ -86,7 +86,7 @@ $layout-breakpoint-lg:     1200px;
 
 .elhore {
   font-family: 'Sacramento', cursive;
-  color: $color-cyan_500;
+  color: $color-light-green_800;
   font-size: 25px;
 
   &:after {
@@ -98,7 +98,7 @@ $layout-breakpoint-lg:     1200px;
   /*font-family: 'Sacramento', cursive;*/
   font-family: 'Warnes', cursive;
 
-  color: #00ACC1;
+  color: $color-light-green_800;
 
   font-size: 10px;
 

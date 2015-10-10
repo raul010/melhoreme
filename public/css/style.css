@@ -35,6 +35,7 @@ html, body {
       line-height: 46px; } }
 
 .m {
+  font-family: 'Holtwood One SC', serif;
   color: #ffc107 !important;
   font-size: 60px;
   cursor: pointer; }
@@ -53,7 +54,7 @@ html, body {
 
 .elhore {
   font-family: 'Sacramento', cursive;
-  color: #00bcd4;
+  color: #558b2f;
   font-size: 25px; }
   .elhore:after {
     content: 'elhore'; }
@@ -61,7 +62,7 @@ html, body {
 .m-2 {
   /*font-family: 'Sacramento', cursive;*/
   font-family: 'Warnes', cursive;
-  color: #00ACC1;
+  color: #558b2f;
   font-size: 10px; }
   .m-2:after {
     content: '.me'; }

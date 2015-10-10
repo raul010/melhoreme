@@ -20,13 +20,19 @@
   },
   "devDependencies": {
     "browser-sync": "^2.9.8",
+    "compression": "^1.6.0",
     "gulp": "^3.9.0",
+    "gulp-csso": "^1.0.0",
     "gulp-help": "^1.6.1",
+    "gulp-inline-source": "^2.1.0",
     "gulp-nodemon": "^2.0.4",
     "gulp-sass": "^2.0.4",
     "gulp-shell": "^0.4.3",
     "ismobilejs": "^0.3.9",
+    "mongoose": "^4.1.10",
+    "morgan": "^1.6.1",
     "pageres": "^2.1.0",
+    "psi": "^1.0.6",
     "run-sequence": "^1.1.4",
     "yargs": "^3.26.0"
   }

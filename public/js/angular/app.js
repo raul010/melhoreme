@@ -12,7 +12,8 @@ angular.module('sampleApp', [
         'SideNavCtrl',
         'LoginCtrl',
         'CadastroCtrl',
-        'CardsCtrl'
+        'CardsCtrl',
+        'VideoCtrl'
 ])
 
     .config(function($mdThemingProvider, $mdIconProvider) {

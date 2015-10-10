@@ -1,1 +1,0 @@
-angular.module("CardsCtrl",[]).controller("CardsController",function(r){this.imagePath="../../img/washedout.png"});
