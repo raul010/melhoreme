@@ -1,4 +1,4 @@
-var psi = require('psi');
+var psi = require('psi');; fi
 
 //// get the PageSpeed Insights report
 //psi('html5rocks.com', function (err, data) {
