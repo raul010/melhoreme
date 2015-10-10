@@ -268,12 +268,12 @@ gulp.task('HEROKU_DEPLOY_OLD', shell.task([
 
 //  DEPLOY -------------------------------------------------------
 gulp.task(HEROKU_DEPLOY, shell.task([
-    'cd ../melhoreme-build & ' +
-    'heroku config:set NODE_MODULES_CACHE=' + !argv.m + '&' +
-    'heroku git:remote -a melhoreme &' +
-    'git add --all &' +
-    'git commit -m "gulp-commit" --allow-empty &' +
-    'git push heroku master &' +
+    'cd ../melhoreme-build && ' +
+    'heroku config:set NODE_MODULES_CACHE=' + !argv.m + '& ' +
+    'heroku git:remote -a melhoreme & ' +
+    'git add --all & ' +
+    'git commit -m "gulp-commit" --allow-empty & ' +
+    'git push heroku master & ' +
     '/usr/bin/google-chrome-stable --disable-gpu http://melhoreme.herokuapp.com/' +
     ';'
 ]));
