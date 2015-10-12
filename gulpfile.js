@@ -1,5 +1,5 @@
 'use strict';
-
+var path = require('path');
 //GULP
 var gulp = require('gulp-help')(require('gulp'), {
     'hideEmpty': true
@@ -26,33 +26,29 @@ var shell   = require('gulp-shell');
 var argv    = require('yargs')
     // HEROKU (-m = [re]isntala modulos)
         .boolean('m')
-        .default('m', false)
+        .default('m', true)
         .string('s')
     //.boolean('p')
     //.default('p', false)
         .argv;
 
-// CONSTANSTs
-var START = 'start';
-var EXIT_GULP = 'exit-gulp';
-var BROWSER_SYNC = 'browser-sync';
+// TASKs NAMEs
+var START           = 'start';
+var EXIT_GULP       = 'exit-gulp';
+var BROWSER_SYNC    = 'browser-sync';
 
-var INLINE = 'inline';
+var SAAS_CONFIG             = 'saas-config';
+var SASS_WATCH              = 'sass:watch';
+var CSS_RESOURCES_WATCH     = 'watch:copy-src';
 
-var SAAS_CONFIG = 'saas-config';
-var SASS_WATCH = 'sass:watch';
-var CSS_SRC_WATCH = 'watch:copy-src';
+var BROWSER_SYNC_RELOAD_$ync    = 'browser-sync-reload-SYNC'
+var PAGERES_SNAPSHOT_$ync       = 'pageres-snapshot-SYNC';
+var HEROKU_DEPLOY_$ync          = 'heroku-deploy-SYNC';
+var BUILD_$ync                  = 'build_SYNC';
 
-var BROWSER_SYNC_RELOAD_$ync = 'browser-sync-reload-SYNC';
 var BROWSER_SYNC_RELOAD = 'browser-sync-reload';
-
-var HEROKU_DEPLOY_$ync = 'heroku-deploy-SYNC';
-var HEROKU_DEPLOY = 'heroku-deploy';
-
-var PAGERES_SNAPSHOT_$ync = 'pageres-snapshot-SYNC';
-var PAGERES_SNAPSHOT = 'pageres-snapshot';
-
-var BUILD_$ync          = 'build_SYNC';
+var HEROKU_DEPLOY       = 'heroku-deploy';
+var PAGERES_SNAPSHOT    = 'pageres-snapshot';
 var COPY_ALL            = 'copy-all';
 var NG_ANNOTATE         = 'annotate';
 var MINI_CSS            = 'mini-css';
@@ -63,15 +59,32 @@ var CLEAN               = 'clean';
 var MINIFY_HTML         = 'minify-html';
 var NPM_INSTALL         = 'npm-install';
 
-// PATHS
-var PATH_PUBLIC = './public/';
-var PATH_SRC = './public/src/';
-var PATH_DIST = './public/dist/';
+// name of var PATH have prefix '$'
+// PROJECT PATHS
+var $PROJECT_HOME = './';
 
-var PATH_BUILD = '../melhoreme-build/';
-var PATH_BUILD_PUBLIC = '../melhoreme-build/public/';
-var PATH_BUILD_SRC = '../melhoreme-build/public/src/';
-var PATH_BUILD_SRC_TEMP = '../melhoreme-build/public/src/temp/';
+var $PUBLIC = path.join($PROJECT_HOME, 'public');
+var $VIEWS  = path.join($PUBLIC, 'views');
+var $ASSETS = path.join($PUBLIC, 'assets');
+
+// PROJECT BUILD PATHS
+var $BUILD_HOME     = '../melhoreme-build';
+var $BUILD_PUBLIC   = path.join($BUILD_HOME, 'public');
+var $BUILD_ASSETS   = path.join($BUILD_PUBLIC, 'assets');
+
+// ASSETS PATHS
+var $CSS    = path.join($ASSETS,  'css');
+var $SAAS   = path.join($ASSETS, $CSS, '_saas');
+var $IMG    = path.join($ASSETS, 'img');
+var $JS     = path.join($ASSETS, 'js');
+var $LIBS   = path.join($ASSETS + 'libs');
+
+// BUILD ASSETS PATHS
+var $BUILD_CSS  = path.join($BUILD_ASSETS, 'css');
+var $BUILD_IMG  = path.join($BUILD_ASSETS, 'img');
+var $BUILD_JS   = path.join($BUILD_ASSETS, 'js');
+var $BUILD_LIBS = path.join($BUILD_ASSETS, 'libs');
+
 
 var NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -88,17 +101,17 @@ var _nodemon = {
         '.git',
 
         // Root Files
-        'gulpfile.js',
-        'z-old.configs'
+        './gulpfile.js',
+        './z-old.configs'
     ]
 }
 
 var _browserSync = {
     watchFiles : [
-        PATH_PUBLIC + '*.html',
-        PATH_PUBLIC + 'views/*.html',
-        PATH_SRC    + 'css/*.css', //Reload with SAAS Task
-        PATH_SRC    + 'js/**/*.js',
+        $PUBLIC + '/*.html',
+        $VIEWS  + '/*.html',
+        $SAAS   + '/**', // CSS already Reload with SAAS Task
+        $JS     + '/**/*.js',
     ]
 };
 
@@ -106,12 +119,16 @@ var _copyAll = {
     src : [
         '**',
         '.*',
+        '*.*',
+
         '!node_modules/**',
         '!z_old/**',
-        '!' + PATH_SRC + '/css/**',
-        '!' + PATH_SRC + '/js/**',
-        '!' + PATH_SRC + '/libs/**',
-        '!' + PATH_DIST + '/**'
+
+        // Will be build later
+        '!' + $SAAS + '/**',
+        '!' + $JS   + '/**',
+        '!' + $LIBS + '/**',
+        '!' + $CSS  + '/**'
     ]
 };
 
@@ -144,8 +161,8 @@ gulp.task(BROWSER_SYNC, function() {
     });
 
     gulp
-            .watch(_browserSync.watchFiles)
-            .on('change', browserSync.reload);
+        .watch(_browserSync.watchFiles)
+        .on('change', browserSync.reload);
 });
 
 gulp.task(BROWSER_SYNC_RELOAD, shell.task([
@@ -156,27 +173,26 @@ gulp.task(BROWSER_SYNC_RELOAD, shell.task([
 
 //  WATCH: SRC Files ---------------------------------------
 gulp.task(SAAS_CONFIG, function () {
-    gulp.src(PATH_SRC +  'css/**/*.scss')
-            //.pipe(cache('saas-cache'))
+    gulp.src($SAAS +  '/**/*.scss')
             .pipe(sass().on('error', sass.logError))
-            .pipe(gulp.dest(PATH_DIST + 'css'));
+            .pipe(gulp.dest($CSS));
 });
 gulp.task(SASS_WATCH, function () {
-    gulp.watch(PATH_SRC +  'css/**/*.scss', [SAAS_CONFIG])
+    gulp.watch($SAAS +  '/**/*.scss', [SAAS_CONFIG])
             .on('change', browserSync.reload);
 
 });
-// copy all misc (non scss)
+// copy all misc (non saas)
 gulp.task('copy-src-css', function () {
     gulp.src([
-            PATH_SRC +  'css/**/*.*',
-            '!' + PATH_SRC +  'css/**/*.scss'
+            $SAAS +  '/**/*.*',
+            '!' + $SAAS +  '/**/*.scss'
             ])
             //.pipe(cache('watch:copy-B'))
-            .pipe(gulp.dest(PATH_DIST + 'css/'));
+            .pipe(gulp.dest($CSS));
 });
-gulp.task(CSS_SRC_WATCH, function () {
-    gulp.watch(PATH_SRC +  'css/**/*.*', ['copy-src-css']);
+gulp.task(CSS_RESOURCES_WATCH, function () {
+    gulp.watch($SAAS +  '/**/*.*', ['copy-src-css']);
 });
 //  ////WATCH: SRC Files----------------------------------
 
@@ -186,62 +202,68 @@ gulp.task(CSS_SRC_WATCH, function () {
 
 gulp.task(COPY_ALL, function () {
     return gulp.src(_copyAll.src)
-            .pipe(changed(PATH_BUILD))
-            .pipe(gulp.dest(PATH_BUILD));
+            .pipe(changed($BUILD_HOME))
+            .pipe(gulp.dest($BUILD_HOME));
 });
 
 gulp.task(NG_ANNOTATE, function () {
-    return gulp.src(PATH_SRC + 'js/**/*.js')
-            .pipe(changed(PATH_BUILD_SRC + 'js'))
+    return gulp.src($JS + '/**/*.js')
             .pipe(ngAnnotate())
             .pipe(uglify())
-            .pipe(changed(PATH_BUILD_SRC + 'js'))
-            .pipe(gulp.dest(PATH_BUILD_SRC + 'js'));
+            .pipe(gulp.dest($BUILD_JS));
 });
 
 gulp.task(MINI_CSS, function() {
-    return gulp.src(PATH_DIST + 'css/**/*.css')
+    return gulp.src($CSS + '/**/*.css')
             .pipe(uncss({
-                html: [PATH_PUBLIC + 'index.html']
+                html: [$PUBLIC + '/index.html']
             }))
             .pipe(csso())
-            .pipe(changed(PATH_BUILD_SRC + 'css'))
-            .pipe(gulp.dest(PATH_BUILD_SRC + 'css'));
+            .pipe(gulp.dest($BUILD_CSS));
 });
 
 gulp.task(COPY_SRC_CSS_BUILD, function() {
     // Copy all non css
     gulp.src([
-        PATH_DIST +  'css/**/*.*',
-        '!' + PATH_DIST +  'css/**/*.css'
+        $CSS +  '/**/*.*',
+        '!' + $CSS +  '/**/*.css'
     ])
-        .pipe(changed(PATH_BUILD_SRC + 'css/'))
-        .pipe(gulp.dest(PATH_BUILD_SRC + 'css/'));
+        .pipe(gulp.dest($BUILD_CSS));
 });
 
 gulp.task(PROCESS_HTML, function () {
-    var opts = {
-        conditionals: true,
-        spare:true
-    };
-    return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
+    return gulp.src($BUILD_PUBLIC + '/index.html')
             .pipe(processhtml())
-            .pipe(minifyHTML(opts))
-            .pipe(gulp.dest(PATH_BUILD_PUBLIC));
+            .pipe(minifyHTML({
+                conditionals: true,
+                spare: true
+            }))
+            .pipe(gulp.dest($BUILD_PUBLIC));
 });
 
 //  DEPLOY -------------------------------------------------------
 gulp.task(NPM_INSTALL, shell.task([
-    'cd ' + PATH_BUILD + ' & npm install;'
+    'cd ' + $BUILD_HOME + ' & npm install;'
 ]));
 
 //  ////BUILD ----------------------------------------------------
 
 //  DEPLOY -------------------------------------------------------
 gulp.task(HEROKU_DEPLOY, shell.task([
-    '.bin/heroku-deploy.sh'
+    '.bin/heroku-deploy.sh ' + !argv.m
 ]));
 //  ////DEPLOY ---------------------------------------------------
+
+
+// RUN in production (in npm postinstall) ------------------------
+
+gulp.task('minify-js-lib', function () {
+    gulp.src($LIBS + '/**/*.min.js')
+            .pipe(uglify())
+            .pipe(gulp.dest($ASSETS + 'libs'));
+})
+
+// ////RUN in production (in npm postinstall) ---------------------
 
 
 // Run SEQUENCE Tasks ================================
@@ -265,6 +287,7 @@ gulp.task(BUILD_$ync, function(cb) {
             MINI_CSS,
             COPY_SRC_CSS_BUILD,
             PROCESS_HTML,
+            'gulpfile-prod',
             'npm-install',
             EXIT_GULP,
             cb
@@ -276,7 +299,7 @@ gulp.task(BUILD_$ync, function(cb) {
 
 // Run ALIAS Tasks =====================================================
 
-gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC, SASS_WATCH, CSS_SRC_WATCH], null, {
+gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC, SASS_WATCH, CSS_RESOURCES_WATCH], null, {
     //options: {'p': '--> NODE_ENV=production'},
 });
 
@@ -284,11 +307,11 @@ gulp.task('[b]uild', 'Prepara para Deploy', [BUILD_$ync], null, {
     aliases: ['b', 'B']
 });
 
-gulp.task('[s]aas', 'Inicia compilador SCSS - CSS |', [MINI_CSS], null, {
+gulp.task('[s]aas', 'Watch SCSS |', [MINI_CSS], null, {
     aliases: ['s', 'S']
 });
 
-gulp.task('[m]inify-[c]ss', 'Minifica CSS com CSSO |', [MINI_CSS], null, {
+gulp.task('[m]inify-[c]ss', 'Minifica CSS |', [MINI_CSS], null, {
     aliases: ['mc', 'MC']
 });
 
@@ -363,13 +386,13 @@ gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_
 //        spare:true
 //    };
 //
-//    return gulp.src(PATH_BUILD_PUBLIC + 'index.html')
-//            .pipe(gulp.dest(PATH_BUILD_PUBLIC));
+//    return gulp.src($BUILD_PUBLIC + 'index.html')
+//            .pipe(gulp.dest($BUILD_PUBLIC));
 //});
 
 //gulp.task(CLEAN, function () {
 //    return gulp.src([
-//        PATH_BUILD_SRC_TEMP
+//        $BUILD_SRC_TEMP
 //    ])
 //            .pipe(clean({ force: true }))
 //            .pipe(clean({ read: false }));
@@ -380,19 +403,19 @@ gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_
 //gulp.task('COPY_LIB_JS_BUILD', function() {
 //    // Copy all non css
 //    return gulp.src([
-//        PATH_SRC + 'libs/**/*.min.js'
-//        //'!' + PATH_DIST +  'css/**/*.css'
+//        $ASSETS + 'libs/**/*.min.js'
+//        //'!' + $DIST +  'css/**/*.css'
 //    ])
-//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
-//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
+//            .pipe(changed($BUILD_ASSETS + 'libs/'))
+//            .pipe(gulp.dest($BUILD_ASSETS + 'libs/'));
 //});
 //
 //gulp.task('uncss', function() {
-//    return gulp.src(PATH_SRC + 'libs/*/*.min.css')
+//    return gulp.src($ASSETS + 'libs/*/*.min.css')
 //            .pipe(uncss({
-//                html: [PATH_PUBLIC + 'index.html']
+//                html: [$PUBLIC + 'index.html']
 //        }))
 //        .pipe(csso())
-//            .pipe(changed(PATH_BUILD_SRC + 'libs/'))
-//            .pipe(gulp.dest(PATH_BUILD_SRC + 'libs/'));
+//            .pipe(changed($BUILD_ASSETS + 'libs/'))
+//            .pipe(gulp.dest($BUILD_ASSETS + 'libs/'));
 //});

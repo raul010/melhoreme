@@ -5,9 +5,9 @@
 npm-debug.log
 node_modules
 
-public/src/libs
+public/assets/libs
 z_old
-/public/src/js/js-min
+/public/assets/js/js-min
 /public/dist/libs
 z-old.configs
 /testes.sh

@@ -19,6 +19,7 @@ console.log('*********************************');
 // CONFIG'S ----------------------------------------
 if (NODE_ENV === 'development') {
     app.use(morgan('dev'));
+    //require('pmx').init();
 
 } else if (NODE_ENV === 'production') {
     app.use(compress());

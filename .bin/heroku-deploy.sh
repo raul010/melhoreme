@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 
+$1;
 cd ../melhoreme-build \
-&& pwd \
+echo "App Deploy:" && pwd \
 && git init \
-&& pwd \
 && heroku git:remote -a melhoreme \
-&& pwd \
+&& heroku config:set NODE_MODULES_CACHE=$1 \
 && git add . \
-&& pwd \
 && git commit -m "gulp-commit" --allow-empty \
-&& pwd \
 && git push -f heroku master
