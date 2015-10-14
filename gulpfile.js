@@ -16,9 +16,13 @@ var uglify          = require('gulp-uglify');
 var processhtml     = require('gulp-processhtml');
 var changed         = require('gulp-changed');
 var cache           = require('gulp-cached');
-var clean           = require('gulp-clean');
 var minifyHTML      = require('gulp-minify-html');
 var uncss           = require('gulp-uncss');
+var gulpIgnore      = require('gulp-ignore');
+var del             = require('del');
+var rename          = require("gulp-rename");
+var inlineCss       = require('gulp-inline-css');
+
 
 
 //HELPERS
@@ -26,316 +30,120 @@ var shell   = require('gulp-shell');
 var argv    = require('yargs')
     // HEROKU (-m = [re]isntala modulos)
         .boolean('m')
-        .default('m', true)
+        .default('m', false)
         .string('s')
-    //.boolean('p')
-    //.default('p', false)
+        .boolean('h')
+        .default('h', false)
         .argv;
 
-// TASKs NAMEs
-var START           = 'start';
-var EXIT_GULP       = 'exit-gulp';
-var BROWSER_SYNC    = 'browser-sync';
+var constants = require('./.bin/gulp/constants');
+var TASK    = constants.TASK;
+var PATH    = constants.PATH;
+var SPECS   = constants.SPECS;
 
-var SAAS_CONFIG             = 'saas-config';
-var SASS_WATCH              = 'sass:watch';
-var CSS_RESOURCES_WATCH     = 'watch:copy-src';
-
-var BROWSER_SYNC_RELOAD_$ync    = 'browser-sync-reload-SYNC'
-var PAGERES_SNAPSHOT_$ync       = 'pageres-snapshot-SYNC';
-var HEROKU_DEPLOY_$ync          = 'heroku-deploy-SYNC';
-var BUILD_$ync                  = 'build_SYNC';
-
-var BROWSER_SYNC_RELOAD = 'browser-sync-reload';
-var HEROKU_DEPLOY       = 'heroku-deploy';
-var PAGERES_SNAPSHOT    = 'pageres-snapshot';
-var COPY_ALL            = 'copy-all';
-var NG_ANNOTATE         = 'annotate';
-var MINI_CSS            = 'mini-css';
-var MINI_JS             = 'mini-js';
-var COPY_SRC_CSS_BUILD  = 'copy-src-css-build';
-var PROCESS_HTML        = 'process-html';
-var CLEAN               = 'clean';
-var MINIFY_HTML         = 'minify-html';
-var NPM_INSTALL         = 'npm-install';
-
-// name of var PATH have prefix '$'
-// PROJECT PATHS
-var $PROJECT_HOME = './';
-
-var $PUBLIC = path.join($PROJECT_HOME, 'public');
-var $VIEWS  = path.join($PUBLIC, 'views');
-var $ASSETS = path.join($PUBLIC, 'assets');
-
-// PROJECT BUILD PATHS
-var $BUILD_HOME     = '../melhoreme-build';
-var $BUILD_PUBLIC   = path.join($BUILD_HOME, 'public');
-var $BUILD_ASSETS   = path.join($BUILD_PUBLIC, 'assets');
-
-// ASSETS PATHS
-var $CSS    = path.join($ASSETS,  'css');
-var $SAAS   = path.join($ASSETS, $CSS, '_saas');
-var $IMG    = path.join($ASSETS, 'img');
-var $JS     = path.join($ASSETS, 'js');
-var $LIBS   = path.join($ASSETS + 'libs');
-
-// BUILD ASSETS PATHS
-var $BUILD_CSS  = path.join($BUILD_ASSETS, 'css');
-var $BUILD_IMG  = path.join($BUILD_ASSETS, 'img');
-var $BUILD_JS   = path.join($BUILD_ASSETS, 'js');
-var $BUILD_LIBS = path.join($BUILD_ASSETS, 'libs');
-
-
-var NODE_ENV = process.env.NODE_ENV || 'development';
-
-// VARs ---------------------------------
+var NODE_ENV = process.env.NODE_ENV || 'production';
+console.log('*********************')
 console.log(NODE_ENV);
+console.log('*********************')
 
-var _nodemon = {
-    ignoreFiles : [
-        // Root Folder
-        './bin',
-        './node_modules',
-        './public',
-        './z_old',
-        '.git',
 
-        // Root Files
-        './gulpfile.js',
-        './z-old.configs'
-    ]
-}
+require('./.bin/gulp/utils') (gulp, shell, argv);
+require('./.bin/gulp/run')(gulp, nodemon, browserSync, shell);
+require('./.bin/gulp/watch')(gulp, sass);
+require('./.bin/gulp/build')(gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML);
+require('./.bin/gulp/deploy')(gulp, shell, argv);
 
-var _browserSync = {
-    watchFiles : [
-        $PUBLIC + '/*.html',
-        $VIEWS  + '/*.html',
-        $SAAS   + '/**', // CSS already Reload with SAAS Task
-        $JS     + '/**/*.js',
-    ]
-};
 
-var _copyAll = {
-    src : [
-        '**',
-        '.*',
-        '*.*',
-
-        '!node_modules/**',
-        '!z_old/**',
-
-        // Will be build later
-        '!' + $SAAS + '/**',
-        '!' + $JS   + '/**',
-        '!' + $LIBS + '/**',
-        '!' + $CSS  + '/**'
-    ]
-};
-
-//  Utils --------------------------------------------------
-gulp.task(EXIT_GULP, function () {
-    process.exit(0);
+//  SEQUENCE Tasks -------------------------------------------------
+gulp.task(TASK.PAGERES_SNAPSHOT_$ync, function(cb) {
+    runSequence(TASK.PAGERES_SNAPSHOT, TASK.EXIT_GULP, cb);
 });
 
-gulp.task(PAGERES_SNAPSHOT, shell.task([
-    'node .bin/pageres.js ' + argv.s
-]));
-//  ////Utils ----------------------------------------------
-
-
-//  RUN ----------------------------------------------------
-gulp.task(START, function () {
-    nodemon({
-        script: 'server.js',
-        ext: 'js',
-        ignore: _nodemon.ignoreFiles
-    }).on('restart', function (file) {
-        //console.log(file);
-    });
+gulp.task(TASK.BROWSER_SYNC_RELOAD_$ync, function(cb) {
+    runSequence(TASK.BROWSER_SYNC_RELOAD, TASK.EXIT_GULP, cb);
 });
 
-gulp.task(BROWSER_SYNC, function() {
-    browserSync.init({
-        proxy: 'localhost:8080',
-        open: false
-    });
-
-    gulp
-        .watch(_browserSync.watchFiles)
-        .on('change', browserSync.reload);
+gulp.task(TASK.HEROKU_DEPLOY_$ync, function(cb) {
+    runSequence(TASK.HEROKU_DEPLOY, TASK.EXIT_GULP, cb);
 });
 
-gulp.task(BROWSER_SYNC_RELOAD, shell.task([
-    'browser-sync reload'
-]));
-//  ////RUN ------------------------------------------------
+// SEQUENCE Tasks ----------------------------------------------
 
-
-//  WATCH: SRC Files ---------------------------------------
-gulp.task(SAAS_CONFIG, function () {
-    gulp.src($SAAS +  '/**/*.scss')
-            .pipe(sass().on('error', sass.logError))
-            .pipe(gulp.dest($CSS));
-});
-gulp.task(SASS_WATCH, function () {
-    gulp.watch($SAAS +  '/**/*.scss', [SAAS_CONFIG])
-            .on('change', browserSync.reload);
-
-});
-// copy all misc (non saas)
-gulp.task('copy-src-css', function () {
-    gulp.src([
-            $SAAS +  '/**/*.*',
-            '!' + $SAAS +  '/**/*.scss'
-            ])
-            //.pipe(cache('watch:copy-B'))
-            .pipe(gulp.dest($CSS));
-});
-gulp.task(CSS_RESOURCES_WATCH, function () {
-    gulp.watch($SAAS +  '/**/*.*', ['copy-src-css']);
-});
-//  ////WATCH: SRC Files----------------------------------
-
-
-//  BUILD -------------------------------------------------
-
-
-gulp.task(COPY_ALL, function () {
-    return gulp.src(_copyAll.src)
-            .pipe(changed($BUILD_HOME))
-            .pipe(gulp.dest($BUILD_HOME));
-});
-
-gulp.task(NG_ANNOTATE, function () {
-    return gulp.src($JS + '/**/*.js')
-            .pipe(ngAnnotate())
-            .pipe(uglify())
-            .pipe(gulp.dest($BUILD_JS));
-});
-
-gulp.task(MINI_CSS, function() {
-    return gulp.src($CSS + '/**/*.css')
-            .pipe(uncss({
-                html: [$PUBLIC + '/index.html']
-            }))
-            .pipe(csso())
-            .pipe(gulp.dest($BUILD_CSS));
-});
-
-gulp.task(COPY_SRC_CSS_BUILD, function() {
-    // Copy all non css
-    gulp.src([
-        $CSS +  '/**/*.*',
-        '!' + $CSS +  '/**/*.css'
-    ])
-        .pipe(gulp.dest($BUILD_CSS));
-});
-
-gulp.task(PROCESS_HTML, function () {
-    return gulp.src($BUILD_PUBLIC + '/index.html')
-            .pipe(processhtml())
-            .pipe(minifyHTML({
-                conditionals: true,
-                spare: true
-            }))
-            .pipe(gulp.dest($BUILD_PUBLIC));
-});
-
-//  DEPLOY -------------------------------------------------------
-gulp.task(NPM_INSTALL, shell.task([
-    'cd ' + $BUILD_HOME + ' & npm install;'
-]));
-
-//  ////BUILD ----------------------------------------------------
-
-//  DEPLOY -------------------------------------------------------
-gulp.task(HEROKU_DEPLOY, shell.task([
-    '.bin/heroku-deploy.sh ' + !argv.m
-]));
-//  ////DEPLOY ---------------------------------------------------
-
-
-// RUN in production (in npm postinstall) ------------------------
-
-gulp.task('minify-js-lib', function () {
-    gulp.src($LIBS + '/**/*.min.js')
-            .pipe(uglify())
-            .pipe(gulp.dest($ASSETS + 'libs'));
-})
-
-// ////RUN in production (in npm postinstall) ---------------------
-
-
-// Run SEQUENCE Tasks ================================
-
-gulp.task(PAGERES_SNAPSHOT_$ync, function(cb) {
-    runSequence(PAGERES_SNAPSHOT, EXIT_GULP, cb);
-});
-
-gulp.task(BROWSER_SYNC_RELOAD_$ync, function(cb) {
-    runSequence(BROWSER_SYNC_RELOAD, EXIT_GULP, cb);
-});
-
-gulp.task(HEROKU_DEPLOY_$ync, function(cb) {
-    runSequence(HEROKU_DEPLOY, EXIT_GULP, cb);
-});
-
-gulp.task(BUILD_$ync, function(cb) {
-    runSequence(
-            COPY_ALL,
-            NG_ANNOTATE,
-            MINI_CSS,
-            COPY_SRC_CSS_BUILD,
-            PROCESS_HTML,
-            'gulpfile-prod',
-            'npm-install',
-            EXIT_GULP,
+gulp.task(TASK.BUILD_$ync, function(cb) {
+    if (argv.h) {
+        runSequence(
+            TASK.COPY_ALL,
+            TASK.NG_ANNOTATE,
+            TASK.COPY_ALL_CSS,
+            TASK.MINI_CSS,
+            TASK.PROCESS_HTML,
+            TASK.COPY_MOD_GULPFILE,
+            TASK.HEROKU_DEPLOY,
+            TASK.EXIT_GULP,
             cb
-    );
+        );
+    } else {
+        runSequence(
+                TASK.COPY_ALL,
+                TASK.NG_ANNOTATE,
+                TASK.COPY_ALL_CSS,
+                TASK.MINI_CSS,
+                TASK.PROCESS_HTML,
+                TASK.COPY_MOD_GULPFILE,
+                TASK.EXIT_GULP,
+                cb
+        );
+    }
 });
+// //// SEQUENCE Tasks -------------------------------------------
 
 
+//  Run ALIAS Tasks -------------------------------------------------
 
+gulp.task('default', '', [], null, {});
 
-// Run ALIAS Tasks =====================================================
-
-gulp.task('default', 'Inicia o NODEMON e BROWSER-SYNC', [START, BROWSER_SYNC, SASS_WATCH, CSS_RESOURCES_WATCH], null, {
+gulp.task('start', 'Inicia o NODEMON e BROWSER-SYNC |',
+        [TASK.START, TASK.BROWSER_SYNC, TASK.SASS_WATCH, TASK.CSS_RESOURCES_WATCH], null, {
     //options: {'p': '--> NODE_ENV=production'},
 });
 
-gulp.task('[b]uild', 'Prepara para Deploy', [BUILD_$ync], null, {
-    aliases: ['b', 'B']
+gulp.task('build', 'Prepara para Deploy |', [TASK.BUILD_$ync], null, {
+    aliases: ['b', 'B'],
+    options: {
+        'h': '--> E faz deploy (no heroku)',
+        'm': '--> E força instalaçao de dependencias front end no heroku (bower install)',
+    },
 });
 
-gulp.task('[s]aas', 'Watch SCSS |', [MINI_CSS], null, {
+gulp.task('sass', 'Watch Sass |', [TASK.MINI_CSS], null, {
     aliases: ['s', 'S']
 });
 
-gulp.task('[m]inify-[c]ss', 'Minifica CSS |', [MINI_CSS], null, {
+gulp.task('minify-css', 'Minifica CSS |', [TASK.MINI_CSS], null, {
     aliases: ['mc', 'MC']
 });
 
-gulp.task('[n]odemon', 'Inicia o NODEMON |' , [START], null, {
+gulp.task('nodemon', 'Inicia o NODEMON |' , [TASK.START], null, {
     aliases: ['n', 'N']
 });
 
-gulp.task('[r]eload-sync', 'Faz RELOAD de todos Browsers |', [BROWSER_SYNC_RELOAD_$ync], null, {
+gulp.task('reload-sync', 'Faz RELOAD de todos Browsers |', [TASK.BROWSER_SYNC_RELOAD_$ync], null, {
     aliases: ['r', 'R']
 });
-gulp.task('[h]eroku', 'Faz deploy no HEROKU |', [HEROKU_DEPLOY_$ync], null , {
-    options: {'m': '--> (Re)instala modulos (npm install & bower install)'},
+gulp.task('heroku', 'Faz deploy no HEROKU |', [TASK.HEROKU_DEPLOY_$ync], null , {
+    options: {'m': '--> força instalaçao de dependencias front end no heroku (bower install)'},
     aliases: ['h', 'H']
 });
 
-gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_$ync], null , {
+gulp.task('pageres', 'Captura IMAGENS |', [TASK.PAGERES_SNAPSHOT_$ync], null , {
     //options: {'s': '--> Site [localhost:3000]'},
     aliases: ['p']
-
 });
-
+//  ////Run ALIAS Tasks ----------------------------------------------
 
 
 /*
+ https://www.npmjs.com/package/gulp-closure-compiler
  https://github.com/miickel/gulp-angular-templatecache
  https://github.com/ben-eb/gulp-uncss
  https://github.com/darylldoyle/Gulp-Email-Creator
@@ -378,44 +186,3 @@ gulp.task('[p]ageres', 'Captura IMAGENS de localhost:3000 |', [PAGERES_SNAPSHOT_
 
 
  */
-
-//
-//gulp.task(MINIFY_HTML, function() {
-//    var opts = {
-//        conditionals: true,
-//        spare:true
-//    };
-//
-//    return gulp.src($BUILD_PUBLIC + 'index.html')
-//            .pipe(gulp.dest($BUILD_PUBLIC));
-//});
-
-//gulp.task(CLEAN, function () {
-//    return gulp.src([
-//        $BUILD_SRC_TEMP
-//    ])
-//            .pipe(clean({ force: true }))
-//            .pipe(clean({ read: false }));
-//});
-
-
-
-//gulp.task('COPY_LIB_JS_BUILD', function() {
-//    // Copy all non css
-//    return gulp.src([
-//        $ASSETS + 'libs/**/*.min.js'
-//        //'!' + $DIST +  'css/**/*.css'
-//    ])
-//            .pipe(changed($BUILD_ASSETS + 'libs/'))
-//            .pipe(gulp.dest($BUILD_ASSETS + 'libs/'));
-//});
-//
-//gulp.task('uncss', function() {
-//    return gulp.src($ASSETS + 'libs/*/*.min.css')
-//            .pipe(uncss({
-//                html: [$PUBLIC + 'index.html']
-//        }))
-//        .pipe(csso())
-//            .pipe(changed($BUILD_ASSETS + 'libs/'))
-//            .pipe(gulp.dest($BUILD_ASSETS + 'libs/'));
-//});

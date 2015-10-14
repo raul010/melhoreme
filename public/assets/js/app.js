@@ -71,11 +71,12 @@ angular.module('sampleApp', [
         $mdThemingProvider.setDefaultTheme('mainTheme');
 
         $mdIconProvider
-            .iconSet('all', '../../src/img/icons/all.svg', 24)
-            .iconSet('social', '../../src/img/icons/social.svg', 24)
-            .defaultIconSet('../../src/img/icons/all.svg', 24);
+            .iconSet('all', '../../assets/img/icons/all.svg', 24)
+            .iconSet('social', '../../assets/img/icons/social.svg', 24)
+            .defaultIconSet('../../assets/img/icons/all.svg', 24);
     })
 
     .run(function($http, $templateCache) {
-            $http.get('../../src/img/icons/all.svg', {cache: $templateCache});
+
+            $http.get('../../assets/img/icons/all.svg', {cache: $templateCache});
     });

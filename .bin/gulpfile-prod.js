@@ -1,11 +1,8 @@
 'use strict';
 
 //GULP
-var gulp = require('gulp-help')(require('gulp'), {
-    'hideEmpty': true
-});
-
-var uglify          = require('gulp-uglify');
+var gulp    = require('gulp');
+var uglify  = require('gulp-uglify');
 
 // PATHS
 var PATH_SRC = './public/src/';

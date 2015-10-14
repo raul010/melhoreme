@@ -14,3 +14,5 @@ psi.output(process, function (err) {
 
 //"postinstall": "if ! $NODE_MODULES_CACHE; then bower install; fi"
 //    "postinstall": "bower install"
+//    "postinstall": "bower install && gulp minify-js-lib"
+

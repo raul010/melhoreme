@@ -10,15 +10,16 @@
 	<title>Melhore.me</title>
 
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <!-- build:css inline src/css/fonts/fonts-prod.css -->
-    <link href='assets/css/fonts/fonts.css' rel='stylesheet' type='text/css'>
-    <!-- /build -->
 
     <style>
         .main-toolbar {
             background-color: #033649;
         }
     </style>
+
+    <!-- build:css inline -->
+    <link href='assets/css/fonts/fonts.css' rel='stylesheet' type='text/css'>
+    <!-- /build -->
 
     <style type="text/css">
         /**
@@ -28,6 +29,14 @@
             display: none !important;
         }
     </style>
+
+    <!-- build:css inline assets/libs/angular-material/angular-material.min.css -->
+    <link rel="stylesheet" href="assets/libs/angular-material/angular-material.css" >
+    <!-- /build -->
+
+    <!-- build:css inline -->
+    <link rel="stylesheet" href="assets/css/style.css" >
+    <!-- /build -->
 </head>
 
 
@@ -125,9 +134,9 @@
 
                                 <md-content layout-fill> <!-- class="md-padding" --><!-- class="hide-scroll"-->
                                     <a ng-href="/video" >
-                                        <md-card class="card-destaque md-whiteframe-z2 {{ ::c }}" >
+                                        <md-card class="card-destaque md-whiteframe-z2 {{ c }}" >
                                             <!--<div class="purple "></div>-->
-                                            <img ng-src="./src/img/washedout.png" class="md-card-image" alt="Washed Out">
+                                            <img ng-src="./assets/img/washedout.png" class="md-card-image" alt="Washed Out">
                                             <md-card-content layout="column" class="card-content ">
                                                 <!--<h2 class="md-title">Paracosm</h2>-->
                                                 <br/><br/>
@@ -157,8 +166,8 @@
 
                                     >
                                 <md-content layout-fill> <!-- class="md-padding" -->
-                                    <md-card class="card-semi-destaque {{ ::c }}">
-                                        <img ng-src="./src/img/washedout.png" class="md-card-image" alt="Washed Out">
+                                    <md-card class="card-semi-destaque {{ c }}">
+                                        <img ng-src="./assets/img/washedout.png" class="md-card-image" alt="Washed Out">
                                         <md-card-content class="">
                                             <!--<h2 class="md-title">Paracosm</h2>-->
                                         </md-card-content>
@@ -194,8 +203,8 @@
                                     ng-repeat="c in ['cyan','light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 7, 8, 9, 10, 11, 12]"
                                     >
                                 <md-content layout-fill> <!-- class="md-padding" -->
-                                    <md-card class="card-padrao {{ ::c }}">
-                                        <img ng-src="./src/img/washedout.png" class="md-card-image" alt="Washed Out">
+                                    <md-card class="card-padrao {{ c }}">
+                                        <img ng-src="./assets/img/washedout.png" class="md-card-image" alt="Washed Out">
                                         <md-card-content class="">
                                             <!--<h2 class="md-title">Paracosm</h2>-->
                                         </md-card-content>
@@ -220,7 +229,7 @@
                 Categoria
                 <div ng-repeat="filtro in ['a', 'b', 'c', 'd', 'e', 'f', 'g','h']">
                     <md-checkbox>
-                        <span class="md-caption">categoria {{ ::filtro }}</span>
+                        <span class="md-caption">categoria {{ filtro }}</span>
                     </md-checkbox>
                 </div>
                 </md-content>
@@ -244,8 +253,8 @@
 
                                 >
                             <md-content layout-fill> <!-- class="md-padding" -->
-                                <md-card class="card-semi-destaque {{ ::c }}">
-                                    <img ng-src="./src/img/washedout.png" class="md-card-image" alt="Washed Out">
+                                <md-card class="card-semi-destaque {{ c }}">
+                                    <img ng-src="./assets/img/washedout.png" class="md-card-image" alt="Washed Out">
                                     <md-card-content class="">
                                         <!--<h2 class="md-title">Paracosm</h2>-->
                                     </md-card-content>
@@ -394,28 +403,22 @@
     </md-sidenav>
     </div>
 </div>
-<!-- CACHE -------------------------------------------------------------->
 
-<!-- build:css src/libs/angular-material/angular-material.min.css -->
-<link rel="stylesheet" href="assets/libs/angular-material/angular-material.css" >
-<!-- /build -->
-
-<!-- INLINE ------------------------------------------------------------->
-<!-- build:css inline src/css/style.css -->
-<link rel="stylesheet" href="assets/css/style.css" >
-<!-- /build -->
-
-<!-- CACHE -------------------------------------------------------------->
-<!-- build:js src/libs/angular/angular.min.js -->
+<!-- build:js assets/libs/angular/angular.min.js -->
 <script src="assets/libs/angular/angular.js"></script>
 <!-- /build -->
-<script src="assets/libs/angular-animate/angular-animate.min.js"></script>
-<!-- build:js src/libs/angular-material/angular-material.min.js -->
+
+<!-- build:js inline /assets/libs/angular-material/angular-material.min.js -->
 <script src="assets/libs/angular-material/angular-material.js"></script>
 <!-- /build -->
+
+<!-- build:js inline -->
+<script src="assets/libs/angular-animate/angular-animate.min.js"></script>
 <script src="assets/libs/angular-route/angular-route.min.js"></script>
 <script src="assets/libs/angular-aria/angular-aria.min.js"></script>
 <script src="assets/libs/angular-messages/angular-messages.min.js"></script>
+<!-- /build -->
+
 
 <!-- INLINE -------------------------------------------------------------->
 <!-- build:js inline -->

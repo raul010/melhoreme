@@ -10,7 +10,7 @@ var db              = require('./config/db');
 
 var port = process.env.PORT || 8080; // set our port
 
-var NODE_ENV = process.env.NODE_ENV || 'development';
+var NODE_ENV = process.env.NODE_ENV || 'production';
 console.log('*********************************');
 console.log(app.get('env'));
 console.log('*********************************');
@@ -40,7 +40,7 @@ if (NODE_ENV === 'development') {
     app.use(express.static(app.get('dir_public')));
 
 } else if (NODE_ENV === 'production') {
-    app.use(express.static(app.get('dir_public'), {maxAge: '3d'}));
+    app.use(express.static(app.get('dir_public'), {maxAge: '30d'}));
 }
 
 require('./app/routes')(app);
