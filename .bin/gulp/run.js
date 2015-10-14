@@ -1,14 +1,16 @@
 /**
  * Created by raul on 13/10/15.
  */
-
 var constants = require('./constants');
 var TASK    = constants.TASK;
 var SPECS    = constants.SPECS;
 
 module.exports = function run(gulp, nodemon, browserSync, shell) {
 
-    gulp.task(TASK.START, function () {
+    gulp.task(TASK.NODEMON, function () {
+        console.log('iu');
+        console.log('iu');
+
         nodemon({
             script: 'server.js',
             ext: 'js',

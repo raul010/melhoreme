@@ -17,13 +17,12 @@ var processhtml     = require('gulp-processhtml');
 var changed         = require('gulp-changed');
 var cache           = require('gulp-cached');
 var minifyHTML      = require('gulp-minify-html');
-var uncss           = require('gulp-uncss');
-var gulpIgnore      = require('gulp-ignore');
-var del             = require('del');
 var rename          = require("gulp-rename");
-var inlineCss       = require('gulp-inline-css');
 
-
+//var uncss           = require('gulp-uncss');
+//var gulpIgnore      = require('gulp-ignore');
+//var del             = require('del');
+//var inlineCss       = require('gulp-inline-css');
 
 //HELPERS
 var shell   = require('gulp-shell');
@@ -36,22 +35,24 @@ var argv    = require('yargs')
         .default('h', false)
         .argv;
 
-var constants = require('./.bin/gulp/constants');
-var TASK    = constants.TASK;
-var PATH    = constants.PATH;
-var SPECS   = constants.SPECS;
+require('./env');
 
-var NODE_ENV = process.env.NODE_ENV || 'production';
+var constants = require('./.bin/gulp/constants');
+var TASK = constants.TASK;
+
+var NODE_ENV = process.env.NODE_ENV || 'development';
+
+console.log('gulp libs --> ' + process.env.LIBS);
 console.log('*********************')
 console.log(NODE_ENV);
 console.log('*********************')
 
 
-require('./.bin/gulp/utils') (gulp, shell, argv);
+require('./.bin/gulp/build')(gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML, rename);
 require('./.bin/gulp/run')(gulp, nodemon, browserSync, shell);
-require('./.bin/gulp/watch')(gulp, sass);
-require('./.bin/gulp/build')(gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML);
 require('./.bin/gulp/deploy')(gulp, shell, argv);
+require('./.bin/gulp/watch')(gulp, sass);
+require('./.bin/gulp/utils')(gulp, shell, argv);
 
 
 //  SEQUENCE Tasks -------------------------------------------------
@@ -66,8 +67,6 @@ gulp.task(TASK.BROWSER_SYNC_RELOAD_$ync, function(cb) {
 gulp.task(TASK.HEROKU_DEPLOY_$ync, function(cb) {
     runSequence(TASK.HEROKU_DEPLOY, TASK.EXIT_GULP, cb);
 });
-
-// SEQUENCE Tasks ----------------------------------------------
 
 gulp.task(TASK.BUILD_$ync, function(cb) {
     if (argv.h) {
@@ -103,8 +102,7 @@ gulp.task(TASK.BUILD_$ync, function(cb) {
 gulp.task('default', '', [], null, {});
 
 gulp.task('start', 'Inicia o NODEMON e BROWSER-SYNC |',
-        [TASK.START, TASK.BROWSER_SYNC, TASK.SASS_WATCH, TASK.CSS_RESOURCES_WATCH], null, {
-    //options: {'p': '--> NODE_ENV=production'},
+        [TASK.NODEMON, TASK.BROWSER_SYNC, TASK.SASS_WATCH, TASK.CSS_RESOURCES_WATCH], null, {
 });
 
 gulp.task('build', 'Prepara para Deploy |', [TASK.BUILD_$ync], null, {
@@ -123,7 +121,7 @@ gulp.task('minify-css', 'Minifica CSS |', [TASK.MINI_CSS], null, {
     aliases: ['mc', 'MC']
 });
 
-gulp.task('nodemon', 'Inicia o NODEMON |' , [TASK.START], null, {
+gulp.task('server', 'Inicia o NODEMON |' , [TASK.NODEMON], null, {
     aliases: ['n', 'N']
 });
 
@@ -139,13 +137,13 @@ gulp.task('pageres', 'Captura IMAGENS |', [TASK.PAGERES_SNAPSHOT_$ync], null , {
     //options: {'s': '--> Site [localhost:3000]'},
     aliases: ['p']
 });
+
 //  ////Run ALIAS Tasks ----------------------------------------------
 
 
 /*
  https://www.npmjs.com/package/gulp-closure-compiler
  https://github.com/miickel/gulp-angular-templatecache
- https://github.com/ben-eb/gulp-uncss
  https://github.com/darylldoyle/Gulp-Email-Creator
  https://github.com/doctyper/gulp-modernizr
  https://github.com/alexeyraspopov/gulp-complexity

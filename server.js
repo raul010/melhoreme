@@ -1,19 +1,24 @@
 var express         = require('express');
 var app             = express();
+var ejs             = require('ejs');
 var morgan          = require('morgan')
 var compress        = require('compression')
 var mongoose        = require('mongoose');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
-
 var db              = require('./config/db');
+
+require('./env');
 
 var port = process.env.PORT || 8080; // set our port
 
-var NODE_ENV = process.env.NODE_ENV || 'production';
+var NODE_ENV = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
+
+
 console.log('*********************************');
-console.log(app.get('env'));
+console.log(NODE_ENV);
 console.log('*********************************');
+
 //mongoose.connect(db.url); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
 // CONFIG'S ----------------------------------------
@@ -33,14 +38,14 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 
-// PUBLIC CONSTANT
-app.set('dir_public', __dirname + '/public')
+// CLIENT CONSTANT
+app.set('dir_client', __dirname + process.env.CLIENT)
 
 if (NODE_ENV === 'development') {
-    app.use(express.static(app.get('dir_public')));
+    app.use(express.static(app.get('dir_client')));
 
 } else if (NODE_ENV === 'production') {
-    app.use(express.static(app.get('dir_public'), {maxAge: '30d'}));
+    app.use(express.static(app.get('dir_client'), {maxAge: '30d'}));
 }
 
 require('./app/routes')(app);

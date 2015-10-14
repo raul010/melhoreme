@@ -7,7 +7,7 @@ var TASK = constants.TASK;
 var PATH = constants.PATH;
 var SPECS = constants.SPECS;
 
-module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML) {
+module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML, rename) {
 
     // Copia o projeto pro destino
     gulp.task(TASK.COPY_ALL, function () {
@@ -28,7 +28,7 @@ module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, proces
     gulp.task(TASK.COPY_ALL_CSS, function() {
         return gulp.src([
             PATH.CSS + '/**',
-            '!' + PATH.CSS + '/_sass/**'
+            '!' + PATH.SASS + '/**'
         ])
                 .pipe(gulp.dest(PATH.BUILD_CSS));
     });
@@ -39,7 +39,7 @@ module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, proces
             PATH.BUILD_CSS + '/**/*.css'
         ])
             //.pipe(uncss({
-            //    html: [PATH.PUBLIC + '/index.html'] // It contains some bugs
+            //    html: [PATH.CLIENT + '/index.html'] // It contains some bugs
             //}))
                 .pipe(csso())
                 .pipe(gulp.dest(PATH.BUILD_CSS));
@@ -47,13 +47,13 @@ module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, proces
 
     // Dependency Injection in html and minify the html
     gulp.task(TASK.PROCESS_HTML, function () {
-        return gulp.src(PATH.BUILD_PUBLIC + '/index.html')
+        return gulp.src(PATH.CLIENT + '/index.html')
                 .pipe(processhtml())
                 .pipe(minifyHTML({
                     conditionals: true,
                     spare: true
                 }))
-                .pipe(gulp.dest(PATH.BUILD_PUBLIC));
+                .pipe(gulp.dest(PATH.BUILD_CLIENT));
     });
 
     // Injeta dependencias no html e minifica o html

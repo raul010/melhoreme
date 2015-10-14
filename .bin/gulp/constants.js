@@ -7,7 +7,7 @@ var path = require('path');
 // TASKs NAMEs
 var TASK = {
 
-    START           : 'start',
+    NODEMON           : 'nodemon',
     EXIT_GULP       : 'exit-gulp',
     BROWSER_SYNC    : 'browser-sync',
 
@@ -32,53 +32,55 @@ var TASK = {
     MINIFY_HTML         : 'minify-html',
     NPM_INSTALL         : 'npm-install',
     COPY_MOD_GULPFILE   : 'copy-modified-gulpfile',
-    COPY_ALL_CSS        : 'copy-all-css'
+    COPY_ALL_CSS        : 'copy-all-css',
+    ECHO                : 'echo'
 }
 
 // PROJECT PATHS
 function PATH() {
-    this.PROJECT_HOME    = path.normalize('./');
-    this.PUBLIC          = path.join(this.PROJECT_HOME, 'public');
-    this.VIEWS           = path.join(this.PUBLIC, 'views');
-    this.ASSETS          = path.join(this.PUBLIC, 'assets');
-
-    // PROJECT BUILD
-    this.BUILD_HOME     = '../melhoreme-build';
-    this.BUILD_PUBLIC   = path.join(this.BUILD_HOME, 'public');
-    this.BUILD_ASSETS   = path.join(this.BUILD_PUBLIC, 'assets');
-    this.BUILD_TEMP     = path.join(this.BUILD_HOME, 'temp');
+    this.PROJECT_HOME    = process.env.PROJECT_HOME;
+    this.CLIENT          = process.env.CLIENT;
+    this.VIEWS           = process.env.VIEWS;
 
     // ASSETS
-    this.CSS    = path.join(this.ASSETS,  'css');
-    this.SASS   = path.join(this.CSS, '_sass');
-    this.JS     = path.join(this.ASSETS, 'js');
-    this.LIBS   = path.join(this.ASSETS + 'libs');
+    this.ASSETS     = process.env.ASSETS;
+    this.CSS        = process.env.CSS;
+    this.SASS       = process.env.SASS;
+    this.JS         = process.env.JS;
+    this.LIBS       = process.env.LIBS;
+    // PROJECT BUILD
+    this.BUILD_HOME     = process.env.BUILD_HOME;
+    this.BUILD_CLIENT   = process.env.BUILD_CLIENT;
+    this.BUILD_ASSETS   = process.env.BUILD_ASSETS;
+    this.BUILD_TEMP     = process.env.BUILD_TEMP;
 
     // BUILD ASSETS
-    this.BUILD_CSS  = path.join(this.BUILD_ASSETS, 'css');
-    this.BUILD_JS   = path.join(this.BUILD_ASSETS, 'js');
+    this.BUILD_CSS  = process.env.BUILD_CSS;
+    this.BUILD_JS   = process.env.BUILD_JS;
 };
+
+var PATH = new PATH();
 
 // TASKs SPECIFICATIONS
 var SPECS = {
     _nodemon : {
         ignoreFiles : [
             // Root Folder
-            './bin',
-            './node_modules',
-            './public',
-            './z_old',
-            '.git',
+            PATH.PROJECT_HOME + '/.bin',
+            PATH.PROJECT_HOME + '/node_modules',
+            PATH.CLIENT,
+            PATH.PROJECT_HOME + '/z_old',
+            PATH.PROJECT_HOME + '/.git',
 
             // Root Files
-            './gulpfile.js',
-            './z-old.configs'
+            PATH.PROJECT_HOME + '/gulpfile.js',
+            PATH.PROJECT_HOME + '/z-old.configs'
         ]
     },
 
     _browserSync : {
         watchFes : [
-            PATH.PUBLIC + '*.html',
+            PATH.CLIENT + '*.html',
             PATH.VIEWS  + '/*.html',
             PATH.JS     + '/**/*.js',
             PATH.CSS    + '/**/*.*',
@@ -90,13 +92,13 @@ var SPECS = {
 
     _copyAll : {
         src : [
-            '**',
-            '.*',
-            '*.*',
+            PATH.PROJECT_HOME + '/**',
+            PATH.PROJECT_HOME + '/.*',
+            PATH.PROJECT_HOME + '/*.*',
 
-            '!node_modules/**',
-            '!z_old/**',
-            '!\.idea/**',
+            '!' + PATH.PROJECT_HOME + '/node_modules/**',
+            '!' + PATH.PROJECT_HOME + '/z_old/**',
+            '!' + PATH.PROJECT_HOME + '/.idea/**',
 
             // Will be have copy build later
             '!' + PATH.SASS + '/**',
@@ -108,7 +110,7 @@ var SPECS = {
 
 }
 
-var PATH = new PATH();
+console.log(PATH);
 
 module.exports = {
     TASK:   TASK,
