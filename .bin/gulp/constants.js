@@ -38,25 +38,45 @@ var TASK = {
 
 // PROJECT PATHS
 function PATH() {
+    // ROOT
     this.PROJECT_HOME    = process.env.PROJECT_HOME;
     this.CLIENT          = process.env.CLIENT;
+
+    // ROOT/CLIENT
+    this.APP             = process.env.APP;
+    this.ASSETS     = process.env.ASSETS;
     this.VIEWS           = process.env.VIEWS;
 
-    // ASSETS
-    this.ASSETS     = process.env.ASSETS;
+    // ROOT/CLIENT/APP
+    this.CONTROLLERS    = process.env.CONTROLLERS;
+    this.SERVICES       = process.env.SERVICES;
+
+    // ROOT/CLIENT/ASSETS
     this.CSS        = process.env.CSS;
     this.SASS       = process.env.SASS;
     this.JS         = process.env.JS;
     this.LIBS       = process.env.LIBS;
-    // PROJECT BUILD
-    this.BUILD_HOME     = process.env.BUILD_HOME;
-    this.BUILD_CLIENT   = process.env.BUILD_CLIENT;
-    this.BUILD_ASSETS   = process.env.BUILD_ASSETS;
-    this.BUILD_TEMP     = process.env.BUILD_TEMP;
 
-    // BUILD ASSETS
+    // BUILD - ROOT
+    this.BUILD_HOME     = process.env.BUILD_HOME;
+
+    this.BUILD_TEMP     = process.env.BUILD_TEMP;
+    this.BUILD_CLIENT   = process.env.BUILD_CLIENT;
+
+    // ROOT/CLIENT
+    this.BUILD_APP      = process.env.BUILD_APP;
+    this.BUILD_ASSETS   = process.env.BUILD_ASSETS;
+
+    // ROOT/CLIENT/ASSETS
     this.BUILD_CSS  = process.env.BUILD_CSS;
     this.BUILD_JS   = process.env.BUILD_JS;
+
+    // BUILD APP (Client)
+    this.BUILD_CONTROLLERS  = process.env.BUILD_CONTROLLERS;
+    this.BUILD_SERVICES     = process.env.BUILD_SERVICES;
+
+    // BUILD ASSETS
+
 };
 
 var PATH = new PATH();

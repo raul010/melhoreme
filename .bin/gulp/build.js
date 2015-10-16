@@ -18,10 +18,10 @@ module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, proces
 
     // Arruma Injecao Angular, minifica eles e os outros js.
     gulp.task(TASK.NG_ANNOTATE, function () {
-        return gulp.src(PATH.JS + '/**/*.js')
+        return gulp.src(PATH.CONTROLLERS + '/**/*.js')
                 .pipe(ngAnnotate())
                 .pipe(uglify())
-                .pipe(gulp.dest(PATH.BUILD_JS));
+                .pipe(gulp.dest(PATH.BUILD_CONTROLLERS));
     });
 
     // Copia todos arquivos (nao sass) da pasta de assets/css

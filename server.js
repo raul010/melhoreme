@@ -1,6 +1,5 @@
 var express         = require('express');
 var app             = express();
-var ejs             = require('ejs');
 var morgan          = require('morgan')
 var compress        = require('compression')
 var mongoose        = require('mongoose');
@@ -39,7 +38,7 @@ app.set('view engine', 'html');
 
 
 // CLIENT CONSTANT
-app.set('dir_client', __dirname + process.env.CLIENT)
+app.set('dir_client', process.env.CLIENT)
 
 if (NODE_ENV === 'development') {
     app.use(express.static(app.get('dir_client')));
@@ -48,7 +47,7 @@ if (NODE_ENV === 'development') {
     app.use(express.static(app.get('dir_client'), {maxAge: '30d'}));
 }
 
-require('./app/routes')(app);
+require('./server/routes/index')(app);
 
 app.listen(port);
 console.log('Magic happens on port ' + port);

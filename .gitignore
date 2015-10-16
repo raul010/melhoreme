@@ -8,7 +8,8 @@ node_modules
 z_old
 /client/assets/css/fonts
 /client/assets/css/style.css
-/client/assets/js/js-min
+/client/assets/js_OLD
+/client/assets/js_OLD/js-min
 /client/assets/libs
 /client/dist/libs
 z-old.configs
