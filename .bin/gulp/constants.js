@@ -103,10 +103,12 @@ var SPECS = {
 
     _browserSync : {
         watchFiles : [
-            PATH.CLIENT + '*.html',
-            PATH.VIEWS  + '/*.html',
-            PATH.JS     + '/**/*.js',
-            PATH.CSS    + '/**/*.*',
+            // example
+            // ./client/*.html
+            PATH.CLIENT         + '/*.html',
+            PATH.VIEWS          + '/*.html',
+            PATH.CONTROLLERS    + '/**/*.js',
+            PATH.CSS            + '/**/*.*',
 
             //// Ignore
             '!' + PATH.SASS   + '/**', // CSS already Reload with SAAS Task

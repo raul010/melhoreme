@@ -22,7 +22,7 @@ module.exports = (function() {
         // ASSETS
         process.env.CSS             = this.CSS          = path.join(this.ASSETS,  '/css');
         process.env.SASS            = this.SASS         = path.join(this.CSS, '/_sass');
-        process.env.JS              = this.JS           = path.join(this.ASSETS, '/js');
+        //process.env.JS              = this.JS           = path.join(this.ASSETS, '/js');
         process.env.LIBS            = this.LIBS         = path.join(this.ASSETS + '/libs');
 
 

@@ -1,13 +1,13 @@
 angular.module('sampleApp', [
-        'ngRoute',
         'ngMaterial',
+        'ui.router',
+
         'appRoutes',
 
         'MainCtrl',
 
         'SomeService',
         'SideNavCtrl',
-        'LoginCtrl',
         'CadastroCtrl',
         'CardsCtrl',
         'VideoCtrl'
@@ -39,30 +39,52 @@ angular.module('sampleApp', [
             'contrastLightColors': ['600 700']    // could also specify this if default was 'dark'
         });
 
+        $mdThemingProvider.definePalette('custom-email', {
+            "50":"#e6ebed",
+            "100":"#b3c3c8",
+            "200":"#819ba4",
+            "300":"#577986",
+            "400":"#2d5767",
+            "500":"#BF3428",
+            "600":"#032f40",
+            "700":"#022937",
+            "800":"#02222e",
+            "900":"#021b25",
+            "A100":"#b3c3c8",
+            "A200":"#819ba4",
+            "A400":"#2d5767",
+            "A700":"#022937",
+
+            'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
+            // on this palette should be dark or light
+            'contrastDarkColors': ['600 700 800 900'],
+            'contrastLightColors': ['600 700']    // could also specify this if default was 'dark'
+        });
+
 
         $mdThemingProvider.theme('mainTheme')
-                .primaryPalette('custom-green', {
-                    //'default': '50'
-                })
-                .accentPalette('blue-grey')
-                .warnPalette('orange');
+            .primaryPalette('custom-green', {
+                //'default': '50'
+            })
+            .accentPalette('blue-grey')
+            .warnPalette('orange');
+
+        $mdThemingProvider.theme('emailTheme')
+            .primaryPalette('custom-email')
+            .accentPalette('cyan')
+            .warnPalette('orange');
 
         $mdThemingProvider.theme('orangeTheme')
-                .primaryPalette('amber', {
-                    //'default': '50'
-                })
-                .accentPalette('blue-grey')
-                .warnPalette('orange');
-
-        $mdThemingProvider.theme('loginTheme')
-                .primaryPalette('cyan')
-                .accentPalette('blue-grey')
-                .warnPalette('orange');
+            .primaryPalette('amber', {
+                //'default': '50'
+            })
+            .accentPalette('blue-grey')
+            .warnPalette('orange');
 
         $mdThemingProvider.theme('cadastroTheme')
-                .primaryPalette('blue-grey')
-                .accentPalette('cyan')
-                .warnPalette('orange');
+            .primaryPalette('blue-grey')
+            .accentPalette('cyan')
+            .warnPalette('orange');
 
 
         $mdThemingProvider.setDefaultTheme('mainTheme');

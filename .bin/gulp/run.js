@@ -1,9 +1,9 @@
 /**
  * Created by raul on 13/10/15.
  */
-var constants = require('./constants');
-var TASK    = constants.TASK;
-var SPECS    = constants.SPECS;
+var constants   = require('./constants');
+var TASK        = constants.TASK;
+var SPECS       = constants.SPECS;
 
 module.exports = function run(gulp, nodemon, browserSync, shell) {
 
@@ -19,8 +19,13 @@ module.exports = function run(gulp, nodemon, browserSync, shell) {
 
     gulp.task(TASK.BROWSER_SYNC, function() {
         browserSync.init({
-            proxy: 'localhost:8080',
-            open: false
+            proxy: 'https://localhost:8080',
+            open: false,
+            //server: "./app",
+            https: {
+                key: "/home/raul/Develop/ssl/melhoreme.key",
+                cert: "/home/raul/Develop/ssl/melhoreme.crt"
+            }
         });
 
         gulp

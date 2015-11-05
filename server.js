@@ -1,3 +1,5 @@
+var https           = require('https');
+var fs              = require('fs');
 var express         = require('express');
 var app             = express();
 var morgan          = require('morgan');
@@ -21,6 +23,14 @@ mongoose.connect(db.uri, db.options); // connect to our mongoDB database (commen
 
 //
 // CONFIG'S ----------------------------------------
+
+// SSL
+var options = {
+    key: fs.readFileSync('/home/raul/Develop/ssl/melhoreme.key'),
+    cert: fs.readFileSync('/home/raul/Develop/ssl/melhoreme.crt'),
+    requestCert: false,
+    rejectUnauthorized: false
+};
 
 // NGINX is the proxy
 app.set('trust proxy', 'loopback');
@@ -56,6 +66,15 @@ app.use(function(err, req, res, next) {
     //res.status(500).send('Something broke!');
 });
 
-app.listen(port);
-console.log('Magic happens on port ' + port);
+//app.listen(port);
+//console.log('Magic happens on port ' + port);
+
+var server = https.createServer(options, app).listen(port, function(){
+    console.log('If server started via GULP RUN task:');
+    console.log('server ===============================> https://localhost:8080');
+    console.log('server with browser sync =============> https://localhost:3000');
+    console.log('Nginx static proxy ===================> https://localhost:80');
+    console.log('Nginx static proxy and browser sync ==> https://localhost:83');
+});
+
 exports = module.exports = app;

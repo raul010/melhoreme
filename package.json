@@ -54,6 +54,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "ng-annotate": "^1.0.2",
     "pageres": "^2.1.0",
+    "passport": "^0.3.0",
     "phantomjs": "^1.9.18",
     "pmx": "^0.5.5",
     "protractor": "^2.5.1",

@@ -4,25 +4,29 @@
 $color-toolbar-cyan:    $color-dark-blue_200;
 $color-toolbar-orange:  $color-orange_500;
 
+$color-email:           #BF3428;
+
 $layout-breakpoint-sm:     600px;
 $layout-breakpoint-md:     960px;
 $layout-breakpoint-lg:     1200px;
 
 //  << LAYOUT >> ------------------------------------------
-
 .hide-scroll {
   overflow: hidden !important;
   -ms-overflow-style: none;
 }
 
-.text-white {
-  color: white !important;
-}
+//.toolbar-email {
+//    background-color: $color-email !important;
+//}
+//.input-email {
+//    border-color: $color-email !important;
+//}
+
 //  end LAYOUT --------------------------------------------
 
 
 //  TOOLBAR >> --------------------------------------------
-
 .button-toolbar {
 
   padding: 0 0 !important;
@@ -131,53 +135,65 @@ $layout-breakpoint-lg:     1200px;
 
 
 
-//  << COMPONENTs >> ---------------------------------------
+//  << MY COMPONENTs >> ---------------------------------------
 
-hr.ou {
-  padding: 0;
-  border: 0;
-  height: 1px;
-  /*border-top: medium double #333;*/
-  /*color: #333;*/
-  text-align: center;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0));
+.avatar {
+  margin: {
+    right:  8px;
+    top:    3px;
+    bottom: 3px;
+  }
+
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
 }
 
-hr.ou:after {
-  content: "ou";
-  display: inline-block;
-  position: relative;
-  top: -0.7em;
-  font-size: 1.3em;
-  padding: 0 0.25em;
-  background: white;
+md-card md-card-content {
+  padding: {
+    top: 5px;
+    bottom: 5px;
+  }
+}
+
+.orText {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  color: #D3D3D3;
+}
+
+.orText span {
+  background:#fff;
+  padding:0 10px;
 }
 
 //  end COMPONETs ------------------------------------------
 
 
-//  << CARDs >> --------------------------------------------
+//  << MD COMPONENTS>> --------------------------------------------
 
-//min-height: 95%;
-//max-height: 95%;
+//  CARDs
+md-grid-tile {
+  &:hover {
+    //.md-whiteframe-z5 {
+    //box-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 13px 19px 2px rgba(0, 0, 0, 0.14), 0px 5px 24px 4px rgba(0, 0, 0, 0.12) !important;
 
-//@media only screen and (min-width: 0) and (max-width: $layout-breakpoint-sm) {
-//  min-height: 93%;
-//  max-height: 93%;
-//}
+  }
+}
 
 .card-destaque {
   cursor: pointer;
   margin: 0 0 0 1px !important;
-  img {
-  //  oioo
-  }
+
   &:hover {
-    border-radius: 5px 5px 3px 3px;
+    //border-radius: 5px 5px 3px 3px;
     background-color: $color-dark-blue_500;
   }
 }
-//oioi oi oioi oi oi oi op oi oi oi oi
+
 .card-content {
   //padding: 0 0 0 0 !important;
 
@@ -188,6 +204,7 @@ hr.ou:after {
 
   &:hover{
     background-color: $color-dark-blue_500;
+
   }
 }
 
@@ -199,6 +216,7 @@ hr.ou:after {
   }
 }
 
-//  end CARDs  ---------------------------------------------
+//  end MD COMPONENTS  ---------------------------------------------
 
 @import "partials/samples-temp";
+@import "partials/login-social";

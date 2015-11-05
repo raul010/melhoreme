@@ -69,6 +69,7 @@ and overwrite this:
             * ls -l
         4. sudo chown $USER.$USER -R .
             * ls -l
+        5. sudo chown $USER.$USER /tmp/mongodb-27017.sock
 * Run:
     * Starts mongo server in auth mode (without sudo OR sudo service...): `mongod --auth`
     
@@ -110,3 +111,10 @@ These are certainly the two most used tasks.
     tail -f /var/log/nginx/error.log
     tail -f /var/log/nginx/access.log
     tail -f /var/log/nginx/melhore.me
+    
+## Gulp info
+### Watches and Compiles Styles
+1. Watch:
+    - css/sass/style.scss
+2. Compile to:
+    - css/style.css

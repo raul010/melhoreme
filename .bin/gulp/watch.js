@@ -19,7 +19,7 @@ module.exports = function (gulp, sass) {
 // copy all misc (non saas)
     gulp.task('copy-src-css', function () {
         gulp.src([
-            PATH.SASS +  '/**/*.*',
+            PATH.SASS +  '/style.scss',
             '!' + PATH.SASS +  '/**/*.scss'
         ])
             //.pipe(cache('watch:copy-B'))

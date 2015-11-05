@@ -4,13 +4,24 @@ var DIR_CLIENT = app.get('dir_client');
 	// handle things like api calls
 	// authentication routes
 
-	// frontend routes =========================================================
-	// route to handle all angular
+	// To rewrite links, due to the html5Mode angular
+
 	app.get('*', function(req, res) {
-		//res.sendFile(DIR_CLIENT + '/index');
+		console.log('SERVER ==> /*');
+		res.sendFile('index.html', { root: DIR_CLIENT });
 	});
 
-	app.get('/video', function(req, res) {
-		res.sendFile(DIR_CLIENT + '/views/video.html');
+	// frontend routes =========================================================
+	// route to handle all angular
+
+	//app.get('*', function(req, res) {
+	//	//res.sendFile(DIR_CLIENT + '/index');
+	//});
+
+	app.post('/cadastro-email', function(req, res) {
+
+		console.log('SERVER ==> /cadastro-email ');
+
+		res.sendFile('index.html', { root: DIR_CLIENT });
 	});
 };

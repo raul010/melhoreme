@@ -5,7 +5,7 @@ angular.module('SideNavCtrl', [])
             $scope.myEnvironment = $scope;
 
             this.toggleLeft = buildToggler('left');
-            this.toggleRightLogin = buildToggler('right-login');
+            this.toggleRightEmail = buildToggler('right-email');
             this.toggleRightCadastro = buildToggler('right-cadastro');
 
             /**
