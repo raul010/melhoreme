@@ -4,24 +4,43 @@ var express         = require('express');
 var app             = express();
 var morgan          = require('morgan');
 var compress        = require('compression');
-var mongoose        = require('mongoose');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
-var db              = require('./config/db');
+var mongoose        = require("mongoose");
+var passport 	    = require("passport");
+
 
 require('./env');
-var port = process.env.PORT || 8080; // set our port
 
-var NODE_ENV = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
-
+var port        = process.env.PORT || 8080; // set our port
+var NODE_ENV    = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
 
 console.log('*********************************');
 console.log(NODE_ENV);
 console.log('*********************************');
 
-mongoose.connect(db.uri, db.options); // connect to our mongoDB database (commented out after you enter in your own credentials)
+//mongoose.connect(db.uri, db.options); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
-//
+app.set('jwt_secret', process.env.JWT_SECRET);
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+mongoose.connect(
+    process.env.MONGOOSE_URI, {
+        user: process.env.MONGOOSE_USER,
+        pass: process.env.MONGOOSE_PASS
+    }); // connect to our mongoDB database (commented out after you enter in your own credentials)
+
+app.use(function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+    next();
+});
+
+app.use(passport.initialize());
+
 // CONFIG'S ----------------------------------------
 
 // SSL
@@ -58,7 +77,7 @@ app.set('dir_client', process.env.CLIENT);
 app.use(express.static(app.get('dir_client')));
 
 
-require('./server/routes/index')(app);
+require('./server/routes/index')(app, passport);
 
 // ERROR Handling
 app.use(function(err, req, res, next) {

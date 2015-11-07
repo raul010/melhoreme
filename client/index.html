@@ -1,6 +1,6 @@
 <!-- located at client/index.html -->
 <!doctype html >
-<html ng-app="sampleApp" ng-controller="MainController" lang="pt-BR"  >
+<html ng-app="melhoremeApp" ng-controller="MainController" lang="pt-BR"  >
 <head>
 	<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -88,7 +88,6 @@
 
 <!-- build:js assets/libs/angular/angular.min.js -->
 <script src="assets/libs/angular/angular.js"></script>
-<script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 <!-- /build -->
 
 <!-- build:js inline /assets/libs/angular-material/angular-material.min.js -->
@@ -96,24 +95,26 @@
 <!-- /build -->
 
 <!-- build:js inline -->
+<script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="assets/libs/ngstorage/ngStorage.min.js"></script>
 <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
-<!--<script src="assets/libs/angular-route/angular-route.min.js"></script>-->
 <script src="assets/libs/angular-aria/angular-aria.min.js"></script>
 <script src="assets/libs/angular-messages/angular-messages.min.js"></script>
+<script src="assets/libs/angular-facebook/lib/angular-facebook.js"></script>
 <!-- /build -->
-
 
 <!-- INLINE -------------------------------------------------------------->
 <!-- build:js inline -->
 <script src="app/appRoutes.js"></script>
 <script src="app/app.js"></script>
+<script src="app/services/SomeService.js" ></script>
+<script src="app/services/AuthService.js" ></script>
 <script src="app/controllers/MainCtrl.js"></script>
 <script src="app/controllers/SideNavCtrl.js" ></script>
 <script src="app/controllers/CadastroCtrl.js" ></script>
 <!--<script src="app/controllers/LoginCtrl.js" ></script>-->
 <script src="app/controllers/CardsCtrl.js" ></script>
 <script src="app/controllers/VideoCtrl.js" ></script>
-<script src="app/services/SomeService.js" ></script>
 <!-- /build -->
 
 </div>

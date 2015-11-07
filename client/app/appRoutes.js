@@ -1,5 +1,5 @@
 var myapp = angular.module('appRoutes', [])
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider){
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
 
         // For any unmatched url, send to / -> index
         $urlRouterProvider.otherwise("/")
@@ -29,4 +29,23 @@ var myapp = angular.module('appRoutes', [])
                 //        $scope.things = ["A", "Set", "Of", "Things"];
                 //    }
                 //})
+
+        $httpProvider.interceptors.push(function($q, $location, $localStorage) {
+            return {
+                'request': function (config) {
+                    config.headers = config.headers || {};
+                    if ($localStorage.token) {
+                        config.headers.Authorization = 'Portador ' + $localStorage.token;
+                    }
+                    return config;
+                },
+                'responseError': function(response) {
+                    if(response.status === 401 || response.status === 403) {
+                        //$location.path('/signin');
+                        $location.path('/');
+                    }
+                    return $q.reject(response);
+                }
+            };
+        });
 });

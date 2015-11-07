@@ -1,19 +1,24 @@
-angular.module('sampleApp', [
+angular.module('melhoremeApp', [
         'ngMaterial',
         'ui.router',
+        'ngStorage',
 
         'appRoutes',
+        'facebook',
+
+        'SomeService',
+        'AuthService',
 
         'MainCtrl',
 
-        'SomeService',
         'SideNavCtrl',
         'CadastroCtrl',
+
         'CardsCtrl',
         'VideoCtrl'
 ])
 
-    .config(function($mdThemingProvider, $mdIconProvider, $compileProvider) {
+   .config(function($mdThemingProvider, $mdIconProvider, $compileProvider) {
         //$compileProvider.debugInfoEnabled(false);
 
 
@@ -95,7 +100,24 @@ angular.module('sampleApp', [
             .defaultIconSet('../../assets/img/icons/all.svg', 24);
     })
 
-    .run(function($http, $templateCache) {
+    .config(function(FacebookProvider) {
+        //var myAppId = '1664340757147626';
 
-            $http.get('../../assets/img/icons/all.svg', {cache: $templateCache});
+        // You can set appId with setApp method
+        FacebookProvider.setAppId('1664340757147626');
+        //FacebookProvider.setLocale('pr_BR');
+        //FacebookProvider.setChannel('../channel.html');
+        //FacebookProvider.setCookie(false);
+        //FacebookProvider.setSdkVersion('v2.5');
+
+        /**
+         * After setting appId you need to initialize the module.
+         * You can pass the appId on the init method as a shortcut too.
+         */
+        FacebookProvider.init();
+
+    })
+
+    .run(function($http, $templateCache) {
+        $http.get('../../assets/img/icons/all.svg', {cache: $templateCache});
     });

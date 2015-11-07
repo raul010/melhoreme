@@ -43,7 +43,7 @@ $button-font-small-size: ($button-font-size / 2) + 2;
   .small {
     font-size: $button-font-small-size !important;
   }
-  @include social-button(".fb"        ,rgb(59, 89, 153)   ,url('http://simpleicon.com/wp-content/uploads/facebook.svg'));
+  @include social-button(".fb"        , rgb(59, 89, 152),url('http://simpleicon.com/wp-content/uploads/facebook.svg'));
   @include social-button(".gplus"     ,rgb(213, 65, 53)   ,url('http://uxrepo.com/static/icon-sets/mfg-labs/svg/gplus.svg'));
   @include social-button(".github"    , rgb(140, 140, 140),url('http://uxrepo.com/static/icon-sets/mfg-labs/svg/github.svg'));
   @include social-button(".linkedin"  ,rgb(19, 111, 155)  ,url('http://cdn.flaticon.com/svg/53/53907.svg'));

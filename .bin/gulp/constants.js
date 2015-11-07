@@ -81,7 +81,6 @@ function PATH() {
     // BUILD ASSETS
 
 };
-
 var PATH = new PATH();
 
 // TASKs SPECIFICATIONS
@@ -89,7 +88,8 @@ var SPECS = {
     _nodemon : {
         ignoreFiles : [
             // Root Folder
-            PATH.PROJECT_HOME + '/.bin',
+            //PATH.PROJECT_HOME + '/.bin/*.sh',
+            //PATH.PROJECT_HOME + '/.bin/*.log',
             PATH.PROJECT_HOME + '/node_modules',
             PATH.CLIENT,
             PATH.PROJECT_HOME + '/z_old',
@@ -108,7 +108,10 @@ var SPECS = {
             PATH.CLIENT         + '/*.html',
             PATH.VIEWS          + '/*.html',
             PATH.CONTROLLERS    + '/**/*.js',
+            PATH.SERVICES       + '/**/*.js',
             PATH.CSS            + '/**/*.*',
+            PATH.APP            + '/*.js',
+
 
             //// Ignore
             '!' + PATH.SASS   + '/**', // CSS already Reload with SAAS Task
