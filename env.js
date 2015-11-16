@@ -43,37 +43,17 @@ module.exports = (function() {
         process.env.BUILD_CSS       = this.BUILD_CSS    = path.join(this.BUILD_ASSETS, '/css');
         process.env.BUILD_JS        = this.BUILD_JS     = path.join(this.BUILD_ASSETS, '/js');
 
+        // MONGOOSE
+        process.env.MONGOOSE_URI    = 'mongodb://localhost/melhoreme?authSource=melhoreme';
+        process.env.MONGOOSE_USER   = 'raul';
+        process.env.MONGOOSE_PASS   = 'au18gust';
 
-
-
+        // Auth
+        process.env.JWT_SECRET = '!S<1#;Wl?%0D*.d@';
 
     };
 
     new PATH();
-
-    //process.env.PROJECT_HOME    = PATH.PROJECT_HOME;
-    //process.env.CLIENT          = PATH.CLIENT;
-    //process.env.VIEWS           = PATH.VIEWS;
-    //
-    //// APP (client)
-    //process.env.CONTROLLERS = PATH.CONTROLLERS;
-    //process.env.SERVICES    = PATH.SERVICES;
-    //
-    //// ASSETS
-    //process.env.ASSETS      = PATH.ASSETS;
-    //process.env.CSS         = PATH.CSS;
-    //process.env.SASS        = PATH.SASS;
-    //process.env.JS          = PATH.JS;
-    //process.env.LIBS        = PATH.LIBS;
-    //// PROJECT BUILD
-    //process.env.BUILD_HOME     = PATH.BUILD_HOME;
-    //process.env.BUILD_CLIENT   = PATH.BUILD_CLIENT;
-    //process.env.BUILD_ASSETS   = PATH.BUILD_ASSETS;
-    //process.env.BUILD_TEMP     = PATH.BUILD_TEMP;
-    //
-    //// BUILD ASSETS
-    //process.env.BUILD_CSS  = PATH.BUILD_CSS;
-    //process.env.BUILD_JS   = PATH.BUILD_JS;
 
 })();
 
