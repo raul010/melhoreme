@@ -226,24 +226,17 @@
                         <md-icon md-svg-icon="all:account-password"></md-icon>
                         <input ng-model="cadastro.user.password" type="password">
                     </md-input-container>
-                    <md-button class="md-raised" ng-click="cadastro.signin()">Login</md-button>
-                    <md-button class="md-raised" ng-click="cadastro.me()">ME</md-button>
-                    <md-button class="md-raised" ng-click="cadastro.logout()">logout</md-button>
+                    <md-button class="md-raised md-primary" ng-click="cadastro.signin()">Login</md-button>
+                    <!--<md-button class="md-raised" ng-click="cadastro.me()">ME</md-button>-->
+                    <!--<md-button class="md-raised" ng-click="cadastro.logout()">logout</md-button>-->
 
                 </form>
                 <br><h2 class="orText"><span>ou</span></h2>
 
                 <md-content class="social-section">
-                    <!--<md-button ng-click="cadastro.authFacebook()" class="md-raised fb" ><span class="small">Entrar com </span>Facebook</md-button>-->
-                    <!--<md-button ng-href="/auth/facebook" class="md-raised fb" onclick="window.open(this.href, 'mywin',-->
-<!--'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"><span class="small">Entrar com </span>Facebook</md-button>-->
-                    <md-button ng-href="/auth/facebook" class="md-raised fb" target="_blank"><span class="small">Entrar com </span>Facebook</md-button>
-                    <md-button class="md-raised fb" ng-click="intentLogin()"><span class="small">intentLogin </span>Facebook</md-button>
-                    <md-button class="md-raised fb" ng-click="login()"><span class="small">login </span>Facebook</md-button>
-                    <md-button class="md-raised fb" ng-click="meFb()"><span class="small">me </span>Facebook</md-button>
-                    <md-button class="md-raised fb" ng-click="logout()"><span class="small">logout </span>Facebook</md-button>
-                    <!--<button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>-->
+                    <md-button  ng-click="login()" class="md-raised fb"><span class="small">Entrar com </span>Facebook</md-button>
 
+                    <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised fb" target="_blank"><span class="small">Entrar com </span>Google+</md-button>-->
                     <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised gplus" target="_blank"><span class="small">Entrar com </span>Google+</md-button>-->
                     <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised github" target="_blank"><span class="small">Entrar com </span>Github</md-button>-->
                     <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised linkedin" target="_blank"><span class="small">Entrar com </span>Linkedin</md-button>-->
@@ -291,7 +284,7 @@
                         <md-icon md-svg-icon="all:account-password"></md-icon>
                         <input ng-model="cadastro.user.password" type="password"> <!-- class="input-email" -->
                     </md-input-container>
-                    <md-button class="md-raised" ng-click="cadastro.signup()">Cadastre-se</md-button>
+                    <md-button class="md-raised md-primary" ng-click="cadastro.signup()">Cadastre-se</md-button>
                 </form>
 
 

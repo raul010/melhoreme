@@ -4,7 +4,7 @@ angular.module('melhoremeApp', [
         'ngStorage',
 
         'appRoutes',
-        'facebook',
+        'ezfb',
 
         'SomeService',
         'AuthService',
@@ -100,22 +100,15 @@ angular.module('melhoremeApp', [
             .defaultIconSet('../../assets/img/icons/all.svg', 24);
     })
 
-    .config(function(FacebookProvider) {
-        //var myAppId = '1664340757147626';
-
-        // You can set appId with setApp method
-        FacebookProvider.setAppId('1664340757147626');
-        //FacebookProvider.setLocale('pr_BR');
-        //FacebookProvider.setChannel('../channel.html');
-        //FacebookProvider.setCookie(false);
-        //FacebookProvider.setSdkVersion('v2.5');
-
+    .config(function (ezfbProvider) {
         /**
-         * After setting appId you need to initialize the module.
-         * You can pass the appId on the init method as a shortcut too.
+         * Basic setup
+         *
+         * https://github.com/pc035860/angular-easyfb#configuration
          */
-        FacebookProvider.init();
-
+        ezfbProvider.setInitParams({
+            appId: '1664340757147626'
+        });
     })
 
     .run(function($http, $templateCache) {

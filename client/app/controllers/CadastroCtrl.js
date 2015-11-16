@@ -2,7 +2,7 @@
 
 angular
     .module('CadastroCtrl', [])
-    .controller('CadastroControler', function($scope, $rootScope, $localStorage, $timeout, $http, Auth, Facebook) {
+    .controller('CadastroControler', function($scope, $rootScope, $localStorage, $timeout, $http, Auth, ezfb) {
         this.user = {
             username: '',
             email: '',
@@ -93,131 +93,80 @@ angular
         })
     };
 
+    updateLoginStatus(updateApiMe);
 
-            // Define user empty data :/
-            //$scope.user = {};
-
-            // Defining user logged status
-            $scope.logged = false;
-
-            // And some fancy flags to display messages upon user status change
-            $scope.byebye = false;
-            $scope.salutation = false;
-
+    $scope.login = function () {
+        /**
+         * Calling FB.login with required permissions specified
+         * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
+         */
+        ezfb.login(function (res) {
             /**
-             * Watch for Facebook to be ready.
-             * There's also the event that could be used
+             * no manual $scope.$apply, I got that handled
              */
-            $scope.$watch(
-                    function() {
-                        return Facebook.isReady();
-                    },
-                    function(newVal) {
-                        if (newVal)
-                            $scope.facebookReady = true;
-                    }
+            if (res.authResponse) {
+                updateLoginStatus(updateApiMe);
+            }
+        }, {scope: 'email,user_likes'});
+    };
+
+    $scope.logout = function () {
+        /**
+         * Calling FB.logout
+         * https://developers.facebook.com/docs/reference/javascript/FB.logout
+         */
+        ezfb.logout(function () {
+            updateLoginStatus(updateApiMe);
+        });
+    };
+
+    $scope.share = function () {
+        ezfb.ui(
+                {
+                    method: 'feed',
+                    name: 'angular-easyfb API demo',
+                    picture: 'http://plnkr.co/img/plunker.png',
+                    link: 'http://plnkr.co/edit/qclqht?p=preview',
+                    description: 'angular-easyfb is an AngularJS module wrapping Facebook SDK.' +
+                    ' Facebook integration in AngularJS made easy!' +
+                    ' Please try it and feel free to give feedbacks.'
+                },
+                function (res) {
+                    // res: FB.ui response
+                }
             );
-
-            var userIsConnected = false;
-
-            Facebook.getLoginStatus(function(response) {
-                console.log("Facebook.getLoginStatus | response.status =>");
-                console.log(response.status);
-                if (response.status == 'connected') {
-                    userIsConnected = true;
-                }
-            });
-
-            /**
-             * IntentLogin
-             */
-            $scope.intentLogin = function() {
-                console.log('$scope.IntentLogin userIsConnected => ');
-                console.log(userIsConnected);
-                if(!userIsConnected) {
-                    $scope.login();
-                }
-            };
-
-            /**
-             * Login
-             */
-            $scope.login = function() {
-                Facebook.login().then(
-                        function(response) {
-                            console.log('$scope.login .response => ');
-                            console.log(response);
-                            if (response.status == 'connected') {
-                                $scope.logged = true;
-                                $scope.meFb();
-                            }
-
-                        }, {
-                            scope: 'email',
-                            //return_scopes: true
-                        }
-                );
-            };
-
-            /**
-             * me
-             */
-            $scope.meFb = function() {
-                Facebook.api('/me', function(response) {
-                    console.log('$scope.me response => ');
-                    console.log(response);
-                    /**
-                     * Using $scope.$apply since this happens outside angular framework.
-                     */
-                    $scope.$apply(function() {
-                        $scope.user = response;
-                    });
-
-                });
-                Facebook.api('/me/permissions', function(response) {
-                    console.log('/me/permissions response => ');
-                    console.log(response);
-                });
-            };
-
-            /**
-             * Logout
-             */
-            $scope.logout = function() {
-                console.log(' $scope.logout');
-                Facebook.logout(function() {
-                    $scope.$apply(function() {
-                        $scope.user   = {};
-                        $scope.logged = false;
-                    });
-                });
-            };
-
-            /**
-             * Taking approach of Events :D
-             */
-            $scope.$on('Facebook:statusChange', function(ev, data) {
-                console.log('Status: ', data);
-                if (data.status == 'connected') {
-                    $scope.$apply(function() {
-                        $scope.salutation = true;
-                        $scope.byebye     = false;
-                    });
-                } else {
-                    $scope.$apply(function() {
-                        $scope.salutation = false;
-                        $scope.byebye     = true;
-
-                        // Dismiss byebye message after two seconds
-                        $timeout(function() {
-                            $scope.byebye = false;
-                        }, 2000)
-                    });
-                }
+        };
 
 
-            });
+    /**
+     * For generating better looking JSON results
+     */
+    var autoToJSON = ['loginStatus', 'apiMe'];
+    angular.forEach(autoToJSON, function (varName) {
+        $scope.$watch(varName, function (val) {
+            //$scope[varName + 'JSON'] = JSON.stringify(val, null, 2);
+            console.log(val);
+        }, true);
+    });
 
+    /**
+     * Update loginStatus result
+     */
+    function updateLoginStatus (more) {
+        ezfb.getLoginStatus(function (res) {
+            $scope.loginStatus = res;
 
+            (more || angular.noop)();
+        });
+    }
+
+    /**
+     * Update api('/me') result
+     */
+    function updateApiMe () {
+        ezfb.api('/me', function (res) {
+            $scope.apiMe = res;
+        });
+    }
 
 });
