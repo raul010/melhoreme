@@ -89,7 +89,7 @@ app.use(function(err, req, res, next) {
 //console.log('Magic happens on port ' + port);
 
 var server = https.createServer(options, app).listen(port, function(){
-    console.log('If server started via GULP RUN task:');
+    console.log('If server has started via GULP RUN task:');
     console.log('server ===============================> https://localhost:8080');
     console.log('server with browser sync =============> https://localhost:3000');
     console.log('Nginx static proxy ===================> https://localhost:80');

@@ -3,6 +3,24 @@
 angular.module('AuthService', [])
     .factory('Auth', function($http, $localStorage){
 
+        // token do $localStorage (vindo do server) para user
+        function getUserFromToken() {
+            var token = $localStorage.token;
+            var user = {};
+            if (typeof token !== 'undefined') {
+                var encoded = token.split('.')[1];
+                user = JSON.parse(urlBase64Decode(encoded));
+            }
+            // LOG -----------------------------------
+            console.log(' getUserFromToken vvv ');
+            console.log(user);
+            //----------------------------------------
+
+            return user;
+        }
+
+        var currentUser = getUserFromToken();
+
         function changeUser(user) {
             angular.extend(currentUser, user);
         }
@@ -19,27 +37,15 @@ angular.module('AuthService', [])
                     output += '=';
                     break;
                 default:
-                    throw 'Cadeia de caracteres base64url inválida!';
+                    // TODO[RAUL]: send AUTO EMAIL to admin, if reached this point
+                    throw 'Chain of characters base64url invalid!';
             }
             return window.atob(output);
         }
 
-        function getUserFromToken() {
-            var token = $localStorage.token;
-            var user = {};
-            if (typeof token !== 'undefined') {
-                var encoded = token.split('.')[1];
-                user = JSON.parse(urlBase64Decode(encoded));
-            }
-            console.log('====> ' + user);
-            return user;
-        }
-
-        var currentUser = getUserFromToken();
 
         return {
             signup: function(data, success, error) {
-                //$http.post(baseUrl + '/signin', data).success(success).error(error)
                 $http.post('/signup', data).then(success, error)
             },
             signin: function(data, success, error) {
@@ -52,19 +58,6 @@ angular.module('AuthService', [])
                 changeUser({});
                 delete $localStorage.token;
                 success();
-            },
-            authFacebook: function(success, error) {
-                $http.get('/auth/facebook').then(success, error);
-
-                //var req = {
-                //    url: '/auth/facebook',
-                //    method: 'GET',
-                //    headers: {
-                //        'Access-Control-Allow-Origin': '*',
-                //        'Access-Control-Allow-Headers': 'Origin , X-Requested-With, Content-Type, Accept, Authorization'
-                //    },
-                //}
-                //$http(req).then(success, error)
             }
         };
     }

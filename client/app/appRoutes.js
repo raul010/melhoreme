@@ -1,35 +1,18 @@
 var myapp = angular.module('appRoutes', [])
-    .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
+    .config(function($stateProvider, $locationProvider, $urlRouterProvider, $httpProvider){
 
         // For any unmatched url, send to / -> index
         $urlRouterProvider.otherwise("/")
         $locationProvider.html5Mode(true).hashPrefix('!');
 
-        $stateProvider
-                .state('index', {
-                    url: "/",
-                    templateUrl: "../views/index.html"
-                });
-                //.state('route1.list', {
-                //    url: "/list",
-                //    templateUrl: "route1.list.html",
-                //    controller: function($scope){
-                //        $scope.items = ["A", "List", "Of", "Items"];
-                //    }
-                //})
-                //
-                //.state('route2', {
-                //    url: "/route2",
-                //    templateUrl: "route2.html"
-                //})
-                //.state('route2.list', {
-                //    url: "/list",
-                //    templateUrl: "route2.list.html",
-                //    controller: function($scope){
-                //        $scope.things = ["A", "Set", "Of", "Things"];
-                //    }
-                //})
-
+        /**
+         * Se estiver logado (existir token), envia token armazenado no local storage,
+         * para o server, em cada request;
+         *
+         * Se o server devolver o response com status de erro de autenticacao, altera o
+         * path e rejeita a resposta inteira.
+         *
+         **/
         $httpProvider.interceptors.push(function($q, $location, $localStorage) {
             return {
                 'request': function (config) {
@@ -47,5 +30,28 @@ var myapp = angular.module('appRoutes', [])
                     return $q.reject(response);
                 }
             };
+        });
+
+
+        $stateProvider
+            .state('index', {
+                url: "/",
+                templateUrl: "../views/index.html"
+            })
+            .state('content', {
+                url: "/content",
+                templateUrl: "../views/content.html"
+            })
+            .state('video', {
+                url: "/video",
+                templateUrl: "../views/video.html"
+            })
+            .state('admin', {
+                url: "/admin",
+                templateUrl: "../views/admin/index-admin.html"
+            })
+            .state('dashboard', {
+                url: "/dashboard",
+                templateUrl: "../views/admin/index-dashboard.html"
         });
 });

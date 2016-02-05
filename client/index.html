@@ -50,16 +50,17 @@
             <md-button ng-click="sideNav.toggleLeft()" hide-gt-md class="md-icon-button button-toolbar" aria-label="Menu">
                 <md-icon md-svg-icon="all:menu"></md-icon>
             </md-button>
-            <h2>
-                <!--<span class="m">M</span><span class="logo">elhore.<span class="m-2">m</span>e</span>-->
-                <span class="m"></span><span hide-sm class="elhore"></span><span class="m-2"></span>
-            </h2>
+            <a ui-sref="index">
+                <h2>
+                    <!--<span class="m">M</span><span class="logo">elhore.<span class="m-2">m</span>e</span>-->
+                    <span class="m"></span><span hide-sm class="elhore"></span><span class="m-2"></span>
+                </h2>
+            </a>
 
             <div flex layout="row" layout-align="center center" md-theme="orangeTheme" >
                 <div flex="15"></div>
 
-
-                <md-input-container class="md-icon-float ajuste-search" layout-fill ng-cloak>
+                <md-input-container class="md-block ajuste-search" layout-fill layout-align="center center" ng-cloak>
                     <md-icon md-svg-icon="all:search"></md-icon>
                     <input ng-model="cadastro.user.username" type="text" class="search" aria-label="pesquisa">
                 </md-input-container>
@@ -68,9 +69,42 @@
 
             </div>
             <div layout="row" layout-align="end center" ng-cloak>
-                <md-button hide-sm ng-click="sideNav.toggleRightCadastro()" class="button-toolbar" aria-label="Cadastro" >
+                <md-button ng-if="!sideNav.isLogged()" hide-sm ng-click="sideNav.toggleRightCadastro()" class="button-toolbar" aria-label="Cadastro" >
+                <!--<md-button ng-if="sideNav.isLogged()" hide-sm ng-click="sideNav.toggleRightCadastro()" class="button-toolbar" aria-label="Cadastro" >-->
                     entrar
                 </md-button>
+
+                <div class="md-menu-demo" ng-if="sideNav.isLogged()">
+                    <div class="menu-demo-container" layout-align="center center" layout="column">
+                        <md-menu >
+                            <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="sideNav.openMenu($mdOpenMenu, $event)">
+                                <img ng-src="http://38.media.tumblr.com/avatar_f8c44361cbe8_128.png"
+                                     class="avatar" alt="raul">
+                                <!--<md-icon md-menu-origin md-svg-icon="call:phone"></md-icon>-->
+                            </md-button>
+                            <md-menu-content width="4">
+                                <md-menu-item>
+                                    <md-button ng-click="sideNav.configuracoes()">
+                                        Configurações
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-item>
+                                    <md-button ng-click="sideNav.checkVoicemail()">
+                                        Check voicemail
+                                    </md-button>
+                                </md-menu-item>
+                                <md-menu-divider></md-menu-divider>
+                                <md-menu-item>
+                                    <md-button ng-click="sideNav.logout()">
+                                        Sair
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu>
+                    </div>
+                </div>
+
+
             </div>
             <span hide-sm flex="5"></span>
 
@@ -82,7 +116,132 @@
         <span><br/><br/></span>
     </md-whiteframe>
 
+
+    <md-sidenav md-component-id="right-cadastro" md-theme="" class="md-sidenav-right md-whiteframe-z2" ng-cloak>
+        <md-toolbar class="md-theme-light md-tall" layout="column">
+            <div layout="row" layout-align="end start">
+                <md-button ng-click="sideNav.close('right-cadastro')" class="md-icon-button" aria-label="Close">
+                    <md-icon md-svg-icon="all:window_close" style="width:16px;height:16px;" hide-sm></md-icon>
+                    <md-icon md-svg-icon="all:window_close" hide-gt-sm></md-icon>
+                </md-button>
+            </div>
+
+            <span flex></span>
+
+            <div layout="row" >
+                <h1 class="md-toolbar-tools"><i>Entrar</i></h1>
+            </div>
+        </md-toolbar>
+
+        <div ng-controller="CadastroControler as cadastro" layout="column">
+
+            <md-content layout-padding class="autoScroll">
+
+                <form>
+                    <br>
+
+                    <md-input-container class="md-block">
+                        <!-- Use floating placeholder instead of label -->
+                        <md-icon md-svg-icon="all:account_up" class="email"></md-icon>
+                        <input ng-model="user.email" type="email" placeholder="Email" ng-required="true">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" >
+                        <label>Senha</label>
+                        <md-icon md-svg-icon="all:account-password"></md-icon>
+                        <input ng-model="cadastro.user.senha" type="password">
+                    </md-input-container>
+                    <md-button class="md-raised md-primary" ng-click="sideNav.close('right-cadastro'); cadastro.signin()">Login</md-button>
+                    <!--<md-button class="md-raised" ng-click="cadastro.me()">ME</md-button>-->
+                    <md-button class="md-raised" ng-click="cadastro.logout()">logout</md-button>
+
+                </form>
+                <br><h2 class="orText"><span>ou</span></h2>
+
+                <md-content class="social-section">
+                    <md-button  ng-click="login()" class="md-raised fb">
+                        <span class="small">Entrar com </span>Facebook
+                    </md-button>
+
+                    <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised fb" target="_blank"><span class="small">Entrar com </span>Google+</md-button>-->
+                    <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised gplus" target="_blank"><span class="small">Entrar com </span>Google+</md-button>-->
+                    <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised github" target="_blank"><span class="small">Entrar com </span>Github</md-button>-->
+                    <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised linkedin" target="_blank"><span class="small">Entrar com </span>Linkedin</md-button>-->
+
+                    <md-button ng-click="sideNav.close('right-cadastro'); sideNav.toggleRightEmail()"
+                               class="md-raised email" target="_blank">
+                        <span class="small">Cadastrar com </span>Email
+                    </md-button>
+                </md-content>
+            </md-content>
+        </div> <!-- end CadastroControler -->
+    </md-sidenav>
+
+    <md-sidenav md-component-id="right-email" md-theme="emailTheme" class="md-sidenav-right md-whiteframe-z2" ng-cloak>
+        <md-toolbar class="md-tall toolbar-email" layout="column">
+            <div layout="row" layout-align="end start">
+                <md-button ng-click="sideNav.close('right-email')" class="md-icon-button" aria-label="Close">
+                    <md-icon md-svg-icon="all:window_close" style="width:16px;height:16px;" hide-sm></md-icon>
+                    <md-icon md-svg-icon="all:window_close" hide-gt-sm></md-icon>
+                </md-button>
+            </div>
+
+            <span flex></span>
+
+            <div layout="row">
+                <h1 class="md-toolbar-tools"><i>Cadastro</i></h1>
+            </div>
+        </md-toolbar>
+
+        <div ng-controller="CadastroControler as cad" layout="column">
+
+            <md-content class="autoScroll">
+
+                <form name="cadForm" layout-padding>
+                    <br>
+                    <md-input-container class="md-block" >
+                        <!-- Use floating label instead of placeholder -->
+                        <md-icon md-svg-icon="all:account_up"></md-icon>
+                        <!--<input  ng-model="cad.user.email" required placeholder="Email" type="email" name="email">-->
+                        <input  ng-model="cad.user.email" placeholder="Email" name="email">
+                        <div ng-messages="cadForm.email.$error">
+
+                            <div ng-message="email">O formato deste email parece estranho.</div>
+                        </div>
+                    </md-input-container>
+
+                    <md-input-container class="md-block" >
+                        <md-icon md-svg-icon="all:account-password"></md-icon>
+                        <input ng-model="cad.user.senha" ng-minlength="6" required placeholder="Senha" type="password" name="senha">
+
+                        <div ng-messages="cadForm.senha.$error" >
+                            <div ng-message="minlength">Mínimo deve ser 6 dígitos</div>
+                        </div>
+                    </md-input-container>
+
+
+                    <md-input-container class="md-block" >
+                        <md-icon md-svg-icon="all:account-password"></md-icon>
+                        <input ng-model="cad.user.confirmaSenha" equals="{{cad.user.senha}}" ng-minlength="6" required placeholder="Cofirme a Senha" type="password" name="confirmaSenha">
+
+                        <div ng-messages="cadForm.confirmaSenha.$error">
+                            <div ng-message="equals">Não está batendo com a senha</div>
+
+                        </div>
+                    </md-input-container>
+
+                    <md-button class="md-raised md-primary" ng-disabled="cadForm.$invalid" ng-click="cad.signup();">Cadastre-se</md-button>
+                </form>
+
+
+            </md-content>
+        </div> <!-- end CadastroControler -->
+    </md-sidenav>
+
+
+
     <div ui-view></div>
+
 </div>
 
 
@@ -92,6 +251,10 @@
 
 <!-- build:js inline /assets/libs/angular-material/angular-material.min.js -->
 <script src="assets/libs/angular-material/angular-material.js"></script>
+<!-- /build -->
+
+<!-- assets/libs/ng-file-upload/ng-file-upload.min.js -->
+<script src="assets/libs/ng-file-upload/ng-file-upload.js"></script>
 <!-- /build -->
 
 <!-- build:js inline -->
@@ -108,14 +271,16 @@
 <!-- build:js inline -->
 <script src="app/appRoutes.js"></script>
 <script src="app/app.js"></script>
-<script src="app/services/SomeService.js" ></script>
 <script src="app/services/AuthService.js" ></script>
 <script src="app/controllers/MainCtrl.js"></script>
 <script src="app/controllers/SideNavCtrl.js" ></script>
 <script src="app/controllers/CadastroCtrl.js" ></script>
 <!--<script src="app/controllers/LoginCtrl.js" ></script>-->
+<script src="app/controllers/admin/RegisterManager.js" ></script>
+<script src="app/controllers/admin/DashboardVideo.js" ></script>
 <script src="app/controllers/CardsCtrl.js" ></script>
 <script src="app/controllers/VideoCtrl.js" ></script>
+<script src="app/directives/errorForms.js" ></script>
 <!-- /build -->
 
 </div>

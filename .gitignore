@@ -19,7 +19,7 @@ z-old.configs
 z-package.json
 /client/z-index-old.html
 /env.js
-
+/tests_async.js
 
 # ADD COMMENT TO DEPLOY (Like Heroku)
 /server/config/labels.js

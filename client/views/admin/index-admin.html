@@ -1,0 +1,40 @@
+<style>
+
+</style>
+
+
+<section layout="row" layout-padding ng-cloak> <!-- class="hide-scroll" -->
+
+    <span show-gt-md flex="15"></span>
+
+    <md-content layout-fill flex> <!-- class="hide-scroll"-->
+
+        <div ng-controller="RegisterManager" >
+
+            <div layout="row">
+                <md-whiteframe flex="20" class="md-whiteframe-5dp" layout-padding style="margin-right: 8px;">
+
+                    <md-list>
+                        <md-list-item  ng-repeat="t in templates">
+                                <a ng-click="templateIndex($index)"> <p>{{ t.name }}</p></a>
+                        </md-list-item>
+                    </md-list>
+                </md-whiteframe>
+
+                <md-whiteframe flex class="md-whiteframe-5dp" layout-padding style="margin-left: 8px;">
+                    <div ng-include="template.url"></div>
+
+                </md-whiteframe>
+            </div>
+
+
+        </div>
+    </md-content>
+
+    <span show-gt-md flex="15"></span>
+
+</section>
+
+<script>
+
+</script>

@@ -32,6 +32,8 @@ var argv    = require('yargs')
         .boolean('m')
         .default('m', false)
         .string('s')
+        .boolean('d')
+        .default('d', false)
         .boolean('h')
         .default('h', false)
         .argv;
@@ -51,7 +53,7 @@ console.log('*********************')
 
 require('./.bin/gulp/pre-tests')(gulp, shell);
 require('./.bin/gulp/build')(gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML, rename);
-require('./.bin/gulp/run')(gulp, nodemon, browserSync, shell);
+require('./.bin/gulp/run')(gulp, nodemon, browserSync, shell, argv);
 require('./.bin/gulp/deploy')(gulp, shell, argv);
 require('./.bin/gulp/watch')(gulp, sass);
 require('./.bin/gulp/utils')(gulp, shell, argv);
@@ -105,6 +107,10 @@ gulp.task('default', '', [], null, {});
 
 gulp.task('run', 'Inicia o NODEMON e BROWSER-SYNC |',
     [TASK.NODEMON, TASK.BROWSER_SYNC, TASK.SASS_WATCH, TASK.CSS_RESOURCES_WATCH], null, {
+            aliases: ['d', 'D'],
+            options: {
+                'd': '--> Debug Mode'
+            }
 });
 
 gulp.task('pre-tests', '(AINDA EM VERSÃO BETA, NÃO USAR) Start-up all requiriments to run tests |',

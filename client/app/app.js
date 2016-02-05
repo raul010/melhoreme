@@ -1,18 +1,24 @@
 angular.module('melhoremeApp', [
         'ngMaterial',
+        'ngMessages',
         'ui.router',
         'ngStorage',
+        'ngFileUpload',
 
         'appRoutes',
         'ezfb',
 
-        'SomeService',
         'AuthService',
+
+        'ConfirmaSenhaDirective',
 
         'MainCtrl',
 
         'SideNavCtrl',
         'CadastroCtrl',
+
+        'RegisterManagerCtrl',
+        'DashboardVideoCtrl',
 
         'CardsCtrl',
         'VideoCtrl'
@@ -100,16 +106,6 @@ angular.module('melhoremeApp', [
             .defaultIconSet('../../assets/img/icons/all.svg', 24);
     })
 
-    .config(function (ezfbProvider) {
-        /**
-         * Basic setup
-         *
-         * https://github.com/pc035860/angular-easyfb#configuration
-         */
-        ezfbProvider.setInitParams({
-            appId: '1664340757147626'
-        });
-    })
 
     .run(function($http, $templateCache) {
         $http.get('../../assets/img/icons/all.svg', {cache: $templateCache});

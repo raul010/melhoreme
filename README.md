@@ -110,7 +110,7 @@ These are certainly the two most used tasks.
 
     tail -f /var/log/nginx/error.log
     tail -f /var/log/nginx/access.log
-    tail -f /var/log/nginx/melhore.me
+    tail -f /var/log/nginx/melhoreme.log
     
 ## Gulp info
 ### Watches and Compiles Styles

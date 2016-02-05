@@ -53,6 +53,7 @@ function PATH() {
     // ROOT/CLIENT/APP
     this.CONTROLLERS    = process.env.CONTROLLERS;
     this.SERVICES       = process.env.SERVICES;
+    this.SERVICES       = process.env.DIRECTIVES;
 
     // ROOT/CLIENT/ASSETS
     this.CSS        = process.env.CSS;
@@ -106,9 +107,10 @@ var SPECS = {
             // example
             // ./client/*.html
             PATH.CLIENT         + '/*.html',
-            PATH.VIEWS          + '/*.html',
+            PATH.VIEWS          + '/**/*.html',
             PATH.CONTROLLERS    + '/**/*.js',
             PATH.SERVICES       + '/**/*.js',
+            PATH.DIRECTIVES     + '/**/*.js',
             PATH.CSS            + '/**/*.*',
             PATH.APP            + '/*.js',
 

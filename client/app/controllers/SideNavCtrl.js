@@ -1,12 +1,60 @@
 angular.module('SideNavCtrl', [])
 
-        .controller('SideNavControler', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+        .controller('SideNavControler', function ($scope, $timeout, $mdSidenav, $mdUtil,
+                                                  $log, $localStorage, $location, Auth ) {
 
             $scope.myEnvironment = $scope;
+
+            // Login ---------------------------------------------------
+
+            this.perfil = function perfil () {
+            };
+
+            console.log($localStorage.token);
+
+            this.isLogged = function isLogged () {
+                if ($localStorage.token) {
+                    console.log("true");
+                    return true;
+                } else {
+                    console.log("false");
+                    return false;
+                }
+            };
+
+            // ----------------------------------------------------------
+
+            // Perfil ---------------------------------------------------
+
+            var originatorEv;
+            this.openMenu = function($mdOpenMenu, ev) {
+                originatorEv = ev;
+                $mdOpenMenu(ev);
+            };
+
+            this.toggleNotifications = function() {
+
+            };
+            this.configuracoes = function() {
+                $location.path('/admin');
+            };
+            this.logout = function logout() {
+                Auth.logout(function (res) {
+                    console.log('logout() == ok');
+                });
+            }
+
+            // ----------------------------------------------------------
+
+
+            // Toogle ---------------------------------------------------
 
             this.toggleLeft = buildToggler('left');
             this.toggleRightEmail = buildToggler('right-email');
             this.toggleRightCadastro = buildToggler('right-cadastro');
+
+
+
 
             /**
              * Build handler to open/close a SideNav; when animation finishes
@@ -29,5 +77,8 @@ angular.module('SideNavCtrl', [])
                         .then(function () {
                             $log.debug("close " + side.toUpperCase() + " is done");
                         });
-            }
+            };
+
+            // ----------------------------------------------------------
+
         });

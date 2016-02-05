@@ -17,10 +17,12 @@
     "npm": "2.14.4"
   },
   "dependencies": {
+    "async": "^1.5.2",
     "bcrypt": "^0.8.5",
     "body-parser": "^1.14.1",
     "bower": "^1.5.3",
     "compression": "^1.6.0",
+    "connect-multiparty": "^2.0.0",
     "ejs": "^2.3.4",
     "express": "^4.0.0",
     "jsonwebtoken": "^5.4.1",
@@ -28,9 +30,11 @@
     "method-override": "^2.3.5",
     "mongoose": "^4.2.3",
     "morgan": "^1.6.1",
+    "multiparty": "^4.1.2",
     "passport": "^0.3.0",
     "passport-facebook": "^2.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "validator": "^4.6.1"
   },
   "devDependencies": {
     "browser-sync": "^2.9.8",
@@ -60,6 +64,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "ng-annotate": "^1.0.2",
     "pageres": "^2.1.0",
+    "passport-facebook-token": "^3.0.5",
     "phantomjs": "^1.9.18",
     "pmx": "^0.5.5",
     "protractor": "^2.5.1",

@@ -5,10 +5,17 @@ var constants   = require('./constants');
 var TASK        = constants.TASK;
 var SPECS       = constants.SPECS;
 
-module.exports = function run(gulp, nodemon, browserSync, shell) {
+module.exports = function run(gulp, nodemon, browserSync, shell, argv) {
 
     gulp.task(TASK.NODEMON, function () {
+        var FLAG_DEBUG_MODE = "--debug";
+        var isDebug_Mode = !argv.d;
+
+        if (isDebug_Mode) {
+            FLAG_DEBUG_MODE = "";
+        }
         nodemon({
+            exec: 'node ' + FLAG_DEBUG_MODE,
             script: 'server.js',
             ext: 'js',
             ignore: SPECS._nodemon.ignoreFiles
