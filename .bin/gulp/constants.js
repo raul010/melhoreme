@@ -7,7 +7,7 @@ var path = require('path');
 // TASKs NAMEs
 var TASK = {
 
-    NODEMON           : 'nodemon',
+    NODEMON         : 'nodemon',
     EXIT_GULP       : 'exit-gulp',
     BROWSER_SYNC    : 'browser-sync',
 
@@ -15,19 +15,26 @@ var TASK = {
     SASS_WATCH              : 'sass:watch',
     CSS_RESOURCES_WATCH     : 'watch:copy-src',
 
-    BROWSER_SYNC_RELOAD_$ync    : 'browser-sync-reload-SYNC',
-    PAGERES_SNAPSHOT_$ync       : 'pageres-snapshot-SYNC',
-    HEROKU_DEPLOY_$ync          : 'heroku-deploy-SYNC',
-    BUILD_$ync                  : 'build_SYNC',
+    TEMPLATE_CACHE_CONFIG   : 'templateCache-config',
+    TEMPLATE_CACHE_WATCH    : 'templateCache:watch',
 
-    BROWSER_SYNC_RELOAD : 'browser-sync-reload',
+    BROWSER_SYNC_RELOAD_$ync    : 'browser-sync-reload-SYNC',
+    BROWSER_SYNC_RELOAD         : 'browser-sync-reload',
+
+    BACKUP_PROJ_$ync    : 'backup-proj-SYNC',
+    BACKUP_PROJ         : 'backup-proj',
+
+    HEROKU_DEPLOY_$ync  : 'heroku-deploy-SYNC',
     HEROKU_DEPLOY       : 'heroku-deploy',
-    PAGERES_SNAPSHOT    : 'pageres-snapshot',
+
+    PAGERES_SNAPSHOT_$ync   : 'pageres-snapshot-SYNC',
+    PAGERES_SNAPSHOT        : 'pageres-snapshot',
+
+    BUILD_$ync          : 'build_SYNC',
     COPY_ALL            : 'copy-all',
     NG_ANNOTATE         : 'annotate',
     MINI_CSS            : 'mini-css',
     MINI_JS             : 'mini-js',
-    //COPY_SRC_CSS_BUILD  : 'copy-src-css-build',
     PROCESS_HTML        : 'process-html',
     MINIFY_HTML         : 'minify-html',
     NPM_INSTALL         : 'npm-install',
@@ -40,20 +47,24 @@ var TASK = {
 }
 
 // PROJECT PATHS
-function PATH() {
+function PATH_ENV() {
+    // DETAILS
+    this.PROJECT_FOLDER_NAME = process.env.PROJECT_FOLDER_NAME;
+    this.BACKUP_FOLDER       = process.env.BACKUP_FOLDER;
+
     // ROOT
-    this.PROJECT_HOME    = process.env.PROJECT_HOME;
     this.CLIENT          = process.env.CLIENT;
 
     // ROOT/CLIENT
-    this.APP             = process.env.APP;
-    this.ASSETS     = process.env.ASSETS;
-    this.VIEWS           = process.env.VIEWS;
+    this.APP            = process.env.APP;
+    this.ASSETS         = process.env.ASSETS;
+    this.VIEWS          = process.env.VIEWS;
 
     // ROOT/CLIENT/APP
     this.CONTROLLERS    = process.env.CONTROLLERS;
     this.SERVICES       = process.env.SERVICES;
-    this.SERVICES       = process.env.DIRECTIVES;
+    this.DIRECTIVES     = process.env.DIRECTIVES;
+    this.TEMPLATES      = process.env.TEMPLATES;
 
     // ROOT/CLIENT/ASSETS
     this.CSS        = process.env.CSS;
@@ -82,68 +93,72 @@ function PATH() {
     // BUILD ASSETS
 
 };
-var PATH = new PATH();
+var PATH_ENV = new PATH_ENV();
 
 // TASKs SPECIFICATIONS
 var SPECS = {
     _nodemon : {
         ignoreFiles : [
             // Root Folder
-            //PATH.PROJECT_HOME + '/.bin/*.sh',
-            //PATH.PROJECT_HOME + '/.bin/*.log',
-            PATH.PROJECT_HOME + '/node_modules',
-            PATH.CLIENT,
-            PATH.PROJECT_HOME + '/z_old',
-            PATH.PROJECT_HOME + '/.git',
+            'node_modules',
+            PATH_ENV.CLIENT,
+            'z_old',
+            '.git',
 
             // Root Files
-            PATH.PROJECT_HOME + '/gulpfile.js',
-            PATH.PROJECT_HOME + '/z-old.configs'
+            'gulpfile.js',
+            'z-old.configs'
         ]
     },
-
     _browserSync : {
         watchFiles : [
-            // example
-            // ./client/*.html
-            PATH.CLIENT         + '/*.html',
-            PATH.VIEWS          + '/**/*.html',
-            PATH.CONTROLLERS    + '/**/*.js',
-            PATH.SERVICES       + '/**/*.js',
-            PATH.DIRECTIVES     + '/**/*.js',
-            PATH.CSS            + '/**/*.*',
-            PATH.APP            + '/*.js',
+            PATH_ENV.CLIENT         + '/*.html',
+            PATH_ENV.VIEWS          + '/**/*.html',
+            PATH_ENV.CONTROLLERS    + '/**/*.js',
+            PATH_ENV.SERVICES       + '/**/*.js',
+            PATH_ENV.DIRECTIVES     + '/**/*.js',
+            PATH_ENV.CSS            + '/**/*.*',
+            PATH_ENV.APP            + '/*.js',
 
 
             //// Ignore
-            '!' + PATH.SASS   + '/**', // CSS already Reload with SAAS Task
+            '!' + PATH_ENV.SASS   + '/**', // CSS already Reload with SAAS Task
         ]
     },
 
     _copyAll : {
         src : [
-            PATH.PROJECT_HOME + '/**',
-            PATH.PROJECT_HOME + '/.*',
-            PATH.PROJECT_HOME + '/*.*',
+            '**',
+            '.*',
+            '*.*',
 
-            '!' + PATH.PROJECT_HOME + '/node_modules/**',
-            '!' + PATH.PROJECT_HOME + '/z_old/**',
-            '!' + PATH.PROJECT_HOME + '/.idea/**',
+            '!node_modules/**',
+            '!z_old/**',
+            '!.idea/**',
 
             // Will be have copy build later
-            '!' + PATH.SASS + '/**',
-            '!' + PATH.JS   + '/**',
-            '!' + PATH.LIBS + '/**'
-            //'!' + PATH.CSS  + '/**/*.css'
+            '!' + PATH_ENV.SASS + '/**',
+            '!' + PATH_ENV.JS   + '/**',
+            '!' + PATH_ENV.LIBS + '/**'
+            //'!' + PATH_ENV.CSS  + '/**/*.css'
+        ]
+    },
+
+    _backup : {
+        src : [
+           '**/*',
+
+            '!node_modules/**',
+            '!' + PATH_ENV.LIBS         + '/**'
         ]
     }
 
 }
 
-console.log(PATH);
+console.log(PATH_ENV);
 
 module.exports = {
     TASK:   TASK,
-    PATH:   PATH,
+    PATH:   PATH_ENV,
     SPECS:  SPECS
 }

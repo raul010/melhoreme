@@ -5,10 +5,5 @@ html {
 html, body{
   background-color: #fcfcfc;
   overflow-x: hidden !important;
-  -ms-overflow-x: hidden;
-}
-
-.hide-scroll {
-  overflow: hidden !important;
-  -ms-overflow-style: none;
+  -ms-overflow-x: hidden !important;
 }

@@ -1,0 +1,46 @@
+<md-content class="autoScroll hide-horiz-scroll" layout="column">
+
+    <form name="signupForm" id="signupForm" layout-padding>
+
+        <br>
+        <md-input-container class="md-block" >
+            <!-- Use floating label instead of placeholder -->
+            <md-icon md-svg-icon="all:account_up"></md-icon>
+            <input  ng-model="signupUser.user.email" placeholder="Email" type="email" name="email" required multiple md-sidenav-focus>
+            <!--<input  ng-model="signupUser.user.email" placeholder="Email" md-sidenav-focus>-->
+            <div ng-messages="signupForm.email.$error">
+
+                <div ng-message="email">O formato deste email parece estranho.</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" >
+            <md-icon md-svg-icon="all:account-password"></md-icon>
+            <input ng-model="signupUser.user.password" ng-minlength="6" required placeholder="Senha" type="password" name="password">
+            <!--<input ng-model="signupUser.user.password" placeholder="Senha"  >-->
+
+            <div ng-messages="signupForm.password.$error"  >
+                <div ng-message="minlength">Mínimo deve ser 6 dígitos</div>
+            </div>
+        </md-input-container>
+
+
+        <md-input-container class="md-block" >
+            <md-icon md-svg-icon="all:account-password"></md-icon>
+            <input ng-model="signupUser.user.confirmaPassword" equals="{{signupUser.user.password}}" ng-minlength="6" required placeholder="Cofirme a Senha" type="password" name="confirmaPassword">
+            <!--<input ng-model="signupUser.user.confirmaPassword" placeholder="Cofirme a Senha" >-->
+
+            <div ng-messages="signupForm.confirmaPassword.$error">
+                <div ng-message="equals">Não está batendo com a senha</div>
+
+            </div>
+        </md-input-container>
+
+        <captcha ng-if="signupUser.showCaptcha"></captcha>
+
+        <md-button class="md-raised md-primary" ng-disabled="signupForm.$invalid" ng-click="signupUser.signup();">Cadastre-se</md-button>
+        <!--<md-button class="md-raised md-primary" ng-click="signupUser.signup();">Cadastre-se</md-button>-->
+    </form>
+
+
+</md-content>

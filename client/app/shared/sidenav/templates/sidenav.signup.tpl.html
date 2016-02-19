@@ -1,0 +1,20 @@
+<md-sidenav md-component-id="right-cadastro"  md-theme="emailTheme"  class="emailTheme md-sidenav-right md-whiteframe-z2" ng-cloak>
+    <md-toolbar class="md-tall" layout="column">
+        <div layout="row" layout-align="end start">
+            <md-button ng-click="sidenav.service.close('right-cadastro')" class="md-icon-button" aria-label="Close">
+                <md-icon md-svg-icon="all:window_close" style="width:16px;height:16px;" hide-sm></md-icon>
+                <md-icon md-svg-icon="all:window_close" hide-gt-sm></md-icon>
+            </md-button>
+            </div>
+
+            <span flex></span>
+
+            <div layout="row">
+            <h1 class="md-toolbar-tools"><i>Cadastro</i></h1>
+        </div>
+    </md-toolbar>
+
+    <!-- LOGIN -->
+    <mme-signup></mme-signup>
+
+</md-sidenav>

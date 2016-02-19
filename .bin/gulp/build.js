@@ -39,7 +39,7 @@ module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, proces
             PATH.BUILD_CSS + '/**/*.css'
         ])
             //.pipe(uncss({
-            //    html: [PATH.CLIENT + '/index.html'] // It contains some bugs
+            //    html: [PATH_ENV.CLIENT + '/index.html'] // It contains some bugs
             //}))
                 .pipe(csso())
                 .pipe(gulp.dest(PATH.BUILD_CSS));
@@ -58,7 +58,7 @@ module.exports = function build (gulp, changed, ngAnnotate, uglify, csso, proces
 
     // Injeta dependencias no html e minifica o html
     gulp.task(TASK.COPY_MOD_GULPFILE, function () {
-        return gulp.src(PATH.PROJECT_HOME + '/.bin/gulpfile-prod.js')
+        return gulp.src('.bin/gulpfile-prod.js')
                 .pipe(rename(function (path) {
                     //path.dirname += "/ciao";
                     path.basename = 'gulpfile';

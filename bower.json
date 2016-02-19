@@ -1,17 +1,19 @@
 {
-  "name": "angular",
+  "name": "melhoreme",
   "version": "1.0.0",
   "dependencies": {
-    "angular": "1.4.6",
-    "angular-animate": "1.4.6",
-    "angular-aria": "1.4.6",
-    "angular-material": "~1.0.4",
-    "angular-messages": "1.4.6",
-    "angular-route": "1.4.6",
-    "ng-file-upload": "~11.2.3"
+    "angular": "1.4.8",
+    "angular-animate": "1.4.8",
+    "angular-aria": "1.4.8",
+    "angular-material": "^1.0.4",
+    "angular-messages": "1.4.8",
+    "angular-route": "1.4.8",
+    "ng-file-upload": "^11.2.3",
+    "lodash": "^4.5.0",
+    "angular-recaptcha": "^2.4.1"
   },
   "devDependencies": {
-    "angular-mocks": "1.4.6",
+    "angular-mocks": "1.4.8",
     "angular-ui-router": "~0.2.15",
     "angular-easyfb": "~1.4.1"
   }

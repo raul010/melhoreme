@@ -1,0 +1,54 @@
+<md-content layout-padding class="autoScroll hide-horiz-scroll" layout="column">
+    <form name="loginForm" id="loginForm"  >
+        <br>
+        <md-input-container class="md-block">
+            <!-- Use floating placeholder instead of label -->
+            <md-icon md-svg-icon="all:account_up" class="email"></md-icon>
+            <input ng-model="loginUser.user.email" multiple type="email" name="email" placeholder="Email" required md-sidenav-focus>
+            <!--<input ng-model="loginUser.user.email"  placeholder="Email" md-sidenav-focus>-->
+            <div ng-messages="loginForm.email.$error">
+
+                <div ng-message="email">O formato deste email parece estranho.</div>
+            </div>
+        </md-input-container>
+
+        <md-input-container class="md-block" >
+            <label>Senha</label>
+            <md-icon md-svg-icon="all:account-password"></md-icon>
+            <input ng-model="loginUser.user.password" ng-minlength="6" type="password" name="password" required>
+            <!--<input ng-model="loginUser.user.password">-->
+
+            <div ng-messages="loginForm.password.$error" >
+                <div ng-message="minlength">Mínimo deve ser 6 dígitos</div>
+            </div>
+        </md-input-container>
+
+        <captcha ng-if="loginUser.showCaptcha" name="captcha"></captcha>
+
+        <md-button class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="loginUser.login()">Login</md-button>
+        <a ui-sref="forgot" ng-click="loginUser.sidenav.close('{{ CONST.SIDENAV.RIGHT_LOGIN }}')">Esqueci minha senha</a>
+
+    </form>
+    <h2 class="orText"><span>ou</span></h2>
+
+    <md-content class="social-section">
+        <md-button  ng-click="loginUser.login()" class="md-raised fb">
+            <span class="small">Entrar com </span>Facebook
+        </md-button>
+
+        <button ng-click="authenticate('facebook')">Sign in with Facebook</button>
+
+        <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised fb" target="_blank"><span class="small">Entrar com </span>Google+</md-button>-->
+        <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised gplus" target="_blank"><span class="small">Entrar com </span>Google+</md-button>-->
+        <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised github" target="_blank"><span class="small">Entrar com </span>Github</md-button>-->
+        <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised linkedin" target="_blank"><span class="small">Entrar com </span>Linkedin</md-button>-->
+
+        <md-button ng-click="loginUser.sidenav.close('right-login'); loginUser.sidenav.toggle.rightCadastro()"
+                   class="md-raised email" target="_blank">
+            <span class="small">Cadastrar com </span>Email
+        </md-button>
+        <md-button ng-click="loginUser.sidenav.oi()">
+            OI
+        </md-button>
+    </md-content>
+</md-content>

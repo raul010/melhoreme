@@ -11,9 +11,9 @@ $layout-breakpoint-md:     960px;
 $layout-breakpoint-lg:     1200px;
 
 //  << LAYOUT >> ------------------------------------------
-.hide-scroll {
-  overflow: hidden !important;
-  -ms-overflow-style: none;
+.hide-horiz-scroll {
+  overflow-x: hidden !important;
+  -ms-overflow-style: none !important;
 }
 
 //.toolbar-email {
@@ -86,7 +86,6 @@ $layout-breakpoint-lg:     1200px;
   }
 
 }
-// opopossooodsdf
 .elhore {
   font-family: 'Sacramento', cursive;
   color: $color-light-green_800;
@@ -122,7 +121,7 @@ $layout-breakpoint-lg:     1200px;
   font-family: dejavu sans mono, monospace !important;
   color: $color-light-green-500 !important;
   font-size: 18px;
-  width: 70% !important;
+  width: 80% !important;
 
   -webkit-transition: width 0.4s ease-in-out !important;
   transition: width 0.4s ease-in-out !important;
@@ -130,7 +129,7 @@ $layout-breakpoint-lg:     1200px;
   //padding: 2px 2px 2px 2px;
   &:focus {
     border-bottom-color: $color-amber_500 !important;
-    width: 95% !important;
+    width: 90% !important;
 
   }
 }

@@ -11,6 +11,7 @@ var runSequence = require('run-sequence');
 var nodemon         = require('gulp-nodemon');
 var browserSync     = require('browser-sync').create();
 var sass            = require('gulp-sass');
+var templateCache   = require('gulp-angular-templatecache');
 var csso            = require('gulp-csso');
 var ngAnnotate      = require('gulp-ng-annotate');
 var uglify          = require('gulp-uglify');
@@ -19,6 +20,7 @@ var changed         = require('gulp-changed');
 var cache           = require('gulp-cached');
 var minifyHTML      = require('gulp-minify-html');
 var rename          = require("gulp-rename");
+var gutil           = require('gulp-util');
 
 //var uncss           = require('gulp-uncss');
 //var gulpIgnore      = require('gulp-ignore');
@@ -53,9 +55,11 @@ console.log('*********************')
 
 require('./.bin/gulp/pre-tests')(gulp, shell);
 require('./.bin/gulp/build')(gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML, rename);
+require('./.bin/gulp/backup')(gulp);
 require('./.bin/gulp/run')(gulp, nodemon, browserSync, shell, argv);
 require('./.bin/gulp/deploy')(gulp, shell, argv);
-require('./.bin/gulp/watch')(gulp, sass);
+require('./.bin/gulp/watch-sass')(gulp, sass);
+require('./.bin/gulp/watch-template-cache')(gulp, templateCache, gutil);
 require('./.bin/gulp/utils')(gulp, shell, argv);
 
 
@@ -70,6 +74,10 @@ gulp.task(TASK.BROWSER_SYNC_RELOAD_$ync, function(cb) {
 
 gulp.task(TASK.HEROKU_DEPLOY_$ync, function(cb) {
     runSequence(TASK.HEROKU_DEPLOY, TASK.EXIT_GULP, cb);
+});
+
+gulp.task(TASK.BACKUP_PROJ_$ync, function(cb) {
+    runSequence(TASK.BACKUP_PROJ, TASK.EXIT_GULP, cb);
 });
 
 gulp.task(TASK.BUILD_$ync, function(cb) {
@@ -106,7 +114,7 @@ gulp.task(TASK.BUILD_$ync, function(cb) {
 gulp.task('default', '', [], null, {});
 
 gulp.task('run', 'Inicia o NODEMON e BROWSER-SYNC |',
-    [TASK.NODEMON, TASK.BROWSER_SYNC, TASK.SASS_WATCH, TASK.CSS_RESOURCES_WATCH], null, {
+    [TASK.NODEMON, TASK.BROWSER_SYNC, TASK.SASS_WATCH, TASK.CSS_RESOURCES_WATCH, TASK.TEMPLATE_CACHE_WATCH], null, {
             aliases: ['d', 'D'],
             options: {
                 'd': '--> Debug Mode'
@@ -124,6 +132,14 @@ gulp.task('build', 'Prepara para Deploy |', [TASK.BUILD_$ync], null, {
         'h': '--> E faz deploy (no heroku)',
         'm': '--> E força instalaçao de dependencias front end no heroku (bower install)',
     },
+});
+
+gulp.task('backup', 'Backup do projeto, exceto as dependencias|', [TASK.BACKUP_PROJ_$ync], null, {
+    aliases: ['k', 'K'],
+    //options: {
+    //    'h': '--> E faz deploy (no heroku)',
+    //    'm': '--> E força instalaçao de dependencias front end no heroku (bower install)',
+    //},
 });
 
 gulp.task('sass', 'Watch Sass |', [TASK.MINI_CSS], null, {
