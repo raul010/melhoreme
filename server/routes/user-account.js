@@ -1,4 +1,5 @@
 var User					= require('../models/User.js');
+var User					= require('../models/User.js');
 var ajax                    = require('../util/ajax');
 var email					= require('../util/email');
 var label					= require('../util/label');

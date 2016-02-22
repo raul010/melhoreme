@@ -16,13 +16,8 @@ app.directive('mmeSidenav', function () {
            ou
            sidenav.signup.tpl.html
         */
-        template: '<div ng-include="getContentUrl()"></div>',
-
-        link: function (scope, elem, attrs) {
-            scope.getContentUrl = function() {
-
-                return 'sidenav.' + attrs.type + '.tpl.html';
-            }
+        templateUrl: function (elem, attr) {
+                return 'sidenav.' + attr.type + '.tpl.html';
         }
     }
     });

@@ -4,7 +4,18 @@
         <md-input-container class="md-block">
             <!-- Use floating placeholder instead of label -->
             <md-icon md-svg-icon="all:account_up" class="email"></md-icon>
-            <input ng-model="loginUser.user.email" multiple type="email" name="email" placeholder="Email" required md-sidenav-focus>
+            <!--pattern="[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}"-->
+
+            <input
+                    ng-model="loginUser.user.email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    multiple
+                    required
+                    ng-model-options="{ debounce: 100 }"
+                    mme-email-pattern
+                    md-sidenav-focus>
             <!--<input ng-model="loginUser.user.email"  placeholder="Email" md-sidenav-focus>-->
             <div ng-messages="loginForm.email.$error">
 
@@ -46,9 +57,6 @@
         <md-button ng-click="loginUser.sidenav.close('right-login'); loginUser.sidenav.toggle.rightCadastro()"
                    class="md-raised email" target="_blank">
             <span class="small">Cadastrar com </span>Email
-        </md-button>
-        <md-button ng-click="loginUser.sidenav.oi()">
-            OI
         </md-button>
     </md-content>
 </md-content>

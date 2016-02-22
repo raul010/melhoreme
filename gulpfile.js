@@ -114,7 +114,18 @@ gulp.task(TASK.BUILD_$ync, function(cb) {
 gulp.task('default', '', [], null, {});
 
 gulp.task('run', 'Inicia o NODEMON e BROWSER-SYNC |',
-    [TASK.NODEMON, TASK.BROWSER_SYNC, TASK.SASS_WATCH, TASK.CSS_RESOURCES_WATCH, TASK.TEMPLATE_CACHE_WATCH], null, {
+    [
+        TASK.NODEMON,
+        TASK.BROWSER_SYNC,
+        TASK.SASS_WATCH,
+        TASK.CSS_RESOURCES_WATCH,
+        TASK.TEMPLATE_CACHE_WATCH,
+
+        //One time on restart (before watch)
+        TASK.SASS_CONFIG,
+        TASK.COPY_ALL_MISC_CSS,
+        TASK.TEMPLATE_CACHE_CONFIG
+    ], null, {
             aliases: ['d', 'D'],
             options: {
                 'd': '--> Debug Mode'

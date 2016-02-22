@@ -43,8 +43,11 @@ angular.module('AuthService', [])
             return window.atob(output);
         }
 
+        var a = 0;
+
         console.log('AUTH*************************');
         return {
+            a: ++a,
             signup: function(data, success, error) {
                 $http.post('/signup', data).then(success, error)
             },

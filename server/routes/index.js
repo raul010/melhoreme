@@ -1,3 +1,5 @@
+var ajax = require('../util/ajax')
+
 module.exports = function(app, fn) {
 
 	console.log('raul');
@@ -30,9 +32,17 @@ module.exports = function(app, fn) {
 	var urlMatches =
 			/(^\/$)|(^\/admin$)|(^\/content$)|(^\/dashboard$)|(^\/forgot$)|(^\/watch)/;
 
-	app.get(urlMatches, function(req, res) {
-		console.log('urlMatches -->', req.originalUrl);
-		res.sendFile('index.html', { root: app.get('dir_client') });
+	app.get('*', function(req, res) {
+		if(urlMatches.exec(req.originalUrl)) {
+			console.log('urlMatches -->', req.originalUrl);
+			res.sendFile('index.html', { root: app.get('dir_client') });
+			return;
+		}
+
+		console.log('!urlMatches -->', req.originalUrl);
+		res.status(404);
+		res.sendFile('erro.html', { root: app.get('dir_client') });
+
 	});
 
 };

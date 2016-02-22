@@ -14,6 +14,7 @@ var TASK = {
     SASS_CONFIG             : 'sass-config',
     SASS_WATCH              : 'sass:watch',
     CSS_RESOURCES_WATCH     : 'watch:copy-src',
+    COPY_ALL_MISC_CSS       : 'copy-src-css',
 
     TEMPLATE_CACHE_CONFIG   : 'templateCache-config',
     TEMPLATE_CACHE_WATCH    : 'templateCache:watch',
@@ -30,20 +31,21 @@ var TASK = {
     PAGERES_SNAPSHOT_$ync   : 'pageres-snapshot-SYNC',
     PAGERES_SNAPSHOT        : 'pageres-snapshot',
 
-    BUILD_$ync          : 'build_SYNC',
-    COPY_ALL            : 'copy-all',
-    NG_ANNOTATE         : 'annotate',
-    MINI_CSS            : 'mini-css',
-    MINI_JS             : 'mini-js',
-    PROCESS_HTML        : 'process-html',
-    MINIFY_HTML         : 'minify-html',
-    NPM_INSTALL         : 'npm-install',
-    COPY_MOD_GULPFILE   : 'copy-modified-gulpfile',
-    COPY_ALL_CSS        : 'copy-all-css',
-    ECHO                : 'echo',
-    WEBDRIVER_START     : 'webdriver-start',
-    KARMA_START         : 'karma-start',
-    NGROK_JENKINS       : 'ngrok-jenkins'
+    BUILD_$ync              : 'build_SYNC',
+    COPY_ALL                : 'copy-all',
+    COPY_ANGULAR_PRODUCTION : 'copy-angular-production',
+    NG_ANNOTATE             : 'annotate',
+    MINI_CSS                : 'mini-css',
+    MINI_JS                 : 'mini-js',
+    PROCESS_HTML            : 'process-html',
+    MINIFY_HTML             : 'minify-html',
+    NPM_INSTALL             : 'npm-install',
+    COPY_MOD_GULPFILE       : 'copy-modified-gulpfile',
+    COPY_ALL_CSS            : 'copy-all-css',
+    ECHO                    : 'echo',
+    WEBDRIVER_START         : 'webdriver-start',
+    KARMA_START             : 'karma-start',
+    NGROK_JENKINS           : 'ngrok-jenkins'
 }
 
 // PROJECT PATHS
@@ -59,6 +61,10 @@ function PATH_ENV() {
     this.APP            = process.env.APP;
     this.ASSETS         = process.env.ASSETS;
     this.VIEWS          = process.env.VIEWS;
+
+    //CONFIG
+    this.BIN            = process.env.BIN;
+    this.GULP           = process.env.GULP;
 
     // ROOT/CLIENT/APP
     this.CONTROLLERS    = process.env.CONTROLLERS;

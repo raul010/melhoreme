@@ -3,7 +3,7 @@ var myapp = angular.module('appRoutes', [])
         console.log('passou phase CONFIG appRoutes');
 
         // For any unmatched url, send to / -> index
-        $urlRouterProvider.otherwise("/")
+        $urlRouterProvider.otherwise("/erro");
         $locationProvider.html5Mode(true).hashPrefix('!');
 
         /**
@@ -27,7 +27,7 @@ var myapp = angular.module('appRoutes', [])
             .state('index', {
                 url: "/",
                 templateUrl: 'home.tpl.html',
-                controller: 'HomeController as home',
+                controller: 'HomeController as home'
 
             }).state('content', {
                 url: "/content",
@@ -39,16 +39,16 @@ var myapp = angular.module('appRoutes', [])
 
             }).state('admin', {
                 url: "/admin",
-                controller: 'AdminMainController as admin',
-                templateUrl: 'admin.main.tpl.html'
+                templateUrl: 'admin.main.tpl.html',
+                controller: 'AdminMainController as admin'
 
             }).state('dashboard', {
                 url: "/dashboard",
-                templateUrl: 'dashboard.main.tpl',
+                templateUrl: 'dashboard.main.tpl'
 
             }).state('forgot', {
                 url: "/forgot",
-                templateUrl: 'forgot.tpl.html',
+                templateUrl: 'forgot.tpl.html'
 
 
 

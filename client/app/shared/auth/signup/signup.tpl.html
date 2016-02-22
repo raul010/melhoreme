@@ -6,7 +6,16 @@
         <md-input-container class="md-block" >
             <!-- Use floating label instead of placeholder -->
             <md-icon md-svg-icon="all:account_up"></md-icon>
-            <input  ng-model="signupUser.user.email" placeholder="Email" type="email" name="email" required multiple md-sidenav-focus>
+            <input
+                    ng-model="signupUser.user.email"
+                    placeholder="Email"
+                    type="email"
+                    name="email"
+                    multiple
+                    required
+                    ng-model-options="{ debounce: 100 }"
+                    mme-email-pattern
+                    md-sidenav-focus>
             <!--<input  ng-model="signupUser.user.email" placeholder="Email" md-sidenav-focus>-->
             <div ng-messages="signupForm.email.$error">
 
@@ -16,7 +25,13 @@
 
         <md-input-container class="md-block" >
             <md-icon md-svg-icon="all:account-password"></md-icon>
-            <input ng-model="signupUser.user.password" ng-minlength="6" required placeholder="Senha" type="password" name="password">
+            <input
+                    ng-model="signupUser.user.password"
+                    ng-minlength="6"
+                    required
+                    placeholder="Senha"
+                    type="password"
+                    name="password">
             <!--<input ng-model="signupUser.user.password" placeholder="Senha"  >-->
 
             <div ng-messages="signupForm.password.$error"  >
@@ -27,11 +42,19 @@
 
         <md-input-container class="md-block" >
             <md-icon md-svg-icon="all:account-password"></md-icon>
-            <input ng-model="signupUser.user.confirmaPassword" equals="{{signupUser.user.password}}" ng-minlength="6" required placeholder="Cofirme a Senha" type="password" name="confirmaPassword">
+            <input
+                    placeholder="Cofirme a Senha"
+                    type="password"
+                    name="confirmaPassword"
+                    ng-model="signupUser.user.confirmaPassword"
+                    ng-minlength="6"
+                    required
+                    mme-password-equals="{{signupUser.user.password}}"
+            >
             <!--<input ng-model="signupUser.user.confirmaPassword" placeholder="Cofirme a Senha" >-->
 
             <div ng-messages="signupForm.confirmaPassword.$error">
-                <div ng-message="equals">Não está batendo com a senha</div>
+                <div ng-message="mme-password-equals">Não está batendo com a senha</div>
 
             </div>
         </md-input-container>

@@ -16,7 +16,8 @@ angular.module('melhoreme',
             'ProgressBarInterceptorService',
             'AuthInterceptorService',
 
-            'ConfirmaPasswordDirective',
+            'FormsEqualsDirective',
+            'FormsEmailDirective',
             'CaptchaDirective',
 
             'AdminMainCtrl',

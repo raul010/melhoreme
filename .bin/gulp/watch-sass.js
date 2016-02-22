@@ -22,7 +22,7 @@ module.exports = function (gulp, sass) {
     });
 
     // copy all misc (non saas)
-    gulp.task('copy-src-css', function () {
+    gulp.task(TASK.COPY_ALL_MISC_CSS, function () {
         gulp.src([
             PATH.SASS +  '/style.scss',
             '!' + PATH.SASS +  '/**/*.scss'
@@ -32,6 +32,6 @@ module.exports = function (gulp, sass) {
     });
 
     gulp.task(TASK.CSS_RESOURCES_WATCH, function () {
-        gulp.watch(PATH.SASS +  '/**/*.*', ['copy-src-css']);
+        gulp.watch(PATH.SASS +  '/**/*.*', [TASK.COPY_ALL_MISC_CSS]);
     });
 };
