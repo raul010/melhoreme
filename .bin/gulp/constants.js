@@ -49,7 +49,7 @@ var TASK = {
 }
 
 // PROJECT PATHS
-function PATH_ENV() {
+function PATH() {
     // DETAILS
     this.PROJECT_FOLDER_NAME = process.env.PROJECT_FOLDER_NAME;
     this.BACKUP_FOLDER       = process.env.BACKUP_FOLDER;
@@ -99,15 +99,18 @@ function PATH_ENV() {
     // BUILD ASSETS
 
 };
-var PATH_ENV = new PATH_ENV();
+this.PATH = new PATH();
 
 // TASKs SPECIFICATIONS
 var SPECS = {
+
+    gulpProduction: this.PATH.BIN + '/production/angular-production.js',
+
     _nodemon : {
         ignoreFiles : [
             // Root Folder
             'node_modules',
-            PATH_ENV.CLIENT,
+            this.PATH.CLIENT,
             'z_old',
             '.git',
 
@@ -118,17 +121,17 @@ var SPECS = {
     },
     _browserSync : {
         watchFiles : [
-            PATH_ENV.CLIENT         + '/*.html',
-            PATH_ENV.VIEWS          + '/**/*.html',
-            PATH_ENV.CONTROLLERS    + '/**/*.js',
-            PATH_ENV.SERVICES       + '/**/*.js',
-            PATH_ENV.DIRECTIVES     + '/**/*.js',
-            PATH_ENV.CSS            + '/**/*.*',
-            PATH_ENV.APP            + '/*.js',
+            this.PATH.CLIENT         + '/*.html',
+            this.PATH.VIEWS          + '/**/*.html',
+            this.PATH.CONTROLLERS    + '/**/*.js',
+            this.PATH.SERVICES       + '/**/*.js',
+            this.PATH.DIRECTIVES     + '/**/*.js',
+            this.PATH.CSS            + '/**/*.*',
+            this.PATH.APP            + '/*.js',
 
 
             //// Ignore
-            '!' + PATH_ENV.SASS   + '/**', // CSS already Reload with SAAS Task
+            '!' + this.PATH.SASS   + '/**', // CSS already Reload with SAAS Task
         ]
     },
 
@@ -143,10 +146,10 @@ var SPECS = {
             '!.idea/**',
 
             // Will be have copy build later
-            '!' + PATH_ENV.SASS + '/**',
-            '!' + PATH_ENV.JS   + '/**',
-            '!' + PATH_ENV.LIBS + '/**'
-            //'!' + PATH_ENV.CSS  + '/**/*.css'
+            '!' + this.PATH.SASS + '/**',
+            '!' + this.PATH.JS   + '/**',
+            '!' + this.PATH.LIBS + '/**'
+            //'!' + this.PATH_ENV.CSS  + '/**/*.css'
         ]
     },
 
@@ -155,16 +158,16 @@ var SPECS = {
            '**/*',
 
             '!node_modules/**',
-            '!' + PATH_ENV.LIBS         + '/**'
+            '!' + this.PATH.LIBS         + '/**'
         ]
     }
 
 }
 
-console.log(PATH_ENV);
+console.log(this.PATH);
 
 module.exports = {
     TASK:   TASK,
-    PATH:   PATH_ENV,
+    PATH:   this.PATH,
     SPECS:  SPECS
 }

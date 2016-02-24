@@ -1,48 +1,66 @@
-var app = angular.module('HeaderCtrl', []);
+(function () {
+   'strict mode'
+    angular
+        .module('HeaderCtrl', [])
+        .directive('mmeHeader', mmeHeader);
 
-app.directive('mmeHeader', function ()  {
-    return {
-        restrict: 'E',
-        templateUrl: 'header.tpl.html',
-        controllerAs: 'header',
-        controller: function ($scope, $location,Auth, Sidenav) {
-            var header = this;
-            header.sidenav = Sidenav;
-
-
-            header.perfil = function () {
-            };
-
-            // Perfil ---------------------------------------------------
-
-            var originatorEv;
-            header.openMenu = function($mdOpenMenu, ev) {
-                originatorEv = ev;
-                $mdOpenMenu(ev);
-            };
-
-            header.toggleNotifications = function() {
-
-            };
-            header.configuracoes = function configuracoes() {
-                $location.path('/admin');
-            };
-
-            // Emit para o scope pai = CadastroCtrl
-            header.me = function me() {
-                Auth.me(function (res) {
-                    console.log(res);
-
-                }, function (error) {
-                    console.log('ERRO');
-                })
-            };
-
-            header.logout = function logout() {
-                Auth.logout(function (res) {
-                    console.log('logout() == ok');
-                });
-            }
-            }
+    /**
+     *
+     *
+     */
+    function mmeHeader()  {
+        return {
+            restrict: 'E',
+            templateUrl: 'header.tpl.html',
+            controllerAs: 'header',
+            controller: HeaderContoller
         };
-});
+    }
+
+    function HeaderContoller ($location, authService, Sidenav) {
+        var header = this;
+        var originatorEv;
+
+        header.configuracoes = configuracoes;
+        header.logout = logout;
+        header.me = me;
+        header.openMenu = openMenu;
+        header.perfil = perfil;
+        header.sidenav = Sidenav;
+        header.toggleNotifications = toggleNotifications;
+
+
+        function configuracoes() {
+            $location.path('/admin');
+        };
+
+        function logout() {
+            authService.logout(function (res) {
+                console.log('logout() == ok');
+            });
+        }
+
+        // Emit para o scope pai = CadastroCtrl
+        function me() {
+            authService.me(function (res) {
+                console.log(res);
+
+            }, function (error) {
+                console.log('ERRO');
+            })
+        };
+
+        function openMenu ($mdOpenMenu, ev) {
+            originatorEv = ev;
+            $mdOpenMenu(ev);
+        };
+
+        function perfil  () {
+        };
+
+        function toggleNotifications() {
+        };
+    }
+
+
+})();

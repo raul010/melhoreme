@@ -21,11 +21,11 @@ module.exports = function (gulp, templateCache, gutil) {
 
         return gulp.src(SRC_FILE)
                 .on('error', gutil.log)
-                .pipe(templateCache('template.caches.js', {
+                .pipe(templateCache('template-caches.js', {
                     module:'melhoreme',
                     transformUrl: function (url) {
                         // Deixa somente o nome do template como 'link'
-                        return url.replace(/.*\//,"");
+                        return url.replace(/.*\//,'');
                     }
                 }))
                 .on('error', gutil.log)

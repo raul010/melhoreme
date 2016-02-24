@@ -8,7 +8,7 @@
 var constants = require('./constants');
 var TASK = constants.TASK;
 
-module.exports = function (gulp, shell) {
+module.exports = function preTests (gulp, shell) {
 
     gulp.task(TASK.WEBDRIVER_START, shell.task([
         'sh ./.bin/startup/webdriver-start.sh'

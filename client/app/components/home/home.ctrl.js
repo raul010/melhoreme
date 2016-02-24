@@ -1,6 +1,6 @@
 var app = angular.module('HomeCtrl', []);
 
-app.controller('HomeController', function ($scope, $localStorage, $location, Auth, Sidenav) {
+app.controller('HomeController', function ($scope, $localStorage, $location, authService, Sidenav) {
 	var home = this;
 
 	//$scope.myEnvironment = $scope;

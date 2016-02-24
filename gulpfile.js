@@ -5,22 +5,23 @@ var path = require('path');
 var gulp = require('gulp-help')(require('gulp'), {
     'hideEmpty': true
 });
-var runSequence = require('run-sequence');
 
-//APP
-var nodemon         = require('gulp-nodemon');
 var browserSync     = require('browser-sync').create();
-var sass            = require('gulp-sass');
+var karmaServer     = require('karma').Server;
 var templateCache   = require('gulp-angular-templatecache');
+var cache           = require('gulp-cached');
+var changed         = require('gulp-changed');
 var csso            = require('gulp-csso');
 var ngAnnotate      = require('gulp-ng-annotate');
-var uglify          = require('gulp-uglify');
-var processhtml     = require('gulp-processhtml');
-var changed         = require('gulp-changed');
-var cache           = require('gulp-cached');
 var minifyHTML      = require('gulp-minify-html');
-var rename          = require("gulp-rename");
+var nodemon         = require('gulp-nodemon');
+var processhtml     = require('gulp-processhtml');
+var protractor      = require('gulp-protractor').protractor;
+var rename          = require('gulp-rename');
+var sass            = require('gulp-sass');
+var uglify          = require('gulp-uglify');
 var gutil           = require('gulp-util');
+var runSequence     = require('run-sequence');
 
 //var uncss           = require('gulp-uncss');
 //var gulpIgnore      = require('gulp-ignore');
@@ -40,7 +41,6 @@ var argv    = require('yargs')
         .default('h', false)
         .argv;
 
-
 require('./env');
 
 var constants = require('./.bin/gulp/constants');
@@ -49,9 +49,9 @@ var TASK = constants.TASK;
 var NODE_ENV = process.env.NODE_ENV || 'development';
 
 console.log('gulp libs --> ' + process.env.LIBS);
-console.log('*********************')
+console.log('*********************');
 console.log(NODE_ENV);
-console.log('*********************')
+console.log('*********************');
 
 require('./.bin/gulp/pre-tests')(gulp, shell);
 require('./.bin/gulp/build')(gulp, changed, ngAnnotate, uglify, csso, processhtml, minifyHTML, rename);
@@ -62,6 +62,8 @@ require('./.bin/gulp/watch-sass')(gulp, sass);
 require('./.bin/gulp/watch-template-cache')(gulp, templateCache, gutil);
 require('./.bin/gulp/utils')(gulp, shell, argv);
 
+// TESTE
+require('./.bin/gulp/angular-production')(gulp, changed);
 
 //  SEQUENCE Tasks -------------------------------------------------
 gulp.task(TASK.PAGERES_SNAPSHOT_$ync, function(cb) {
@@ -126,15 +128,58 @@ gulp.task('run', 'Inicia o NODEMON e BROWSER-SYNC |',
         TASK.COPY_ALL_MISC_CSS,
         TASK.TEMPLATE_CACHE_CONFIG
     ], null, {
-            aliases: ['d', 'D'],
-            options: {
-                'd': '--> Debug Mode'
-            }
+        aliases: ['d', 'D'],
+        options: {
+            'd': '--> Debug Mode'
+        }
+    });
+
+gulp.task('test-chrome', function(done) {
+    console.log(__dirname);
+
+    var karma = new karmaServer({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true,
+        browsers: ['Chrome']
+    }, done);
+
+    karma.start();
+});
+
+gulp.task('test', function(done) {
+    console.log(__dirname);
+
+    var karma = new karmaServer({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true,
+        browsers: ['PhantomJS']
+    }, done);
+
+    karma.start();
+});
+
+gulp.task('e2e', function() {
+    gulp.src([
+        //'client/assets/libs/angular/angular.js',
+        //'client/assets/libs/angular-mocks/angular-mocks.js',
+        //'client/app/app-module.js',
+        'tests-e2e/**/*.js'
+            ])
+            .pipe(protractor({
+                configFile: __dirname + '/protractor.conf.js',
+                args: ['--baseUrl', 'https://127.0.0.1:83']
+            }))
+            .on('error', function(e) { throw e; });
 });
 
 gulp.task('pre-tests', '(AINDA EM VERSÃO BETA, NÃO USAR) Start-up all requiriments to run tests |',
-    [TASK.NGROK_JENKINS, TASK.KARMA_START, TASK.WEBDRIVER_START], null, {
-        aliases: ['p', 'P'],
+    [
+        //TASK.NGROK_JENKINS,
+        //TASK.KARMA_START,
+        TASK.WEBDRIVER_START
+    ],
+        null, {
+        aliases: ['p', 'P']
     });
 
 gulp.task('build', 'Prepara para Deploy |', [TASK.BUILD_$ync], null, {
@@ -146,7 +191,7 @@ gulp.task('build', 'Prepara para Deploy |', [TASK.BUILD_$ync], null, {
 });
 
 gulp.task('backup', 'Backup do projeto, exceto as dependencias|', [TASK.BACKUP_PROJ_$ync], null, {
-    aliases: ['k', 'K'],
+    aliases: ['k', 'K']
     //options: {
     //    'h': '--> E faz deploy (no heroku)',
     //    'm': '--> E força instalaçao de dependencias front end no heroku (bower install)',
@@ -178,49 +223,8 @@ gulp.task('pageres', 'Captura IMAGENS |', [TASK.PAGERES_SNAPSHOT_$ync], null , {
     //aliases: ['p'] já tem 'p'
 });
 
-//  ////Run ALIAS Tasks ----------------------------------------------
 
-
-/*
- https://www.npmjs.com/package/gulp-closure-compiler
- https://github.com/miickel/gulp-angular-templatecache
- https://github.com/darylldoyle/Gulp-Email-Creator
- https://github.com/doctyper/gulp-modernizr
- https://github.com/alexeyraspopov/gulp-complexity
- https://github.com/contra/gulp-concat
-
- Unit Tests
-
- gulp-nodeunit
- gulp-jasmine
- gulp-qunit
- gulp-mocha
- gulp-karma
-
- Graphics
-
- https://github.com/mahnunchik/gulp-responsive
- (produce syslos at different sizes for responsive websites.)
- https://github.com/rizalp/gulp-sharp
- ( fastest module for work JPEG, PNG, WebP and TIFF images.)
- https://github.com/sindresorhus/gulp-imagemin
- (image compression.)
- https://github.com/otouto/gulp-spritesmith
- (converting a set of images into a spritesheet and corresponding CSS variables.)
-
- Outros
-
- https://github.com/jsBoot/gulp-jsdoc
- https://github.com/ck86/main-bower-files
- (inject Bower packages. - Overwite)
- https://github.com/jas/gulp-preprocess
-
- Fim
-
- https://github.com/addyosmani/psi
- (PageSpeed Insights with reporting)
- https://github.com/addyosmani/tmi
-
-
-
- */
+//TODO: configurar esta task na task de build
+gulp.task('copy-production', 'teste', [TASK.COPY_ANGULAR_PRODUCTION], null, {
+            //aliases: ['p', 'P'],
+        });

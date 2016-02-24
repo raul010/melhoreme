@@ -1,12 +1,12 @@
 /**
  * Created by raul on 27/01/16.
  */
-UserUpload = function() {};
+var UserUpload = function() {};
 
-UserUpload.prototype.uploadFile = function(req, res) {
+UserUpload.prototype.uploadFile = function(req) {
 
     var file = req.files.file;
     console.log(file);
-}
+};
 
 module.exports = new UserUpload();

@@ -2,10 +2,10 @@
 angular.module('SignupCtrl', [])
 
         .controller('SignupController', function(
-                $http, $scope, $location, $localStorage, $rootScope, $auth, User, Auth, Toast, CONST) {
+                $http, $scope, $location, $localStorage, $rootScope, $auth, user, authService, Toast, CONST) {
 
             var signupUser = this;
-            signupUser.user = User.signup;
+            signupUser.user = user.signup;
             signupUser.showCaptcha = false;
 
             // Cadastro
@@ -16,7 +16,6 @@ angular.module('SignupCtrl', [])
                     .then(function(res) {
                         $auth.setToken(res);
 
-
                         $location.path('/');
                         $scope.$parent.home.close(CONST.SIDENAV.RIGHT_CADASTRO);
                     })
@@ -24,7 +23,7 @@ angular.module('SignupCtrl', [])
                         console.log(Toast);
                         Toast.show(res.data.message, '#' + CONST.ELEM.TOAST_SIGNUP_ID);
                         //toastr.error(response.data.message);
-                });
+                    });
             };
 
             //signupUser.pme = function me() {
@@ -38,13 +37,11 @@ angular.module('SignupCtrl', [])
             //};
 
             signupUser.logout = function logout() {
-                Auth.logout(function (res) {
+                authService.logout(function (res) {
                     console.log('signup() == ok');
-                })
+                });
             };
         });
-
-
 
 //cad.login = function login() {
 //    Auth.login(cad.userLogin, function (res) {

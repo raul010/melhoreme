@@ -2,9 +2,9 @@
 
 module.exports.validacao = {
     CAMPO_VAZIO             : 'O campo de %s precisa ser preenchido',
-    email_INVALIDO          : 'O email informado não é válido',
-    senha_INVALIDO          : 'A senha deve ter pelo menos 6 caracteres',
-    confirmaSenha_INVALIDO  : 'A confirmação da senha e a senha não batem',
+    EMAIL_INVALIDO          : 'O email informado não é válido',
+    SENHA_INVALIDO          : 'A senha deve ter pelo menos 6 caracteres',
+    CONFIRMA_SENHA_INVALIDO : 'A confirmação da senha e a senha não batem',
     USUARIO_REGISTRADO      : 'Ops, usuário cadastrado. Efetue o login!',
     USUARIO_NAO_ENCONTRADO  : 'Ops, usuário não encontrado! Faça um cadastro, por gentileza!',
     LOGIN_INVALIDO          : 'Ops, email ou senha errado. Tente novamente, por favor!',

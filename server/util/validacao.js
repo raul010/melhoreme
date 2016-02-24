@@ -3,8 +3,6 @@ var util        = require('util');
 
 var _           = require('lodash');
 var validator 	= require('validator');
-var reCAPTCHA   = require('recaptcha2');
-//var jwt         = require('jsonwebtoken');
 var jwt         = require('jwt-simple');
 var moment      = require('moment');
 
@@ -41,7 +39,7 @@ module.exports.ensureAuthenticated = function (req, res, next) {
         payload = jwt.decode(token, config.TOKEN_SECRET);
     }
     catch (err) {
-        email.erro(err, err.message)
+        email.erro(err, err.message);
         return res.status(401).send({ message: err.message });
     }
 
@@ -59,14 +57,13 @@ function validaDados() {
         infos: {}
     };
     var infos = dadosValidados.infos;
-    var campos = Array.prototype.slice.call(arguments);;
+    var campos = Array.prototype.slice.call(arguments);
 
 
     testaExistenciaEValidade(campos);
 
     /**
-     * @param campo
-     * @param nomeDoCampo
+     * @param campos
      */
     function testaExistenciaEValidade(campos) {
         var isValid = false;
@@ -111,36 +108,38 @@ function validaDados() {
     function validaCampo(campo, nomeDoCampo) {
 
         switch (nomeDoCampo) {
-            case "email":
+            case 'email':
                 return validator.isEmail(campo);
-            case "password":
+            case 'password':
                 senhaCurrent = campo;
                 return validator.isLength(campo, {min: 6, max: undefined});
-            case "confirmaPassword":
+            case 'confirmaPassword':
                 return validator.equals(campo, senhaCurrent);
         }
     }
 
     function inicializaInfos(nomeDoCampo) {
-        if (!infos[nomeDoCampo]) {
-            return infos[nomeDoCampo] = [];
+        var infos = infos[nomeDoCampo];
+
+        if (!infos) {
+            infos = [];
         }
-        return infos[nomeDoCampo];
+        return infos;
     }
 
     dadosValidados.isAllOk = _.isEmpty(infos);
 
     return dadosValidados;
-};
+}
 
 //function ensureAuthorized(req, res, next) {
 //    var JWT_SECRET = req.app.get('jwt_secret')
 //
 //    var bearerToken;
-//    var bearerHeader = req.headers["authorization"];
+//    var bearerHeader = req.headers['authorization'];
 //
 //    if (typeof bearerHeader !== 'undefined') {
-//        var bearer = bearerHeader.split(" ");
+//        var bearer = bearerHeader.split(' ');
 //        bearerToken = bearer[1];
 //        // verify a token symmetric
 //        jwt.verify(bearerToken, JWT_SECRET, function(err, decoded) {

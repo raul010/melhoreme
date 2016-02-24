@@ -1,10 +1,12 @@
-var ajax = require('../util/ajax')
+'use strict';
 
-module.exports = function(app, fn) {
+var ajax = require('../util/ajax');
+
+module.exports = function(app) {
 
 	console.log('raul');
-	require('./user')(app);
-	require('./user-account')(app);
+	require('./user.routes')(app);
+	require('./user-account.routes')(app);
 
 	// frontend routes =========================================================
 	// route to handle all angular

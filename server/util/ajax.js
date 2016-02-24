@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var garante = require('./garante')
+var garante = require('./garante');
 
 /**
  * Envia dados para o browser
@@ -12,12 +12,14 @@ var garante = require('./garante')
  * @param {String} [token]
  */
 module.exports.enviaDados = function (res, isSuccess, message, hasCaptcha, token) {
-    console.log("enviaDadosParaCliente");
+    console.log('enviaDadosParaCliente');
 
     garante.tipoDaAtribuicao(hasCaptcha, 'boolean');
     garante.tipoDaAtribuicao(token, 'string');
 
-    if(!isSuccess) res.status(401);
+    if(!isSuccess) {
+        res.status(401);
+    }
 
     res.json({
         isSuccess   : isSuccess,

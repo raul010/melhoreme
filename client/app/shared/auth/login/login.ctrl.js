@@ -1,11 +1,16 @@
 'use strict';
-angular.module('LoginCtrl', [])
+angular.module('LoginCtrl', [
+    'app.core',
+    'app.shared',
+    'app.config'])
 
-.controller('LoginController', function(
-        $http, $scope, $location, $localStorage, $rootScope, $auth, User, Sidenav, Auth, Captcha, Toast, CONST) {
+.controller('LoginController', LoginController);
+
+function LoginController ($http, $scope, $location, $localStorage,
+                          $rootScope, $auth, user, Sidenav, authService, Captcha, Toast, CONST) {
 
     var loginUser = this;
-    loginUser.user = User.login;
+    loginUser.user = user.login;
     loginUser.showCaptcha = false;
 
     loginUser.sidenav = Sidenav;
@@ -39,15 +44,12 @@ angular.module('LoginCtrl', [])
         //loginUser.captcha.submit();
     };
 
-
     loginUser.logout = function logout() {
-        Auth.logout(function (res) {
+        authService.logout(function (res) {
             console.log('logout() == ok');
-        })
+        });
     };
-});
-
-
+}
 
 //cad.login = function login() {
 //    Auth.login(cad.userLogin, function (res) {
@@ -83,7 +85,6 @@ angular.module('LoginCtrl', [])
 //        console.log('FATAL ERROR');
 //    });
 //}
-
 
 //
 //Auth.signup(cad.userSignup, function(res) {

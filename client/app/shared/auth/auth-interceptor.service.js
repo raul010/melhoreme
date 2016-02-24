@@ -1,7 +1,8 @@
-// For interceptor
+angular
+    .module('AuthInterceptorService', [])
+    .factory('authInterceptorService', authInterceptorService);
 
-angular.module('AuthInterceptorService', [])
-.factory('AuthInterceptor', function($q, $location, $localStorage) {
+function authInterceptorService ($q, $location, $localStorage) {
     return {
         'request': function (config) {
             config.headers = config.headers || {};
@@ -21,4 +22,4 @@ angular.module('AuthInterceptorService', [])
             return $q.reject(response);
         }
     };
-});
+}

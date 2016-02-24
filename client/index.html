@@ -39,7 +39,7 @@
     <!-- /build -->
 </head>
 
-<body ng-controller="HomeController as home" role="main">
+<body role="main">
 <md-progress-linear  md-mode='indeterminate' style="position: absolute; z-index: 3 !important" class="md-warn" value="100" ng-if="main.showProgress"></md-progress-linear>
 
     <mme-header></mme-header>
@@ -53,14 +53,19 @@
 
     <div ui-view></div>
 
+<div id="test">oioi</div>
+
+
+
 <!-- build:js assets/libs/angular/angular.min.js -->
 <script src="assets/libs/angular/angular.js"></script>
 <!-- /build -->
-
 <!-- build:js assets/libs/angular-material/angular-material.min.js -->
 <script src="assets/libs/angular-material/angular-material.js"></script>
 <!-- /build -->
-
+<!-- build:js assets/libs/angular-animate/angular-animate.min.js -->
+<script src="assets/libs/angular-animate/angular-animate.js"></script>
+<!-- /build -->
 <!-- build:js assets/libs/ng-file-upload/ng-file-upload.min.js -->
 <script src="assets/libs/ng-file-upload/ng-file-upload.js"></script>
 <!-- /build -->
@@ -76,8 +81,7 @@
 <!-- build:js inline -->
 <script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="assets/libs/ngstorage/ngStorage.min.js"></script>
-<script src="assets/libs/angular-animate/angular-animate.min.js"></script>
-<script src="assets/libs/angular-aria/angular-aria.min.js"></script>
+<script src="assets/libs/angular-aria/angular-aria.min.js" ></script>
 <script src="assets/libs/angular-messages/angular-messages.min.js"></script>
 <!-- /build -->
 
@@ -87,37 +91,37 @@
 <script src="assets/libs/satellizer/satellizer.js"></script>
 <!-- /build -->
 
-
-
 <!-- build:js inline -->
-<script src="app/app.route.js"></script>
-<script src="app/app.module.js"></script>
-<script src="app/template.caches.js"></script>
+<script src="app/app-module.js"></script>
+<script src="app/app-config.js"></script>
+<script src="app/app-module-components.js"></script>
+<script src="app/app-module-core.js"></script>
+<script src="app/app-module-shared.js"></script>
+<script src="app/app-route.js"></script>
+<script src="app/template-caches.js"></script>
 
 <!-- COMPONENTS ------------------------------------------->
-<script src="app/components/admin/admin.main.ctrl.js" ></script>
-<script src="app/components/admin/admin.video.ctrl.js" ></script>
+<script src="app/components/admin/admin-main.ctrl.js" ></script>
+<script src="app/components/admin/admin-video.ctrl.js" ></script>
 <script src="app/components/home/home.ctrl.js" ></script>
 
-
+<!-- SHARED  ------------------------------------------->
 <script src="app/shared/auth/login/login.ctrl.js" ></script>
 <script src="app/shared/auth/login/login.directive.js" ></script>
 
 <script src="app/shared/auth/signup/signup.ctrl.js" ></script>
 <script src="app/shared/auth/signup/signup.directive.js" ></script>
 
-<script src="app/shared/auth/auth.interceptor.service.js"></script>
+<script src="app/shared/auth/auth-interceptor.service.js"></script>
 <script src="app/shared/auth/auth.service.js" ></script>
 
-<script src="app/shared/auth/forms.password.equals.directive.js" ></script>
-<script src="app/shared/auth/forms.email.pattern.directive.js" ></script>
+<script src="app/shared/auth/forms-password-equals.directive.js" ></script>
+<script src="app/shared/auth/forms-email-pattern.directive.js" ></script>
 <script src="app/shared/auth/user.service.js" ></script>
 
-
-<!-- SHARED  ------------------------------------------->
 <script src="app/shared/toast/toast.all.js"></script>
 
-<script src="app/shared/progress.bar.interceptor.service.js" ></script>
+<script src="app/shared/progress-bar-interceptor.service.js" ></script>
 
 <script src="app/shared/captcha/captcha.service.js"></script>
 <script src="app/shared/captcha/captcha.directive.js" ></script>
@@ -126,8 +130,14 @@
 <script src="app/shared/sidenav/sidenav.service.js" ></script>
 
 <script src="app/shared/header/header.all.js"></script>
-
 <!-- /build -->
+
+
+<!-- Configs ------------------------------------------------------>
+
+<!-- build:js app/angular.production.js -->
+<!-- /build -->
+
 
 </body>
 </html>

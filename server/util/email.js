@@ -2,8 +2,6 @@
  * Created by raul on 05/02/16.
  */
 
-var util    = require('util');
-
 var email   = require('../../node_modules/emailjs/email');
 var config  = require('./config');
 
@@ -16,8 +14,11 @@ var server  = email.server.connect({
 
 module.exports.erro = function erro(err, obj) {
     var text = null;
-    if (obj) text = '<b>err: ' + err + '<br> obj: ' + obj;
-    else text = '<b>err: ' + err;
+    if (obj) {
+        text = '<b>err: ' + err + '<br> obj: ' + obj;
+    } else {
+        text = '<b>err: ' + err;
+    }
 
     console.log('email:');
     console.log(text);
@@ -30,7 +31,7 @@ module.exports.erro = function erro(err, obj) {
         subject: 'SISTEMA',
         attachment:
                 [
-                    {data:'<b>err: ' + err + '</b><br> obj: ' + obj, alternative:true},
+                    {data:'<b>err: ' + err + '</b><br> obj: ' + obj, alternative:true}
                     //{path:'path/to/file.zip', type:'application/zip', name:'renamed.zip'}
                 ]
     };
@@ -42,11 +43,11 @@ module.exports.erro = function erro(err, obj) {
 };
 
 
-module.exports.toUser = function toUser(user, fn) {
+module.exports.toUser = function toUser(req, token, user, fn) {
 
     var content = 'Clique no link abaixo para redefinir sua senha: \n\n' +
     'http://' + req.headers.host + '/reset/' + token + '\n\n' +
-    'Caso voce nao tenha feito nenhuma solicitação desse tipo, simplesmente desconsidere este email, por gentileza.\n'
+    'Caso voce nao tenha feito nenhuma solicitação desse tipo, simplesmente desconsidere este email, por gentileza.\n';
 
     var message = {
         text:    'textttt',
@@ -55,7 +56,7 @@ module.exports.toUser = function toUser(user, fn) {
         subject: 'Troca de Senha',
         attachment:
                 [
-                    {data:content, alternative:true},
+                    {data:content, alternative:true}
                     //{path:'path/to/file.zip', type:'application/zip', name:'renamed.zip'}
                 ]
     };

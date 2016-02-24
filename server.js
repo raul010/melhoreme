@@ -12,7 +12,7 @@ var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
 var mongoose        = require('mongoose');
 
-var email           = require('./server/util/email')
+var email           = require('./server/util/email');
 
 
 require('./env');
@@ -23,8 +23,6 @@ var NODE_ENV    = process.env.NODE_ENV || (process.env.NODE_ENV = 'development')
 console.log('*********************************');
 console.log(NODE_ENV);
 console.log('*********************************');
-
-//mongoose.connect(db.uri, db.optionsSSL); // connect to our mongoDB database (commented out after you enter in your own credentials)
 
 app.set('jwt_secret', process.env.JWT_SECRET);
 
@@ -77,7 +75,7 @@ if (NODE_ENV === 'development') {
     app.use(cors());
     app.use(function(req, res, next) {
         var protocol = req.get('x-forwarded-proto');
-        protocol == 'https' ? next() : res.redirect('https://' + req.hostname + req.url);
+        protocol === 'https' ? next() : res.redirect('https://' + req.hostname + req.url);
     });
 
 }
@@ -92,7 +90,7 @@ app.set('dir_client', process.env.CLIENT);
 
 app.use(express.static(app.get('dir_client')));
 
-require('./server/routes/index')(app);
+require('./server/routes/index.routes')(app);
 
 
 
