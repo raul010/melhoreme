@@ -1,6 +1,7 @@
-var module = angular.mock.module;
+describe('LoginController', LoginController);
 
-describe('LoginController', function() {
+function LoginController() {
+    var module = angular.mock.module;
 
     var controller = null;
     var user = null;
@@ -22,11 +23,6 @@ describe('LoginController', function() {
         user = _user_;
     }));
 
-    //beforeEach(module(function($localStorageProvider) {
-    //    //console.log('in', $localStorage.deferIntercept());
-    //    //$urlRouterProvider.deferIntercept();
-    //}));
-
     it('initially has a greeting', function () {
         var loginUser = $scope;
         loginUser.user = user.login;
@@ -35,4 +31,4 @@ describe('LoginController', function() {
 
         //expect($scope.strength).to.equal('strong');
     });
-});
+}

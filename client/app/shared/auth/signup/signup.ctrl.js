@@ -2,7 +2,7 @@
 angular.module('SignupCtrl', [])
 
         .controller('SignupController', function(
-                $http, $scope, $location, $localStorage, $rootScope, $auth, user, authService, Toast, CONST) {
+                $http, $scope, $location, $localStorage, $rootScope, $auth, user, Sidenav, authService, Toast, CONST) {
 
             var signupUser = this;
             signupUser.user = user.signup;
@@ -17,7 +17,7 @@ angular.module('SignupCtrl', [])
                         $auth.setToken(res);
 
                         $location.path('/');
-                        $scope.$parent.home.close(CONST.SIDENAV.RIGHT_CADASTRO);
+                        Sidenav.close(CONST.SIDENAV.RIGHT_CADASTRO);
                     })
                     .catch(function(res) {
                         console.log(Toast);

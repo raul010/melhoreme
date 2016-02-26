@@ -26,7 +26,7 @@ function LoginController ($http, $scope, $location, $localStorage,
                     $location.path('/');
                     loginUser.showCaptcha = false;
 
-                    $scope.$parent.home.close(CONST.SIDENAV.RIGHT_CADASTRO);
+                    Sidenav.close(CONST.SIDENAV.RIGHT_CADASTRO);
 
                     //$localStorage.token = res.data.token;
                 })

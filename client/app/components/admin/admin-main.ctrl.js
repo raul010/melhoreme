@@ -50,8 +50,8 @@ angular.module('AdminMainCtrl', [])
     //    TEMPLATES
     $scope.templates =
             [
-                { name: 'Videos', url: 'admin.manager.tpl.html'},
-                { name: 'Dados pessoais', url:'admin.profile.tpl.html'}
+                {name: 'Videos', url: 'admin.manager.tpl.html'},
+                {name: 'Dados pessoais', url:'admin.profile.tpl.html'}
             ];
     $scope.template = $scope.templates[0];
     $scope.templateIndex = function(index) {

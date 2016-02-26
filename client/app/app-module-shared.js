@@ -13,6 +13,7 @@ angular.module('app.shared', [
     'ToastAll',
 
     'HeaderCtrl',
+    'HeaderDirective',
     'LoginCtrl',
     'LoginDirective',
 

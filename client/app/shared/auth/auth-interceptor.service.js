@@ -2,7 +2,7 @@ angular
     .module('AuthInterceptorService', [])
     .factory('authInterceptorService', authInterceptorService);
 
-function authInterceptorService ($q, $location, $localStorage) {
+function authInterceptorService ($q, $location, $localStorage, CONST) {
     return {
         'request': function (config) {
             config.headers = config.headers || {};
@@ -12,7 +12,6 @@ function authInterceptorService ($q, $location, $localStorage) {
             return config;
         },
         'response': function (response) {
-            //console.log(response);
             return response;
         },
         'responseError': function(response) {

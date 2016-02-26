@@ -1,21 +1,8 @@
 (function () {
-   'strict mode'
+    'strict mode';
     angular
         .module('HeaderCtrl', [])
-        .directive('mmeHeader', mmeHeader);
-
-    /**
-     *
-     *
-     */
-    function mmeHeader()  {
-        return {
-            restrict: 'E',
-            templateUrl: 'header.tpl.html',
-            controllerAs: 'header',
-            controller: HeaderContoller
-        };
-    }
+        .controller('HeaderController', HeaderContoller);
 
     function HeaderContoller ($location, authService, Sidenav) {
         var header = this;
@@ -29,10 +16,9 @@
         header.sidenav = Sidenav;
         header.toggleNotifications = toggleNotifications;
 
-
         function configuracoes() {
             $location.path('/admin');
-        };
+        }
 
         function logout() {
             authService.logout(function (res) {
@@ -47,20 +33,19 @@
 
             }, function (error) {
                 console.log('ERRO');
-            })
-        };
+            });
+        }
 
         function openMenu ($mdOpenMenu, ev) {
             originatorEv = ev;
             $mdOpenMenu(ev);
-        };
+        }
 
         function perfil  () {
-        };
+        }
 
         function toggleNotifications() {
-        };
+        }
     }
-
 
 })();

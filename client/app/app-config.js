@@ -14,7 +14,9 @@ function loadCONST (){
         SIDENAV: {
             RIGHT_LOGIN     : 'right-login',
             RIGHT_CADASTRO  : 'right-cadastro'
-        }
+        },
+        //Para testes
+        RESPONSE: {}
     }
     return CONST;
 }

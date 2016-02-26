@@ -1,19 +1,18 @@
-var https           = require('https');
-var fs              = require('fs');
+var https = require('https');
+var fs = require('fs');
 
-var express         = require('express');
-var app             = express();
-var passport 	    = require('passport');
-var compress        = require('compression');
-var cors            = require('cors');
+var express = require('express');
+var app = express();
+var passport = require('passport');
+//var compress        = require('compression');
+var cors = require('cors');
 
-var morgan          = require('morgan');
-var bodyParser      = require('body-parser');
-var methodOverride  = require('method-override');
-var mongoose        = require('mongoose');
+var morgan = require('morgan');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+var mongoose = require('mongoose');
 
-var email           = require('./server/util/email');
-
+var email = require('./server/util/email');
 
 require('./env');
 
@@ -21,20 +20,28 @@ var port        = process.env.PORT || 8080; // set our port
 var NODE_ENV    = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
 
 console.log('*********************************');
-console.log(NODE_ENV);
+console.log('server.js -->', NODE_ENV);
 console.log('*********************************');
 
 app.set('jwt_secret', process.env.JWT_SECRET);
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-mongoose.connect(
-    process.env.MONGOOSE_URI, {
-        user: process.env.MONGOOSE_USER,
-        pass: process.env.MONGOOSE_PASS
-    }); // connect to our mongoDB database (commented out after you enter in your own credentials)
+if (NODE_ENV === 'development') {
+    mongoose.connect(
+        process.env.MONGOOSE_URI_TEST, {
+            user: process.env.MONGOOSE_USER_TEST,
+            pass: process.env.MONGOOSE_PASS_TEST
+        });
 
+} else if (NODE_ENV === 'production') {
+    mongoose.connect(
+            process.env.MONGOOSE_URI, {
+                user: process.env.MONGOOSE_USER,
+                pass: process.env.MONGOOSE_PASS
+            });
+}
 
 mongoose.connection.on('error', function(err) {
     email.erro(err, 'Erro na conexao do mongo');
@@ -80,10 +87,8 @@ if (NODE_ENV === 'development') {
 
 }
 
-
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-
 
 // CLIENT CONSTANT
 app.set('dir_client', process.env.CLIENT);
@@ -91,8 +96,6 @@ app.set('dir_client', process.env.CLIENT);
 app.use(express.static(app.get('dir_client')));
 
 require('./server/routes/index.routes')(app);
-
-
 
 // ERROR Handling
 app.use(function(err, req, res, next) {
@@ -103,7 +106,7 @@ app.use(function(err, req, res, next) {
 //app.listen(port);
 //console.log('Magic happens on port ' + port);
 
-var server = https.createServer(optionsSSL, app).listen(port, function(){
+var server = https.createServer(optionsSSL, app).listen(port, function() {
     console.log('If server has started via GULP RUN task:');
     console.log('server ===============================> https://localhost:8080');
     console.log('server with browser sync =============> https://localhost:3000');

@@ -17,12 +17,10 @@ app.directive('mmeSidenav', function () {
            sidenav.signup.tpl.html
         */
         templateUrl: function (elem, attr) {
-                return 'sidenav.' + attr.type + '.tpl.html';
+            return 'sidenav.' + attr.type + '.tpl.html';
         }
-    }
-    });
-
-
+    };
+});
 
 /*
  <md-sidenav md-component-id="right-cadastro" class="md-sidenav-right md-whiteframe-z2" ng-cloak>

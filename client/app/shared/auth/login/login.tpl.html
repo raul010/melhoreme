@@ -7,6 +7,7 @@
             <!--pattern="[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}"-->
 
             <input
+                    id="loginInputEmail"
                     ng-model="loginUser.user.email"
                     type="email"
                     name="email"
@@ -26,7 +27,13 @@
         <md-input-container class="md-block" >
             <label>Senha</label>
             <md-icon md-svg-icon="all:account-password"></md-icon>
-            <input ng-model="loginUser.user.password" ng-minlength="6" type="password" name="password" required>
+            <input
+                    id="loginInputPassword"
+                    ng-model="loginUser.user.password"
+                    ng-minlength="6"
+                    type="password"
+                    name="password"
+                    required>
             <!--<input ng-model="loginUser.user.password">-->
 
             <div ng-messages="loginForm.password.$error" >
@@ -36,7 +43,13 @@
 
         <captcha ng-if="loginUser.showCaptcha" name="captcha"></captcha>
 
-        <md-button class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="loginUser.login()">Login</md-button>
+        <md-button
+                id="loginButtonSubmit"
+                class="md-raised md-primary"
+                ng-disabled="loginForm.$invalid"
+                ng-click="loginUser.login()">
+            Login
+        </md-button>
         <a ui-sref="forgot" ng-click="loginUser.sidenav.close('{{ CONST.SIDENAV.RIGHT_LOGIN }}')">Esqueci minha senha</a>
 
     </form>
@@ -54,8 +67,10 @@
         <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised github" target="_blank"><span class="small">Entrar com </span>Github</md-button>-->
         <!--<md-button ng-href="{{Your_Facebok_Page}}" class="md-raised linkedin" target="_blank"><span class="small">Entrar com </span>Linkedin</md-button>-->
 
-        <md-button ng-click="loginUser.sidenav.close('right-login'); loginUser.sidenav.toggle.rightCadastro()"
-                   class="md-raised email" target="_blank">
+        <md-button
+                id="loginButtonCadComEmail"
+                ng-click="loginUser.sidenav.close('right-login'); loginUser.sidenav.toggle.rightCadastro()"
+               class="md-raised email" target="_blank">
             <span class="small">Cadastrar com </span>Email
         </md-button>
     </md-content>

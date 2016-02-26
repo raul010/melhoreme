@@ -41,7 +41,6 @@
 
 <body role="main">
 <md-progress-linear  md-mode='indeterminate' style="position: absolute; z-index: 3 !important" class="md-warn" value="100" ng-if="main.showProgress"></md-progress-linear>
-
     <mme-header></mme-header>
 
     <md-whiteframe class="md-whiteframe-4dp" layout layout-align="end end">
@@ -52,10 +51,6 @@
     <mme-sidenav type="signup"></mme-sidenav>
 
     <div ui-view></div>
-
-<div id="test">oioi</div>
-
-
 
 <!-- build:js assets/libs/angular/angular.min.js -->
 <script src="assets/libs/angular/angular.js"></script>
@@ -129,7 +124,8 @@
 <script src="app/shared/sidenav/sidenav.directive.js" ></script>
 <script src="app/shared/sidenav/sidenav.service.js" ></script>
 
-<script src="app/shared/header/header.all.js"></script>
+<script src="app/shared/header/header.directive.js"></script>
+<script src="app/shared/header/header.ctrl.js"></script>
 <!-- /build -->
 
 

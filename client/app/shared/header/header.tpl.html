@@ -1,10 +1,6 @@
 <md-toolbar class="main-toolbar">
     <div class="md-toolbar-tools">
         <span hide-sm flex="5"></span>
-
-        <md-button ng-click="main.toggle.left()" hide-gt-md class="md-icon-button button-toolbar" aria-label="Menu">
-            <md-icon md-svg-icon="all:menu"></md-icon>
-        </md-button>
         <a ui-sref="index">
             <h2>
                 <!--<span class="m">M</span><span class="logo">elhore.<span class="m-2">m</span>e</span>-->
@@ -17,7 +13,10 @@
 
             <md-input-container class="md-block ajuste-search" layout-fill layout-align="center center" ng-cloak>
                 <md-icon md-svg-icon="all:search"></md-icon>
-                <input ng-model="cadastro.user.username" type="text" class="search" aria-label="pesquisa">
+                <input
+                        type="text"
+                        class="search"
+                        aria-label="pesquisa">
             </md-input-container>
 
             <div flex="50"></div>
@@ -25,7 +24,12 @@
         </div>
         <div layout="row" layout-align="end center" ng-cloak>
             <!--{{home.toggle.rightCadastro()}}-->
-            <md-button ng-if="!home.isLogged()" hide-sm ng-click="header.sidenav.toggle.rightLogin()" class="button-toolbar" aria-label="Cadastro" >
+            <md-button
+                    id="headerButtonLogin"
+                    ng-if="!home.isLogged()"
+                    hide-sm ng-click="header.sidenav.toggle.rightLogin()"
+                    class="button-toolbar"
+                    aria-label="Cadastro" >
                 <!--<md-button ng-if="home.isLogged()" hide-sm ng-click="home.toggle.rightCadastro()" class="button-toolbar" aria-label="Cadastro" >-->
                 entrar
             </md-button>

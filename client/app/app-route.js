@@ -29,8 +29,8 @@ function appRoutes ($stateProvider, $locationProvider, $urlRouterProvider, $http
             controllerAs: 'home'
 
         }).state('content', {
-        url: '/content',
-        templateUrl: 'content.tpl.html'
+            url: '/content',
+            templateUrl: 'content.tpl.html'
 
         }).state('watch', {
             url: '/watch',
@@ -49,9 +49,6 @@ function appRoutes ($stateProvider, $locationProvider, $urlRouterProvider, $http
         }).state('forgot', {
             url: '/forgot',
             templateUrl: 'forgot.tpl.html'
-
-
-
 
         //}).state('home', {
         //    url: '/',

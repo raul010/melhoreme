@@ -7,6 +7,7 @@
             <!-- Use floating label instead of placeholder -->
             <md-icon md-svg-icon="all:account_up"></md-icon>
             <input
+                    id="signupInputEmail"
                     ng-model="signupUser.user.email"
                     placeholder="Email"
                     type="email"
@@ -26,6 +27,7 @@
         <md-input-container class="md-block" >
             <md-icon md-svg-icon="all:account-password"></md-icon>
             <input
+                    id="signupInputPassword"
                     ng-model="signupUser.user.password"
                     ng-minlength="6"
                     required
@@ -43,6 +45,7 @@
         <md-input-container class="md-block" >
             <md-icon md-svg-icon="all:account-password"></md-icon>
             <input
+                    id="signupInputConfirmPassword"
                     placeholder="Cofirme a Senha"
                     type="password"
                     name="confirmaPassword"
@@ -61,7 +64,13 @@
 
         <captcha ng-if="signupUser.showCaptcha"></captcha>
 
-        <md-button class="md-raised md-primary" ng-disabled="signupForm.$invalid" ng-click="signupUser.signup();">Cadastre-se</md-button>
+        <md-button
+                id="signupButtonSubmit"
+                class="md-raised md-primary"
+                ng-disabled="signupForm.$invalid"
+                ng-click="signupUser.signup();">
+            Cadastre-se
+        </md-button>
         <!--<md-button class="md-raised md-primary" ng-click="signupUser.signup();">Cadastre-se</md-button>-->
     </form>
 

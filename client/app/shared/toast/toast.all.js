@@ -19,7 +19,7 @@ app.factory('Toast', function ($mdToast, $document) {
             controller  : 'ToastController as toast',
             templateUrl : 'toast.tpl.html',
             parent      : $document[0].querySelector(parent),
-            hideDelay   : 3000,
+            hideDelay   : 10000,
             position    : 'top right'
         });
     };
