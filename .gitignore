@@ -18,7 +18,7 @@ z-old.configs
 /testes.sh
 z-package.json
 /client/z-index-old.html
-/env.js
+./env.js
 /tests_async.js
 
 # ADD COMMENT TO DEPLOY (Like Heroku)
