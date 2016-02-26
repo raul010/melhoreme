@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-nohup webdriver-manager start &
+nohup ./node_modules/protractor/bin/webdriver-manager start &
 # Change bitbucket web-hook
