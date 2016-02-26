@@ -16,5 +16,5 @@ node_js:
 before_script:
   - npm install -g gulp
   - webdriver-manager update --standalone
-  - gulp pre-tests
-script: gulp e2e
+  - nohup gulp pre-tests &
+script: (sleep 30; gulp e2e)

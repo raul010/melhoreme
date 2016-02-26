@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-webdriver-manager start &
+nohup webdriver-manager start &
 # Change bitbucket web-hook
