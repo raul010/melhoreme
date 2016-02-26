@@ -76,8 +76,6 @@ module.exports = (function() {
         // Secret Captcha
         process.env.CAPTCHA_SECRET_KEY    = '6Ld2EhgTAAAAAPSY0Jf96mksCrq7igbdI_R7u9tf';
 
-        // fim
-
     };
 
     new PATH();
