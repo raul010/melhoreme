@@ -202,7 +202,7 @@ gulp.task('sass', 'Watch Sass |', [TASK.MINI_CSS], null, {
     aliases: ['s', 'S']
 });
 
-gulp.task('minify-css', 'Minifica CSS |', [TASK.MINI_CSS], null, {
+gulp.task('minify-css', 'Minifica os CSS |', [TASK.MINI_CSS], null, {
     aliases: ['mc', 'MC']
 });
 
