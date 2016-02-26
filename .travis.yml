@@ -15,4 +15,5 @@ node_js:
 
 before_script:
   - npm install -g gulp
+  - gulp pre-tests
 script: gulp e2e
