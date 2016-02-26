@@ -4,20 +4,31 @@ module.exports = (function() {
 
     // PROJECT PATHS
     function PATH() {
-        // ROOT
-        process.env.PROJECT_HOME    = this.PROJECT_HOME = '.';
-        process.env.CLIENT          = this.CLIENT       = path.join(this.PROJECT_HOME, '/client');
-        process.env.SERVER          = this.SERVER       = path.join(this.PROJECT_HOME, '/server');
-        process.env.TESTS           = this.TESTS        = path.join(this.PROJECT_HOME, '/test');
+        // DETAILS
+        process.env.PROJECT_FOLDER_NAME = this.PROJECT_FOLDER_NAME = 'melhoreme';
+
+        // SOURCE_PATHS (unicos sem comecar sem /)
+        process.env.CLIENT  = this.CLIENT   = 'client';
+        process.env.SERVER  = this.SERVER   = 'server';
+        process.env.TESTS   = this.TESTS    = 'test';
+        process.env.BIN     = this.BIN      = '.bin';
+
+        // BACKUP (folder in a level back)
+        process.env.BACKUP_FOLDER = this.BACKUP_FOLDER = '..' + '/back_' +this.PROJECT_FOLDER_NAME;
 
         // CLIENT
         process.env.APP             = this.APP          = path.join(this.CLIENT, '/app');
         process.env.ASSETS          = this.ASSETS       = path.join(this.CLIENT, '/assets');
         process.env.VIEWS           = this.VIEWS        = path.join(this.CLIENT, '/views');
 
+        //CONFIG
+        process.env.GULP            = this.GULP         = path.join(this.BIN, '/gulp');
+
         // APP (Client)
         process.env.CONTROLLERS     = this.CONTROLLERS  = path.join(this.APP, '/controllers');
         process.env.SERVICES        = this.SERVICES     = path.join(this.APP, '/services');
+        process.env.DIRECTIVES      = this.DIRECTIVES   = path.join(this.APP, '/directives');
+        process.env.TEMPLATES       = this.TEMPLATES    = path.join(this.APP, '/templates');
 
         // ASSETS
         process.env.CSS             = this.CSS          = path.join(this.ASSETS,  '/css');
@@ -48,8 +59,24 @@ module.exports = (function() {
         process.env.MONGOOSE_USER   = 'raul';
         process.env.MONGOOSE_PASS   = 'au18gust';
 
+        // MONGOOSE TEST
+        process.env.MONGOOSE_URI_TEST    = 'mongodb://localhost/melhoreme-test?authSource=melhoreme-test';
+        process.env.MONGOOSE_USER_TEST   = 'raul-test';
+        process.env.MONGOOSE_PASS_TEST   = 'au18gust';
+
         // Auth
-        process.env.JWT_SECRET = '!S<1#;Wl?%0D*.d@';
+        process.env.TOKEN_SECRET    = '2rBt+X8[X-Y!aa4L}f[VY6TGUCT;y]';
+        process.env.FACEBOOK_SECRET = 'e0b410e60473a65f6514f897916a6c67';
+        process.env.GITHUB_SECRET   = '2d0531e392fd557b44abfc14d536905df52608e9';
+
+
+
+        //EMAIL
+        process.env.EMAIL_USER        = 'raul.abreu.leite@gmail.com';
+        process.env.EMAIL_PASSWORD    = 'Ja48Ah48';
+
+        // Secret Captcha
+        process.env.CAPTCHA_SECRET_KEY    = '6Ld2EhgTAAAAAPSY0Jf96mksCrq7igbdI_R7u9tf';
 
     };
 
