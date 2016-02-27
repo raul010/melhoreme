@@ -1,5 +1,5 @@
 language: node_js
-sudo: true
+sudo: false
 env:
   - CXX=g++-4.8
 
@@ -14,9 +14,10 @@ node_js:
   - "4.1.2"
 
 install:
-  - npm install
   - npm install -g npm@2
   - npm install -g gulp
+  - npm install
+
 
 
 before_script:
