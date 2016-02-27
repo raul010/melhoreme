@@ -9,7 +9,6 @@ addons:
      - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-    - wget
 
 node_js:
   - "4.1.2"
@@ -22,11 +21,6 @@ before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 5
-#  - curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - apt-get update
-  - apt-get install google-chrome-stable
   - google-chrome --version
   - ./node_modules/protractor/bin/webdriver-manager update
   - nohup gulp pre-tests &
