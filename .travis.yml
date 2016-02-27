@@ -14,6 +14,12 @@ addons:
 node_js:
   - "4.1.2"
 
+before_install:
+- wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+- sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+- sudo apt-get update -qq
+- sudo apt-get install -qq google-chrome-stable
+
 install:
 - npm install -g gulp
 - npm install
@@ -22,12 +28,8 @@ before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 5
-- chromium-browser --version
 #- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
-- chromium-browser --version
-- export CHROME_BIN=chromium-browser
-- chromium-browser --version
-# - chromium-browser update
+
 - ./node_modules/protractor/bin/webdriver-manager update
 - nohup gulp pre-tests &
 script: (sleep 10; gulp e2e)
