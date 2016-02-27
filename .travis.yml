@@ -14,16 +14,18 @@ node_js:
   - "4.1.2"
 
 install:
-- chromium-browser --version
 - npm install -g gulp
 - npm install
 
 before_script:
-- export CHROME_BIN=chromium-browser
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - sleep 5
-# - curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
+- chromium-browser --version
+- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
+- chromium-browser --version
+- export CHROME_BIN=chromium-browser
+- chromium-browser --version
 - ./node_modules/protractor/bin/webdriver-manager update
 - nohup gulp pre-tests &
 script: (sleep 10; gulp e2e)
