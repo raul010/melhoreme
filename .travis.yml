@@ -13,18 +13,14 @@ addons:
 node_js:
   - "4.1.2"
 
-
-before_install:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
-
 install:
-  - bundle
   - npm install -g npm@2
   - ./node_modules/protractor/bin/webdriver-manager update
 
 before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
   - npm install -g gulp
   - nohup gulp pre-tests &
 script: (sleep 30; gulp e2e)

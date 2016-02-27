@@ -1,7 +1,5 @@
 'use strict';
 
-var ajax = require('../util/ajax');
-
 module.exports = function(app) {
 
 	console.log('raul');
@@ -13,7 +11,6 @@ module.exports = function(app) {
 
 	// To rewrite links, due to the html5Mode angular
 	// Certificate if is this patterns /(^\/value1$)|(^\/value2$)/
-
 
 	/*
 		Muito cuidado com essa area, nao repetir, ou deixar de atualizar a lista abaixo.
