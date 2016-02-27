@@ -9,6 +9,7 @@ addons:
      - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
+    - chromium-browser
 
 node_js:
   - "4.1.2"
@@ -22,10 +23,11 @@ before_script:
 - sh -e /etc/init.d/xvfb start
 - sleep 5
 - chromium-browser --version
-- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
+#- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
 - chromium-browser --version
 - export CHROME_BIN=chromium-browser
 - chromium-browser --version
+# - chromium-browser update
 - ./node_modules/protractor/bin/webdriver-manager update
 - nohup gulp pre-tests &
 script: (sleep 10; gulp e2e)
