@@ -14,14 +14,16 @@ node_js:
   - "4.1.2"
 
 install:
+  - npm install
   - npm install -g npm@2
+  - npm install -g gulp
+
 
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+  - sleep 3
   - curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
   - ./node_modules/protractor/bin/webdriver-manager update
-  - npm install -g gulp
   - nohup gulp pre-tests &
 script: (sleep 30; gulp e2e)
