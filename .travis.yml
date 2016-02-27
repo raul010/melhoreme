@@ -9,7 +9,7 @@ addons:
      - ubuntu-toolchain-r-test
     packages:
     - g++-4.8
-    -wget
+    - wget
 
 node_js:
   - "4.1.2"
@@ -20,8 +20,8 @@ install:
 
 cache:
   directories:
-  - node_modules
-  - client/assets/libs
+#  - node_modules
+#  - client/assets/libs
 
 before_script:
   - export DISPLAY=:99.0
