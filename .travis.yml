@@ -17,6 +17,7 @@ before_install:
 - env
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
+- sleep 30
 
 install:
 - npm install -g npm@2
@@ -26,12 +27,11 @@ install:
 cache:
   directories:
   - node_modules
+#  - /home/travis/.nvm/versions/node/v4.1.2/lib/node_modules/
+#  - client/assets/libs
 
 before_script:
 - ./node_modules/protractor/bin/webdriver-manager update
-- "export DISPLAY=:99.0"
-- "sh -e /etc/init.d/xvfb start"
-- sleep 30
 #- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
 - nohup gulp pre-tests &
 script: (sleep 30; gulp e2e)
