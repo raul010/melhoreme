@@ -9,6 +9,14 @@ exports.config = {
         browser.executeScript('window.scrollTo(0,10000);');
 
     },
+
+    capabilities : {
+        browserName : 'chrome',
+        'chromeOptions': {
+            args: ['--no-sandbox']
+        }
+    },
+
     mochaOpts: {
         reporter: 'spec',
         timeout: 20000

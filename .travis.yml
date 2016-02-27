@@ -22,7 +22,7 @@ before_script:
   - sh -e /etc/init.d/xvfb start
   - sleep 5
   - curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
-  - google-chrome --version
+
   - ./node_modules/protractor/bin/webdriver-manager update
   - nohup gulp pre-tests &
 script: (sleep 10; gulp e2e)
