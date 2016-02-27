@@ -14,6 +14,7 @@ node_js:
   - "4.1.2"
 
 install:
+- chromium-browser --version
 - npm install -g gulp
 - npm install
 
