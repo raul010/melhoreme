@@ -110,3 +110,7 @@ These are certainly the two most used tasks.
     tail -f /var/log/nginx/error.log
     tail -f /var/log/nginx/access.log
     tail -f /var/log/nginx/melhore.me
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/raul010/melhoreme/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
