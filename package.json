@@ -1,0 +1,25 @@
+{
+  "name": "angular-material-prototipo",
+  "version": "1.0.0",
+  "description": "Workshop Angular - Descobrindo na prática porque desenvolvedores e clientes ficam mais felizes com Angular Material.",
+  "main": "server.js",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raul010/angular-material-prototipo.git"
+  },
+  "author": "Raul",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raul010/angular-material-prototipo/issues"
+  },
+  "homepage": "https://github.com/raul010/angular-material-prototipo#readme"
+}
