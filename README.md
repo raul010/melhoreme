@@ -26,9 +26,13 @@ _(embora não seja recomendado não interfere nos propósitos deste tutorial)_
 
 #### Start Server
 
-`npm start`
+```bash
+npm start
 
-[http://localhost:3000](http://localhost:3000)
+* Listening port 3000...
+```
+
+Abra: [http://localhost:3000](http://localhost:3000)
 
 Pronto, você já tem o projeto inteiro em mãos. Agora se quiser ir com mais calma
 observando o passo a passo, basta ir dando o chekout e observando o 
@@ -43,4 +47,11 @@ Qualquer dúvida, ou feedback é bem vindo:
 ## Step 1 - Hello Angular 
 `git checkout -f step-1` 
 
+```bash
+npm start
+
+* Listening port 3000...
+```
+
+Abra: [http://localhost:3000](http://localhost:3000)
 
