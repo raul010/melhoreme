@@ -1,13 +1,21 @@
-var express = require ('express');
+var express = require('express');
+var logger = require('morgan');
 var app = express();
 
+// Log de erros
+app.use(logger('dev'));
+
+// Raiz da pasta publica
+app.use(express.static(__dirname + '/public'));
+
+// Rota unica
 app.get('/', function (req, res) {
-    res.sendFile('index.html', {root: '.'});
+    res.render('index');
 });
 
-app.use(express.static('.'));
-
+// Porta do listen
 app.listen('3000', function() {
-   console.log('Listening port 3000...'); 
+    console.log('Listening port 3000...'); 
 });
+
 

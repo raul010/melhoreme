@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base href="/index.html">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>md-prototipo</title>
+        <link rel="stylesheet" href="js/libs/angular-material/angular-material.min.css">
+
+    </head>
+    <body ng-app="app" ng-cloak>
+        <div ng-controller="appController" >
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Settings">
+                        <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
+                    </md-button>
+                    <h2>
+                        <span>Toolbar with Icon Buttons</span>
+                    </h2>
+                    
+                    <span flex></span>
+
+                    <md-button class="md-icon-button" aria-label="Favorite">
+                        <md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>
+                    </md-button>
+                    <md-button 
+                        class="md-icon-button" aria-label="More">
+                        <md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+        </div>
+        <script src="js/libs/angular/angular.js"></script>
+        <script src="js/libs/angular-aria/angular-aria.js"></script>
+        <script src="js/libs/angular-animate/angular-animate.js"></script>
+        <script src="js/libs/angular-material/angular-material.js"></script>
+        <script src="js/app-controller.js"></script>
+    </body>
+</html>
+

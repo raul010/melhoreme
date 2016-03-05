@@ -47,6 +47,13 @@ Qualquer dúvida, ou feedback é bem vindo:
 ## Step 1 - Hello Angular 
 `git checkout -f step-1` 
 
+Se você já clonou todo o projeto, como instruido acima, pode pular esta etapa.
+Ela é apenas pra quem esqueceu do Angular Material e suas dependências.
+
+```bash
+npm install --save angular-aria angular-animate angular-messages angular-material
+```
+
 ```bash
 npm start
 
@@ -54,4 +61,17 @@ npm start
 ```
 
 Abra: [http://localhost:3000](http://localhost:3000)
+
+## Step 2 - Hello Angular Material - Toolbar
+
+Mesmos passos, apenas alternado de 'step-1', para 'step-2':
+
+`git checkout -f step-2` 
+
+```bash
+npm start
+
+* Listening port 3000...
+```
+
 
