@@ -34,9 +34,9 @@ npm start
 
 Abra: [http://localhost:3000](http://localhost:3000)
 
-Pronto, você já tem o projeto inteiro em mãos. Agora se quiser ir com mais calma
-observando o passo a passo, basta ir dando o chekout e observando o 
-que foi incluído, pelo _merge_.
+Pronto, você já tem o projeto inteiro em mãos. Agora se quiser ir observando o
+passo a passo, com mais calma, basta ir dando o chekout e observando o 
+que foi incluído. Conforme os passos mais abaixo.
 
 Qualquer dúvida, ou feedback é bem vindo:
 
