@@ -74,4 +74,12 @@ npm start
 * Listening port 3000...
 ```
 
+### Histórico
 
+[app-controller.js](https://github.com/raul010/angular-material-prototipo/commit/8c84d92337509ba34954e10b6fa8d07baf47b17d#diff-dbb3a9091891f57075ba1b0b86d98c52L1)
+
+[index.html](https://github.com/raul010/angular-material-prototipo/commit/8c84d92337509ba34954e10b6fa8d07baf47b17d#diff-528c3923d718a8860f5d8c05c3931c55R1)
+
+[favorite.svg]()
+[menu.svg]()
+[more_vert.svg]()

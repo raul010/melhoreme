@@ -8,7 +8,8 @@
     "angular-animate": "^1.5.0",
     "angular-aria": "^1.5.0",
     "angular-material": "^1.0.6",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "morgan": "^1.7.0"
   },
   "devDependencies": {},
   "scripts": {
