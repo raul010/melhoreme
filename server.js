@@ -7,6 +7,7 @@ app.use(logger('dev'));
 
 // Raiz da pasta publica
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/node_modules'));
 
 // Rota unica
 app.get('/', function (req, res) {
