@@ -19,3 +19,6 @@ before_script:
 - ./node_modules/protractor/bin/webdriver-manager update
 - nohup gulp pre-tests &
 script: (sleep 10; gulp e2e)
+
+#soh pro push
+
