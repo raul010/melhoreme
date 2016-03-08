@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ENV PYTHON /usr/bin/python2.7
 
-
+RUN sed -i 's/us-central1.gce/us-central1.gce.clouds/' /etc/apt/sources.list && sudo apt-get update
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
