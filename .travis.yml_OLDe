@@ -1,13 +1,22 @@
 language: node_js
-sudo: required
+sudo: true
+env:
+  - CXX=g++-4.8
 
-services:
-  - docker
+addons:
+  apt:
+    sources:
+     - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
+    - chromium-browser
 
 node_js:
-  - "4.3.1"
+  - "4.1.2"
+
 
 install:
+- npm install -g gulp
 - npm install
 
 before_script:

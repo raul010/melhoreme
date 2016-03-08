@@ -1,4 +1,4 @@
-'strict mode'
+'strict mode';
 angular.module('app.config', [])
     .config(mdThemingConfig)
     .constant('_', window._) // lodash
@@ -17,26 +17,26 @@ function loadCONST (){
         },
         //Para testes
         RESPONSE: {}
-    }
+    };
     return CONST;
 }
 
 function mdThemingConfig ($mdThemingProvider, $mdIconProvider, $compileProvider) {
     $mdThemingProvider.definePalette('custom-green', {
-        "50":"#e6ebed",
-        "100":"#b3c3c8",
-        "200":"#819ba4",
-        "300":"#577986",
-        "400":"#2d5767",
-        "500":"#033649",
-        "600":"#032f40",
-        "700":"#022937",
-        "800":"#02222e",
-        "900":"#021b25",
-        "A100":"#b3c3c8",
-        "A200":"#819ba4",
-        "A400":"#2d5767",
-        "A700":"#022937",
+        '50'   : '#e6ebed',
+        '100'  : '#b3c3c8',
+        '200'  : '#819ba4',
+        '300'  : '#577986',
+        '400'  : '#2d5767',
+        '500'  : '#033649',
+        '600'  : '#032f40',
+        '700'  : '#022937',
+        '800'  : '#02222e',
+        '900'  : '#021b25',
+        'A100' : '#b3c3c8',
+        'A200' : '#819ba4',
+        'A400' : '#2d5767',
+        'A700' : '#022937',
 
         'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
         // on this palette should be dark or light
@@ -45,20 +45,20 @@ function mdThemingConfig ($mdThemingProvider, $mdIconProvider, $compileProvider)
     });
 
     $mdThemingProvider.definePalette('custom-email', {
-        "50":"#e6ebed",
-        "100":"#b3c3c8",
-        "200":"#819ba4",
-        "300":"#577986",
-        "400":"#2d5767",
-        "500":"#BF3428",
-        "600":"#032f40",
-        "700":"#022937",
-        "800":"#02222e",
-        "900":"#021b25",
-        "A100":"#b3c3c8",
-        "A200":"#819ba4",
-        "A400":"#2d5767",
-        "A700":"#022937",
+        '50'   : '#e6ebed',
+        '100'  : '#b3c3c8',
+        '200'  : '#819ba4',
+        '300'  : '#577986',
+        '400'  : '#2d5767',
+        '500'  : '#BF3428',
+        '600'  : '#032f40',
+        '700'  : '#022937',
+        '800'  : '#02222e',
+        '900'  : '#021b25',
+        'A100' : '#b3c3c8',
+        'A200' : '#819ba4',
+        'A400' : '#2d5767',
+        'A700' : '#022937',
 
         'contrastDefaultColor': 'light',    // whether, by default, text (contrast)
         // on this palette should be dark or light
@@ -102,7 +102,7 @@ function mdThemingConfig ($mdThemingProvider, $mdIconProvider, $compileProvider)
 
 function runApp($rootScope, $http, $templateCache, CONST) {
     console.log('passou phase RUN');
-    // use Lodash in views, ng-repeat="x in _.range(3)"
+    // use Lodash in views, ng-repeat='x in _.range(3)'
     $rootScope._ = window._;
 
     //Consts

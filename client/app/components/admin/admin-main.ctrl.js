@@ -5,7 +5,8 @@
 //inject angular file upload directives and services.
 angular.module('AdminMainCtrl', [])
 
-.controller('AdminMainController', ['$scope', 'Upload', '$timeout', function ($scope, Upload, $timeout) {
+.controller('AdminMainController', ['$scope', 'Upload', '$timeout', 
+            function ($scope, Upload, $timeout) {
     $scope.$watch('files', function () {
         $scope.upload($scope.files);
     });

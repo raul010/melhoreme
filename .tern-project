@@ -1,0 +1,18 @@
+{
+    "ecmaVersion": 5,
+    "loadEagerly": [
+       "client/assets/libs/**/*.js"
+    ],
+    "dontLoad": [
+         "client/assets/libs/**/*.js",
+         "node_modules"
+    ],
+    "plugins": {
+        "node": {},
+        "node-express": {},
+        "angular": {},
+        "doc_comment": {
+            "fullDocs": true
+        }
+    }
+}

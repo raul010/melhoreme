@@ -1,23 +1,23 @@
-var https = require('https');
-var fs = require('fs');
+var https          = require('https');
+var fs             = require('fs');
 
-var express = require('express');
-var app = express();
-var passport = require('passport');
-//var compress        = require('compression');
-var cors = require('cors');
+var express        = require('express');
+var app            = express();
+var passport       = require('passport');
+//var compress     = require('compression');
+var cors           = require('cors');
 
-var morgan = require('morgan');
-var bodyParser = require('body-parser');
+var morgan         = require('morgan');
+var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var mongoose = require('mongoose');
+var mongoose       = require('mongoose');
 
-var email = require('./server/util/email');
+var email          = require('./server/util/email');
 
 require('./env');
 
-var port        = process.env.PORT || 8080; // set our port
-var NODE_ENV    = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
+var port     = process.env.PORT || 8080; // set our port
+var NODE_ENV = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
 
 console.log('*********************************');
 console.log('server.js -->', NODE_ENV);
@@ -61,8 +61,8 @@ app.use(function(req, res, next) {
 
 // SSL
 var optionsSSL = {
-    key                 : fs.readFileSync('/home/raul/Develop/ssl/melhoreme.key'),
-    cert                : fs.readFileSync('/home/raul/Develop/ssl/melhoreme.crt'),
+    key                 : fs.readFileSync('.bin/ssl/melhoreme.key'),
+    cert                : fs.readFileSync('.bin/ssl/melhoreme.crt'),
     requestCert         : false,
     rejectUnauthorized  : false
 };

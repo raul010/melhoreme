@@ -66,4 +66,5 @@
     },
     "mocha": true,
     "es5": true
-}
+    }
+

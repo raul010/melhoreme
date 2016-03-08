@@ -30,8 +30,8 @@ module.exports = function run(gulp, nodemon, browserSync, shell, argv) {
             open: false,
             //server: "./app",
             https: {
-                key: "/home/raul/Develop/ssl/melhoreme.key",
-                cert: "/home/raul/Develop/ssl/melhoreme.crt"
+                key: '.bin/ssl/melhoreme.key',
+                cert: '.bin/ssl/melhoreme.crt'
             }
         });
 
