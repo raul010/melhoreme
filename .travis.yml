@@ -11,7 +11,7 @@ before_install:
 - docker build -t raul010/tests
 - docker run -it raul010/tests /bin/bash
 
-install
+install:
 - npm install
 
 before_script:
