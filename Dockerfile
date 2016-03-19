@@ -80,8 +80,10 @@ RUN mkdir -p /data/db
 
 RUN npm install
 
-EXPOSE 8080
-EXPOSE 3000
+# EXPOSE 8080
+# EXPOSE 3000
 
 # CMD [ "gulp", "run" ]
 # CMD ["mongorestore", "./db-backup"]
+ENTRYPOINT ["nohup mongod &; mongorestore .bin/db-backup; nohup gulp run &;sleep
+30; ./node_modules/protractor/bin/webdriver-manager update; nohup gulp pre-tests &; sleep 10; gulp e2e"]
