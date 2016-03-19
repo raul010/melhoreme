@@ -21,6 +21,9 @@ RUN apt-get update \
 # For node-gyp
 RUN apt-get install -y build-essential
 
+# For MongoDB
+RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
 RUN	wget -q -O - http://dl-ssl.google.com/linux/linux_signing_key.pub |  apt-key add - \                                                                                    \
 	&& echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
 	&& apt-get update
@@ -55,16 +58,30 @@ RUN npm install -g gulp
 
 ENV APP_NAME melhoreme
 
-RUN mkdir -p /usr/src/$APP_NAME
-WORKDIR /usr/src/$APP_NAME
-
-COPY package.json /usr/src/$APP_NAME/
-
-RUN npm install
+# RUN mkdir -p /usr/src/$APP_NAME
 
 COPY . /usr/src/$APP_NAME
+
+WORKDIR /usr/src/$APP_NAME
+# COPY package.json /usr/src/$APP_NAME/
+
+# COPY * /usr/src/$APP_NAME/
+
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+RUN sudo apt-get install -y --force-yes mongodb-org
+
+# RUN mongo --version
+RUN mkdir -p /data/db
+# ADD .bin/db-backup .bin/db-backup
+# WORKDIR /usr/src/$APP_NAME
+# RUN nohup mongod &
+# RUN sleep 5
+# RUN mongorestore ./db-backup --host=0.0.0.0
+
+# RUN npm install
 
 EXPOSE 8080
 EXPOSE 3000
 
-CMD [ "gulp", "run" ]
+# CMD [ "gulp", "run" ]
+# CMD ["mongorestore", "./db-backup"]

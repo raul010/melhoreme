@@ -5,21 +5,25 @@
 npm-debug.log
 node_modules
 
-z_old
+.bin/db-backup
+/.bin/testes.sh
+
 /client/assets/css/fonts
 /client/assets/css/style.css
-/.bin/testes.sh
-/server/config/configs.js
 /client/assets/js_OLD
 /client/assets/js_OLD/js-min
 /client/assets/libs
 /client/dist/libs
-z-old.configs
-/testes.sh
-z-package.json
 /client/z-index-old.html
+
 #./env.js
+
+/server/config/configs.js
+/testes.sh
 /tests_async.js
+z_old
+z-old.configs
+z-package.json
 
 # ADD COMMENT TO DEPLOY (Like Heroku)
 /server/config/labels.js
