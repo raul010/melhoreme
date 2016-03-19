@@ -9,10 +9,10 @@ node_js:
 
 before_install:
 - docker build -t raul010/tests .
-# - docker run -it raul010/tests /bin/bash
+- docker run -it raul010/tests /bin/bash
 
-install:
-- npm install
+# install:
+# - npm install
 
 before_script:
 - export DISPLAY=:99.0

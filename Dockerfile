@@ -78,7 +78,7 @@ RUN mkdir -p /data/db
 # RUN sleep 5
 # RUN mongorestore ./db-backup --host=0.0.0.0
 
-# RUN npm install
+RUN npm install
 
 EXPOSE 8080
 EXPOSE 3000
