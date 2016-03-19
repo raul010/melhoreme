@@ -9,22 +9,22 @@ node_js:
 
 before_install:
 - docker build -t raul010/tests .
-- docker run -it raul010/tests /bin/bash
+- docker run -it raul010/tests /bin/bash -c "nohup mongod &; mongorestore .bin/db-backup; ./node_modules/protractor/bin/webdriver-manager update; nohup gulp pre-tests &; sleep 10; gulp e2e"
 
 # install:
 # - npm install
 
-before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- sleep 5
-#- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
-  
-- nohup mongod &
-- mongorestore .bin/db-backup
-- ./node_modules/protractor/bin/webdriver-manager update
-- nohup gulp pre-tests &
-script: (sleep 10; gulp e2e)
+# before_script:
+# - export DISPLAY=:99.0
+# - sh -e /etc/init.d/xvfb start
+# - sleep 5
+# #- curl -Lo chrome.zip https://download-chromium.appspot.com/dl/Linux_x64 && unzip chrome.zip
+#   
+# - nohup mongod &
+# - mongorestore .bin/db-backup
+# - ./node_modules/protractor/bin/webdriver-manager update
+# - nohup gulp pre-tests &
+# script: (sleep 10; gulp e2e)
 
 #soh pro push
 
