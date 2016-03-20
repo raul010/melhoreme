@@ -11,9 +11,13 @@ before_install:
 - docker build -t raul010/tests .
 # - docker run raul010/tests  
 - docker run --name tests_bash -d raul010/tests /bin/bash 
-- docker exec -d tests_bash nohup mongod 
-- docker exec -d tests_bash nmongorestore .bin/db-backup
-  #  nohup gulp run &; sleep 30; ./node_modules/protractor/bin/webdriver-manager update; nohup gulp pre-tests &; sleep 10; gulp e2e" 
+- docker exec tests_bash nohup mongod 
+- docker exec tests_bash mongorestore .bin/db-backup
+- docker exec tests_bash nohup gulp run 
+# - docker exec -d tests_bash nmongorestore .bin/db-backup
+# - docker exec -d tests_bash nmongorestore .bin/db-backup
+# - docker exec -d tests_bash nmongorestore .bin/db-backup
+  #  sleep 30; ./node_modules/protractor/bin/webdriver-manager update; nohup gulp pre-tests &; sleep 10; gulp e2e" 
 
 # install:
 # - npm install
