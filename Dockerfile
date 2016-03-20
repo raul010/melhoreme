@@ -85,4 +85,4 @@ RUN npm install
 
 # CMD [ "gulp", "run" ]
 # CMD ["mongorestore", "./db-backup"]
-ENTRYPOINT ["nohup mongod &; mongorestore .bin/db-backup; nohup gulp run &; sleep 30; ./node_modules/protractor/bin/webdriver-manager update; nohup gulp pre-tests &; sleep 10; gulp e2e"]
+# ENTRYPOINT ["nohup mongod &; mongorestore .bin/db-backup; nohup gulp run &; sleep 30; ./node_modules/protractor/bin/webdriver-manager update; nohup gulp pre-tests &; sleep 10; gulp e2e"]
