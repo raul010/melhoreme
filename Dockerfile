@@ -79,6 +79,7 @@ RUN mkdir -p /data/db
 # RUN mongorestore ./db-backup --host=0.0.0.0
 
 RUN npm install
+RUN ./node_modules/protractor/bin/webdriver-manager update
 
 # EXPOSE 8080
 # EXPOSE 3000
