@@ -10,17 +10,19 @@ node_js:
 before_install:
 - docker build -t raul010/tests .
 
-- docker run --name tests_bash -d raul010/tests /bin/bash 
+- docker run raul010/tests /bin/bash -c "nohup mongod"
 
-- docker exec -d tests_bash nohup mongod &
-- docker exec -d tests_bash sleep 30 &
-- docker exec -d tests_bash mongorestore .bin/db-backup &
-- docker exec -d tests_bash nohup gulp run &
-- docker exec -d tests_bash sleep 30 &
-# - docker exec -d tests_bash ./node_modules/protractor/bin/webdriver-manager update
-- docker exec -d tests_bash nohup gulp pre-tests &
-- docker exec -d tests_bash sleep 10
-- docker exec tests_bash gulp e2e 
+# - docker run --name tests_bash -d raul010/tests /bin/bash 
+
+# - docker exec -d tests_bash nohup mongod &
+# - docker exec -d tests_bash sleep 30 &
+# - docker exec -d tests_bash mongorestore .bin/db-backup &
+# - docker exec -d tests_bash nohup gulp run &
+# - docker exec -d tests_bash sleep 30 &
+# # - docker exec -d tests_bash ./node_modules/protractor/bin/webdriver-manager update
+# - docker exec -d tests_bash nohup gulp pre-tests &
+# - docker exec -d tests_bash sleep 10
+# - docker exec tests_bash gulp e2e 
 
 
 # install:
