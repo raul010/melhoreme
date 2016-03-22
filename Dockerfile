@@ -62,7 +62,11 @@ ENV APP_NAME melhoreme
 
 COPY . /usr/src/$APP_NAME
 
+RUN ls -lha
+
 WORKDIR /usr/src/$APP_NAME
+
+RUN ls -lha
 # COPY package.json /usr/src/$APP_NAME/
 
 # COPY * /usr/src/$APP_NAME/
@@ -73,10 +77,12 @@ RUN sudo apt-get install -y --force-yes mongodb-org
 # RUN mongo --version
 RUN mkdir -p /data/db
 # ADD .bin/db-backup .bin/db-backup
+# WORKDIR /usr/src/$APP_NAME
 # RUN nohup mongod &
 # RUN sleep 5
 # RUN mongorestore ./db-backup --host=0.0.0.0
 
+RUN ls -lha
 RUN npm install
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
