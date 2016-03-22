@@ -39,7 +39,7 @@ RUN apt-get install -y --no-install-recommends \
 	xvfb
 	
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 4.3.1
+ENV NODE_VERSION 4.1.2
 
 # Install nvm with node and npm
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash \
@@ -62,11 +62,8 @@ ENV APP_NAME melhoreme
 
 COPY . /usr/src/$APP_NAME
 
-RUN ls -lha
-
 WORKDIR /usr/src/$APP_NAME
 
-RUN ls -lha
 # COPY package.json /usr/src/$APP_NAME/
 
 # COPY * /usr/src/$APP_NAME/
