@@ -72,7 +72,7 @@ RUN sudo apt-get install -y --force-yes mongodb-org
 
 # RUN mongo --version
 RUN mkdir -p /data/db
-ADD .bin/db-backup .bin/db-backup
+# ADD .bin/db-backup .bin/db-backup
 # RUN nohup mongod &
 # RUN sleep 5
 # RUN mongorestore ./db-backup --host=0.0.0.0
