@@ -80,6 +80,7 @@ RUN mkdir -p /data/db
 # RUN mongorestore ./db-backup --host=0.0.0.0
 
 RUN ls -lha
+RUN npm cache clean -f
 RUN npm install
 RUN ./node_modules/protractor/bin/webdriver-manager update
 
