@@ -10,7 +10,7 @@ node_js:
 before_install:
 - docker build -t raul010/tests .
 
-- docker run raul010/tests /bin/bash -c "nohup mongod & sleep 30; ls -lha; mongorestore .bin/db-backup"
+- docker run raul010/tests /bin/bash -c "nohup mongod & sleep 30; ls -lha"
 
 # - docker run --name tests_bash -d raul010/tests /bin/bash 
 
