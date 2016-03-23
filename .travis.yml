@@ -12,7 +12,7 @@ before_install:
 # ./node_modules/protractor/bin/webdriver-manager update
 
 # - docker run raul010/tests /bin/bash -c "npm cache clean -f; npm install; nohup mongod & sleep 30; ls -lha; ls -lha .bin"
-- docker run -d -p 192.168.0.1:3000 raul010/tests 
+- docker run -d -p 127.168.0.1:3000 raul010/tests 
 # RUN npm cache clean -f
 # RUN npm install
 
