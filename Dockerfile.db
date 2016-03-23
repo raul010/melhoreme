@@ -63,7 +63,7 @@ ENV APP_NAME melhoreme
 
 # RUN mkdir -p /usr/src/$APP_NAME
 
-COPY . /usr/src/$APP_NAME
+# COPY . /usr/src/$APP_NAME
 
 WORKDIR /usr/src/$APP_NAME
 
