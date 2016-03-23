@@ -49,6 +49,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v$NVM_VERSION/inst
     && nvm alias default $NODE_VERSION \
     && nvm use default
 
+RUN apt-get install -y --force-yes git 
+
 ENV NODE_PATH $NVM_DIR/versions/node/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
@@ -82,8 +84,8 @@ RUN mkdir -p /data/db
 
 # RUN npm config set unsafe-perm true
 RUN npm config set strict-ssl false
-RUN npm cache clean -f
-RUN npm install
+# RUN npm cache clean -f
+# RUN npm install
 # RUN ./node_modules/protractor/bin/webdriver-manager update
 
 # EXPOSE 8080
