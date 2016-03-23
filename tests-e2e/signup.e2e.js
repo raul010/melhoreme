@@ -104,7 +104,7 @@ describe('form signup', function() {
         btnLoginEl = element(by.id('headerButtonLogin'));
         btnCadComEmailEl = element(by.id('loginButtonCadComEmail'));
 
-        inputEmailEl = element(by.id('signupInputEmail'))
+        inputEmailEl = element(by.id('signupInputEmail'));
         inputPasswordEl = element(by.id('signupInputPassword'));
         inputConfirmPasswordEl = element(by.id('signupInputConfirmPassword'));
         btnSubmitEl = element(by.id('signupButtonSubmit'));
