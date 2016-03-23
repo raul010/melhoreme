@@ -39,10 +39,11 @@ RUN apt-get install -y --no-install-recommends \
 	xvfb
 	
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 4.1.2
+ENV NODE_VERSION 5.9.0
+ENV NVM_VERSION 0.31.0
 
 # Install nvm with node and npm
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash \
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v$NVM_VERSION/install.sh | bash \
     && source $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
