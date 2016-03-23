@@ -14,8 +14,6 @@ before_install:
 # - docker run raul010/tests /bin/bash -c "npm cache clean -f; npm install; nohup mongod & sleep 30; ls -lha; ls -lha .bin"
 - docker run -d -p 127.0.0.1:3000:4567 raul010/tests 
 - docker ps -a
-# RUN npm cache clean -f
-# RUN npm install
 
 # - docker run --name tests_bash -d raul010/tests /bin/bash 
 
@@ -31,6 +29,8 @@ before_install:
 
 
 install:
+- npm cache clean -f
+- npm config set strict-ssl false
 - npm install
 
 before_script:
