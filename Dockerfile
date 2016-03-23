@@ -84,7 +84,7 @@ RUN npm config set unsafe-perm true
 RUN npm config set strict-ssl false
 RUN npm cache clean -f
 RUN npm install
-RUN ./node_modules/protractor/bin/webdriver-manager update
+# RUN ./node_modules/protractor/bin/webdriver-manager update
 
 # EXPOSE 8080
 # EXPOSE 3000
