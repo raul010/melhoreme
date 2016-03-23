@@ -23,6 +23,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 #
 # # For MongoDB
 RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+RUN apt-get update
 #
 # RUN	wget -q -O - http://dl-ssl.google.com/linux/linux_signing_key.pub |  apt-key add - \                                                                                    \
 # 	&& echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
