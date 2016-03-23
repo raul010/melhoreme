@@ -11,7 +11,9 @@ before_install:
 - docker build -t raul010/tests .
 # ./node_modules/protractor/bin/webdriver-manager update
 
-- docker run raul010/tests /bin/bash -c "nohup mongod & sleep 30; ls -lha; ls -lha .bin"
+- docker run raul010/tests /bin/bash -c "npm cache clean -f; npm install; nohup mongod & sleep 30; ls -lha; ls -lha .bin"
+# RUN npm cache clean -f
+# RUN npm install
 
 # - docker run --name tests_bash -d raul010/tests /bin/bash 
 
