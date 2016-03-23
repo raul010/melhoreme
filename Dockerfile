@@ -80,7 +80,8 @@ RUN mkdir -p /data/db
 # RUN sleep 5
 # RUN mongorestore ./db-backup --host=0.0.0.0
 
-RUN ls -lha
+RUN npm config set unsafe-perm true
+RUN npm config set strict-ssl false
 RUN npm cache clean -f
 RUN npm install
 RUN ./node_modules/protractor/bin/webdriver-manager update
