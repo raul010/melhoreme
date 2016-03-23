@@ -11,9 +11,9 @@ before_install:
     - docker build -f .bin/dockerfiles/db/Dockerfile -t raul010/db .
     - docker build -f .bin/dockerfiles/server/Dockerfile -t raul010/server . 
     # ./node_modules/protractor/bin/webdriver-manager update
-    - docker run -d -p 27017:27017 /bin/sh -c "nohup mongod & sleep30; mongorestore .bin/db-backup"
+    - docker run -d -p 27017:27017 raul010/db /bin/sh -c "nohup mongod & sleep30; mongorestore .bin/db-backup"
     # - docker run raul010/tests /bin/bash -c "npm cache clean -f; npm install; nohup mongod & sleep 30; ls -lha; ls -lha .bin"
-    - docker run -d -p 127.0.0.1:3000:4567 raul010/tests 
+    - docker run -d -p 127.0.0.1:3000:4567 raul010/server 
     - docker ps -a
 
 # - docker run --name tests_bash -d raul010/tests /bin/bash 
