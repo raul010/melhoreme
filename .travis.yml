@@ -8,8 +8,8 @@ node_js:
   - "5.9.0"
 
 before_install:
-    - docker build -t raul010/db -f Dockerfile.db
-    - docker build -t raul010/server -f Dockerfile.server
+    - docker build -t raul010/db -f .bin/dockerfiles/db
+    - docker build -t raul010/server -f .bin/dockerfiles/server
     # ./node_modules/protractor/bin/webdriver-manager update
     - docker run -d -p 27017:27017 /bin/sh -c "nohup mongod & sleep30; mongorestore .bin/db-backup"
     # - docker run raul010/tests /bin/bash -c "npm cache clean -f; npm install; nohup mongod & sleep 30; ls -lha; ls -lha .bin"
