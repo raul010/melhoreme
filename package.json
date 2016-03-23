@@ -80,7 +80,6 @@
     "mocha": "^2.4.5",
     "moment": "^2.11.2",
     "ng-annotate": "^1.0.2",
-    "pageres": "^2.1.0",
     "passport-facebook-token": "^3.0.5",
     "phantomjs": "^1.9.18",
     "pmx": "^0.5.5",
