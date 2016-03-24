@@ -106,6 +106,10 @@ app.use(function(err, req, res, next) {
 //app.listen(port);
 //console.log('Magic happens on port ' + port);
 
+
+require('http2').createServer(options, app).listen(8080);
+
+
 var server = https.createServer(optionsSSL, app).listen(port, function() {
     console.log('If server has started via GULP RUN task:');
     console.log('server ===============================> https://localhost:8080');

@@ -17,13 +17,13 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # 		python2.7
 # 		# build-essential \
 # 		# libxss1 libappindicator1 libindicator7 xdg-utils 
-#
+
 # # For node-gyp
 # RUN apt-get install -y build-essential
 #
 # # For MongoDB
 RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-RUN apt-get update
+
 #
 # RUN	wget -q -O - http://dl-ssl.google.com/linux/linux_signing_key.pub |  apt-key add - \                                                                                    \
 # 	&& echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
@@ -43,7 +43,7 @@ RUN apt-get update
 # ENV NODE_VERSION 5.9.0
 # ENV NVM_VERSION 0.31.0
 #
-# # Install nvm with node and npm
+# # # Install nvm with node and npm
 # RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v$NVM_VERSION/install.sh | bash \
 #     && source $NVM_DIR/nvm.sh \
 #     && nvm install $NODE_VERSION \
@@ -54,15 +54,15 @@ RUN apt-get update
 #
 # ENV NODE_PATH $NVM_DIR/versions/node/v$NODE_VERSION/lib/node_modules
 # ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
-#
+
 # RUN npm install -g gulp
 #
-#RUN apt-get autoremove -y \
+# RUN apt-get autoremove -y \
 #	&& apt-get clean -y \
 
 ENV APP_NAME melhoreme
 
-# RUN mkdir -p /usr/src/$APP_NAME
+RUN mkdir -p /usr/src/$APP_NAME
 
 # COPY . /usr/src/$APP_NAME
 
@@ -77,7 +77,7 @@ RUN sudo apt-get install -y --force-yes mongodb-org
 
 # RUN mongo --version
 RUN mkdir -p /data/db
-ADD .bin/db-backup .bin/db-backup
+# ADD .bin/db-backup .bin/db-backup
 # WORKDIR /usr/src/$APP_NAME
 # RUN nohup mongod &
 # RUN sleep 5
@@ -91,7 +91,7 @@ ADD .bin/db-backup .bin/db-backup
 
 # EXPOSE 8080
 # EXPOSE 3000
-EXPOSE 27017
+# EXPOSE 27017
 
 # RUN nohup mongod &
 
