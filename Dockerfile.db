@@ -100,9 +100,11 @@ RUN chown -R `id -u` /data/db
 
 # RUN nohup mongod &
 # RUN npm cache clean -f
+RUN npm install -g bower
+RUN npm install -g gulp
+
 RUN npm config set unsafe-perm true
 RUN npm config set strict-ssl false
-RUN npm install -g bower
 RUN npm install
 RUN npm config set unsafe-perm false
 RUN npm set strict-ssl true
