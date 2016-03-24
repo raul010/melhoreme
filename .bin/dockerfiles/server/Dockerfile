@@ -71,8 +71,8 @@ WORKDIR /usr/src/$APP_NAME
 
 # COPY * /usr/src/$APP_NAME/
 
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-RUN sudo apt-get install -y --force-yes mongodb-org
+# RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+# RUN sudo apt-get install -y --force-yes mongodb-org
 
 # RUN mongo --version
 RUN mkdir -p /data/db
@@ -89,9 +89,9 @@ RUN npm install
 # RUN ./node_modules/protractor/bin/webdriver-manager update
 
 EXPOSE 8080
-EXPOSE 3000
-EXPOSE 80
-EXPOSE 83
+# EXPOSE 3000
+# EXPOSE 80
+# EXPOSE 83
 
 CMD [ "gulp", "run" ]
 # CMD ["mongorestore", "./db-backup"]
