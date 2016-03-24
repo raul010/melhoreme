@@ -82,14 +82,16 @@ RUN mkdir -p /data/db
 # RUN sleep 5
 # RUN mongorestore ./db-backup --host=0.0.0.0
 
-# RUN npm config set unsafe-perm true
-RUN npm config set strict-ssl false
 RUN npm cache clean -f
+RUN npm config set unsafe-perm true
+RUN npm config set strict-ssl false
 RUN npm install
 # RUN ./node_modules/protractor/bin/webdriver-manager update
 
 EXPOSE 8080
-# EXPOSE 3000
+EXPOSE 3000
+EXPOSE 80
+EXPOSE 83
 
 CMD [ "gulp", "run" ]
 # CMD ["mongorestore", "./db-backup"]
