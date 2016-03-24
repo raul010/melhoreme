@@ -15,6 +15,7 @@ before_install:
     # - mongodump --db "admin" -o .bin/db-backup/
     #
     # - mongod --shutdown
+    - .bin/containers/build.sh
     - .bin/containers/run-db.sh  
      
      
