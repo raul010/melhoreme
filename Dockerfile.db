@@ -80,7 +80,7 @@ WORKDIR /usr/src/$APP_NAME
 
 COPY package.json /usr/src/$APP_NAME/
 
-# COPY * /usr/src/$APP_NAME/
+COPY bower.json  /usr/src/$APP_NAME/
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 RUN sudo apt-get install -y --force-yes mongodb-org
