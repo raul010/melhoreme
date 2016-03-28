@@ -102,7 +102,7 @@ RUN chown -R `id -u` /data/db
 # RUN npm cache clean -f
 RUN npm install -g bower
 RUN npm install -g gulp
-
+RUN npm install -g wait-for-mongo
 RUN npm config set unsafe-perm true
 RUN npm config set strict-ssl false
 RUN npm install

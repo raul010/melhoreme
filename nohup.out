@@ -1,0 +1,1133 @@
+2016-03-28T10:12:24.111-0300 I CONTROL  [initandlisten] MongoDB starting : pid=7813 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T10:12:24.111-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T10:12:24.111-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T10:12:24.111-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T10:12:24.111-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T10:12:24.111-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T10:12:24.205-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T10:12:24.205-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T10:12:24.205-0300 I JOURNAL  [initandlisten] warning couldn't write to / rename file /data/db/journal/prealloc.0: couldn't open file /data/db/journal/prealloc.0 for writing errno:9 Bad file descriptor
+2016-03-28T10:12:24.290-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T10:12:24.290-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T10:12:24.553-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T10:12:25.125-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41676 #1 (1 connection now open)
+2016-03-28T10:12:35.458-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41678 #2 (2 connections now open)
+2016-03-28T10:12:35.537-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41679 #3 (3 connections now open)
+2016-03-28T10:12:35.543-0300 I NETWORK  [conn2] end connection 127.0.0.1:41678 (2 connections now open)
+2016-03-28T10:12:35.544-0300 I NETWORK  [conn3] end connection 127.0.0.1:41679 (1 connection now open)
+2016-03-28T10:12:35.555-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41680 #4 (2 connections now open)
+2016-03-28T10:12:35.557-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41681 #5 (3 connections now open)
+2016-03-28T10:12:35.560-0300 I NETWORK  [conn4] end connection 127.0.0.1:41680 (2 connections now open)
+2016-03-28T10:12:35.560-0300 I NETWORK  [conn5] end connection 127.0.0.1:41681 (1 connection now open)
+2016-03-28T10:12:35.584-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T10:12:35.584-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T10:12:35.584-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T10:12:35.584-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T10:12:35.584-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T10:12:35.584-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T10:12:35.584-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T10:12:35.584-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T10:12:35.584-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T10:12:35.584-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T10:12:35.585-0300 I NETWORK  [conn1] end connection 127.0.0.1:41676 (0 connections now open)
+2016-03-28T10:12:35.636-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T10:12:35.636-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T10:12:35.669-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T10:12:35.687-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T10:12:35.687-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T10:12:35.687-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T10:12:35.691-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T10:12:35.691-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T10:12:35.691-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T10:12:50.458-0300 I CONTROL  [initandlisten] MongoDB starting : pid=7852 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T10:12:50.458-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T10:12:50.458-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T10:12:50.458-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T10:12:50.458-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T10:12:50.458-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T10:12:50.529-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T10:12:50.529-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T10:12:50.636-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T10:12:50.636-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T10:12:50.702-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T10:12:50.702-0300 I CONTROL  [initandlisten] 
+2016-03-28T10:12:50.751-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T10:12:51.644-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41699 #1 (1 connection now open)
+2016-03-28T10:12:55.492-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41700 #2 (2 connections now open)
+2016-03-28T10:12:55.496-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41701 #3 (3 connections now open)
+2016-03-28T10:12:55.540-0300 I NETWORK  [conn2] end connection 127.0.0.1:41700 (2 connections now open)
+2016-03-28T10:12:55.540-0300 I NETWORK  [conn3] end connection 127.0.0.1:41701 (1 connection now open)
+2016-03-28T10:12:55.553-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41702 #4 (2 connections now open)
+2016-03-28T10:12:55.558-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41703 #5 (3 connections now open)
+2016-03-28T10:12:55.562-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:41704 #6 (4 connections now open)
+2016-03-28T10:12:55.614-0300 I NETWORK  [conn4] end connection 127.0.0.1:41702 (3 connections now open)
+2016-03-28T10:12:55.614-0300 I NETWORK  [conn6] end connection 127.0.0.1:41704 (2 connections now open)
+2016-03-28T10:12:55.614-0300 I NETWORK  [conn5] end connection 127.0.0.1:41703 (1 connection now open)
+2016-03-28T10:12:55.639-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T10:12:55.639-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T10:12:55.639-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T10:12:55.639-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T10:12:55.639-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T10:12:55.639-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T10:12:55.639-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T10:12:55.639-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T10:12:55.639-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T10:12:55.639-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T10:12:55.639-0300 I NETWORK  [conn1] end connection 127.0.0.1:41699 (0 connections now open)
+2016-03-28T10:12:55.722-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T10:12:55.722-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T10:12:55.772-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T10:12:55.844-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T10:12:55.844-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T10:12:55.844-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T10:12:55.848-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T10:12:55.848-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T10:12:55.849-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T11:31:49.123-0300 I CONTROL  [initandlisten] MongoDB starting : pid=12427 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T11:31:49.161-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T11:31:49.161-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T11:31:49.161-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T11:31:49.161-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T11:31:49.161-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T11:31:49.211-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T11:31:49.252-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T11:31:49.252-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T11:57:14.120-0300 I CONTROL  [initandlisten] MongoDB starting : pid=13633 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T11:57:14.120-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T11:57:14.120-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T11:57:14.120-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T11:57:14.120-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T11:57:14.120-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T11:57:14.173-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T11:57:14.225-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T11:57:14.226-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T11:58:23.032-0300 I CONTROL  [initandlisten] MongoDB starting : pid=13685 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T11:58:23.032-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T11:58:23.032-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T11:58:23.032-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T11:58:23.032-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T11:58:23.032-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T11:58:23.082-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T11:58:23.082-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T11:58:23.082-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T11:58:40.673-0300 I CONTROL  [initandlisten] MongoDB starting : pid=13731 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T11:58:40.673-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T11:58:40.673-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T11:58:40.673-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T11:58:40.673-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T11:58:40.673-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T11:58:40.724-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T11:58:40.724-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T11:58:40.724-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T11:58:52.466-0300 I CONTROL  [initandlisten] MongoDB starting : pid=13747 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T11:58:52.467-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T11:58:52.467-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T11:58:52.467-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T11:58:52.467-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T11:58:52.467-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T11:58:52.520-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T11:58:52.521-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T11:58:52.521-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T11:59:45.466-0300 I CONTROL  [initandlisten] MongoDB starting : pid=13815 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T11:59:45.467-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T11:59:45.467-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T11:59:45.467-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T11:59:45.467-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T11:59:45.467-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T11:59:45.556-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T11:59:45.556-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T11:59:45.655-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T11:59:45.655-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T11:59:45.686-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T11:59:45.686-0300 I CONTROL  [initandlisten] 
+2016-03-28T11:59:45.795-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T11:59:46.039-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44295 #1 (1 connection now open)
+2016-03-28T11:59:46.042-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44296 #2 (2 connections now open)
+2016-03-28T11:59:46.116-0300 I NETWORK  [conn1] end connection 127.0.0.1:44295 (1 connection now open)
+2016-03-28T11:59:46.116-0300 I NETWORK  [conn2] end connection 127.0.0.1:44296 (0 connections now open)
+2016-03-28T11:59:46.130-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44297 #3 (1 connection now open)
+2016-03-28T11:59:46.138-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44298 #4 (2 connections now open)
+2016-03-28T11:59:46.148-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44299 #5 (3 connections now open)
+2016-03-28T11:59:46.190-0300 I NETWORK  [conn5] end connection 127.0.0.1:44299 (2 connections now open)
+2016-03-28T11:59:46.190-0300 I NETWORK  [conn3] end connection 127.0.0.1:44297 (2 connections now open)
+2016-03-28T11:59:46.190-0300 I NETWORK  [conn4] end connection 127.0.0.1:44298 (0 connections now open)
+2016-03-28T11:59:46.222-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T11:59:46.222-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T11:59:46.222-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T11:59:46.222-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T11:59:46.222-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T11:59:46.222-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T11:59:46.222-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T11:59:46.222-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T11:59:46.222-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T11:59:46.222-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T11:59:46.298-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T11:59:46.298-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T11:59:46.355-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T11:59:46.427-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T11:59:46.427-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T11:59:46.427-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T11:59:46.433-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T11:59:46.433-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T11:59:46.433-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T12:00:06.298-0300 I CONTROL  [initandlisten] MongoDB starting : pid=13879 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:00:06.298-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:00:06.298-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:00:06.299-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:00:06.299-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:00:06.299-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:00:06.374-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T12:00:06.374-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T12:00:06.457-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T12:00:06.457-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T12:00:06.483-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T12:00:06.483-0300 I CONTROL  [initandlisten] 
+2016-03-28T12:00:06.532-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T12:00:06.848-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44306 #1 (1 connection now open)
+2016-03-28T12:00:06.851-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44307 #2 (2 connections now open)
+2016-03-28T12:00:06.855-0300 I NETWORK  [conn1] end connection 127.0.0.1:44306 (1 connection now open)
+2016-03-28T12:00:06.856-0300 I NETWORK  [conn2] end connection 127.0.0.1:44307 (0 connections now open)
+2016-03-28T12:00:06.867-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44308 #3 (1 connection now open)
+2016-03-28T12:00:06.869-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44309 #4 (2 connections now open)
+2016-03-28T12:00:06.872-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44310 #5 (3 connections now open)
+2016-03-28T12:00:06.875-0300 I NETWORK  [conn3] end connection 127.0.0.1:44308 (2 connections now open)
+2016-03-28T12:00:06.876-0300 I NETWORK  [conn4] end connection 127.0.0.1:44309 (1 connection now open)
+2016-03-28T12:00:06.876-0300 I NETWORK  [conn5] end connection 127.0.0.1:44310 (0 connections now open)
+2016-03-28T12:00:06.899-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T12:00:06.899-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T12:00:06.899-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T12:00:06.899-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T12:00:06.899-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T12:00:06.899-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T12:00:06.899-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T12:00:06.899-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T12:00:06.899-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T12:00:06.899-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T12:00:06.992-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T12:00:06.992-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T12:00:07.088-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T12:00:07.104-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T12:00:07.104-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T12:00:07.104-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T12:00:07.110-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T12:00:07.110-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T12:00:07.111-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T12:00:11.403-0300 I CONTROL  [initandlisten] MongoDB starting : pid=13933 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:00:11.403-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:00:11.403-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:00:11.403-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:00:11.403-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:00:11.403-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:00:11.513-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T12:00:11.513-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T12:00:11.583-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T12:00:11.584-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T12:00:11.635-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T12:00:11.635-0300 I CONTROL  [initandlisten] 
+2016-03-28T12:00:11.685-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T12:00:12.021-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44315 #1 (1 connection now open)
+2016-03-28T12:00:12.024-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44316 #2 (2 connections now open)
+2016-03-28T12:00:12.028-0300 I NETWORK  [conn1] end connection 127.0.0.1:44315 (1 connection now open)
+2016-03-28T12:00:12.029-0300 I NETWORK  [conn2] end connection 127.0.0.1:44316 (0 connections now open)
+2016-03-28T12:00:12.040-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44317 #3 (1 connection now open)
+2016-03-28T12:00:12.043-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44318 #4 (2 connections now open)
+2016-03-28T12:00:12.046-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44319 #5 (3 connections now open)
+2016-03-28T12:00:12.048-0300 I NETWORK  [conn3] end connection 127.0.0.1:44317 (2 connections now open)
+2016-03-28T12:00:12.048-0300 I NETWORK  [conn4] end connection 127.0.0.1:44318 (1 connection now open)
+2016-03-28T12:00:12.049-0300 I NETWORK  [conn5] end connection 127.0.0.1:44319 (0 connections now open)
+2016-03-28T12:00:12.072-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T12:00:12.072-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T12:00:12.072-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T12:00:12.072-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T12:00:12.072-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T12:00:12.072-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T12:00:12.072-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T12:00:12.072-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T12:00:12.072-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T12:00:12.072-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T12:00:12.167-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T12:00:12.168-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T12:00:12.221-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T12:00:12.277-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T12:00:12.277-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T12:00:12.277-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T12:00:12.283-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T12:00:12.283-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T12:00:12.283-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T12:01:06.444-0300 I CONTROL  [initandlisten] MongoDB starting : pid=14012 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:01:06.444-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:01:06.444-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:01:06.444-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:01:06.444-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:01:06.444-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:01:06.524-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T12:01:06.525-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T12:01:06.601-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T12:01:06.601-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T12:01:06.634-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T12:01:06.634-0300 I CONTROL  [initandlisten] 
+2016-03-28T12:01:06.683-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T12:01:06.991-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44332 #1 (1 connection now open)
+2016-03-28T12:01:06.995-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44333 #2 (2 connections now open)
+2016-03-28T12:01:06.999-0300 I NETWORK  [conn2] end connection 127.0.0.1:44333 (1 connection now open)
+2016-03-28T12:01:06.999-0300 I NETWORK  [conn1] end connection 127.0.0.1:44332 (0 connections now open)
+2016-03-28T12:01:07.011-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44334 #3 (1 connection now open)
+2016-03-28T12:01:07.013-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44335 #4 (2 connections now open)
+2016-03-28T12:01:07.017-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44336 #5 (3 connections now open)
+2016-03-28T12:01:07.017-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44337 #6 (4 connections now open)
+2016-03-28T12:01:07.019-0300 I NETWORK  [conn3] end connection 127.0.0.1:44334 (3 connections now open)
+2016-03-28T12:01:07.020-0300 I NETWORK  [conn5] end connection 127.0.0.1:44336 (2 connections now open)
+2016-03-28T12:01:07.020-0300 I NETWORK  [conn4] end connection 127.0.0.1:44335 (1 connection now open)
+2016-03-28T12:01:07.020-0300 I NETWORK  [conn6] end connection 127.0.0.1:44337 (1 connection now open)
+2016-03-28T12:01:07.044-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T12:01:07.044-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T12:01:07.044-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T12:01:07.044-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T12:01:07.044-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T12:01:07.044-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T12:01:07.044-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T12:01:07.044-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T12:01:07.044-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T12:01:07.044-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T12:01:07.136-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T12:01:07.136-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T12:01:07.185-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T12:01:07.249-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T12:01:07.249-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T12:01:07.249-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T12:01:07.255-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T12:01:07.255-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T12:01:07.255-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T12:03:20.795-0300 I CONTROL  [initandlisten] MongoDB starting : pid=14112 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:03:20.795-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:03:20.795-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:03:20.795-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:03:20.795-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:03:20.795-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:03:20.894-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T12:03:20.894-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T12:03:20.968-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T12:03:20.968-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T12:03:21.020-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T12:03:21.020-0300 I CONTROL  [initandlisten] 
+2016-03-28T12:03:21.074-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T12:03:21.406-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44367 #1 (1 connection now open)
+2016-03-28T12:03:21.417-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44368 #2 (2 connections now open)
+2016-03-28T12:03:21.426-0300 I NETWORK  [conn1] end connection 127.0.0.1:44367 (1 connection now open)
+2016-03-28T12:03:21.427-0300 I NETWORK  [conn2] end connection 127.0.0.1:44368 (0 connections now open)
+2016-03-28T12:03:21.465-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44369 #3 (1 connection now open)
+2016-03-28T12:03:21.474-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44370 #4 (2 connections now open)
+2016-03-28T12:03:21.484-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44371 #5 (3 connections now open)
+2016-03-28T12:03:21.486-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44372 #6 (4 connections now open)
+2016-03-28T12:03:21.497-0300 I NETWORK  [conn4] end connection 127.0.0.1:44370 (3 connections now open)
+2016-03-28T12:03:21.497-0300 I NETWORK  [conn3] end connection 127.0.0.1:44369 (3 connections now open)
+2016-03-28T12:03:21.497-0300 I NETWORK  [conn5] end connection 127.0.0.1:44371 (1 connection now open)
+2016-03-28T12:03:21.497-0300 I NETWORK  [conn6] end connection 127.0.0.1:44372 (0 connections now open)
+2016-03-28T12:03:21.523-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T12:03:21.523-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T12:03:21.523-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T12:03:21.523-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T12:03:21.523-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T12:03:21.523-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T12:03:21.523-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T12:03:21.523-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T12:03:21.523-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T12:03:21.523-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T12:03:21.577-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T12:03:21.577-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T12:03:21.632-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T12:03:21.727-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T12:03:21.728-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T12:03:21.728-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T12:03:21.734-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T12:03:21.734-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T12:03:21.734-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T12:05:25.540-0300 I CONTROL  [initandlisten] MongoDB starting : pid=14219 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:05:25.540-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:05:25.540-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:05:25.540-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:05:25.541-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:05:25.541-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:05:25.646-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T12:05:25.646-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T12:05:25.723-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T12:05:25.724-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T12:05:25.766-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T12:05:25.766-0300 I CONTROL  [initandlisten] 
+2016-03-28T12:05:25.815-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T12:05:26.105-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44406 #1 (1 connection now open)
+2016-03-28T12:05:26.108-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44407 #2 (2 connections now open)
+2016-03-28T12:05:26.112-0300 I NETWORK  [conn1] end connection 127.0.0.1:44406 (1 connection now open)
+2016-03-28T12:05:26.113-0300 I NETWORK  [conn2] end connection 127.0.0.1:44407 (0 connections now open)
+2016-03-28T12:05:26.125-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44408 #3 (1 connection now open)
+2016-03-28T12:05:26.127-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44409 #4 (2 connections now open)
+2016-03-28T12:05:26.131-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:44410 #5 (3 connections now open)
+2016-03-28T12:05:26.134-0300 I NETWORK  [conn3] end connection 127.0.0.1:44408 (2 connections now open)
+2016-03-28T12:05:26.134-0300 I NETWORK  [conn5] end connection 127.0.0.1:44410 (1 connection now open)
+2016-03-28T12:05:26.134-0300 I NETWORK  [conn4] end connection 127.0.0.1:44409 (0 connections now open)
+2016-03-28T12:05:26.158-0300 I CONTROL  [signalProcessingThread] got signal 15 (Terminated), will terminate after current cmd ends
+2016-03-28T12:05:26.158-0300 I CONTROL  [signalProcessingThread] now exiting
+2016-03-28T12:05:26.158-0300 I NETWORK  [signalProcessingThread] shutdown: going to close listening sockets...
+2016-03-28T12:05:26.158-0300 I NETWORK  [signalProcessingThread] closing listening socket: 5
+2016-03-28T12:05:26.158-0300 I NETWORK  [signalProcessingThread] closing listening socket: 6
+2016-03-28T12:05:26.159-0300 I NETWORK  [signalProcessingThread] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T12:05:26.159-0300 I NETWORK  [signalProcessingThread] shutdown: going to flush diaglog...
+2016-03-28T12:05:26.159-0300 I NETWORK  [signalProcessingThread] shutdown: going to close sockets...
+2016-03-28T12:05:26.159-0300 I STORAGE  [signalProcessingThread] shutdown: waiting for fs preallocator...
+2016-03-28T12:05:26.159-0300 I STORAGE  [signalProcessingThread] shutdown: final commit...
+2016-03-28T12:05:26.250-0300 I JOURNAL  [signalProcessingThread] journalCleanup...
+2016-03-28T12:05:26.250-0300 I JOURNAL  [signalProcessingThread] removeJournalFiles
+2016-03-28T12:05:26.300-0300 I JOURNAL  [signalProcessingThread] Terminating durability thread ...
+2016-03-28T12:05:26.364-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T12:05:26.364-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T12:05:26.364-0300 I STORAGE  [signalProcessingThread] shutdown: closing all files...
+2016-03-28T12:05:26.370-0300 I STORAGE  [signalProcessingThread] closeAllFiles() finished
+2016-03-28T12:05:26.370-0300 I STORAGE  [signalProcessingThread] shutdown: removing fs lock...
+2016-03-28T12:05:26.370-0300 I CONTROL  [signalProcessingThread] dbexit:  rc: 0
+2016-03-28T12:13:11.359-0300 I CONTROL  [initandlisten] MongoDB starting : pid=14912 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:13:11.359-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:13:11.359-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:13:11.359-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:13:11.360-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:13:11.360-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:13:11.412-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:13:11.412-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:13:11.412-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T12:13:32.698-0300 I CONTROL  [initandlisten] MongoDB starting : pid=14952 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:13:32.698-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:13:32.698-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:13:32.698-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:13:32.698-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:13:32.698-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:13:32.755-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:13:32.756-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:13:32.756-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T12:13:54.085-0300 I CONTROL  [initandlisten] MongoDB starting : pid=14995 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:13:54.085-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:13:54.085-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:13:54.085-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:13:54.085-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:13:54.085-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:13:54.145-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:13:54.146-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:13:54.146-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T12:52:46.931-0300 I CONTROL  [initandlisten] MongoDB starting : pid=17044 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:52:46.987-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:52:46.987-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:52:46.987-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:52:46.987-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:52:46.987-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:52:47.084-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:52:47.140-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:52:47.140-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T12:53:41.019-0300 I CONTROL  [initandlisten] MongoDB starting : pid=17085 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:53:41.019-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:53:41.019-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:53:41.019-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:53:41.019-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:53:41.019-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:53:41.068-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:53:41.068-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:53:41.068-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T12:55:20.925-0300 I CONTROL  [initandlisten] MongoDB starting : pid=17177 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:55:20.925-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:55:20.925-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:55:20.925-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:55:20.925-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:55:20.925-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:55:20.974-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:55:20.974-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:55:20.974-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T12:55:41.458-0300 I CONTROL  [initandlisten] MongoDB starting : pid=17223 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:55:41.459-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:55:41.459-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:55:41.459-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:55:41.459-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:55:41.459-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:55:41.536-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:55:41.537-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:55:41.537-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T12:56:33.263-0300 I CONTROL  [initandlisten] MongoDB starting : pid=17326 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T12:56:33.263-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T12:56:33.263-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T12:56:33.263-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T12:56:33.263-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T12:56:33.263-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T12:56:33.312-0300 W -        [initandlisten] Detected unclean shutdown - /data/db/mongod.lock is not empty.
+2016-03-28T12:56:33.312-0300 I STORAGE  [initandlisten] exception in initAndListen: 98 Unable to lock file: /data/db/mongod.lock errno:11 Resource temporarily unavailable. Is a mongod instance already running?, terminating
+2016-03-28T12:56:33.312-0300 I CONTROL  [initandlisten] dbexit:  rc: 100
+2016-03-28T14:20:13.198-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21401 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:20:13.234-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:20:13.234-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:20:13.234-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:20:13.234-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:20:13.234-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:20:13.306-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:20:13.306-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:20:13.410-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:20:13.410-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:20:13.464-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:20:13.464-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:20:13.513-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:20:15.179-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46912 #1 (1 connection now open)
+2016-03-28T14:20:15.179-0300 I NETWORK  [conn1] end connection 127.0.0.1:46912 (0 connections now open)
+2016-03-28T14:20:15.739-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46913 #2 (1 connection now open)
+2016-03-28T14:20:15.760-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46914 #3 (2 connections now open)
+2016-03-28T14:20:15.809-0300 I NETWORK  [conn3] end connection 127.0.0.1:46914 (1 connection now open)
+2016-03-28T14:20:15.809-0300 I NETWORK  [conn2] end connection 127.0.0.1:46913 (1 connection now open)
+2016-03-28T14:20:15.823-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46915 #4 (1 connection now open)
+2016-03-28T14:20:15.826-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46916 #5 (2 connections now open)
+2016-03-28T14:20:15.829-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46917 #6 (3 connections now open)
+2016-03-28T14:20:15.843-0300 I NETWORK  [conn4] end connection 127.0.0.1:46915 (2 connections now open)
+2016-03-28T14:20:15.843-0300 I NETWORK  [conn5] end connection 127.0.0.1:46916 (1 connection now open)
+2016-03-28T14:20:15.844-0300 I NETWORK  [conn6] end connection 127.0.0.1:46917 (0 connections now open)
+2016-03-28T14:20:15.914-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46918 #7 (1 connection now open)
+2016-03-28T14:20:15.916-0300 I COMMAND  [conn7] terminating, shutdown command received
+2016-03-28T14:20:15.916-0300 I CONTROL  [conn7] now exiting
+2016-03-28T14:20:15.916-0300 I NETWORK  [conn7] shutdown: going to close listening sockets...
+2016-03-28T14:20:15.916-0300 I NETWORK  [conn7] closing listening socket: 5
+2016-03-28T14:20:15.916-0300 I NETWORK  [conn7] closing listening socket: 6
+2016-03-28T14:20:15.916-0300 I NETWORK  [conn7] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:20:15.916-0300 I NETWORK  [conn7] shutdown: going to flush diaglog...
+2016-03-28T14:20:15.916-0300 I NETWORK  [conn7] shutdown: going to close sockets...
+2016-03-28T14:20:15.916-0300 I STORAGE  [conn7] shutdown: waiting for fs preallocator...
+2016-03-28T14:20:15.916-0300 I STORAGE  [conn7] shutdown: final commit...
+2016-03-28T14:20:15.975-0300 I JOURNAL  [conn7] journalCleanup...
+2016-03-28T14:20:15.975-0300 I JOURNAL  [conn7] removeJournalFiles
+2016-03-28T14:20:16.030-0300 I JOURNAL  [conn7] Terminating durability thread ...
+2016-03-28T14:20:16.120-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:20:16.121-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:20:16.121-0300 I STORAGE  [conn7] shutdown: closing all files...
+2016-03-28T14:20:16.128-0300 I STORAGE  [conn7] closeAllFiles() finished
+2016-03-28T14:20:16.128-0300 I STORAGE  [conn7] shutdown: removing fs lock...
+2016-03-28T14:20:16.128-0300 I CONTROL  [conn7] dbexit:  rc: 0
+2016-03-28T14:21:06.757-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21474 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:21:06.758-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:21:06.758-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:21:06.758-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:21:06.758-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:21:06.758-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:21:06.828-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:21:06.828-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:21:06.897-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:21:06.897-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:21:06.927-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:21:06.927-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:21:06.976-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:21:08.740-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46928 #1 (1 connection now open)
+2016-03-28T14:21:08.740-0300 I NETWORK  [conn1] end connection 127.0.0.1:46928 (0 connections now open)
+2016-03-28T14:21:08.755-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46929 #2 (1 connection now open)
+2016-03-28T14:21:08.758-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46930 #3 (2 connections now open)
+2016-03-28T14:21:08.762-0300 I NETWORK  [conn2] end connection 127.0.0.1:46929 (1 connection now open)
+2016-03-28T14:21:08.762-0300 I NETWORK  [conn3] end connection 127.0.0.1:46930 (0 connections now open)
+2016-03-28T14:21:08.774-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46931 #4 (1 connection now open)
+2016-03-28T14:21:08.777-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46932 #5 (2 connections now open)
+2016-03-28T14:21:08.781-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46933 #6 (3 connections now open)
+2016-03-28T14:21:08.781-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46934 #7 (4 connections now open)
+2016-03-28T14:21:08.785-0300 I NETWORK  [conn4] end connection 127.0.0.1:46931 (3 connections now open)
+2016-03-28T14:21:08.786-0300 I NETWORK  [conn5] end connection 127.0.0.1:46932 (2 connections now open)
+2016-03-28T14:21:08.786-0300 I NETWORK  [conn6] end connection 127.0.0.1:46933 (1 connection now open)
+2016-03-28T14:21:08.786-0300 I NETWORK  [conn7] end connection 127.0.0.1:46934 (0 connections now open)
+2016-03-28T14:21:08.857-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46935 #8 (1 connection now open)
+2016-03-28T14:21:08.859-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:21:08.859-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:21:08.859-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:21:08.859-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:21:08.859-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:21:08.859-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:21:08.859-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:21:08.859-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:21:08.859-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:21:08.859-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:21:08.913-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:21:08.913-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:21:08.977-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:21:09.064-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:21:09.064-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:21:09.064-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:21:09.070-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:21:09.070-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:21:09.071-0300 I CONTROL  [conn8] dbexit:  rc: 0
+2016-03-28T14:21:35.365-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21528 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:21:35.365-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:21:35.365-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:21:35.365-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:21:35.365-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:21:35.365-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:21:35.435-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:21:35.435-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:21:35.521-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:21:35.521-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:21:35.549-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:21:35.549-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:21:35.598-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:21:37.361-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46941 #1 (1 connection now open)
+2016-03-28T14:21:37.361-0300 I NETWORK  [conn1] end connection 127.0.0.1:46941 (0 connections now open)
+2016-03-28T14:21:37.374-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46942 #2 (1 connection now open)
+2016-03-28T14:21:37.378-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46943 #3 (2 connections now open)
+2016-03-28T14:21:37.381-0300 I NETWORK  [conn2] end connection 127.0.0.1:46942 (1 connection now open)
+2016-03-28T14:21:37.382-0300 I NETWORK  [conn3] end connection 127.0.0.1:46943 (1 connection now open)
+2016-03-28T14:21:37.393-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46944 #4 (1 connection now open)
+2016-03-28T14:21:37.396-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46945 #5 (2 connections now open)
+2016-03-28T14:21:37.399-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46946 #6 (3 connections now open)
+2016-03-28T14:21:37.400-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46947 #7 (4 connections now open)
+2016-03-28T14:21:37.402-0300 I NETWORK  [conn5] end connection 127.0.0.1:46945 (3 connections now open)
+2016-03-28T14:21:37.402-0300 I NETWORK  [conn6] end connection 127.0.0.1:46946 (3 connections now open)
+2016-03-28T14:21:37.402-0300 I NETWORK  [conn4] end connection 127.0.0.1:46944 (3 connections now open)
+2016-03-28T14:21:37.402-0300 I NETWORK  [conn7] end connection 127.0.0.1:46947 (0 connections now open)
+2016-03-28T14:21:37.470-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46948 #8 (1 connection now open)
+2016-03-28T14:21:37.472-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:21:37.472-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:21:37.472-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:21:37.472-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:21:37.472-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:21:37.472-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:21:37.472-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:21:37.472-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:21:37.472-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:21:37.472-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:21:37.562-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:21:37.562-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:21:37.616-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:21:37.677-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:21:37.677-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:21:37.677-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:21:37.683-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:21:37.683-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:21:37.683-0300 I CONTROL  [conn8] dbexit:  rc: 0
+2016-03-28T14:22:15.137-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21595 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:22:15.137-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:22:15.137-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:22:15.137-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:22:15.137-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:22:15.137-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:22:15.207-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:22:15.207-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:22:15.295-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:22:15.295-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:22:15.329-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:22:15.329-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:22:15.379-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:22:17.124-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46959 #1 (1 connection now open)
+2016-03-28T14:22:17.124-0300 I NETWORK  [conn1] end connection 127.0.0.1:46959 (0 connections now open)
+2016-03-28T14:22:22.139-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46961 #2 (1 connection now open)
+2016-03-28T14:22:22.144-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46962 #3 (2 connections now open)
+2016-03-28T14:22:22.148-0300 I NETWORK  [conn2] end connection 127.0.0.1:46961 (1 connection now open)
+2016-03-28T14:22:22.148-0300 I NETWORK  [conn3] end connection 127.0.0.1:46962 (0 connections now open)
+2016-03-28T14:22:22.165-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46963 #4 (1 connection now open)
+2016-03-28T14:22:22.168-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46964 #5 (2 connections now open)
+2016-03-28T14:22:22.171-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46965 #6 (3 connections now open)
+2016-03-28T14:22:22.172-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46966 #7 (4 connections now open)
+2016-03-28T14:22:22.175-0300 I NETWORK  [conn4] end connection 127.0.0.1:46963 (3 connections now open)
+2016-03-28T14:22:22.176-0300 I NETWORK  [conn5] end connection 127.0.0.1:46964 (2 connections now open)
+2016-03-28T14:22:22.176-0300 I NETWORK  [conn6] end connection 127.0.0.1:46965 (1 connection now open)
+2016-03-28T14:22:22.176-0300 I NETWORK  [conn7] end connection 127.0.0.1:46966 (0 connections now open)
+2016-03-28T14:22:22.247-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:46967 #8 (1 connection now open)
+2016-03-28T14:22:22.248-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:22:22.248-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:22:22.248-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:22:22.248-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:22:22.248-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:22:22.248-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:22:22.248-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:22:22.248-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:22:22.249-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:22:22.249-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:22:22.303-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:22:22.303-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:22:22.355-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:22:22.453-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:22:22.453-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:22:22.453-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:22:22.460-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:22:22.460-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:22:22.460-0300 I CONTROL  [conn8] dbexit:  rc: 0
+2016-03-28T14:26:03.038-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21778 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:26:03.038-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:26:03.038-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:26:03.038-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:26:03.038-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:26:03.038-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:26:03.109-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:26:03.109-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:26:03.172-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:26:03.172-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:26:03.201-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:26:03.201-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:26:03.250-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:26:05.035-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47042 #1 (1 connection now open)
+2016-03-28T14:26:05.036-0300 I NETWORK  [conn1] end connection 127.0.0.1:47042 (0 connections now open)
+2016-03-28T14:26:10.050-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47044 #2 (1 connection now open)
+2016-03-28T14:26:10.054-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47045 #3 (2 connections now open)
+2016-03-28T14:26:10.058-0300 I NETWORK  [conn2] end connection 127.0.0.1:47044 (1 connection now open)
+2016-03-28T14:26:10.058-0300 I NETWORK  [conn3] end connection 127.0.0.1:47045 (0 connections now open)
+2016-03-28T14:26:10.070-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47046 #4 (1 connection now open)
+2016-03-28T14:26:10.073-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47047 #5 (2 connections now open)
+2016-03-28T14:26:10.075-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47048 #6 (3 connections now open)
+2016-03-28T14:26:10.076-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47049 #7 (4 connections now open)
+2016-03-28T14:26:10.078-0300 I NETWORK  [conn4] end connection 127.0.0.1:47046 (3 connections now open)
+2016-03-28T14:26:10.078-0300 I NETWORK  [conn5] end connection 127.0.0.1:47047 (2 connections now open)
+2016-03-28T14:26:10.079-0300 I NETWORK  [conn6] end connection 127.0.0.1:47048 (1 connection now open)
+2016-03-28T14:26:10.079-0300 I NETWORK  [conn7] end connection 127.0.0.1:47049 (0 connections now open)
+2016-03-28T14:26:10.149-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47050 #8 (1 connection now open)
+2016-03-28T14:26:10.151-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:26:10.151-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:26:10.151-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:26:10.151-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:26:10.151-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:26:10.151-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:26:10.151-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:26:10.151-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:26:10.151-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:26:10.151-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:26:10.205-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:26:10.205-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:26:10.261-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:26:10.356-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:26:10.356-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:26:10.356-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:26:10.362-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:26:10.363-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:26:10.363-0300 I CONTROL  [conn8] dbexit:  rc: 0
+2016-03-28T14:27:04.188-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21845 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:27:04.188-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:27:04.188-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:27:04.188-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:27:04.188-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:27:04.188-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:27:04.258-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:27:04.258-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:27:04.323-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:27:04.323-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:27:04.372-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:27:04.372-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:27:04.421-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:27:06.177-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47064 #1 (1 connection now open)
+2016-03-28T14:27:06.177-0300 I NETWORK  [conn1] end connection 127.0.0.1:47064 (0 connections now open)
+2016-03-28T14:27:11.191-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47066 #2 (1 connection now open)
+2016-03-28T14:27:11.195-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47067 #3 (2 connections now open)
+2016-03-28T14:27:11.198-0300 I NETWORK  [conn2] end connection 127.0.0.1:47066 (1 connection now open)
+2016-03-28T14:27:11.199-0300 I NETWORK  [conn3] end connection 127.0.0.1:47067 (0 connections now open)
+2016-03-28T14:27:11.211-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47068 #4 (1 connection now open)
+2016-03-28T14:27:11.214-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47069 #5 (2 connections now open)
+2016-03-28T14:27:11.217-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47070 #6 (3 connections now open)
+2016-03-28T14:27:11.219-0300 I NETWORK  [conn4] end connection 127.0.0.1:47068 (2 connections now open)
+2016-03-28T14:27:11.220-0300 I NETWORK  [conn5] end connection 127.0.0.1:47069 (1 connection now open)
+2016-03-28T14:27:11.220-0300 I NETWORK  [conn6] end connection 127.0.0.1:47070 (0 connections now open)
+2016-03-28T14:27:11.291-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47071 #7 (1 connection now open)
+2016-03-28T14:27:11.293-0300 I COMMAND  [conn7] terminating, shutdown command received
+2016-03-28T14:27:11.293-0300 I CONTROL  [conn7] now exiting
+2016-03-28T14:27:11.293-0300 I NETWORK  [conn7] shutdown: going to close listening sockets...
+2016-03-28T14:27:11.293-0300 I NETWORK  [conn7] closing listening socket: 5
+2016-03-28T14:27:11.293-0300 I NETWORK  [conn7] closing listening socket: 6
+2016-03-28T14:27:11.293-0300 I NETWORK  [conn7] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:27:11.293-0300 I NETWORK  [conn7] shutdown: going to flush diaglog...
+2016-03-28T14:27:11.293-0300 I NETWORK  [conn7] shutdown: going to close sockets...
+2016-03-28T14:27:11.293-0300 I STORAGE  [conn7] shutdown: waiting for fs preallocator...
+2016-03-28T14:27:11.293-0300 I STORAGE  [conn7] shutdown: final commit...
+2016-03-28T14:27:11.348-0300 I JOURNAL  [conn7] journalCleanup...
+2016-03-28T14:27:11.348-0300 I JOURNAL  [conn7] removeJournalFiles
+2016-03-28T14:27:11.408-0300 I JOURNAL  [conn7] Terminating durability thread ...
+2016-03-28T14:27:11.498-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:27:11.498-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:27:11.498-0300 I STORAGE  [conn7] shutdown: closing all files...
+2016-03-28T14:27:11.505-0300 I STORAGE  [conn7] closeAllFiles() finished
+2016-03-28T14:27:11.505-0300 I STORAGE  [conn7] shutdown: removing fs lock...
+2016-03-28T14:27:11.505-0300 I CONTROL  [conn7] dbexit:  rc: 0
+2016-03-28T14:27:24.633-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21915 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:27:24.633-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:27:24.633-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:27:24.633-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:27:24.633-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:27:24.633-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:27:24.703-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:27:24.703-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:27:24.776-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:27:24.776-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:27:24.806-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:27:24.806-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:27:24.855-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:27:26.620-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47076 #1 (1 connection now open)
+2016-03-28T14:27:26.621-0300 I NETWORK  [conn1] end connection 127.0.0.1:47076 (0 connections now open)
+2016-03-28T14:27:31.635-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47078 #2 (1 connection now open)
+2016-03-28T14:27:31.639-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47079 #3 (2 connections now open)
+2016-03-28T14:27:31.643-0300 I NETWORK  [conn2] end connection 127.0.0.1:47078 (1 connection now open)
+2016-03-28T14:27:31.643-0300 I NETWORK  [conn3] end connection 127.0.0.1:47079 (1 connection now open)
+2016-03-28T14:27:31.655-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47080 #4 (1 connection now open)
+2016-03-28T14:27:31.657-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47081 #5 (2 connections now open)
+2016-03-28T14:27:31.660-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47082 #6 (3 connections now open)
+2016-03-28T14:27:31.662-0300 I NETWORK  [conn4] end connection 127.0.0.1:47080 (2 connections now open)
+2016-03-28T14:27:31.663-0300 I NETWORK  [conn5] end connection 127.0.0.1:47081 (1 connection now open)
+2016-03-28T14:27:31.663-0300 I NETWORK  [conn6] end connection 127.0.0.1:47082 (0 connections now open)
+2016-03-28T14:27:31.734-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47083 #7 (1 connection now open)
+2016-03-28T14:27:31.735-0300 I COMMAND  [conn7] terminating, shutdown command received
+2016-03-28T14:27:31.735-0300 I CONTROL  [conn7] now exiting
+2016-03-28T14:27:31.735-0300 I NETWORK  [conn7] shutdown: going to close listening sockets...
+2016-03-28T14:27:31.735-0300 I NETWORK  [conn7] closing listening socket: 5
+2016-03-28T14:27:31.735-0300 I NETWORK  [conn7] closing listening socket: 6
+2016-03-28T14:27:31.735-0300 I NETWORK  [conn7] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:27:31.736-0300 I NETWORK  [conn7] shutdown: going to flush diaglog...
+2016-03-28T14:27:31.736-0300 I NETWORK  [conn7] shutdown: going to close sockets...
+2016-03-28T14:27:31.736-0300 I STORAGE  [conn7] shutdown: waiting for fs preallocator...
+2016-03-28T14:27:31.736-0300 I STORAGE  [conn7] shutdown: final commit...
+2016-03-28T14:27:31.792-0300 I JOURNAL  [conn7] journalCleanup...
+2016-03-28T14:27:31.792-0300 I JOURNAL  [conn7] removeJournalFiles
+2016-03-28T14:27:31.849-0300 I JOURNAL  [conn7] Terminating durability thread ...
+2016-03-28T14:27:31.940-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:27:31.940-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:27:31.940-0300 I STORAGE  [conn7] shutdown: closing all files...
+2016-03-28T14:27:31.947-0300 I STORAGE  [conn7] closeAllFiles() finished
+2016-03-28T14:27:31.947-0300 I STORAGE  [conn7] shutdown: removing fs lock...
+2016-03-28T14:27:31.947-0300 I CONTROL  [conn7] dbexit:  rc: 0
+2016-03-28T14:27:47.619-0300 I CONTROL  [initandlisten] MongoDB starting : pid=21989 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:27:47.619-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:27:47.619-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:27:47.619-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:27:47.619-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:27:47.619-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:27:47.689-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:27:47.689-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:27:47.766-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:27:47.766-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:27:47.794-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:27:47.794-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:27:47.843-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:27:49.604-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47099 #1 (1 connection now open)
+2016-03-28T14:27:49.605-0300 I NETWORK  [conn1] end connection 127.0.0.1:47099 (0 connections now open)
+2016-03-28T14:27:54.619-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47100 #2 (1 connection now open)
+2016-03-28T14:27:54.622-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47101 #3 (2 connections now open)
+2016-03-28T14:27:54.626-0300 I NETWORK  [conn2] end connection 127.0.0.1:47100 (1 connection now open)
+2016-03-28T14:27:54.626-0300 I NETWORK  [conn3] end connection 127.0.0.1:47101 (0 connections now open)
+2016-03-28T14:27:54.638-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47102 #4 (1 connection now open)
+2016-03-28T14:27:54.640-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47103 #5 (2 connections now open)
+2016-03-28T14:27:54.643-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47104 #6 (3 connections now open)
+2016-03-28T14:27:54.644-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47105 #7 (4 connections now open)
+2016-03-28T14:27:54.646-0300 I NETWORK  [conn4] end connection 127.0.0.1:47102 (3 connections now open)
+2016-03-28T14:27:54.646-0300 I NETWORK  [conn5] end connection 127.0.0.1:47103 (2 connections now open)
+2016-03-28T14:27:54.646-0300 I NETWORK  [conn6] end connection 127.0.0.1:47104 (3 connections now open)
+2016-03-28T14:27:54.646-0300 I NETWORK  [conn7] end connection 127.0.0.1:47105 (0 connections now open)
+2016-03-28T14:27:54.718-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47106 #8 (1 connection now open)
+2016-03-28T14:27:54.719-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:27:54.720-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:27:54.720-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:27:54.720-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:27:54.720-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:27:54.720-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:27:54.720-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:27:54.720-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:27:54.720-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:27:54.720-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:27:54.825-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:27:54.825-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:27:54.881-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:27:54.925-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:27:54.925-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:27:54.925-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:27:54.931-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:27:54.931-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:27:54.931-0300 I CONTROL  [conn8] dbexit:  rc: 0
+2016-03-28T14:28:19.795-0300 I CONTROL  [initandlisten] MongoDB starting : pid=22059 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:28:19.795-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:28:19.795-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:28:19.795-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:28:19.795-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:28:19.795-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:28:19.865-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:28:19.865-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:28:19.943-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:28:19.944-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:28:19.972-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:28:19.973-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:28:20.022-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:28:21.785-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47114 #1 (1 connection now open)
+2016-03-28T14:28:21.785-0300 I NETWORK  [conn1] end connection 127.0.0.1:47114 (0 connections now open)
+2016-03-28T14:28:26.799-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47115 #2 (1 connection now open)
+2016-03-28T14:28:26.802-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47116 #3 (2 connections now open)
+2016-03-28T14:28:26.807-0300 I NETWORK  [conn2] end connection 127.0.0.1:47115 (1 connection now open)
+2016-03-28T14:28:26.807-0300 I NETWORK  [conn3] end connection 127.0.0.1:47116 (0 connections now open)
+2016-03-28T14:28:26.819-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47117 #4 (1 connection now open)
+2016-03-28T14:28:26.821-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47118 #5 (2 connections now open)
+2016-03-28T14:28:26.824-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47119 #6 (3 connections now open)
+2016-03-28T14:28:26.827-0300 I NETWORK  [conn4] end connection 127.0.0.1:47117 (2 connections now open)
+2016-03-28T14:28:26.827-0300 I NETWORK  [conn6] end connection 127.0.0.1:47119 (1 connection now open)
+2016-03-28T14:28:26.827-0300 I NETWORK  [conn5] end connection 127.0.0.1:47118 (0 connections now open)
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:28:26.899-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47120 #7 (1 connection now open)
+2016-03-28T14:28:26.901-0300 I COMMAND  [conn7] terminating, shutdown command received
+2016-03-28T14:28:26.901-0300 I CONTROL  [conn7] now exiting
+2016-03-28T14:28:26.901-0300 I NETWORK  [conn7] shutdown: going to close listening sockets...
+2016-03-28T14:28:26.901-0300 I NETWORK  [conn7] closing listening socket: 5
+2016-03-28T14:28:26.901-0300 I NETWORK  [conn7] closing listening socket: 6
+2016-03-28T14:28:26.901-0300 I NETWORK  [conn7] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:28:26.901-0300 I NETWORK  [conn7] shutdown: going to flush diaglog...
+2016-03-28T14:28:26.901-0300 I NETWORK  [conn7] shutdown: going to close sockets...
+2016-03-28T14:28:26.901-0300 I STORAGE  [conn7] shutdown: waiting for fs preallocator...
+2016-03-28T14:28:26.901-0300 I STORAGE  [conn7] shutdown: final commit...
+2016-03-28T14:28:26.901-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-28T14:28:26.903-0300 I JOURNAL  [conn7] journalCleanup...
+2016-03-28T14:28:26.903-0300 I JOURNAL  [conn7] removeJournalFiles
+2016-03-28T14:28:26.907-0300 E QUERY    Error: error doing query: failed
+    at DBQuery._exec (src/mongo/shell/query.js:83:36)
+    at DBQuery.hasNext (src/mongo/shell/query.js:240:10)
+    at DBCollection.findOne (src/mongo/shell/collection.js:187:19)
+    at DB.runCommand (src/mongo/shell/db.js:58:41)
+    at DB.adminCommand (src/mongo/shell/db.js:66:41)
+    at (shell eval):1:4 at src/mongo/shell/query.js:83
+2016-03-28T14:28:26.958-0300 I JOURNAL  [conn7] Terminating durability thread ...
+2016-03-28T14:28:27.003-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:28:27.003-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:28:27.004-0300 I STORAGE  [conn7] shutdown: closing all files...
+2016-03-28T14:28:27.010-0300 I STORAGE  [conn7] closeAllFiles() finished
+2016-03-28T14:28:27.010-0300 I STORAGE  [conn7] shutdown: removing fs lock...
+2016-03-28T14:28:27.010-0300 I CONTROL  [conn7] dbexit:  rc: 0
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:28:46.615-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-03-28T14:28:46.617-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+2016-03-28T14:28:46.645-0300 I CONTROL  [initandlisten] MongoDB starting : pid=22129 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:28:46.645-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:28:46.645-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:28:46.645-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:28:46.645-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:28:46.645-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:28:46.715-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:28:46.715-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:28:46.795-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:28:46.795-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:28:46.828-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:28:46.828-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:28:46.877-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:28:48.631-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47127 #1 (1 connection now open)
+2016-03-28T14:28:48.632-0300 I NETWORK  [conn1] end connection 127.0.0.1:47127 (0 connections now open)
+2016-03-28T14:28:53.646-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47128 #2 (1 connection now open)
+2016-03-28T14:28:53.649-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47129 #3 (2 connections now open)
+2016-03-28T14:28:53.654-0300 I NETWORK  [conn2] end connection 127.0.0.1:47128 (1 connection now open)
+2016-03-28T14:28:53.654-0300 I NETWORK  [conn3] end connection 127.0.0.1:47129 (0 connections now open)
+2016-03-28T14:28:53.666-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47130 #4 (1 connection now open)
+2016-03-28T14:28:53.668-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47131 #5 (2 connections now open)
+2016-03-28T14:28:53.670-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47132 #6 (3 connections now open)
+2016-03-28T14:28:53.672-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47133 #7 (4 connections now open)
+2016-03-28T14:28:53.674-0300 I NETWORK  [conn4] end connection 127.0.0.1:47130 (3 connections now open)
+2016-03-28T14:28:53.674-0300 I NETWORK  [conn5] end connection 127.0.0.1:47131 (3 connections now open)
+2016-03-28T14:28:53.674-0300 I NETWORK  [conn6] end connection 127.0.0.1:47132 (2 connections now open)
+2016-03-28T14:28:53.674-0300 I NETWORK  [conn7] end connection 127.0.0.1:47133 (1 connection now open)
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:28:53.745-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47134 #8 (1 connection now open)
+2016-03-28T14:28:53.747-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:28:53.747-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:28:53.747-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:28:53.747-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:28:53.747-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:28:53.747-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:28:53.747-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:28:53.747-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:28:53.747-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:28:53.747-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:28:53.747-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-28T14:28:53.753-0300 E QUERY    Error: error doing query: failed
+    at DBQuery._exec (src/mongo/shell/query.js:83:36)
+    at DBQuery.hasNext (src/mongo/shell/query.js:240:10)
+    at DBCollection.findOne (src/mongo/shell/collection.js:187:19)
+    at DB.runCommand (src/mongo/shell/db.js:58:41)
+    at DB.adminCommand (src/mongo/shell/db.js:66:41)
+    at (shell eval):1:4 at src/mongo/shell/query.js:83
+2016-03-28T14:28:53.803-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:28:53.803-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:28:53.854-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:28:53.952-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:28:53.952-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:28:53.952-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:28:53.958-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:28:53.959-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:28:53.959-0300 I CONTROL  [conn8] dbexit:  rc: 0
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:29:36.761-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-03-28T14:29:36.763-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+2016-03-28T14:29:36.791-0300 I CONTROL  [initandlisten] MongoDB starting : pid=22203 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:29:36.791-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:29:36.791-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:29:36.791-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:29:36.791-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:29:36.791-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:29:36.861-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:29:36.861-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:29:36.962-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:29:36.962-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:29:36.999-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:29:36.999-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:29:37.048-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:29:38.779-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47144 #1 (1 connection now open)
+2016-03-28T14:29:38.779-0300 I NETWORK  [conn1] end connection 127.0.0.1:47144 (0 connections now open)
+2016-03-28T14:29:43.794-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47145 #2 (1 connection now open)
+2016-03-28T14:29:43.797-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47146 #3 (2 connections now open)
+2016-03-28T14:29:43.799-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47147 #4 (3 connections now open)
+2016-03-28T14:29:43.801-0300 I NETWORK  [conn2] end connection 127.0.0.1:47145 (2 connections now open)
+2016-03-28T14:29:43.801-0300 I NETWORK  [conn3] end connection 127.0.0.1:47146 (1 connection now open)
+2016-03-28T14:29:43.802-0300 I NETWORK  [conn4] end connection 127.0.0.1:47147 (0 connections now open)
+2016-03-28T14:29:43.813-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47148 #5 (1 connection now open)
+2016-03-28T14:29:43.816-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47149 #6 (2 connections now open)
+2016-03-28T14:29:43.818-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47150 #7 (3 connections now open)
+2016-03-28T14:29:43.821-0300 I NETWORK  [conn5] end connection 127.0.0.1:47148 (2 connections now open)
+2016-03-28T14:29:43.821-0300 I NETWORK  [conn7] end connection 127.0.0.1:47150 (2 connections now open)
+2016-03-28T14:29:43.822-0300 I NETWORK  [conn6] end connection 127.0.0.1:47149 (0 connections now open)
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:29:43.892-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47151 #8 (1 connection now open)
+2016-03-28T14:29:43.893-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:29:43.893-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:29:43.893-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:29:43.894-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:29:43.894-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:29:43.894-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:29:43.894-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:29:43.894-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:29:43.894-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:29:43.894-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:29:43.894-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-28T14:29:43.899-0300 E QUERY    Error: error doing query: failed
+    at DBQuery._exec (src/mongo/shell/query.js:83:36)
+    at DBQuery.hasNext (src/mongo/shell/query.js:240:10)
+    at DBCollection.findOne (src/mongo/shell/collection.js:187:19)
+    at DB.runCommand (src/mongo/shell/db.js:58:41)
+    at DB.adminCommand (src/mongo/shell/db.js:66:41)
+    at (shell eval):1:4 at src/mongo/shell/query.js:83
+2016-03-28T14:29:43.945-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:29:43.945-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:29:43.999-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:29:44.098-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:29:44.099-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:29:44.099-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:29:44.105-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:29:44.105-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:29:44.105-0300 I CONTROL  [conn8] dbexit:  rc: 0
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:30:39.697-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-03-28T14:30:39.699-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+2016-03-28T14:30:39.727-0300 I CONTROL  [initandlisten] MongoDB starting : pid=22301 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:30:39.727-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:30:39.727-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:30:39.727-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:30:39.727-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:30:39.727-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:30:39.797-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:30:39.797-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:30:39.885-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:30:39.885-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:30:39.918-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:30:39.919-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:30:39.967-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:30:41.713-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47162 #1 (1 connection now open)
+2016-03-28T14:30:41.713-0300 I NETWORK  [conn1] end connection 127.0.0.1:47162 (0 connections now open)
+2016-03-28T14:30:46.727-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47163 #2 (1 connection now open)
+2016-03-28T14:30:46.731-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47164 #3 (2 connections now open)
+2016-03-28T14:30:46.735-0300 I NETWORK  [conn2] end connection 127.0.0.1:47163 (1 connection now open)
+2016-03-28T14:30:46.735-0300 I NETWORK  [conn3] end connection 127.0.0.1:47164 (0 connections now open)
+2016-03-28T14:30:46.747-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47165 #4 (1 connection now open)
+2016-03-28T14:30:46.750-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47166 #5 (2 connections now open)
+2016-03-28T14:30:46.752-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47167 #6 (3 connections now open)
+2016-03-28T14:30:46.755-0300 I NETWORK  [conn4] end connection 127.0.0.1:47165 (2 connections now open)
+2016-03-28T14:30:46.755-0300 I NETWORK  [conn5] end connection 127.0.0.1:47166 (1 connection now open)
+2016-03-28T14:30:46.756-0300 I NETWORK  [conn6] end connection 127.0.0.1:47167 (0 connections now open)
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:30:46.826-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47168 #7 (1 connection now open)
+2016-03-28T14:30:46.828-0300 I COMMAND  [conn7] terminating, shutdown command received
+2016-03-28T14:30:46.828-0300 I CONTROL  [conn7] now exiting
+2016-03-28T14:30:46.828-0300 I NETWORK  [conn7] shutdown: going to close listening sockets...
+2016-03-28T14:30:46.828-0300 I NETWORK  [conn7] closing listening socket: 5
+2016-03-28T14:30:46.828-0300 I NETWORK  [conn7] closing listening socket: 6
+2016-03-28T14:30:46.828-0300 I NETWORK  [conn7] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:30:46.828-0300 I NETWORK  [conn7] shutdown: going to flush diaglog...
+2016-03-28T14:30:46.828-0300 I NETWORK  [conn7] shutdown: going to close sockets...
+2016-03-28T14:30:46.828-0300 I STORAGE  [conn7] shutdown: waiting for fs preallocator...
+2016-03-28T14:30:46.828-0300 I STORAGE  [conn7] shutdown: final commit...
+2016-03-28T14:30:46.828-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-28T14:30:46.833-0300 E QUERY    Error: error doing query: failed
+    at DBQuery._exec (src/mongo/shell/query.js:83:36)
+    at DBQuery.hasNext (src/mongo/shell/query.js:240:10)
+    at DBCollection.findOne (src/mongo/shell/collection.js:187:19)
+    at DB.runCommand (src/mongo/shell/db.js:58:41)
+    at DB.adminCommand (src/mongo/shell/db.js:66:41)
+    at (shell eval):1:4 at src/mongo/shell/query.js:83
+2016-03-28T14:30:46.910-0300 I JOURNAL  [conn7] journalCleanup...
+2016-03-28T14:30:46.910-0300 I JOURNAL  [conn7] removeJournalFiles
+2016-03-28T14:30:46.961-0300 I JOURNAL  [conn7] Terminating durability thread ...
+2016-03-28T14:30:47.033-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:30:47.033-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:30:47.033-0300 I STORAGE  [conn7] shutdown: closing all files...
+2016-03-28T14:30:47.039-0300 I STORAGE  [conn7] closeAllFiles() finished
+2016-03-28T14:30:47.039-0300 I STORAGE  [conn7] shutdown: removing fs lock...
+2016-03-28T14:30:47.039-0300 I CONTROL  [conn7] dbexit:  rc: 0
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:31:01.737-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-03-28T14:31:01.739-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+2016-03-28T14:31:01.765-0300 I CONTROL  [initandlisten] MongoDB starting : pid=22364 port=27017 dbpath=/data/db 64-bit host=node
+2016-03-28T14:31:01.765-0300 I CONTROL  [initandlisten] db version v3.0.10
+2016-03-28T14:31:01.765-0300 I CONTROL  [initandlisten] git version: 1e0512f8453d103987f5fbfb87b71e9a131c2a60
+2016-03-28T14:31:01.765-0300 I CONTROL  [initandlisten] build info: Linux ip-10-65-90-88 3.13.0-24-generic #46-Ubuntu SMP Thu Apr 10 19:11:08 UTC 2014 x86_64 BOOST_LIB_VERSION=1_49
+2016-03-28T14:31:01.765-0300 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-03-28T14:31:01.765-0300 I CONTROL  [initandlisten] options: {}
+2016-03-28T14:31:01.835-0300 I JOURNAL  [initandlisten] journal dir=/data/db/journal
+2016-03-28T14:31:01.835-0300 I JOURNAL  [initandlisten] recover : no journal files present, no recovery needed
+2016-03-28T14:31:01.927-0300 I JOURNAL  [durability] Durability thread started
+2016-03-28T14:31:01.927-0300 I JOURNAL  [journal writer] Journal writer thread started
+2016-03-28T14:31:01.961-0300 I CONTROL  [initandlisten] ** WARNING: You are running this process as the root user, which is not recommended.
+2016-03-28T14:31:01.961-0300 I CONTROL  [initandlisten] 
+2016-03-28T14:31:02.009-0300 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-03-28T14:31:02.751-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47173 #1 (1 connection now open)
+2016-03-28T14:31:02.752-0300 I NETWORK  [conn1] end connection 127.0.0.1:47173 (0 connections now open)
+2016-03-28T14:31:02.767-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47174 #2 (1 connection now open)
+2016-03-28T14:31:02.770-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47175 #3 (2 connections now open)
+2016-03-28T14:31:02.773-0300 I NETWORK  [conn3] end connection 127.0.0.1:47175 (1 connection now open)
+2016-03-28T14:31:02.774-0300 I NETWORK  [conn2] end connection 127.0.0.1:47174 (0 connections now open)
+2016-03-28T14:31:02.785-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47176 #4 (1 connection now open)
+2016-03-28T14:31:02.788-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47177 #5 (2 connections now open)
+2016-03-28T14:31:02.791-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47178 #6 (3 connections now open)
+2016-03-28T14:31:02.793-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47179 #7 (4 connections now open)
+2016-03-28T14:31:02.795-0300 I NETWORK  [conn4] end connection 127.0.0.1:47176 (3 connections now open)
+2016-03-28T14:31:02.795-0300 I NETWORK  [conn7] end connection 127.0.0.1:47179 (2 connections now open)
+2016-03-28T14:31:02.795-0300 I NETWORK  [conn5] end connection 127.0.0.1:47177 (1 connection now open)
+2016-03-28T14:31:02.795-0300 I NETWORK  [conn6] end connection 127.0.0.1:47178 (0 connections now open)
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-28T14:31:02.866-0300 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:47180 #8 (1 connection now open)
+2016-03-28T14:31:02.868-0300 I COMMAND  [conn8] terminating, shutdown command received
+2016-03-28T14:31:02.868-0300 I CONTROL  [conn8] now exiting
+2016-03-28T14:31:02.868-0300 I NETWORK  [conn8] shutdown: going to close listening sockets...
+2016-03-28T14:31:02.868-0300 I NETWORK  [conn8] closing listening socket: 5
+2016-03-28T14:31:02.868-0300 I NETWORK  [conn8] closing listening socket: 6
+2016-03-28T14:31:02.868-0300 I NETWORK  [conn8] removing socket file: /tmp/mongodb-27017.sock
+2016-03-28T14:31:02.868-0300 I NETWORK  [conn8] shutdown: going to flush diaglog...
+2016-03-28T14:31:02.868-0300 I NETWORK  [conn8] shutdown: going to close sockets...
+2016-03-28T14:31:02.868-0300 I STORAGE  [conn8] shutdown: waiting for fs preallocator...
+2016-03-28T14:31:02.868-0300 I STORAGE  [conn8] shutdown: final commit...
+2016-03-28T14:31:02.868-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-28T14:31:02.874-0300 E QUERY    Error: error doing query: failed
+    at DBQuery._exec (src/mongo/shell/query.js:83:36)
+    at DBQuery.hasNext (src/mongo/shell/query.js:240:10)
+    at DBCollection.findOne (src/mongo/shell/collection.js:187:19)
+    at DB.runCommand (src/mongo/shell/db.js:58:41)
+    at DB.adminCommand (src/mongo/shell/db.js:66:41)
+    at (shell eval):1:4 at src/mongo/shell/query.js:83
+2016-03-28T14:31:02.961-0300 I JOURNAL  [conn8] journalCleanup...
+2016-03-28T14:31:02.961-0300 I JOURNAL  [conn8] removeJournalFiles
+2016-03-28T14:31:03.012-0300 I JOURNAL  [conn8] Terminating durability thread ...
+2016-03-28T14:31:03.073-0300 I JOURNAL  [journal writer] Journal writer thread stopped
+2016-03-28T14:31:03.073-0300 I JOURNAL  [durability] Durability thread stopped
+2016-03-28T14:31:03.073-0300 I STORAGE  [conn8] shutdown: closing all files...
+2016-03-28T14:31:03.079-0300 I STORAGE  [conn8] closeAllFiles() finished
+2016-03-28T14:31:03.079-0300 I STORAGE  [conn8] shutdown: removing fs lock...
+2016-03-28T14:31:03.079-0300 I CONTROL  [conn8] dbexit:  rc: 0
