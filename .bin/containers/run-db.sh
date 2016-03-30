@@ -1,5 +1,25 @@
 #!/bin/bash
 
+# Initialize our own variables:
+CI_ENV=false
+DETTACHED_MOD=false
+
+while getopts ":c:d:" opt; do
+    case "$opt" in
+        c)
+            CI_ENV=true
+            ;;
+        d)
+            DETTACHED_MOD=true
+            ;;
+    esac
+done
+
+shift $((OPTIND-1))
+
+echo $CI_ENV
+echo $DETTACHED_MOD
+
 # Stopping qualquer 27017 que estiver rodando
 nohup mongo --port 27017 --eval 'db.adminCommand("shutdown")' 2> /dev/null
 
@@ -10,14 +30,14 @@ docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 
 docker exec -d -it w-db mongod 
 docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
 
-# verifica se mongod está rodando, para poder prosseguir
-# while [ `nc -z localhost 27017; echo $?` -eq 1 ]
-# do
-#     sleep 1
-#     echo 'Waiting Connection...'
-# done
-
-# sh .bin/containers/scripts/wait-connection.sh
+if [ $CI_ENV ]; then
+    if [ "$(ls -A .bin/db-backup)" ]; then
+        rm -r .bin/db-backup/*
+    fi
+    # docker rm -f `docker ps -aq`
+    mongodump --db "melhoreme-test" -o .bin/db-backup/
+    mongodump --db "admin" -o .bin/db-backup/
+fi
 
 docker exec -it w-db mongorestore --db admin /melhoreme/.bin/db-backup/admin
 docker exec -it w-db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
@@ -36,11 +56,9 @@ docker exec -it w-db chown -R `id -u` /data/db
 #     esac
 # done
 
-if [ $1 ]; then
-    if [ $1 == -d ]; then
-        docker exec -d -it w-db mongod --auth
-    else
-        docker exec -it w-db mongod --auth
-    fi
+if [ $DETTACHED_MOD ]; then
+    docker exec -d -it w-db mongod --auth
+else
+    docker exec -it w-db mongod --auth
 fi
 

@@ -340,3 +340,105 @@ connecting to: 127.0.0.1:27017/test
 2016-03-30T14:31:16.850-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
     at connect (src/mongo/shell/mongo.js:181:14)
     at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:00:28.404-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-03-30T18:00:28.406-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:00:34.924-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-03-30T18:00:34.926-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:00:41.909-0300 I NETWORK  Socket recv() errno:104 Connection reset by peer 127.0.0.1:27017
+2016-03-30T18:00:41.909-0300 I NETWORK  SocketException: remote: 127.0.0.1:27017 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:27017] 
+2016-03-30T18:00:41.909-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-30T18:00:41.912-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:00:47.806-0300 I NETWORK  Socket recv() errno:104 Connection reset by peer 127.0.0.1:27017
+2016-03-30T18:00:47.806-0300 I NETWORK  SocketException: remote: 127.0.0.1:27017 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:27017] 
+2016-03-30T18:00:47.806-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-30T18:00:47.809-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:02:27.260-0300 I NETWORK  Socket recv() errno:104 Connection reset by peer 127.0.0.1:27017
+2016-03-30T18:02:27.260-0300 I NETWORK  SocketException: remote: 127.0.0.1:27017 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:27017] 
+2016-03-30T18:02:27.260-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-30T18:02:27.262-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:04:05.134-0300 I NETWORK  Socket recv() errno:104 Connection reset by peer 127.0.0.1:27017
+2016-03-30T18:04:05.135-0300 I NETWORK  SocketException: remote: 127.0.0.1:27017 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:27017] 
+2016-03-30T18:04:05.135-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-30T18:04:05.137-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:06:50.779-0300 I NETWORK  Socket recv() errno:104 Connection reset by peer 127.0.0.1:27017
+2016-03-30T18:06:50.779-0300 I NETWORK  SocketException: remote: 127.0.0.1:27017 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:27017] 
+2016-03-30T18:06:50.779-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-30T18:06:50.781-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-03-30T18:11:37.605-0300 I NETWORK  Socket recv() errno:104 Connection reset by peer 127.0.0.1:27017
+2016-03-30T18:11:37.605-0300 I NETWORK  SocketException: remote: 127.0.0.1:27017 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:27017] 
+2016-03-30T18:11:37.605-0300 I NETWORK  DBClientCursor::init call() failed
+2016-03-30T18:11:37.608-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
