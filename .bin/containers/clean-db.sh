@@ -4,8 +4,8 @@
 mongo --port 27017 --eval 'db.adminCommand("shutdown")' >/dev/null 2>&1
 echo 'INFO: Este script possui alguns "nohup > /dev/null"'
 chown $USER.$USER /data/db/mongod.lock 
-# mongod
-nohup mongod >/dev/null 2>&1 &
+mongod
+# nohup mongod >/dev/null 2>&1 &
 
 # echo `nc -z localhost 27017; echo $?`
 
