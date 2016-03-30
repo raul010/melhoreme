@@ -15,8 +15,8 @@ before_install:
     # - mongodump --db "admin" -o .bin/db-backup/
     #
     # - mongod --shutdown
-    - .bin/containers/clean-db.sh
     - .bin/containers/build.sh
+    - .bin/containers/clean-db.sh
     - .bin/containers/run-db.sh -d 
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
     - docker exec -d -it w-db gulp run
