@@ -1,11 +1,21 @@
 #!/bin/bash
-# mongod --shutdown
+
+# ON_CI=false
+# if [ $1 ]; then
+#     if [ $1 == --on-ci ]; then
+#         ON_CI=true
+#     fi
+# fi
+#
+# if [ $ON_CI != true ]; then
+#     echo "ONNNN"
+# fi
 
 mongo --port 27017 --eval 'db.adminCommand("shutdown")' >/dev/null 2>&1
 echo 'INFO: Este script possui alguns "nohup > /dev/null"'
 chown $USER.$USER /data/db/mongod.lock 
-mongod
-# nohup mongod >/dev/null 2>&1 &
+# mongod
+nohup mongod >/dev/null 2>&1 &
 
 # echo `nc -z localhost 27017; echo $?`
 

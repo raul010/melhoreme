@@ -16,9 +16,9 @@ before_install:
     #
     # - mongod --shutdown
     - .bin/containers/build.sh
-    - .bin/containers/clean-db.sh
+    # - .bin/containers/clean-db.sh
     - .bin/containers/run-db.sh -d 
-    - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
+    # - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
     - docker exec -d -it w-db gulp run
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-server.sh 
     - echo "Pronto" 

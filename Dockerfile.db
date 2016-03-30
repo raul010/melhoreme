@@ -78,12 +78,12 @@ RUN mkdir -p /$APP_NAME
 
 WORKDIR /$APP_NAME
 
-COPY package.json /$APP_NAME/
+# COPY package.json /$APP_NAME/
 
-COPY bower.json  /$APP_NAME/
+# COPY bower.json  /$APP_NAME/
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-RUN sudo apt-get install -y --force-yes mongodb-org
+RUN apt-get install -y --force-yes mongodb-org
 
 # RUN mongo --version
 RUN mkdir -p /data/db
