@@ -107,7 +107,7 @@ app.use(function(err, req, res, next) {
 //console.log('Magic happens on port ' + port);
 
 
-require('http2').createServer(options, app).listen(8080);
+// require('http2').createServer(options, app).listen(8080);
 
 
 var server = https.createServer(optionsSSL, app).listen(port, function() {

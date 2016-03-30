@@ -72,15 +72,15 @@ ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 ENV APP_NAME melhoreme
 
-RUN mkdir -p /usr/src/$APP_NAME
+RUN mkdir -p /$APP_NAME
 
 # COPY . /usr/src/$APP_NAME
 
-WORKDIR /usr/src/$APP_NAME
+WORKDIR /$APP_NAME
 
-COPY package.json /usr/src/$APP_NAME/
+COPY package.json /$APP_NAME/
 
-COPY bower.json  /usr/src/$APP_NAME/
+COPY bower.json  /$APP_NAME/
 
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 RUN sudo apt-get install -y --force-yes mongodb-org
@@ -94,20 +94,19 @@ RUN chown -R `id -u` /data/db
 # RUN sleep 20
 # RUN mongorestore /db-backup 
 
-# EXPOSE 8080
-# EXPOSE 3000
-# EXPOSE 27017
+EXPOSE 27017 8080 3000
 
 # RUN nohup mongod &
 # RUN npm cache clean -f
 RUN npm install -g bower
 RUN npm install -g gulp
 # RUN npm install -g wait-for-mongo
-RUN npm config set unsafe-perm true
-RUN npm config set strict-ssl false
-RUN npm install
-RUN npm config set unsafe-perm false
-RUN npm set strict-ssl true
+
+# RUN npm config set unsafe-perm true
+# RUN npm config set strict-ssl false
+# RUN npm install
+# RUN npm config set unsafe-perm false
+# RUN npm set strict-ssl true
 
 # RUN mongorestore .bin/db-backup
 
