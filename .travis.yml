@@ -8,18 +8,10 @@ node_js:
   - "5.9.0"
 
 before_install:
-    # - nohup mongod &
-    # - sleep 5
-    # - rm -r .bin/db-backup/*
-    # - mongodump --db "melhoreme-test" -o .bin/db-backup/
-    # - mongodump --db "admin" -o .bin/db-backup/
-    #
-    # - mongod --shutdown
     - .bin/containers/build.sh
-    # - .bin/containers/clean-db.sh
     - .bin/containers/run-db.sh -d 
     # - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
-    - docker exec -d -it w-db gulp run
+    - docker exec -it w-db gulp run
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-server.sh 
     - echo "Pronto" 
      
