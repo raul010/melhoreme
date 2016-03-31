@@ -30,15 +30,14 @@ docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 
 docker exec -d -it w-db mongod 
 docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
 
-if [ $CI_ENV ]; then
-    if [ "$(ls -A .bin/db-backup)" ]; then
-        rm -r .bin/db-backup/*
-    fi
-    # docker rm -f `docker ps -aq`
-    mongodump --db "melhoreme-test" -o .bin/db-backup/
-    mongodump --db "admin" -o .bin/db-backup/
-fi
-
+# if [ $CI_ENV ]; then
+#     if [ "$(ls -A .bin/db-backup)" ]; then
+#         rm -r .bin/db-backup/*
+#     fi
+#     mongodump --db "melhoreme-test" -o .bin/db-backup/
+#     mongodump --db "admin" -o .bin/db-backup/
+# fi
+#
 docker exec -it w-db mongorestore --db admin /melhoreme/.bin/db-backup/admin
 docker exec -it w-db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
 

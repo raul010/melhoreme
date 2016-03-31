@@ -93,8 +93,8 @@ RUN chown -R `id -u` /data/db
 # RUN nohup mongod &
 # RUN sleep 20
 # RUN mongorestore /db-backup 
-mongodump --db "melhoreme-test" -o .bin/db-backup/
-mongodump --db "admin" -o .bin/db-backup/
+RUN mongodump --db "melhoreme-test" -o .bin/db-backup/
+RUN mongodump --db "admin" -o .bin/db-backup/
 
 
 # RUN nohup mongod &
