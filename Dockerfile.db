@@ -70,13 +70,13 @@ ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 # RUN apt-get autoremove -y \
 #	&& apt-get clean -y \
 
-ENV APP_NAME melhoreme
+# ENV APP_NAME melhoreme
 
-RUN mkdir -p /$APP_NAME
+# RUN mkdir -p /$APP_NAME
 
 # COPY . /usr/src/$APP_NAME
 
-WORKDIR /$APP_NAME
+# WORKDIR /$APP_NAME
 
 # COPY package.json /$APP_NAME/
 
@@ -93,8 +93,9 @@ RUN chown -R `id -u` /data/db
 # RUN nohup mongod &
 # RUN sleep 20
 # RUN mongorestore /db-backup 
+mongodump --db "melhoreme-test" -o .bin/db-backup/
+mongodump --db "admin" -o .bin/db-backup/
 
-EXPOSE 27017 8080 3000
 
 # RUN nohup mongod &
 # RUN npm cache clean -f
@@ -108,6 +109,7 @@ RUN npm install -g gulp
 # RUN npm config set unsafe-perm false
 # RUN npm set strict-ssl true
 
+EXPOSE 27017 8080 3000
 # RUN mongorestore .bin/db-backup
 
 # CMD [ "gulp", "run" ]
