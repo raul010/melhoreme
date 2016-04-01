@@ -95,6 +95,7 @@ RUN chown -R `id -u` /data/db
 # RUN mongorestore /db-backup 
 RUN nohup mongod >/dev/null 2>&1 &
 
+COPY .bin/containers/scripts/wait-connection.sh
 RUN .bin/containers/scripts/wait-connection.sh
 RUN mongodump --db "melhoreme-test" -o .bin/db-backup/
 RUN mongodump --db "admin" -o .bin/db-backup/
