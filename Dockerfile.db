@@ -102,7 +102,7 @@ RUN ls -lha
 ADD .bin/containers/scripts/wait-connection.sh . 
 RUN ls -lha 
 # RUN ls -lha /data/scripts
-RUN wait-connection.sh
+RUN ./wait-connection.sh
 
 RUN sleep 20
 RUN mongodump --db "melhoreme-test" -o /data/db-backup/
