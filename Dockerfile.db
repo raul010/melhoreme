@@ -97,8 +97,10 @@ ADD .bin/db-backup /data/db-backup
 # RUN sleep 20
 # RUN mongorestore /db-backup 
 RUN nohup mongod >/dev/null 2>&1 &
+RUN ls -lha
 # RUN ls -lha /data/scripts
 ADD .bin/containers/scripts/wait-connection.sh . 
+RUN ls -lha 
 # RUN ls -lha /data/scripts
 RUN wait-connection.sh
 
@@ -106,7 +108,6 @@ RUN sleep 20
 RUN mongodump --db "melhoreme-test" -o /data/db-backup/
 RUN mongodump --db "admin" -o /data/db-backup/
 
-RUN ls -lha /data/scripts/wait-connection.sh
 # RUN nohup mongod &
 # RUN npm cache clean -f
 RUN npm install -g bower
