@@ -11,7 +11,7 @@ before_install:
     - .bin/containers/build.sh
     - .bin/containers/run-db.sh -c "" -d ""
     # - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
-    - docker exec -it w-db cd melhoreme
+    # - docker exec -it w-db cd melhoreme
     - docker exec -it w-db ls -lha 
     - docker exec -it w-db gulp run
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-server.sh 
