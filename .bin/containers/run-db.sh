@@ -34,6 +34,7 @@ if [ $CI_ENV ]; then
     # if [ "$(ls -A .bin/db-backup)" ]; then
     #     rm -r .bin/db-backup/*
     # fi
+    docker exec -it w-db npm install
     docker exec -it w-db mongodump --db "admin" -o .bin/db-backup/
     docker exec -it w-db mongodump --db "melhoreme-test" -o .bin/db-backup/
 fi
