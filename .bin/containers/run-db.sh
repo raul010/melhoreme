@@ -34,6 +34,7 @@ if [ $CI_ENV == true ]; then
     # if [ "$(ls -A .bin/db-backup)" ]; then
     #     rm -r .bin/db-backup/*
     # fi
+    docker exec -it chown -R $USER:$GROUP ~/.npm
 
     docker exec -it w-db npm config set unsafe-perm true
     docker exec -it w-db npm config set strict-ssl false
