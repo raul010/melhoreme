@@ -13,7 +13,7 @@ before_install:
     # - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
     # - docker exec -it w-db cd melhoreme
     - docker exec -it w-db ls -lha 
-    - docker exec -it w-db nohup gulp run >/dev/null 
+    - docker exec -d -it w-db gulp run 
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-server.sh 
     - echo "Pronto" 
      

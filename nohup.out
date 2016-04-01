@@ -442,3 +442,225 @@ connecting to: 127.0.0.1:27017/test
 2016-03-30T18:11:37.608-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
     at connect (src/mongo/shell/mongo.js:181:14)
     at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-01T20:23:53.300-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-01T20:23:53.302-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-01T20:26:37.754-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-01T20:26:37.756-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+PATH {
+  PROJECT_FOLDER_NAME: 'melhoreme',
+  BACKUP_FOLDER: '../back_melhoreme',
+  CLIENT: 'client',
+  APP: 'client/app',
+  ASSETS: 'client/assets',
+  VIEWS: 'client/views',
+  BIN: '.bin',
+  GULP: '.bin/gulp',
+  CONTROLLERS: 'client/app/controllers',
+  SERVICES: 'client/app/services',
+  DIRECTIVES: 'client/app/directives',
+  TEMPLATES: 'client/app/templates',
+  CSS: 'client/assets/css',
+  SASS: 'client/assets/css/_sass',
+  JS: undefined,
+  LIBS: 'client/assets/libs',
+  BUILD_HOME: '../melhoreme-build',
+  BUILD_TEMP: '../melhoreme-build/temp',
+  BUILD_CLIENT: '../melhoreme-build/client',
+  BUILD_APP: '../melhoreme-build/client/app',
+  BUILD_ASSETS: '../melhoreme-build/client/assets',
+  BUILD_CSS: '../melhoreme-build/client/assets/css',
+  BUILD_JS: '../melhoreme-build/client/assets/js',
+  BUILD_CONTROLLERS: '../melhoreme-build/client/app/controllers',
+  BUILD_SERVICES: '../melhoreme-build/client/app/services' }
+gulp libs --> client/assets/libs
+*********************
+development
+*********************
+client/app
+.bin/production/angular-production.js
+[23:29:21] Using gulpfile /melhoreme/gulpfile.js
+[23:29:21] Starting 'nodemon'...
+[23:29:21] Finished 'nodemon' after 3.37 ms
+[23:29:21] Starting 'browser-sync'...
+[23:29:21] Finished 'browser-sync' after 158 ms
+[23:29:21] Starting 'sass:watch'...
+[23:29:21] Finished 'sass:watch' after 30 ms
+[23:29:21] Starting 'watch:copy-src'...
+[23:29:21] Finished 'watch:copy-src' after 13 ms
+[23:29:21] Starting 'templateCache:watch'...
+[23:29:21] Finished 'templateCache:watch' after 26 ms
+[23:29:21] Starting 'sass-config'...
+[23:29:21] Finished 'sass-config' after 19 ms
+[23:29:21] Starting 'copy-src-css'...
+[23:29:21] Finished 'copy-src-css' after 4.43 ms
+[23:29:21] Starting 'templateCache-config'...
+[23:29:22] [nodemon] 1.9.1
+[23:29:22] [nodemon] to restart at any time, enter `rs`
+[23:29:22] [nodemon] watching: *.*
+[23:29:22] [nodemon] starting `node  server.js`
+[BS] [info] Proxying: https://localhost:8080
+[BS] Access URLs:
+ ------------------------------------
+       Local: https://localhost:3000
+    External: https://172.17.0.2:3000
+ ------------------------------------
+          UI: http://localhost:3001
+ UI External: http://172.17.0.2:3001
+ ------------------------------------
+events.js:154
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+PATH {
+  PROJECT_FOLDER_NAME: 'melhoreme',
+  BACKUP_FOLDER: '../back_melhoreme',
+  CLIENT: 'client',
+  APP: 'client/app',
+  ASSETS: 'client/assets',
+  VIEWS: 'client/views',
+  BIN: '.bin',
+  GULP: '.bin/gulp',
+  CONTROLLERS: 'client/app/controllers',
+  SERVICES: 'client/app/services',
+  DIRECTIVES: 'client/app/directives',
+  TEMPLATES: 'client/app/templates',
+  CSS: 'client/assets/css',
+  SASS: 'client/assets/css/_sass',
+  JS: undefined,
+  LIBS: 'client/assets/libs',
+  BUILD_HOME: '../melhoreme-build',
+  BUILD_TEMP: '../melhoreme-build/temp',
+  BUILD_CLIENT: '../melhoreme-build/client',
+  BUILD_APP: '../melhoreme-build/client/app',
+  BUILD_ASSETS: '../melhoreme-build/client/assets',
+  BUILD_CSS: '../melhoreme-build/client/assets/css',
+  BUILD_JS: '../melhoreme-build/client/assets/js',
+  BUILD_CONTROLLERS: '../melhoreme-build/client/app/controllers',
+  BUILD_SERVICES: '../melhoreme-build/client/app/services' }
+gulp libs --> client/assets/libs
+*********************
+development
+*********************
+client/app
+.bin/production/angular-production.js
+[23:29:45] Using gulpfile /melhoreme/gulpfile.js
+[23:29:45] Starting 'nodemon'...
+[23:29:45] Finished 'nodemon' after 3.53 ms
+[23:29:45] Starting 'browser-sync'...
+[23:29:45] Finished 'browser-sync' after 73 ms
+[23:29:45] Starting 'sass:watch'...
+[23:29:45] Finished 'sass:watch' after 18 ms
+[23:29:45] Starting 'watch:copy-src'...
+[23:29:45] Finished 'watch:copy-src' after 25 ms
+[23:29:45] Starting 'templateCache:watch'...
+[23:29:45] Finished 'templateCache:watch' after 69 ms
+[23:29:45] Starting 'sass-config'...
+[23:29:45] Finished 'sass-config' after 38 ms
+[23:29:45] Starting 'copy-src-css'...
+[23:29:45] Finished 'copy-src-css' after 7.84 ms
+[23:29:45] Starting 'templateCache-config'...
+[23:29:45] [nodemon] 1.9.1
+[23:29:45] [nodemon] to restart at any time, enter `rs`
+[23:29:45] [nodemon] watching: *.*
+[23:29:45] [nodemon] starting `node  server.js`
+[BS] [info] Proxying: https://localhost:8080
+[BS] Access URLs:
+ ------------------------------------
+       Local: https://localhost:3000
+    External: https://172.17.0.2:3000
+ ------------------------------------
+          UI: http://localhost:3001
+ UI External: http://172.17.0.2:3001
+ ------------------------------------
+events.js:154
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+PATH {
+  PROJECT_FOLDER_NAME: 'melhoreme',
+  BACKUP_FOLDER: '../back_melhoreme',
+  CLIENT: 'client',
+  APP: 'client/app',
+  ASSETS: 'client/assets',
+  VIEWS: 'client/views',
+  BIN: '.bin',
+  GULP: '.bin/gulp',
+  CONTROLLERS: 'client/app/controllers',
+  SERVICES: 'client/app/services',
+  DIRECTIVES: 'client/app/directives',
+  TEMPLATES: 'client/app/templates',
+  CSS: 'client/assets/css',
+  SASS: 'client/assets/css/_sass',
+  JS: undefined,
+  LIBS: 'client/assets/libs',
+  BUILD_HOME: '../melhoreme-build',
+  BUILD_TEMP: '../melhoreme-build/temp',
+  BUILD_CLIENT: '../melhoreme-build/client',
+  BUILD_APP: '../melhoreme-build/client/app',
+  BUILD_ASSETS: '../melhoreme-build/client/assets',
+  BUILD_CSS: '../melhoreme-build/client/assets/css',
+  BUILD_JS: '../melhoreme-build/client/assets/js',
+  BUILD_CONTROLLERS: '../melhoreme-build/client/app/controllers',
+  BUILD_SERVICES: '../melhoreme-build/client/app/services' }
+gulp libs --> client/assets/libs
+*********************
+development
+*********************
+client/app
+.bin/production/angular-production.js
+[23:29:55] Using gulpfile /melhoreme/gulpfile.js
+[23:29:55] Starting 'nodemon'...
+[23:29:55] Finished 'nodemon' after 3.95 ms
+[23:29:55] Starting 'browser-sync'...
+[23:29:55] Finished 'browser-sync' after 71 ms
+[23:29:55] Starting 'sass:watch'...
+[23:29:55] Finished 'sass:watch' after 9.19 ms
+[23:29:55] Starting 'watch:copy-src'...
+[23:29:55] Finished 'watch:copy-src' after 13 ms
+[23:29:55] Starting 'templateCache:watch'...
+[23:29:55] Finished 'templateCache:watch' after 26 ms
+[23:29:55] Starting 'sass-config'...
+[23:29:55] Finished 'sass-config' after 19 ms
+[23:29:55] Starting 'copy-src-css'...
+[23:29:55] Finished 'copy-src-css' after 4.6 ms
+[23:29:55] Starting 'templateCache-config'...
+[23:29:56] [nodemon] 1.9.1
+[23:29:56] [nodemon] to restart at any time, enter `rs`
+[23:29:56] [nodemon] watching: *.*
+[23:29:56] [nodemon] starting `node  server.js`
+[BS] [info] Proxying: https://localhost:8080
+[BS] Access URLs:
+ ------------------------------------
+       Local: https://localhost:3000
+    External: https://172.17.0.2:3000
+ ------------------------------------
+          UI: http://localhost:3001
+ UI External: http://172.17.0.2:3001
+ ------------------------------------
+events.js:154
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+    at Error (native)
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-01T20:35:53.226-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-01T20:35:53.229-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
