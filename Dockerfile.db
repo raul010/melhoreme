@@ -93,7 +93,7 @@ RUN chown -R `id -u` /data/db
 # RUN nohup mongod &
 # RUN sleep 20
 # RUN mongorestore /db-backup 
-nohup mongod >/dev/null 2>&1 &
+RUN nohup mongod >/dev/null 2>&1 &
 
 RUN .bin/containers/scripts/wait-connection.sh
 RUN mongodump --db "melhoreme-test" -o .bin/db-backup/
