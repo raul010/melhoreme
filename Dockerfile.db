@@ -70,13 +70,13 @@ ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 # RUN apt-get autoremove -y \
 #	&& apt-get clean -y \
 
-# ENV APP_NAME melhoreme
+ENV APP_NAME melhoreme
 
-# RUN mkdir -p /$APP_NAME
+RUN mkdir -p /$APP_NAME
 
 # COPY . /usr/src/$APP_NAME
 
-# WORKDIR /$APP_NAME
+WORKDIR /$APP_NAME
 
 # COPY package.json /$APP_NAME/
 
