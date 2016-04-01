@@ -97,6 +97,7 @@ ADD .bin/db-backup /data/db-backup
 RUN nohup mongod >/dev/null 2>&1 &
 RUN ls -lha
 COPY .bin/containers/scripts/wait-connection.sh .
+RUN ls -lha
 RUN .bin/containers/scripts/wait-connection.sh
 
 RUN sleep 20
