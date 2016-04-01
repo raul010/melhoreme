@@ -97,7 +97,7 @@ ADD .bin/db-backup /data/db-backup
 # RUN mongorestore /db-backup 
 RUN nohup mongod >/dev/null 2>&1 &
 RUN ls -lha /data/scripts
-COPY .bin/containers/scripts/wait-connection.sh ./data/scripts 
+COPY .bin/containers/scripts/wait-connection.sh /data/scripts 
 RUN ls -lha /data/scripts
 RUN /data/scripts/wait-connection.sh
 
