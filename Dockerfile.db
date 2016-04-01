@@ -88,9 +88,9 @@ RUN apt-get install -y --force-yes mongodb-org
 # RUN mongo --version
 RUN mkdir -p /data/db
 RUN chown -R `id -u` /data/db 
-RUN mkdir -p /data/db-backup
+# RUN mkdir -p /data/db-backup
 # RUN mkdir -p /data/scripts
-ADD .bin/db-backup /data/db-backup
+# ADD .bin/db-backup /data/db-backup
 
 # WORKDIR /usr/src/$APP_NAME
 # RUN nohup mongod &
