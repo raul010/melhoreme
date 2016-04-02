@@ -23,25 +23,22 @@ RUN apt-get install -y build-essential --no-install-recommends
 RUN apt-get install -y curl
 
 # RUN apt-get update \
-# 	&& apt-get install -y --no-install-recommends \
-# 		ca-certificates \
-# 		curl \
-# 		wget \
-# 		python2.7
-# 		# build-essential \
-# 		# libxss1 libappindicator1 libindicator7 xdg-utils 
+	# && apt-get install -y --no-install-recommends \
+RUN	apt-get install -y ca-certificates
+RUN apt-get install -y wget
+RUN libxss1 libappindicator1 libindicator7 xdg-utils 
 
 # For node-gyp
 #
 # RUN apt-get update
 #
-# RUN	wget -q -O - http://dl-ssl.google.com/linux/linux_signing_key.pub |  apt-key add - \                                                                                    \
-# 	&& echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
-# 	&& apt-get update
-#
-# RUN	apt-get install -y \
-# 	google-chrome-stable
-#
+RUN	wget -q -O - http://dl-ssl.google.com/linux/linux_signing_key.pub |  apt-key add - \                                                                                    \
+	&& echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list \
+	&& apt-get update
+
+RUN	apt-get install -y \
+	google-chrome-stable
+
 # #RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
 # #	dpkg -i google-chrome*.deb 
 #
