@@ -98,6 +98,7 @@ RUN chown -R `id -u` /data/db
 
 RUN npm install -g bower
 RUN npm install -g gulp
+RUN npm install -g protractor
 # RUN npm install -g phantomjs 
 # RUN npm install -g phantomjs-prebuilt
 

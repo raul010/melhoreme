@@ -23,7 +23,7 @@ echo $DETTACHED_MOD
 # Stopping qualquer 27017 que estiver rodando
 nohup mongo --port 27017 --eval 'db.adminCommand("shutdown")' 2> /dev/null
 
-docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 3000:3000 -i -t raul010/w-db /bin/bash 
+docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 3000:3000 -p 4444:4444 -i -t raul010/w-db /bin/bash 
 # docker run -d -v "$(pwd)":/melhoreme --name w-db --expose 27017 -p 27017:27017 -i -t raul010/w-db /bin/bash 
 
 # docker exec -it w-db mongod --shutdown 2> /dev/null
@@ -35,8 +35,7 @@ if [ $CI_ENV == true ]; then
     #     rm -r .bin/db-backup/*
     # fi
     # docker exec -it chown -R $USER:$GROUP ~/.npm
-    docker exec -it chown -R $USER:$GROUP /usr/local/lib/node_modules/
-    docker exec -it w-db npm config set unsafe-perm true
+    docker exec -it chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    docker exec -it w-db npm config set unsafe-perm true
     docker exec -it w-db npm config set strict-ssl false
     docker exec -it w-db npm install
     docker exec -it w-db npm config set unsafe-perm false
