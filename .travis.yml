@@ -19,8 +19,8 @@ before_install:
 before_script:
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
-    - docker -d -it w-db export DISPLAY=:99.0
-    - docker -d -it w-db /etc/init.d/xvfb start
+    - docker exec -d -it w-db export DISPLAY=:99.0
+    - docker exec -d -it w-db /etc/init.d/xvfb start
     # - docker -d -it w-db sh -e /etc/init.d/xvfb start
     - sleep 5
     - docker exec -it w-db ./node_modules/protractor/bin/webdriver-manager update
