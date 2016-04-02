@@ -92,25 +92,14 @@ RUN chown -R `id -u` /data/db
 # RUN mkdir -p /data/scripts
 # ADD .bin/db-backup /data/db-backup
 
-# WORKDIR /usr/src/$APP_NAME
-# RUN nohup mongod &
-# RUN sleep 20
-# RUN mongorestore /db-backup 
-# RUN nohup mongod >/dev/null 2>&1 &
-# ADD .bin/containers/scripts/wait-connection.sh . 
-# RUN ./wait-connection.sh
-
 # RUN sleep 20
 # RUN mongodump --db "melhoreme-test" -o /data/db-backup/
 # RUN mongodump --db "admin" -o /data/db-backup/
 
-# RUN nohup mongod &
-# RUN npm cache clean -f
 RUN npm install -g bower
 RUN npm install -g gulp
-RUN npm install -g phantomjs 
-RUN npm install -g phantomjs-prebuilt
-# RUN npm install -g wait-for-mongo
+# RUN npm install -g phantomjs 
+# RUN npm install -g phantomjs-prebuilt
 
 # RUN npm config set unsafe-perm true
 # RUN npm config set strict-ssl false
@@ -121,7 +110,5 @@ RUN npm install -g phantomjs-prebuilt
 EXPOSE 27017 8080 3000
 # RUN mongorestore .bin/db-backup
 
-# CMD [ "gulp", "run" ]
 # CMD ["mongorestore", "./db-backup"]
-# CMD ["", ""]
 # ENTRYPOINT ["nohup mongod &; mongorestore .bin/db-backup; nohup gulp run &; sleep 30; ./node_modules/protractor/bin/webdriver-manager update; nohup gulp pre-tests &; sleep 10; gulp e2e"]
