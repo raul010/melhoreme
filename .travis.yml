@@ -15,7 +15,6 @@ before_install:
     - docker exec -it w-db ls -lha 
     - docker exec -d -it w-db gulp run 
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-server.sh 
-    - echo "Pronto" 
      
 before_script:
     - export DISPLAY=:99.0
@@ -24,8 +23,8 @@ before_script:
     - docker exec -it w-db ./node_modules/protractor/bin/webdriver-manager update
     - docker exec -it w-db gulp pre-tests 
 
-install: ()
-
+install: 
+    - echo "Pronto"
 script: 
     - docker exec -it w-db gulp e2e
 
