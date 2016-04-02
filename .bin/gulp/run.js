@@ -8,11 +8,11 @@ var SPECS       = constants.SPECS;
 module.exports = function run(gulp, nodemon, browserSync, shell, argv) {
 
     gulp.task(TASK.NODEMON, function () {
-        var FLAG_DEBUG_MODE = "--debug";
+        var FLAG_DEBUG_MODE = '--debug';
         var isDebug_Mode = !argv.d;
 
         if (isDebug_Mode) {
-            FLAG_DEBUG_MODE = "";
+            FLAG_DEBUG_MODE = '';
         }
         nodemon({
             exec: 'node ' + FLAG_DEBUG_MODE,
@@ -28,7 +28,7 @@ module.exports = function run(gulp, nodemon, browserSync, shell, argv) {
         browserSync.init({
             proxy: 'https://localhost:8080',
             open: false,
-            //server: "./app",
+            //server: './app',
             https: {
                 key: '.bin/ssl/melhoreme.key',
                 cert: '.bin/ssl/melhoreme.crt'
