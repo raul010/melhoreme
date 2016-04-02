@@ -1,10 +1,10 @@
 language: node_js
 sudo: required
 
-cache:
-  # npm
-  directories:
-    - node_modules
+# cache:
+#   # npm
+#   directories:
+#     - node_modules
 
 services:
   - docker

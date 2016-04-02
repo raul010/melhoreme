@@ -108,7 +108,7 @@ RUN chown -R `id -u` /data/db
 # RUN npm cache clean -f
 RUN npm install -g bower
 RUN npm install -g gulp
-# RUN npm install -g phantomjs 
+RUN npm install -g phantomjs 
 RUN npm install -g phantomjs-prebuilt
 # RUN npm install -g wait-for-mongo
 
