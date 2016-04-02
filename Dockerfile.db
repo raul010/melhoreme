@@ -96,7 +96,7 @@ RUN chown -R `id -u` /data/db
 # RUN mongodump --db "melhoreme-test" -o /data/db-backup/
 # RUN mongodump --db "admin" -o /data/db-backup/
 
-RUN apt-get install openjdk-7-jdk
+RUN apt-get install -y --force-yes openjdk-7-jdk
 RUN npm install -g bower
 RUN npm install -g gulp
 RUN npm install -g protractor
