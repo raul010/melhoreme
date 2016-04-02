@@ -27,7 +27,7 @@ RUN apt-get install -y curl
 RUN	apt-get install -y ca-certificates
 RUN apt-get install -y wget
 RUN apt-get install -y libxss1 libappindicator1 libindicator7 xdg-utils 
-
+RUN apt-get install -y dpkg
 # For node-gyp
 #
 # RUN apt-get update
