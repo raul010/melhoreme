@@ -26,7 +26,7 @@ RUN apt-get install -y curl
 	# && apt-get install -y --no-install-recommends \
 RUN	apt-get install -y ca-certificates
 RUN apt-get install -y wget
-RUN apt-get install -y gconf-service libasound2
+RUN apt-get install -y gconf-service libasound2 libnspr4
 RUN apt-get install -y libxss1 libappindicator1 libindicator7 xdg-utils 
 # RUN apt-get install -y dpkg
 # For node-gyp
