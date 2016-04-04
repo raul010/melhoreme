@@ -724,3 +724,49 @@ connecting to: 127.0.0.1:27017/test
 2016-04-04T16:58:23.975-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
     at connect (src/mongo/shell/mongo.js:181:14)
     at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-04T19:40:53.052-0300 I NETWORK  DBClientCursor::init call() failed
+2016-04-04T19:40:53.090-0300 E QUERY    Error: error doing query: failed
+    at DBQuery._exec (src/mongo/shell/query.js:83:36)
+    at DBQuery.hasNext (src/mongo/shell/query.js:240:10)
+    at DBCollection.findOne (src/mongo/shell/collection.js:187:19)
+    at DB.runCommand (src/mongo/shell/db.js:58:41)
+    at DB.adminCommand (src/mongo/shell/db.js:66:41)
+    at (shell eval):1:4 at src/mongo/shell/query.js:83
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-04T19:41:42.098-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-04T19:41:42.100-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-04T20:07:41.631-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-04T20:07:41.634-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-04T20:12:01.701-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-04T20:12:01.703-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-04T20:14:27.189-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-04T20:14:27.192-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-04T20:16:45.215-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-04T20:16:45.217-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
