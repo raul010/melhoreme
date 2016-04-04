@@ -1,5 +1,5 @@
-FROM elgalu/selenium
-# FROM ubuntu
+# FROM elgalu/selenium
+FROM ubuntu
 MAINTAINER raul@melhore.me
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -7,6 +7,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHON /usr/bin/python2.7
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
+
+# ENV DISPLAY :99.0
+
 
 # For MongoDB
 RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
