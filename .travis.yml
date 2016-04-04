@@ -24,7 +24,7 @@ before_script:
     # - docker -d -it w-db sh -e /etc/init.d/xvfb start
     - sleep 5
     - docker exec -it w-db ./node_modules/protractor/bin/webdriver-manager update
-    - docker exec -it w-db gulp pre-tests 
+    - docker exec -d -it w-db gulp pre-tests 
 
 install: 
     - echo "Pronto"
