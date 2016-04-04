@@ -18,7 +18,8 @@ before_install:
      
 before_script:
     - export DISPLAY=:99.0
-    - docker exec -it w-db export DISPLAY=:99.0
+    - docker exec -it w-db echo $DISPLAY
+    # - docker exec -it w-db export DISPLAY=:99.0
     - sleep 5
     - Xvfb :99.0 -extension RANDR > /dev/null &
     - docker exec -d -it w-db Xvfb :99.0 -extension RANDR 
