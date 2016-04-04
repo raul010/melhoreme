@@ -142,8 +142,9 @@ describe('form login', function() {
     });
 
     function inicializaTesteAndElementos() {
+        browser.ignoreSynchronization = true;
         browser.get('https://localhost:3000');
-
+        
         btnLoginEl = element(by.id('headerButtonLogin'));
         inputEmailEl = element(by.id('loginInputEmail'));
         inputPasswordlEl = element(by.id('loginInputPassword'));
@@ -154,5 +155,7 @@ describe('form login', function() {
         span = div.element(by.tagName('span'));
 
         toastEl = element(by.tagName('md-toast'));
+
+        browser.ignoreSynchronization = false;
     }
 });

@@ -99,6 +99,7 @@ describe('form signup', function() {
     });
 
     function inicializaTesteAndElementos(done) {
+        browser.ignoreSynchronization = true;
         browser.get('https://localhost:3000');
 
         btnLoginEl = element(by.id('headerButtonLogin'));
@@ -110,5 +111,7 @@ describe('form signup', function() {
         btnSubmitEl = element(by.id('signupButtonSubmit'));
 
         toastEl = element(by.tagName('md-toast'));
+
+        browser.ignoreSynchronization = false;
     }
 });
