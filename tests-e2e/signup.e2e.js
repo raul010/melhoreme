@@ -99,7 +99,7 @@ describe('form signup', function() {
     });
 
     function inicializaTesteAndElementos(done) {
-        browser.get('https://localhost:8080');
+        browser.get('https://localhost:3000');
 
         btnLoginEl = element(by.id('headerButtonLogin'));
         btnCadComEmailEl = element(by.id('loginButtonCadComEmail'));

@@ -142,7 +142,7 @@ describe('form login', function() {
     });
 
     function inicializaTesteAndElementos() {
-        browser.get('https://localhost:8080');
+        browser.get('https://localhost:3000');
 
         btnLoginEl = element(by.id('headerButtonLogin'));
         inputEmailEl = element(by.id('loginInputEmail'));
