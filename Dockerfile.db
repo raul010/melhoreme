@@ -111,7 +111,8 @@ RUN npm install -g protractor
 # RUN npm config set unsafe-perm false
 # RUN npm set strict-ssl true
 
-EXPOSE 27017 8080 3000 4444
+# EXPOSE 27017 8080 3000 4444
+
 # RUN mongorestore .bin/db-backup
 
 # CMD ["mongorestore", "./db-backup"]

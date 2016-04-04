@@ -167,7 +167,7 @@ gulp.task('e2e', function() {
             ])
             .pipe(protractor({
                 configFile: __dirname + '/protractor.conf.js',
-                args: ['--baseUrl', 'https://127.0.0.1:83']
+                args: ['--baseUrl', 'https://127.0.0.1:3000']
             }))
             .on('error', gutil.log);
 });

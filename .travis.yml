@@ -12,15 +12,18 @@ before_install:
     - .bin/containers/run-db.sh -c "" -d ""
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
     # - docker exec -it w-db cd melhoreme
-    - docker exec -it w-db ls -lha 
+    # - docker exec -it w-db ls -lha 
     - docker exec -d -it w-db gulp run 
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-server.sh 
      
 before_script:
     - export DISPLAY=:99.0
-    - sh -e /etc/init.d/xvfb start
-    - docker exec -d -it w-db export DISPLAY=:99.0
-    - docker exec -d -it w-db /etc/init.d/xvfb start
+    - Xvfb :99.0 -extension RANDR > /dev/null &
+    # - sh -e /etc/init.d/xvfb start
+    - docker exec -it w-db export DISPLAY=:99.0
+    - docker exec -d -it w-db Xvfb :99.0 -extension RANDR > /dev/null &
+
+    # - docker exec -d -it w-db /etc/init.d/xvfb start
     # - docker -d -it w-db sh -e /etc/init.d/xvfb start
     - sleep 5
     - docker exec -it w-db ./node_modules/protractor/bin/webdriver-manager update
