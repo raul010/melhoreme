@@ -1,4 +1,5 @@
-FROM ubuntu
+FROM elgalu/selenium
+# FROM ubuntu
 MAINTAINER raul@melhore.me
 
 ENV DEBIAN_FRONTEND noninteractive
