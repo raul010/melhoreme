@@ -1,4 +1,4 @@
-# FROM elgalu/selenium
+## FROM elgalu/selenium
 FROM selenium/node-chrome-debug
 # FROM ubuntu
 MAINTAINER raul@melhore.me
