@@ -142,7 +142,7 @@ describe('form login', function() {
     });
 
     function inicializaTesteAndElementos() {
-        browser.ignoreSynchronization = true;
+        // browser.ignoreSynchronization = true;
         browser.get('https://localhost:3000');
         
         btnLoginEl = element(by.id('headerButtonLogin'));
@@ -156,6 +156,6 @@ describe('form login', function() {
 
         toastEl = element(by.tagName('md-toast'));
 
-        browser.ignoreSynchronization = false;
+        // browser.ignoreSynchronization = false;
     }
 });

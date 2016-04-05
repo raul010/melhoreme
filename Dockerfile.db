@@ -1,5 +1,6 @@
 # FROM elgalu/selenium
-FROM ubuntu
+FROM selenium/node-chrome-debug
+# FROM ubuntu
 MAINTAINER raul@melhore.me
 
 ENV DEBIAN_FRONTEND noninteractive
