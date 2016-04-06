@@ -35,7 +35,8 @@ if [ $CI_ENV == true ]; then
     #     rm -r .bin/db-backup/*
     # fi
     # docker exec -it chown -R $USER:$GROUP ~/.npm
-    docker exec -it chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    docker exec -it w-db npm config set unsafe-perm true
+    docker exec -it chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    
+    docker exec -it w-db npm config set unsafe-perm true
     docker exec -it w-db npm config set strict-ssl false
     docker exec -it w-db npm install
     docker exec -it w-db npm config set unsafe-perm false

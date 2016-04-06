@@ -906,3 +906,32 @@ java.net.BindException: Selenium is already running on port 4444. Or some other 
 	at org.openqa.grid.selenium.GridLauncher$1.launch(GridLauncher.java:58)
 	at org.openqa.grid.selenium.GridLauncher.main(GridLauncher.java:127)
 Selenium Standalone has exited with code 0
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-06T12:05:49.463-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-06T12:05:49.465-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-06T12:06:53.299-0300 I NETWORK  Socket recv() errno:104 Connection reset by peer 127.0.0.1:27017
+2016-04-06T12:06:53.336-0300 I NETWORK  SocketException: remote: 127.0.0.1:27017 error: 9001 socket exception [RECV_ERROR] server [127.0.0.1:27017] 
+2016-04-06T12:06:53.336-0300 I NETWORK  DBClientCursor::init call() failed
+2016-04-06T12:06:53.338-0300 E QUERY    Error: DBClientBase::findN: transport error: 127.0.0.1:27017 ns: admin.$cmd query: { whatsmyuri: 1 }
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-06T12:07:43.944-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-06T12:07:43.946-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+[object Object]
+MongoDB shell version: 3.0.10
+connecting to: 127.0.0.1:27017/test
+2016-04-06T12:09:13.630-0300 W NETWORK  Failed to connect to 127.0.0.1:27017, reason: errno:111 Connection refused
+2016-04-06T12:09:13.632-0300 E QUERY    Error: couldn't connect to server 127.0.0.1:27017 (127.0.0.1), connection attempt failed
+    at connect (src/mongo/shell/mongo.js:181:14)
+    at (connect):1:6 at src/mongo/shell/mongo.js:181
