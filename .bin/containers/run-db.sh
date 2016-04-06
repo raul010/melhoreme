@@ -35,16 +35,29 @@ if [ $CI_ENV == true ]; then
     #     rm -r .bin/db-backup/*
     # fi
     # docker exec -it chown -R $USER:$GROUP ~/.npm
-    docker exec -it chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    
-    docker exec -it w-db npm config set unsafe-perm true
-    docker exec -it w-db npm config set strict-ssl false
-    docker exec -it w-db npm install
-    docker exec -it w-db npm config set unsafe-perm false
-    docker exec -it w-db npm set strict-ssl true
+
+    # docker exec -it chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    
+    # docker exec -it w-db npm config set unsafe-perm true
+    # docker exec -it w-db npm config set strict-ssl false
+    # docker exec -it w-db npm install
+    # docker exec -it w-db npm config set unsafe-perm false
+    # docker exec -it w-db npm set strict-ssl true
+    # docker exec -it w-db mongodump --db "admin" -o .bin/db-backup/
+    # docker exec -it w-db mongodump --db "melhoreme-test" -o .bin/db-backup/
+    # docker exec -it w-db mongorestore --db admin /melhoreme/.bin/db-backup/admin
+    # docker exec -it w-db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
+    #
+    chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    
+    npm config set unsafe-perm true
+    npm config set strict-ssl false
+    npm install
+    npm config set unsafe-perm false
+    npm set strict-ssl true
     docker exec -it w-db mongodump --db "admin" -o .bin/db-backup/
     docker exec -it w-db mongodump --db "melhoreme-test" -o .bin/db-backup/
     docker exec -it w-db mongorestore --db admin /melhoreme/.bin/db-backup/admin
     docker exec -it w-db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
+
 fi
 #
 
