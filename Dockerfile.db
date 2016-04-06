@@ -32,7 +32,7 @@ RUN apt-get install -y curl
 RUN	apt-get install -y ca-certificates
 RUN apt-get install -y wget
 RUN apt-get install -y --no-install-recommends gconf-service libasound2 libnspr4 libnss3 libpango1.0-0 fonts-liberation
-RUN apt-get install -y libxss1 libappindicator1 libindicator7 xdg-utils 
+RUN apt-get install -y --no-install-recommends libxss1 libappindicator1 libindicator7 xdg-utils 
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
 RUN dpkg -i google-chrome*.deb 
