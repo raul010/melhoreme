@@ -39,7 +39,7 @@ RUN	apt-get install -y ca-certificates
 RUN apt-get install -y wget
 # RUN apt-get install -y gconf-service libasound2 libnspr4 libnss3 libpango1.0-0 fonts-liberation
 # RUN apt-get install -y  libappindicator1 libindicator7 xdg-utils 
-# RUN apt-get install -y libxss1 libappindicator1 fonts-liberation
+RUN apt-get install -y libxss1 libappindicator1 fonts-liberation
 
 # RUN apt-get install -y dpkg
 # For node-gyp
@@ -54,9 +54,9 @@ RUN apt-get install -y wget
 # 	google-chrome-stable
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
-RUN dpkg -i google-chrome*.deb || true
-RUN apt-get install -f -y
 RUN dpkg -i google-chrome*.deb 
+# RUN dpkg -i google-chrome*.deb || true
+# RUN apt-get install -f -y
 
 RUN apt-get install -y --no-install-recommends \
 	xfonts-base \
