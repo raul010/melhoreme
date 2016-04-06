@@ -23,8 +23,8 @@ echo $DETTACHED_MOD
 # Stopping qualquer 27017 que estiver rodando
 nohup mongo --port 27017 --eval 'db.adminCommand("shutdown")' 2> /dev/null
 
-docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 3000:3000 -i -t raul010/w-db /bin/bash 
-# docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 3000:3000 -p 5900:5900 -p 4444:4444 -i -t raul010/w-db /bin/bash 
+# docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 3000:3000 -i -t raul010/w-db /bin/bash 
+docker run -d -v "$(pwd)":/melhoreme --name w-db -p 27017:27017 -p 8080:8080 -p 3000:3000 -p 9876:9876 -p 5900:5900 -p 4444:4444 -i -t raul010/w-db /bin/bash 
 
 # docker exec -it w-db mongod --shutdown 2> /dev/null
 docker exec -d -it w-db mongod 
