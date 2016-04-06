@@ -169,7 +169,7 @@ gulp.task('e2e', function() {
                 configFile: __dirname + '/protractor.conf.js',
                 args: ['--baseUrl', 'https://127.0.0.1:3000']
             }))
-            .on('error', gutil.log);
+            .on('error', process.exit.bind(process, 1));
 });
 
 gulp.task('pre-tests', '(AINDA EM VERSÃO BETA, NÃO USAR) Start-up all requiriments to run tests |',
