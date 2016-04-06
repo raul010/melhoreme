@@ -24,7 +24,8 @@ RUN apt-get update
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-
+# to install build-essential
+RUN apt-get install -y libc6-dev g++ dpkg-dev 
 # to node-gyp
 RUN apt-get install -y python2.7
 # RUN apt-get install -y build-essential --no-install-recommends
