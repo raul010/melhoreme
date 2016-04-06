@@ -11,6 +11,8 @@ ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
 
 ENV DISPLAY ":99.0"
 
+# ENV CHROME_BIN=/usr/bin/google-chrome
+ENV CHROME_BIN=/usr/bin/google-chrome-stable
 
 # For MongoDB
 RUN echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-3.2.list
@@ -25,7 +27,8 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # to node-gyp
 RUN apt-get install -y python2.7
-RUN apt-get install -y build-essential --no-install-recommends
+# RUN apt-get install -y build-essential --no-install-recommends
+RUN apt-get install -y build-essential 
 
 RUN apt-get install -y curl
 
@@ -35,7 +38,7 @@ RUN	apt-get install -y ca-certificates
 RUN apt-get install -y wget
 RUN apt-get install -y gconf-service libasound2 libnspr4 libnss3 libpango1.0-0 fonts-liberation
 RUN apt-get install -y libxss1 libappindicator1 libindicator7 xdg-utils 
-RUN apt-get install -y libc6-dev g++ dpkg-dev 
+# RUN apt-get install -y libc6-dev g++ dpkg-dev 
 # RUN apt-get install -y dpkg
 # For node-gyp
 #
