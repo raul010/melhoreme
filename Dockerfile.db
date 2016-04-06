@@ -39,7 +39,6 @@ RUN	apt-get install -y ca-certificates
 RUN apt-get install -y wget
 RUN apt-get install -y gconf-service libasound2 libnspr4 libnss3 libpango1.0-0 fonts-liberation
 RUN apt-get install -y libxss1 libappindicator1 libindicator7 xdg-utils 
-RUN apt-get install -y --force-yes openjdk-7-jdk 
 # RUN apt-get install -y dpkg
 # For node-gyp
 #
@@ -55,9 +54,11 @@ RUN apt-get install -y --force-yes openjdk-7-jdk
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
 RUN dpkg -i google-chrome*.deb 
 
-# RUN apt-get install -y --no-install-recommends \
-	# xfonts-base \
-	# xvfb
+RUN apt-get install -y --no-install-recommends \
+	xfonts-base \
+	xvfb
+
+RUN apt-get install -y --force-yes openjdk-7-jdk --no-install-recommends
 
 ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 5.9.0
