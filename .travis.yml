@@ -13,7 +13,6 @@ node_js:
   - "5.9.0"
 
 before_install:
-    - gem install bundler
     - .bin/containers/build.sh
     - .bin/containers/run-db.sh -c "" -d ""
     - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
