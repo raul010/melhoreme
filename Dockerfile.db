@@ -55,7 +55,7 @@ RUN apt-get install -y wget
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
 RUN dpkg -i google-chrome*.deb || true
-RUN apt-get install -f
+RUN apt-get install -f -y
 RUN dpkg -i google-chrome*.deb 
 
 RUN apt-get install -y --no-install-recommends \
