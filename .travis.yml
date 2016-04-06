@@ -2,9 +2,11 @@ language: node_js
 sudo: required
 
 cache:
+    apt: true
     directories:
         - node_modules
         - client/assets/libs
+        # - /usr/local/nvm/versions/node/v5.9.0/lib/node_modules
 
 services:
   - docker
