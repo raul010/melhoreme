@@ -15,6 +15,7 @@
   "devDependencies": {
     "angular-mocks": "1.4.8",
     "angular-ui-router": "~0.2.15",
-    "angular-easyfb": "~1.4.1"
+    "angular-easyfb": "~1.4.1",
+    "ngstorage": "~0.3.10"
   }
 }
