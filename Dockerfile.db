@@ -54,8 +54,9 @@ RUN apt-get install -y wget
 # 	google-chrome-stable
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
-RUN dpkg -i google-chrome*.deb >&0
+RUN dpkg -i google-chrome*.deb >/dev/null
 RUN apt-get install -f
+RUN dpkg -i google-chrome*.deb 
 
 RUN apt-get install -y --no-install-recommends \
 	xfonts-base \
