@@ -30,6 +30,6 @@ function LoginController() {
         console.log(loginUser.user);
 
         // expect($scope.strength).to.equal('strong');
-        expect($scope.strength).to.equal('COM ERROOOOOOOOOOOOOOO');
+        // expect($scope.strength).to.equal('COM ERROOOOOOOOOOOOOOO');
     });
 }
