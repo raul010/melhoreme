@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -f Dockerfile.db -t raul010/w-db .
+docker build -t raul010/db .

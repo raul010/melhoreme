@@ -17,30 +17,28 @@ node_js:
 before_install:
     - .bin/containers/build.sh
     - .bin/containers/run-db.sh -c "" -d ""
-    - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-connection.sh
-    # - docker exec -it w-db cd melhoreme
-    # - docker exec -it w-db ls -lha 
-    - docker exec -d -it w-db gulp run 
-    - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-server.sh 
+    - docker exec -it db /melhoreme/.bin/containers/scripts/wait-connection.sh
+    - docker exec -d -it db gulp run 
+    - docker exec -it db /melhoreme/.bin/containers/scripts/wait-server.sh 
      
 before_script:
     - export DISPLAY=:99.0
-    - docker exec -it w-db echo $DISPLAY
-    # - docker exec -it w-db export DISPLAY=:99.0
-    - sleep 5
+    - docker exec -it db echo $DISPLAY
+    # - docker exec -it db export DISPLAY=:99.0
+    - sleep 2
     - Xvfb :99.0 -extension RANDR > /dev/null &
-    - docker exec -d -it w-db Xvfb :99.0 -extension RANDR 
+    - docker exec -d -it db Xvfb :99.0 -extension RANDR 
     - sleep 15
-    - docker exec -it w-db ./node_modules/protractor/bin/webdriver-manager update
-    - docker exec -d -it w-db gulp pre-tests 
+    - docker exec -it db ./node_modules/protractor/bin/webdriver-manager update
+    - docker exec -d -it db gulp pre-tests 
 
 install: 
     - echo "Pronto"
 script: 
-    - docker exec -it w-db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
-    # - docker exec -it w-db gulp e2e
+    - docker exec -it db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
+    # - docker exec -it db gulp e2e
     - gulp e2e
 
 #soh pro push
 # - sh -e /etc/init.d/xvfb start
-# - docker exec -d -it w-db /etc/init.d/xvfb start
+# - docker exec -d -it db /etc/init.d/xvfb start
