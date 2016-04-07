@@ -27,6 +27,7 @@ function LoginController() {
         var loginUser = $scope;
         loginUser.user = user.login;
 
+        console.log('LoginController Test')
         console.log(loginUser.user);
 
         //expect($scope.strength).to.equal('strong');

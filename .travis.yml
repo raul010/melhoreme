@@ -28,7 +28,7 @@ before_script:
     - sleep 2
     - Xvfb :99.0 -extension RANDR > /dev/null &
     - docker exec -d -it db Xvfb :99.0 -extension RANDR 
-    - sleep 15
+    - sleep 7
     - docker exec -it db ./node_modules/protractor/bin/webdriver-manager update
     - docker exec -d -it db gulp pre-tests 
 
@@ -38,6 +38,7 @@ script:
     - docker exec -it db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
     # - docker exec -it db gulp e2e
     - gulp e2e
+    - gulp test
 
 #soh pro push
 # - sh -e /etc/init.d/xvfb start

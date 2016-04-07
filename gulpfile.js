@@ -134,7 +134,7 @@ gulp.task('run', 'Inicia o NODEMON e BROWSER-SYNC |',
         }
     });
 
-gulp.task('test-chrome', function(done) {
+gulp.task('test', function(done) {
     console.log(__dirname);
 
     var karma = new karmaServer({
@@ -143,10 +143,13 @@ gulp.task('test-chrome', function(done) {
         browsers: ['Chrome']
     }, done);
 
-    karma.start();
+    // karma.start();
+    karma.start({}, function(exitStatus){
+        done(exitStatus ? process.exit.bind(process, 1) : undefined);
+    });
 });
 
-gulp.task('test', function(done) {
+gulp.task('test-phantom', function(done) {
     console.log(__dirname);
 
     var karma = new karmaServer({
