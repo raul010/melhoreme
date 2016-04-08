@@ -36,10 +36,11 @@ script:
     - docker exec -it db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
 
     - docker exec -it db gulp e2e
-    - if [ $? -eq 1 ]; then exit 1; fi
-
+    # - if [ $? -eq 1 ]; then exit 1; fi
+    - if [ $? -ne 0 ]; then echo "fail" && exit 1; fi
     - docker exec -it db gulp test
-    - if [ $? -eq 1 ]; then exit 1; fi
+    - if [ $? -ne 0 ]; then echo "fail" && exit 1; fi
+    # - if [ $? -eq 1 ]; then exit 1; fiii
     # - gulp e2e
     # - gulp test
 
