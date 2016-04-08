@@ -145,7 +145,10 @@ gulp.task('test', function(done) {
 
     // karma.start();
     karma.start({}, function(exitStatus){
-        done(exitStatus ? process.exit.bind(process, 1) : undefined);
+        if (exitStatus !== 0) {
+            return process.exit.bind(process, 1);
+        }
+        done();
     });
 });
 
