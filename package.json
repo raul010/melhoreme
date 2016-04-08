@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "postinstall": "bower install --allow-root"
+    "postinstall": ""
   },
   "repository": {
     "type": "git",

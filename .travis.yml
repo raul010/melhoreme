@@ -36,9 +36,10 @@ install:
     - echo "Pronto"
 script: 
     - docker exec -it db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
-    # - docker exec -it db gulp e2e
-    - gulp e2e
-    - gulp test
+    - docker exec -it db gulp e2e
+    - docker exec -it db gulp test
+    # - gulp e2e
+    # - gulp test
 
 #soh pro push
 # - sh -e /etc/init.d/xvfb start

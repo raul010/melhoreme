@@ -2,10 +2,14 @@
 
 # Initialize our own variables:
 CI_ENV=false
+AWS_ENV=false
 DETTACHED_MOD=false
 
-while getopts ":c:d:" opt; do
+while getopts ":a:c:d:" opt; do
     case "$opt" in
+        a)
+            AWS_ENV=true
+            ;; 
         c)
             CI_ENV=true
             ;;
@@ -17,8 +21,9 @@ done
 
 shift $((OPTIND-1))
 
-echo $CI_ENV
-echo $DETTACHED_MOD
+echo "CI_ENV $CI_ENV"
+echo "AWS_ENV $AWS_ENV"
+echo "DETTACHED_MOD $DETTACHED_MOD"
 
 # Stopping qualquer 27017 que estiver rodando
 nohup mongo --port 27017 --eval 'db.adminCommand("shutdown")' 2> /dev/null
@@ -35,28 +40,32 @@ if [ $CI_ENV == true ]; then
     #     rm -r .bin/db-backup/*
     # fi
     # docker exec -it chown -R $USER:$GROUP ~/.npm
-
     # docker exec -it chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    
-    # docker exec -it db npm config set unsafe-perm true
-    # docker exec -it db npm config set strict-ssl false
-    # docker exec -it db npm install
-    # docker exec -it db npm config set unsafe-perm false
-    # docker exec -it db npm set strict-ssl true
-    # docker exec -it db mongodump --db "admin" -o .bin/db-backup/
-    # docker exec -it db mongodump --db "melhoreme-test" -o .bin/db-backup/
-    # docker exec -it db mongorestore --db admin /melhoreme/.bin/db-backup/admin
-    # docker exec -it db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
-    #
-    chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    
-    npm config set unsafe-perm true
-    npm config set strict-ssl false
-    npm install
-    npm config set unsafe-perm false
-    npm set strict-ssl true
+
+    # ssl false, to install Selenium
+    docker exec -it db npm config set unsafe-perm true
+    docker exec -it db npm config set strict-ssl false
+    docker exec -it db npm install
+    docker exec -it db npm config set unsafe-perm false
+    docker exec -it db npm set strict-ssl true
+    docker exec -it db bower install --allow-root
     docker exec -it db mongodump --db "admin" -o .bin/db-backup/
     docker exec -it db mongodump --db "melhoreme-test" -o .bin/db-backup/
     docker exec -it db mongorestore --db admin /melhoreme/.bin/db-backup/admin
     docker exec -it db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
+     
+    # chown -R $USER:$GROUP chown -R $USER /usr/local/lib/node_modules/    
+    # # ssl false, to Selenium
+    # npm config set unsafe-perm true
+    # npm config set strict-ssl false
+    # npm install
+    # npm config set unsafe-perm false
+    # npm set strict-ssl true
+    # bower install --allow-root
+    # docker exec -it db mongodump --db "admin" -o .bin/db-backup/
+    # docker exec -it db mongodump --db "melhoreme-test" -o .bin/db-backup/
+    # docker exec -it db mongorestore --db admin /melhoreme/.bin/db-backup/admin
+    # docker exec -it db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
 
 fi
 #
