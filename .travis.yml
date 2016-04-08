@@ -35,14 +35,8 @@ install:
 script: 
     - docker exec -it db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
 
-    # - if [ $? -eq 1 ]; then exit 1; fi
     - docker exec -it db gulp e2e
-    - echo $?
-    - echo $?
-    - if [ $? -eq 1 ]; then echo "fail" && exit 1; fi
     - docker exec -it db gulp test
-    - if [ $? -eq 1 ]; then echo "fail" && exit 1; fi
-    # - if [ $? -eq 1 ]; then exit 1; fiii
     # - gulp e2e
     # - gulp test
 
@@ -50,3 +44,4 @@ script:
 # - sh -e /etc/init.d/xvfb start
 # - docker exec -d -it db /etc/init.d/xvfb start
 # - docker exec -it db export DISPLAY=:99.0
+# - if [ $? -eq 1 ]; then echo "fail" && exit 1; fi
