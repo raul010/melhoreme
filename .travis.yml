@@ -37,7 +37,9 @@ install:
 script: 
     - docker exec -it db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
     - docker exec -it db gulp e2e
+    - if [ $? -eq 1 ]; then exit 1; fi
     - docker exec -it db gulp test
+    - if [ $? -eq 1 ]; then exit 1; fi
     # - gulp e2e
     # - gulp test
 
