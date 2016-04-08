@@ -70,10 +70,17 @@ if [ $CI_ENV == true ]; then
 fi
 #
 if [ $AWS_ENV == true ]; then
-    
-    docker exec -it db npm install 
-    docker exec -it db bower install 
+    # docker exec -it db echo "export NODE_ENV=production" >> ~/.bashrc
+    docker exec -it db /bin/bash -c "echo 'export NODE_ENV=production' >> ~/.bashrc && exit 0"
+    docker exec -it db /bin/bash -c "echo $NODE_ENV"
+    docker exec -it db npm install --production
+    docker exec -it db bower install --allow-root --production 
 fi
+# if [ $AWS_ENV == true ]; then
+#     
+#     docker exec -it db npm install 
+#     docker exec -it db bower install 
+# fi
 
 docker exec -it db mongod --shutdown  >/dev/null 2>&1
 docker exec -it db chown -R `id -u` /data/db 
