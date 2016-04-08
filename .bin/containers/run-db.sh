@@ -2,14 +2,14 @@
 
 # Initialize our own variables:
 CI_ENV=false
-# AWS_ENV=false
+AWS_ENV=false
 DETTACHED_MOD=false
 
 while getopts ":a:c:d:" opt; do
     case "$opt" in
-        # a)
-        #     AWS_ENV=true
-        #     ;; 
+        a)
+            AWS_ENV=true
+            ;; 
         c)
             CI_ENV=true
             ;;
@@ -22,7 +22,7 @@ done
 shift $((OPTIND-1))
 
 echo "CI_ENV $CI_ENV"
-# echo "AWS_ENV $AWS_ENV"
+echo "AWS_ENV $AWS_ENV"
 echo "DETTACHED_MOD $DETTACHED_MOD"
 
 # Stopping qualquer 27017 que estiver rodando
@@ -69,11 +69,11 @@ if [ $CI_ENV == true ]; then
 
 fi
 #
-# if [ $AWS_ENV == true ]; then
-#     
-#     docker exec -it db npm install 
-#     docker exec -it db bower install 
-# fi
+if [ $AWS_ENV == true ]; then
+    
+    docker exec -it db npm install 
+    docker exec -it db bower install 
+fi
 
 docker exec -it db mongod --shutdown  >/dev/null 2>&1
 docker exec -it db chown -R `id -u` /data/db 
