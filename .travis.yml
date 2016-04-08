@@ -22,22 +22,22 @@ before_install:
     - docker exec -it db /melhoreme/.bin/containers/scripts/wait-server.sh 
      
 before_script:
-    - export DISPLAY=:99.0
-    - docker exec -it db echo $DISPLAY
-    - sleep 2
-    - Xvfb :99.0 -extension RANDR > /dev/null &
+    # - export DISPLAY=:99.0
+    # - sleep 2
+    # - Xvfb :99.0 -extension RANDR > /dev/null &
     - docker exec -d -it db Xvfb :99.0 -extension RANDR 
     - sleep 7
     - docker exec -it db ./node_modules/protractor/bin/webdriver-manager update
     - docker exec -d -it db gulp pre-tests 
-    # - docker exec -it db export DISPLAY=:99.0
 
 install: 
     - echo "Pronto"
 script: 
     - docker exec -it db /melhoreme/.bin/containers/scripts/wait-selenium.sh 
+
     - docker exec -it db gulp e2e
     - if [ $? -eq 1 ]; then exit 1; fi
+
     - docker exec -it db gulp test
     - if [ $? -eq 1 ]; then exit 1; fi
     # - gulp e2e
@@ -46,3 +46,4 @@ script:
 #soh pro push
 # - sh -e /etc/init.d/xvfb start
 # - docker exec -d -it db /etc/init.d/xvfb start
+# - docker exec -it db export DISPLAY=:99.0

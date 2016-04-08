@@ -71,8 +71,8 @@ describe('form login', function() {
                 .then(function () {
                     el.ignoreSyncBlock(function () {
                         browser.sleep(timers.toastSleep);
-                        // expect(span.getText()).to.eventually.equal(label.validacao.LOGIN_INVALIDO);
-                        expect(span.getText()).to.eventually.equal('Com ERROOOOOOOOOOOOOOOOOOOOOOOOOO');
+                        expect(span.getText()).to.eventually.equal(label.validacao.LOGIN_INVALIDO);
+                        // expect(span.getText()).to.eventually.equal('Com ERROOOOOOOOOOOOOOOOOOOOOOOOOO');
                     });
                     next();
                 });
