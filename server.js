@@ -38,6 +38,8 @@ if (NODE_ENV === 'development') {
         });
 
 } else if (NODE_ENV === 'production') {
+    console.log('USER', process.env.MONGOOSE_USER)
+    console.log('PASS', process.env.MONGOOSE_PASS)
     mongoose.connect(
             process.env.MONGOOSE_URI, {
                 user: process.env.MONGOOSE_USER,
