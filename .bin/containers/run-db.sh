@@ -34,8 +34,13 @@ echo "DETTACHED_MOD $DETTACHED_MOD"
 nohup mongo --port 27017 --eval 'db.adminCommand("shutdown")' 2> /dev/null
 
 # docker run -d -v "$(pwd)":/melhoreme --name melhoreme/db -p 27017:27017 -p 8080:8080 -p 3000:3000 -i -t raul010/melhoreme/db /bin/bash 
-docker run -d -v "$(pwd)":/melhoreme --name db -p 27017:27017 -p 8080:8080 -p 3000:3000 -p 9876:9876 -p 5900:5900 -p 4444:4444 -i -t melhoreme/db /bin/bash 
+if [ $AWS_ENV == true ]; then
+    docker run -d -v "$(pwd)":/melhoreme --name db -p 27017:27017 -p 8080:443 -i -t melhoreme/db /bin/bash 
+else
 
+    docker run -d -v "$(pwd)":/melhoreme --name db -p 27017:27017 -p 8080:8080 -p 3000:3000 -p 9876:9876 -p 5900:5900 -p 4444:4444 -i -t melhoreme/db /bin/bash 
+
+fi
 # docker exec -it db mongod --shutdown 2> /dev/null
 docker exec -d -it db mongod 
 docker exec -it db /melhoreme/.bin/containers/scripts/wait-connection.sh

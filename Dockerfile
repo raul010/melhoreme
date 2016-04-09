@@ -6,7 +6,7 @@ MAINTAINER raul@melhore.me
 ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHON /usr/bin/python2.7
 ENV JAVA_HOME /usr/lib/jvm/java-1.7.0-openjdk-amd64
-ENV DISPLAY ":99.0"
+ENV DISPLAY :99.0
 ENV CHROME_BIN=/usr/bin/google-chrome-stable
 
 # For MongoDB
