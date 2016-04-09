@@ -16,7 +16,7 @@ var email          = require('./server/util/email');
 
 require('./env');
 
-var port     = process.env.PORT || 443; // set our port
+var port     = process.env.PORT || 8080; // set our port
 // var NODE_ENV = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
 var NODE_ENV = process.env.NODE_ENV;
 
@@ -121,7 +121,7 @@ app.use(function(err, req, res, next) {
 
 var server = https.createServer(optionsSSL, app).listen(port, function() {
     console.log('If server has started via GULP RUN task:');
-    console.log('server ===============================> https://localhost:443');
+    console.log('server ===============================> https://localhost:8080 / 443');
     console.log('server with browser sync =============> https://localhost:3000');
     console.log('Nginx static proxy ===================> https://localhost:80');
     console.log('Nginx static proxy and browser sync ==> https://localhost:83');
