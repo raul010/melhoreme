@@ -15,12 +15,11 @@
 * Nginx (for static files)
 
 
-## Installation
+## Instalação Local
 1. Clone the repository
 2. Install npm modules: `npm install`
 3. Install bower dependencies `bower install`
 4. Simple start up the server: `npm start` OR  `nodemon .` (show: gulp help)
-
 5. Test navigation: in browser at http://localhost:8080
 6. Ctrl C - The server will not be run this way. As will be shown below.
 
@@ -77,6 +76,10 @@ and overwrite this:
     * access db via console: `mongo -u raul -p --authenticationDatabase melhoreme`
     * Uri within application: `mongodb://localhost/melhoreme?authSource=melhoreme` + options  (auth params)
 
+* Para rodar uma segunda instância do mongo, localmente e de maneira isolada:
+    * `mongod --dbpath /usr/local/var/mongodb2 --port 27019`
+    * então: `mongo --port 27019`
+
 ## Running App
 
 `gulp run` - Will run node server on port 8080, and Browsersync on port 3000, and should be accessed from nginx proxy: http://127.0.0.1:83 (OR :80 without browsersync)
@@ -118,3 +121,16 @@ These are certainly the two most used tasks.
     - css/sass/style.scss
 2. Compile to:
     - css/style.css
+
+## Server (AWS)
+### Commands:
+* `cd ~`
+* git clone https://github.com/raul010/melhoreme.git
+* cd melhoreme
+* .bin/containers/build.sh
+* .bin/containers/run-db.sh -a "" 
+* acessa outro ssh, de outro bash
+* docker exec -it db node server.js
+* client/assets/css/ `sass \_sass/style.scss style.css`
+* client/assets/css/\_sass$ `cp -R fonts/ ../`
+* docker exec -it db node server.js

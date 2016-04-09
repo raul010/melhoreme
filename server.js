@@ -17,10 +17,12 @@ var email          = require('./server/util/email');
 require('./env');
 
 var port     = process.env.PORT || 8080; // set our port
-var NODE_ENV = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
+// var NODE_ENV = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
+var NODE_ENV = process.env.NODE_ENV ;
 
 console.log('*********************************');
-console.log('server.js -->', NODE_ENV);
+console.log('$NODE ENV [server.js] -->', NODE_ENV);
+console.log('$PORT [server.js] -->', port);
 console.log('*********************************');
 
 app.set('jwt_secret', process.env.JWT_SECRET);
