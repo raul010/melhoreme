@@ -3,11 +3,13 @@
  */
 
 var email   = require('../../node_modules/emailjs/email');
-var config  = require('./config');
+// var config  = require('./config');
 
 var server  = email.server.connect({
-    user:       config.EMAIL_USER,
-    password:   config.EMAIL_PASSWORD,
+    user:       process.env.EMAIL_USER,
+    // user:       config.EMAIL_USER,
+    password:   process.env.EMAIL_PASSWORD,
+    // password:   config.EMAIL_PASSWORD,
     host:       'smtp.gmail.com',
     ssl:        true
 });

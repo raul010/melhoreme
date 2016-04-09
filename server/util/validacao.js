@@ -9,7 +9,7 @@ var moment      = require('moment');
 var label       = require('./label');
 var ajax		= require('./ajax');
 var email		= require('./email');
-var config		= require('./config');
+// var config		= require('./config');
 
 
 module.exports.validaDados = validaDados;
@@ -22,11 +22,8 @@ module.exports.createJWT = function (user) {
         iat: moment().unix(),
         exp: moment().add(14, 'days').unix()
     };
-    
-    console.log('---> process', process.env.TOKEN_SECRET)
-    console.log('---> payload', payload, config.TOKEN_SECRET);
-
-    return jwt.encode(payload, config.TOKEN_SECRET);
+    // return jwt.encode(payload, config.TOKEN_SECRET);
+    return jwt.encode(payload, process.env.TOKEN_SECRET);
 };
 
 
@@ -40,7 +37,7 @@ module.exports.ensureAuthenticated = function (req, res, next) {
 
     var payload = null;
     try {
-        payload = jwt.decode(token, config.TOKEN_SECRET);
+        payload = jwt.decode(token, process.env.TOKEN_SECRET);
     }
     catch (err) {
         email.erro(err, err.message);
