@@ -88,6 +88,9 @@ if (NODE_ENV === 'development') {
     app.use(function(req, res, next) {
         console.log('x-forwarded-proto')
         var protocol = req.get('x-forwarded-proto');
+        console.log('protocol -->', protocol)
+        console.log('req.hostname -->', req.hostname)
+        console.log('req.url -->', req.url)
         protocol === 'https' ? next() : res.redirect('https://' + req.hostname + req.url);
     });
 
