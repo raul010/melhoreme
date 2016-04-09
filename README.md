@@ -134,3 +134,4 @@ These are certainly the two most used tasks.
 * client/assets/css/ `sass \_sass/style.scss style.css`
 * client/assets/css/\_sass$ `cp -R fonts/ ../`
 * docker exec -it db /bin/bash -c "NODE\_ENV=$NODE\_ENV node server.js"
+* git pull origin <features/cards-2>
