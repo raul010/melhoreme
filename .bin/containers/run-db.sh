@@ -79,8 +79,8 @@ if [ $AWS_ENV == true ]; then
     # docker exec -it db echo "export NODE_ENV=production" >> ~/.bashrc
     if [ $DATA_BASE_DUMP ]; then
 
-        docker exec -it db mongorestore --db admin ~/melhoreme/.bin/db-backup/admin
-        docker exec -it db mongorestore --db melhoreme ~/melhoreme/.bin/db-backup/melhoreme
+        docker exec -it db mongorestore --db admin .bin/db-backup/admin
+        docker exec -it db mongorestore --db melhoreme .bin/db-backup/melhoreme
 
     fi
     docker exec -it db /bin/bash -c "echo 'export NODE_ENV=production' >> ~/.bashrc"
