@@ -1,8 +1,8 @@
 var timers = {};
 
-timers.angularTimeout = 10000;
-timers.clickableSleep = 5000;
-timers.toastSleep = 5000;
+timers.angularTimeout = 15000;
+timers.clickableSleep = 3000;
+timers.toastSleep = 3000;
 
 
 module.exports = timers;

@@ -4,11 +4,15 @@
 CI_ENV=false
 AWS_ENV=false
 DETTACHED_MOD=false
+DATA_BASE_DUMP=false
 
-while getopts ":a:c:d:" opt; do
+while getopts ":a:b:c:d:" opt; do
     case "$opt" in
         a)
             AWS_ENV=true
+            ;; 
+        b)
+            DATA_BASE_DUMP=true
             ;; 
         c)
             CI_ENV=true
@@ -23,6 +27,7 @@ shift $((OPTIND-1))
 
 echo "CI_ENV $CI_ENV"
 echo "AWS_ENV $AWS_ENV"
+echo "DATA_BASE_DUMP $DATA_BASE_DUMP"
 echo "DETTACHED_MOD $DETTACHED_MOD"
 
 # Stopping qualquer 27017 que estiver rodando
@@ -68,7 +73,7 @@ if [ $CI_ENV == true ]; then
     # docker exec -it db mongorestore --db melhoreme-test /melhoreme/.bin/db-backup/melhoreme-test
 
 fi
-#
+
 if [ $AWS_ENV == true ]; then
     # docker exec -it db echo "export NODE_ENV=production" >> ~/.bashrc
     docker exec -it db /bin/bash -c "echo 'export NODE_ENV=production' >> ~/.bashrc"
