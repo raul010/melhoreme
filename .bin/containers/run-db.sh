@@ -54,6 +54,7 @@ if [ $CI_ENV == true ]; then
     docker exec -it db npm config set unsafe-perm false
     docker exec -it db npm set strict-ssl true
     docker exec -it db bower install --allow-root
+    # Acho que estes mongodump são desnecessários
     docker exec -it db mongodump --db "admin" -o .bin/db-backup/
     docker exec -it db mongodump --db "melhoreme-test" -o .bin/db-backup/
     docker exec -it db mongorestore --db admin /melhoreme/.bin/db-backup/admin
@@ -76,6 +77,12 @@ fi
 
 if [ $AWS_ENV == true ]; then
     # docker exec -it db echo "export NODE_ENV=production" >> ~/.bashrc
+    if [ $DATA_BASE_DUMP ]; then
+
+        docker exec -it db mongorestore --db admin ~/melhoreme/.bin/db-backup/admin
+        docker exec -it db mongorestore --db melhoreme ~/melhoreme/.bin/db-backup/melhoreme
+
+    fi
     docker exec -it db /bin/bash -c "echo 'export NODE_ENV=production' >> ~/.bashrc"
     docker restart db
     docker exec -it db /bin/bash -c "echo $NODE_ENV"
