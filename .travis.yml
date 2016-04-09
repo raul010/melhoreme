@@ -24,7 +24,7 @@ before_install:
 before_script:
     # - export DISPLAY=:99.0
     # - sleep 2
-    # - Xvfb :99.0 -extension RANDR > /dev/null &
+    - Xvfb :99.0 -extension RANDR > /dev/null &
     - docker exec -d -it db Xvfb :99.0 -extension RANDR 
     - sleep 7
     - docker exec -it db ./node_modules/protractor/bin/webdriver-manager update

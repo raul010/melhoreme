@@ -18,7 +18,7 @@ require('./env');
 
 var port     = process.env.PORT || 8080; // set our port
 // var NODE_ENV = process.env.NODE_ENV || (process.env.NODE_ENV = 'development');
-var NODE_ENV = process.env.NODE_ENV ;
+var NODE_ENV = process.env.NODE_ENV;
 
 console.log('*********************************');
 console.log('$NODE ENV [server.js] -->', NODE_ENV);
