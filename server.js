@@ -30,6 +30,7 @@ app.set('jwt_secret', process.env.JWT_SECRET);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+console.log('NODE_ENV === production', NODE_ENV === 'production')
 if (NODE_ENV === 'development') {
     mongoose.connect(
         process.env.MONGOOSE_URI_TEST, {
@@ -40,7 +41,6 @@ if (NODE_ENV === 'development') {
 } else if (NODE_ENV === 'production') {
     console.log('USER', process.env.MONGOOSE_USER)
     console.log('PASS', process.env.MONGOOSE_PASS)
-    console.log('NODE_ENV === production', NODE_ENV === 'production')
     mongoose.connect(
             process.env.MONGOOSE_URI, {
                 user: process.env.MONGOOSE_USER,
