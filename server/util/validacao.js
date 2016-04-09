@@ -22,7 +22,10 @@ module.exports.createJWT = function (user) {
         iat: moment().unix(),
         exp: moment().add(14, 'days').unix()
     };
-    console.log('--->', payload, config.TOKEN_SECRET);
+    
+    console.log('---> process', process.env.TOKEN_SECRET)
+    console.log('---> payload', payload, config.TOKEN_SECRET);
+
     return jwt.encode(payload, config.TOKEN_SECRET);
 };
 
