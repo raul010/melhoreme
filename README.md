@@ -133,4 +133,4 @@ These are certainly the two most used tasks.
 * docker exec -it db node server.js
 * client/assets/css/ `sass \_sass/style.scss style.css`
 * client/assets/css/\_sass$ `cp -R fonts/ ../`
-* docker exec -it db node server.js
+* docker exec -it db /bin/bash -c "NODE\_ENV=$NODE\_ENV node server.js"
